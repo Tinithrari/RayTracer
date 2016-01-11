@@ -1,5 +1,5 @@
 before_script: 
-   - "git submodule add https://https://forge.univ-artois.fr/root/testsl32016.git"
+   - "git submodule add https://forge.univ-artois.fr/root/testsl32016.git"
    - "git submodule update --remote --init"
 
 job:
