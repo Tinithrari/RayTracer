@@ -6,4 +6,5 @@ IMAGE2=$2
 MYPATH=$(dirname "$0")
 
 # java -cp $MYPATH/bin CompareImage $IMAGE1 $IMAGE2
-echo "Pas encore réalisé"
+mdtool build -c:Ray_Tracer/Ray_Tracer.sln
+mono ../bin/Ray_Tracer.exe "$1" "$2"
