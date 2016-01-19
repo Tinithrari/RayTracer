@@ -12,7 +12,7 @@ namespace Ray_Tracer
 			return;
 		}
 
-		ImgUtility.ImgComparator ("../bin/"+args[0],"../bin/"+args[1]);
+		ImgUtility.ImgComparator (args[0],args[1]);
 
 		
 
