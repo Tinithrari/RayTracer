@@ -28,8 +28,6 @@ namespace Ray_Tracer
 			Color couleur_img1, couleur_img2,couleur_pixel_courant;
 
 		    Bitmap img1,img2;
-		    f1 = Path.GetFullPath(f1);
-		    f2 = Path.GetFullPath(f2);
 		   
 			//On s'assure que les fichiers passés en paramètre existent.
 			try{
