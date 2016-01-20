@@ -1,4 +1,6 @@
-2>&1
+mydir=$(dirname "$0")
+
 cd Ray_Tracer
 mdtool build -c:Ray_Tracer.sln > /dev/null
-mono Ray_Tracer/bin/Ray_Tracer.exe "../$1" "../$2"
+cd ../
+mono $mydir/Ray_Tracer/Ray_Tracer/bin/Ray_Tracer.exe "$1" "$2"
