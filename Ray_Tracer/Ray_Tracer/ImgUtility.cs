@@ -87,7 +87,7 @@ namespace Ray_Tracer
 				Console.WriteLine("OK");
 
 
-			Console.WriteLine("les images ont "+ nb_pixels_diff+" pixels de différences");
+			Console.WriteLine(nb_pixels_diff);
 
 
 			return ;
