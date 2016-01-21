@@ -3,7 +3,7 @@ before_script:
    - "git submodule update --remote --init"
 
 job:
-   script: "cd testsl32016; ./tests.sh"
+   script: "./build.sh; cd testsl32016; ./tests.sh"
    artifacts:
      untracked: true
    tags: 
