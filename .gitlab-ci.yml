@@ -2,9 +2,23 @@ before_script:
    - "git submodule add https://forge.univ-artois.fr/root/testsl32016.git"
    - "git submodule update --remote --init"
 
-job:
-   script: "cd testsl32016; ./tests.sh"
+job1:
+   stage: test
+   script: "./build.sh ; cd testsl32016; ./tests1.sh"
    artifacts:
      untracked: true
    tags: 
      - shell
+
+job2:
+   stage: test
+   script: "./build.sh ; cd testsl32016; ./tests2.sh"
+   artifacts:
+     untracked: true
+   tags: 
+     - shell
+
+cache:
+  untracked: true
+  paths:
+  - bin
