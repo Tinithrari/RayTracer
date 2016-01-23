@@ -64,7 +64,7 @@ namespace LanceurRayon.Math
         /// <returns>Une chaine formaté de la manière suivante : P x y z</returns>
         public override string ToString()
         {
-            return string.Format("P {0} {1} {2}", this.X.ToString("0.0", CultureInfo.InvariantCulture), this.Y.ToString("0.0", CultureInfo.InvariantCulture), this.Z.ToString("0.0", CultureInfo.InvariantCulture));
+            return string.Format("P {0} {1} {2}", this.X.ToString("0.0#", CultureInfo.InvariantCulture), this.Y.ToString("0.0#", CultureInfo.InvariantCulture), this.Z.ToString("0.0#", CultureInfo.InvariantCulture));
         }
     }
 }

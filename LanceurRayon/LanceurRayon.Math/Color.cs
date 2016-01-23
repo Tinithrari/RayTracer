@@ -108,7 +108,8 @@ namespace LanceurRayon.Math
         /// <returns>Une chaine de la forme C R G B</returns>
         public override string ToString()
         {
-            return string.Format("C {0} {1} {2}", this.R.ToString("0.0", CultureInfo.InvariantCulture), this.G.ToString("0.0", CultureInfo.InvariantCulture), this.B.ToString("0.0", CultureInfo.InvariantCulture));
+            return string.Format("C {0} {1} {2}", this.R.ToString("0.0#", CultureInfo.InvariantCulture),
+                this.G.ToString("0.0#", CultureInfo.InvariantCulture), this.B.ToString("0.0#", CultureInfo.InvariantCulture));
         }
 
         /// <summary>
