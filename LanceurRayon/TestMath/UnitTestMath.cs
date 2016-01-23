@@ -25,7 +25,7 @@ namespace TestMath
 
             try
             {
-                v2.add(null);
+                v2.add((Vec3) null);
                 Assert.Fail();
             }
             catch (ArgumentException)

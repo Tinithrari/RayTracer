@@ -21,15 +21,15 @@ namespace LanceurRayon.TestMath
                     switch (arg[0][0])
                     {
                         case 'P':
-                            obj = new Point(Double.Parse(arg[1]), Double.Parse(arg[2]), Double.Parse(arg[3]));
+                            obj = new Point(Double.Parse(arg[1], CultureInfo.InvariantCulture), Double.Parse(arg[2], CultureInfo.InvariantCulture), Double.Parse(arg[3], CultureInfo.InvariantCulture));
                             break;
 
                         case 'V':
-                            obj = new Vec3(Double.Parse(arg[1]), Double.Parse(arg[2]), Double.Parse(arg[3]));
+                            obj = new Vec3(Double.Parse(arg[1], CultureInfo.InvariantCulture), Double.Parse(arg[2], CultureInfo.InvariantCulture), Double.Parse(arg[3], CultureInfo.InvariantCulture));
                             break;
 
                         case 'C':
-                            obj = new Color(Double.Parse(arg[1]), Double.Parse(arg[2]), Double.Parse(arg[3]));
+                            obj = new Color(Double.Parse(arg[1], CultureInfo.InvariantCulture), Double.Parse(arg[2], CultureInfo.InvariantCulture), Double.Parse(arg[3], CultureInfo.InvariantCulture));
                             break;
                         default:
                             obj = Double.Parse(cpt).ToString("0.0", CultureInfo.InvariantCulture);
@@ -96,8 +96,9 @@ namespace LanceurRayon.TestMath
                 if (res.GetType().Equals(typeof(Double)))
                     res = ((Double)res).ToString("0.0", CultureInfo.InvariantCulture);
                 Console.WriteLine(res);
+                Console.ReadKey();
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 Console.WriteLine("Interdit");
                 Console.ReadKey();
