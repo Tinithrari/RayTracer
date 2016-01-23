@@ -10,3 +10,4 @@ C:\Users\Tinithrari\Source\Repos\lanceurrayons\LanceurRayon\LanceurRayon.TestCal
 C:\Users\Tinithrari\Source\Repos\lanceurrayons\LanceurRayon\LanceurRayon.TestCalcul\bin\Debug\triplet.pdb
 C:\Users\Tinithrari\Source\Repos\lanceurrayons\LanceurRayon\LanceurRayon.TestCalcul\obj\Debug\triplet.exe
 C:\Users\Tinithrari\Source\Repos\lanceurrayons\LanceurRayon\LanceurRayon.TestCalcul\obj\Debug\triplet.pdb
+C:\Users\Tinithrari\Source\Repos\lanceurrayons\LanceurRayon\LanceurRayon.TestCalcul\bin\triplet.exe.config
