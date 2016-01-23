@@ -53,7 +53,7 @@ namespace LanceurRayon.Math
         /// </summary>
         /// <param name="scal">Le scalaire</param>
         /// <returns>Le point ayant subit la multiplication par le scalaire</returns>
-        public Point mul(double scal)
+        public Point mul(Double scal)
         {
             return new Point(this.X * scal, this.Y * scal, this.Z * scal);
         }

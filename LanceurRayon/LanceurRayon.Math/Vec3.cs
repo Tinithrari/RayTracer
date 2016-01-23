@@ -62,7 +62,7 @@ namespace LanceurRayon.Math
         /// </summary>
         /// <param name="scal">Le scalaire pour la multiplication</param>
         /// <returns>Le résultat du produit par le scalaire scal</returns>
-        public Vec3 mul(double scal)
+        public Vec3 mul(Double scal)
         {
             return new Vec3(this.X * scal, this.Y * scal, this.Z * scal);
         }
@@ -72,7 +72,7 @@ namespace LanceurRayon.Math
         /// </summary>
         /// <param name="v">Le vecteur à multiplier au vecteur courant</param>
         /// <returns>Le résultat du produit scalaire</returns>
-        public double dot(Vec3 v)
+        public Double dot(Vec3 v)
         {
             if (v == null)
                 throw new ArgumentNullException();

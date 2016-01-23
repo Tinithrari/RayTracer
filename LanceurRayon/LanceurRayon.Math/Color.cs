@@ -67,7 +67,7 @@ namespace LanceurRayon.Math
         /// <returns>Le résultat de la multiplication par le scalaire</returns>
         /// <exception cref="ArgumentException">Exception levé si l'argument est négatif</exception>
         /// <remarks>Si le résultat de la multiplication d'un champs est supérieur à 1, le résultat sera remplacé par 1</remarks>
-        public Color mul(double scal)
+        public Color mul(Double scal)
         {
             double newR, newG, newB;
 

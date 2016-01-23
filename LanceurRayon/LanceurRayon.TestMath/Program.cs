@@ -93,8 +93,9 @@ namespace LanceurRayon.TestMath
 
                 Object res = o1.GetType().GetMethod(expr[1]).Invoke(o1, new Object[1] { o2 });
 
+                if (res.GetType().Equals(typeof(Double)))
+                    res = ((Double)res).ToString("0.0", CultureInfo.InvariantCulture);
                 Console.WriteLine(res);
-                Console.ReadKey();
             }
             catch (Exception e)
             {
