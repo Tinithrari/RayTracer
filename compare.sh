@@ -1,6 +1,5 @@
 mydir=$(dirname "$0")
 CURRENT=`pwd`
-echo "Coucou"
 pushd
 cd "$mydir"/LanceurRayon/
 mdtool build -p:LanceurRayon.Comparateur > /dev/null
