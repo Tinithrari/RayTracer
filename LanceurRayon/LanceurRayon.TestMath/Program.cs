@@ -97,7 +97,7 @@ namespace LanceurRayon.TestMath
             }
             catch (Exception e)
             {
-                Console.WriteLine("Interdit : " + e.Message);
+                Console.WriteLine("Interdit");
                 Console.ReadKey();
             }
         }

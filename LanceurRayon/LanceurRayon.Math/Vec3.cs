@@ -104,7 +104,7 @@ namespace LanceurRayon.Math
         /// <returns>Une chaine formatée de la forme V x y z</returns>
         public override string ToString()
         {
-            return string.Format("V {0} {1} {2}", this.X, this.Y, this.Z);
+            return string.Format("V {0} {1} {2}", this.X.ToString("0.0"), this.Y.ToString("0.0"), this.Z.ToString("0.0"));
         }
     }
 }

@@ -63,7 +63,7 @@ namespace LanceurRayon.Math
         /// <returns>Une chaine formaté de la manière suivante : P x y z</returns>
         public override string ToString()
         {
-            return string.Format("P {0} {1} {2}", this.X, this.Y, this.Z);
+            return string.Format("P {0} {1} {2}", this.X.ToString("0.0"), this.Y.ToString("0.0"), this.Z.ToString("0.0"));
         }
     }
 }
