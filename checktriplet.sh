@@ -1,5 +1,6 @@
 mydir=$(dirname "$0")
 pushd
+echo "Coucou"
 cd "$mydir"/LanceurRayon/
 mdtool build -p:LanceurRayon.TestCalcul 2>&1
 popd
