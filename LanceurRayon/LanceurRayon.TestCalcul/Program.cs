@@ -55,7 +55,7 @@ namespace LanceurRayon.TestMath
         static void Main(string[] args)
         {
             string[] expr;
-            string op, cmp1, cmp2;
+            string op, cmp1;
 
             // Contrôle la présence d'un unique argument
             if (args.Length != 1)
@@ -75,7 +75,6 @@ namespace LanceurRayon.TestMath
 
             cmp1 = expr[0];
             op = expr[1];
-            cmp2 = expr[2];
 
             // Vérification de la synthaxe des éléments
             if (! isComponent(cmp1) || ! isOperation(op))
