@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 
 namespace LanceurRayon.Math
 {
@@ -104,7 +105,7 @@ namespace LanceurRayon.Math
         /// <returns>Une chaine formatée de la forme V x y z</returns>
         public override string ToString()
         {
-            return string.Format("V {0} {1} {2}", this.X.ToString("0.0"), this.Y.ToString("0.0"), this.Z.ToString("0.0"));
+            return string.Format("V {0} {1} {2}", this.X.ToString("0.0"), CultureInfo.InvariantCulture, this.Y.ToString("0.0", CultureInfo.InvariantCulture), this.Z.ToString("0.0", CultureInfo.InvariantCulture));
         }
     }
 }
