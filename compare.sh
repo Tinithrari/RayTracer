@@ -1,7 +1,7 @@
 mydir=$(dirname "$0")
 CURRENT=`pwd`
 pushd
-cd "$mydir"/LanceurRayon/LanceurRayon.Comparateur
+cd "$mydir"/LanceurRayon/
 ls
 mdtool build -p:LanceurRayon.Comparateur.csproj
 popd
