@@ -32,7 +32,7 @@ namespace LanceurRayon.TestMath
                             obj = new Color(Double.Parse(arg[1], CultureInfo.InvariantCulture), Double.Parse(arg[2], CultureInfo.InvariantCulture), Double.Parse(arg[3], CultureInfo.InvariantCulture));
                             break;
                         default:
-                            obj = Double.Parse(cpt).ToString("0.0", CultureInfo.InvariantCulture);
+                            obj = Double.Parse(cpt, CultureInfo.InvariantCulture);
                         break;
                     }
                     return obj;
