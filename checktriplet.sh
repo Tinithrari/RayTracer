@@ -4,4 +4,4 @@ pushd
 cd "$mydir"/LanceurRayon/
 mdtool build -p:LanceurRayon.TestMath > /dev/null
 popd
-mono $mydir/LanceurRayon/LanceurRayon.Calcul/bin/triplet.exe "$1" 2>&1
+mono $mydir/LanceurRayon/LanceurRayon.TestMath/bin/triplet.exe "$1" 2>&1
