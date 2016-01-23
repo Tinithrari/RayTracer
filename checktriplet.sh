@@ -1,6 +1,6 @@
 mydir=$(dirname "$0")
 pushd
 cd "$mydir"/LanceurRayon/
-mdtool build -p:LanceurRayon.TestMath
+mdtool build -p:LanceurRayon.TestMath 2>&1
 popd
 mono $mydir/LanceurRayon/LanceurRayon.Calcul/bin/debug/triplet.exe "$1" 2>&1
