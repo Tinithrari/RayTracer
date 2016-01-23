@@ -1,0 +1,1565 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<reflection xmlns:msxsl="urn:schemas-microsoft-com:xslt" xmlns:ddue="urn:ddue-extensions">
+  <assemblies>
+    <assembly name="LanceurRayon.Math">
+      <assemblydata version="1.0.0.0" culture="" key="" hash="SHA1" />
+      <attributes>
+        <attribute>
+          <type api="T:System.Reflection.AssemblyFileVersionAttribute" ref="true" />
+          <argument>
+            <type api="T:System.String" ref="true" />
+            <value>1.0.0.0</value>
+          </argument>
+        </attribute>
+      </attributes>
+    </assembly>
+  </assemblies>
+  <apis>
+    <api id="N:LanceurRayon.Math">
+      <topicdata group="api" />
+      <apidata name="LanceurRayon.Math" group="namespace" />
+      <elements>
+        <element api="T:LanceurRayon.Math.Color" />
+        <element api="T:LanceurRayon.Math.Point" />
+        <element api="T:LanceurRayon.Math.Triplet" />
+        <element api="T:LanceurRayon.Math.Vec3" />
+      </elements>
+      <file name="0e8a2b37-4976-ae97-7a86-f8ab4c85ee0c" />
+    </api>
+    <api id="T:LanceurRayon.Math.Color">
+      <topicdata group="api" />
+      <apidata name="Color" group="type" subgroup="class" />
+      <typedata visibility="public" serializable="false" />
+      <family>
+        <ancestors>
+          <type api="T:System.Object" ref="true" />
+        </ancestors>
+      </family>
+      <elements>
+        <element api="M:System.Object.ToString">
+          <apidata name="ToString" group="member" subgroup="method" />
+          <memberdata visibility="public" />
+          <proceduredata virtual="true" />
+          <returns>
+            <type api="T:System.String" ref="true" />
+          </returns>
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" kind="DynamicallyLinkedLibrary" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+        <element api="M:System.Object.Equals(System.Object)">
+          <apidata name="Equals" group="member" subgroup="method" />
+          <memberdata visibility="public" />
+          <proceduredata virtual="true" />
+          <parameters>
+            <parameter name="obj">
+              <type api="T:System.Object" ref="true" />
+            </parameter>
+          </parameters>
+          <returns>
+            <type api="T:System.Boolean" ref="false" />
+          </returns>
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" kind="DynamicallyLinkedLibrary" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+        <element api="M:System.Object.GetHashCode">
+          <apidata name="GetHashCode" group="member" subgroup="method" />
+          <memberdata visibility="public" />
+          <proceduredata virtual="true" />
+          <returns>
+            <type api="T:System.Int32" ref="false" />
+          </returns>
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" kind="DynamicallyLinkedLibrary" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+        <element api="M:System.Object.GetType">
+          <apidata name="GetType" group="member" subgroup="method" />
+          <memberdata visibility="public" />
+          <proceduredata virtual="false" />
+          <returns>
+            <type api="T:System.Type" ref="true" />
+          </returns>
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" kind="DynamicallyLinkedLibrary" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+        <element api="M:System.Object.Finalize">
+          <apidata name="Finalize" group="member" subgroup="method" />
+          <memberdata visibility="family" />
+          <proceduredata virtual="true" />
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" kind="DynamicallyLinkedLibrary" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+        <element api="M:System.Object.MemberwiseClone">
+          <apidata name="MemberwiseClone" group="member" subgroup="method" />
+          <memberdata visibility="family" />
+          <proceduredata virtual="false" />
+          <returns>
+            <type api="T:System.Object" ref="true" />
+          </returns>
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" kind="DynamicallyLinkedLibrary" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+        <element api="Overload:LanceurRayon.Math.Color.#ctor">
+          <element api="M:LanceurRayon.Math.Color.#ctor" />
+          <element api="M:LanceurRayon.Math.Color.#ctor(System.Double,System.Double,System.Double)" />
+        </element>
+        <element api="M:LanceurRayon.Math.Color.add(LanceurRayon.Math.Color)" />
+        <element api="P:LanceurRayon.Math.Color.B" />
+        <element api="P:LanceurRayon.Math.Color.G" />
+        <element api="M:LanceurRayon.Math.Color.mul(System.Double)" />
+        <element api="P:LanceurRayon.Math.Color.R" />
+        <element api="M:LanceurRayon.Math.Color.schur(LanceurRayon.Math.Color)" />
+      </elements>
+      <containers>
+        <library assembly="LanceurRayon.Math" module="LanceurRayon.Math" kind="DynamicallyLinkedLibrary">
+          <assemblydata version="1.0.0.0 (1.0.0.0)" />
+        </library>
+        <namespace api="N:LanceurRayon.Math" />
+      </containers>
+      <file name="567502ce-3703-1fd6-f524-61e81b568971" />
+    </api>
+    <api id="Methods.T:LanceurRayon.Math.Color">
+      <topicdata name="Color" group="list" subgroup="Methods" typeTopicId="T:LanceurRayon.Math.Color" />
+      <apidata name="Color" group="type" subgroup="class" />
+      <typedata visibility="public" serializable="false" />
+      <elements>
+        <element api="M:System.Object.ToString">
+          <apidata name="ToString" group="member" subgroup="method" />
+          <memberdata visibility="public" />
+          <proceduredata virtual="true" />
+          <returns>
+            <type api="T:System.String" ref="true" />
+          </returns>
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" kind="DynamicallyLinkedLibrary" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+        <element api="M:System.Object.Equals(System.Object)">
+          <apidata name="Equals" group="member" subgroup="method" />
+          <memberdata visibility="public" />
+          <proceduredata virtual="true" />
+          <parameters>
+            <parameter name="obj">
+              <type api="T:System.Object" ref="true" />
+            </parameter>
+          </parameters>
+          <returns>
+            <type api="T:System.Boolean" ref="false" />
+          </returns>
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" kind="DynamicallyLinkedLibrary" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+        <element api="M:System.Object.GetHashCode">
+          <apidata name="GetHashCode" group="member" subgroup="method" />
+          <memberdata visibility="public" />
+          <proceduredata virtual="true" />
+          <returns>
+            <type api="T:System.Int32" ref="false" />
+          </returns>
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" kind="DynamicallyLinkedLibrary" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+        <element api="M:System.Object.GetType">
+          <apidata name="GetType" group="member" subgroup="method" />
+          <memberdata visibility="public" />
+          <proceduredata virtual="false" />
+          <returns>
+            <type api="T:System.Type" ref="true" />
+          </returns>
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" kind="DynamicallyLinkedLibrary" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+        <element api="M:System.Object.Finalize">
+          <apidata name="Finalize" group="member" subgroup="method" />
+          <memberdata visibility="family" />
+          <proceduredata virtual="true" />
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" kind="DynamicallyLinkedLibrary" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+        <element api="M:System.Object.MemberwiseClone">
+          <apidata name="MemberwiseClone" group="member" subgroup="method" />
+          <memberdata visibility="family" />
+          <proceduredata virtual="false" />
+          <returns>
+            <type api="T:System.Object" ref="true" />
+          </returns>
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" kind="DynamicallyLinkedLibrary" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+        <element api="M:LanceurRayon.Math.Color.add(LanceurRayon.Math.Color)" />
+        <element api="M:LanceurRayon.Math.Color.mul(System.Double)" />
+        <element api="M:LanceurRayon.Math.Color.schur(LanceurRayon.Math.Color)" />
+      </elements>
+      <containers>
+        <library assembly="LanceurRayon.Math" module="LanceurRayon.Math" kind="DynamicallyLinkedLibrary">
+          <assemblydata version="1.0.0.0 (1.0.0.0)" />
+        </library>
+        <namespace api="N:LanceurRayon.Math" />
+        <type api="T:LanceurRayon.Math.Color" />
+      </containers>
+      <file name="dc1c2ae6-f58a-57ca-2732-707a6809c572" />
+    </api>
+    <api id="Properties.T:LanceurRayon.Math.Color">
+      <topicdata name="Color" group="list" subgroup="Properties" typeTopicId="T:LanceurRayon.Math.Color" />
+      <apidata name="Color" group="type" subgroup="class" />
+      <typedata visibility="public" serializable="false" />
+      <elements>
+        <element api="P:LanceurRayon.Math.Color.B" />
+        <element api="P:LanceurRayon.Math.Color.G" />
+        <element api="P:LanceurRayon.Math.Color.R" />
+      </elements>
+      <containers>
+        <library assembly="LanceurRayon.Math" module="LanceurRayon.Math" kind="DynamicallyLinkedLibrary">
+          <assemblydata version="1.0.0.0 (1.0.0.0)" />
+        </library>
+        <namespace api="N:LanceurRayon.Math" />
+        <type api="T:LanceurRayon.Math.Color" />
+      </containers>
+      <file name="78566de4-f6df-2938-fb12-c708a1886bde" />
+    </api>
+    <api id="Overload:LanceurRayon.Math.Color.#ctor">
+      <topicdata name=".ctor" group="list" subgroup="overload" memberSubgroup="constructor" pseudo="true" allMembersTopicId="" />
+      <apidata name=".ctor" group="member" subgroup="constructor" />
+      <elements>
+        <element api="M:LanceurRayon.Math.Color.#ctor" />
+        <element api="M:LanceurRayon.Math.Color.#ctor(System.Double,System.Double,System.Double)" />
+      </elements>
+      <containers>
+        <library assembly="LanceurRayon.Math" module="LanceurRayon.Math" kind="DynamicallyLinkedLibrary">
+          <assemblydata version="1.0.0.0 (1.0.0.0)" />
+        </library>
+        <namespace api="N:LanceurRayon.Math" />
+        <type api="T:LanceurRayon.Math.Color" ref="true" />
+      </containers>
+      <file name="89aff1b1-fca3-ba96-ae9c-6e837580da7c" />
+    </api>
+    <api id="M:LanceurRayon.Math.Color.#ctor">
+      <topicdata group="api" />
+      <apidata name=".ctor" group="member" subgroup="constructor" />
+      <memberdata visibility="public" special="true" overload="Overload:LanceurRayon.Math.Color.#ctor" />
+      <containers>
+        <library assembly="LanceurRayon.Math" module="LanceurRayon.Math" kind="DynamicallyLinkedLibrary">
+          <assemblydata version="1.0.0.0 (1.0.0.0)" />
+          <noAptca />
+        </library>
+        <namespace api="N:LanceurRayon.Math" />
+        <type api="T:LanceurRayon.Math.Color" ref="true" />
+      </containers>
+      <file name="e69049be-5e8b-7a97-cf6b-9888beb67d44" />
+    </api>
+    <api id="M:LanceurRayon.Math.Color.#ctor(System.Double,System.Double,System.Double)">
+      <topicdata group="api" />
+      <apidata name=".ctor" group="member" subgroup="constructor" />
+      <memberdata visibility="public" special="true" overload="Overload:LanceurRayon.Math.Color.#ctor" />
+      <parameters>
+        <parameter name="r">
+          <type api="T:System.Double" ref="false" />
+        </parameter>
+        <parameter name="g">
+          <type api="T:System.Double" ref="false" />
+        </parameter>
+        <parameter name="b">
+          <type api="T:System.Double" ref="false" />
+        </parameter>
+      </parameters>
+      <containers>
+        <library assembly="LanceurRayon.Math" module="LanceurRayon.Math" kind="DynamicallyLinkedLibrary">
+          <assemblydata version="1.0.0.0 (1.0.0.0)" />
+          <noAptca />
+        </library>
+        <namespace api="N:LanceurRayon.Math" />
+        <type api="T:LanceurRayon.Math.Color" ref="true" />
+      </containers>
+      <file name="f15b3988-700d-7369-9bbb-b1cdf98f4168" />
+    </api>
+    <api id="M:LanceurRayon.Math.Color.add(LanceurRayon.Math.Color)">
+      <topicdata group="api" />
+      <apidata name="add" group="member" subgroup="method" />
+      <memberdata visibility="public" />
+      <proceduredata virtual="false" />
+      <parameters>
+        <parameter name="c">
+          <type api="T:LanceurRayon.Math.Color" ref="true" />
+        </parameter>
+      </parameters>
+      <returns>
+        <type api="T:LanceurRayon.Math.Color" ref="true" />
+      </returns>
+      <containers>
+        <library assembly="LanceurRayon.Math" module="LanceurRayon.Math" kind="DynamicallyLinkedLibrary">
+          <assemblydata version="1.0.0.0 (1.0.0.0)" />
+          <noAptca />
+        </library>
+        <namespace api="N:LanceurRayon.Math" />
+        <type api="T:LanceurRayon.Math.Color" ref="true" />
+      </containers>
+      <file name="db049202-9159-2c27-a7d8-8c8565f40dd4" />
+    </api>
+    <api id="P:LanceurRayon.Math.Color.B">
+      <topicdata group="api" />
+      <apidata name="B" group="member" subgroup="property" />
+      <memberdata visibility="public" />
+      <proceduredata virtual="false" />
+      <propertydata get="true" />
+      <getter name="get_B" />
+      <returns>
+        <type api="T:System.Double" ref="false" />
+      </returns>
+      <containers>
+        <library assembly="LanceurRayon.Math" module="LanceurRayon.Math" kind="DynamicallyLinkedLibrary">
+          <assemblydata version="1.0.0.0 (1.0.0.0)" />
+          <noAptca />
+        </library>
+        <namespace api="N:LanceurRayon.Math" />
+        <type api="T:LanceurRayon.Math.Color" ref="true" />
+      </containers>
+      <file name="4de8b4d9-499a-d726-a880-39d67d17c4b0" />
+    </api>
+    <api id="P:LanceurRayon.Math.Color.G">
+      <topicdata group="api" />
+      <apidata name="G" group="member" subgroup="property" />
+      <memberdata visibility="public" />
+      <proceduredata virtual="false" />
+      <propertydata get="true" />
+      <getter name="get_G" />
+      <returns>
+        <type api="T:System.Double" ref="false" />
+      </returns>
+      <containers>
+        <library assembly="LanceurRayon.Math" module="LanceurRayon.Math" kind="DynamicallyLinkedLibrary">
+          <assemblydata version="1.0.0.0 (1.0.0.0)" />
+          <noAptca />
+        </library>
+        <namespace api="N:LanceurRayon.Math" />
+        <type api="T:LanceurRayon.Math.Color" ref="true" />
+      </containers>
+      <file name="45e66d0a-1782-4a74-4e87-32cf71af7322" />
+    </api>
+    <api id="M:LanceurRayon.Math.Color.mul(System.Double)">
+      <topicdata group="api" />
+      <apidata name="mul" group="member" subgroup="method" />
+      <memberdata visibility="public" />
+      <proceduredata virtual="false" />
+      <parameters>
+        <parameter name="scal">
+          <type api="T:System.Double" ref="false" />
+        </parameter>
+      </parameters>
+      <returns>
+        <type api="T:LanceurRayon.Math.Color" ref="true" />
+      </returns>
+      <containers>
+        <library assembly="LanceurRayon.Math" module="LanceurRayon.Math" kind="DynamicallyLinkedLibrary">
+          <assemblydata version="1.0.0.0 (1.0.0.0)" />
+          <noAptca />
+        </library>
+        <namespace api="N:LanceurRayon.Math" />
+        <type api="T:LanceurRayon.Math.Color" ref="true" />
+      </containers>
+      <file name="59b11e07-ed90-cc6a-367f-b77436bb3664" />
+    </api>
+    <api id="P:LanceurRayon.Math.Color.R">
+      <topicdata group="api" />
+      <apidata name="R" group="member" subgroup="property" />
+      <memberdata visibility="public" />
+      <proceduredata virtual="false" />
+      <propertydata get="true" />
+      <getter name="get_R" />
+      <returns>
+        <type api="T:System.Double" ref="false" />
+      </returns>
+      <containers>
+        <library assembly="LanceurRayon.Math" module="LanceurRayon.Math" kind="DynamicallyLinkedLibrary">
+          <assemblydata version="1.0.0.0 (1.0.0.0)" />
+          <noAptca />
+        </library>
+        <namespace api="N:LanceurRayon.Math" />
+        <type api="T:LanceurRayon.Math.Color" ref="true" />
+      </containers>
+      <file name="ed669615-a0b7-8211-f58e-c959d5b46769" />
+    </api>
+    <api id="M:LanceurRayon.Math.Color.schur(LanceurRayon.Math.Color)">
+      <topicdata group="api" />
+      <apidata name="schur" group="member" subgroup="method" />
+      <memberdata visibility="public" />
+      <proceduredata virtual="false" />
+      <parameters>
+        <parameter name="c">
+          <type api="T:LanceurRayon.Math.Color" ref="true" />
+        </parameter>
+      </parameters>
+      <returns>
+        <type api="T:LanceurRayon.Math.Color" ref="true" />
+      </returns>
+      <containers>
+        <library assembly="LanceurRayon.Math" module="LanceurRayon.Math" kind="DynamicallyLinkedLibrary">
+          <assemblydata version="1.0.0.0 (1.0.0.0)" />
+          <noAptca />
+        </library>
+        <namespace api="N:LanceurRayon.Math" />
+        <type api="T:LanceurRayon.Math.Color" ref="true" />
+      </containers>
+      <file name="fb909c31-a5ac-3fdb-b5bd-d090283870b1" />
+    </api>
+    <api id="T:LanceurRayon.Math.Point">
+      <topicdata group="api" />
+      <apidata name="Point" group="type" subgroup="class" />
+      <typedata visibility="public" serializable="false" />
+      <family>
+        <ancestors>
+          <type api="T:LanceurRayon.Math.Triplet" ref="true" />
+          <type api="T:System.Object" ref="true" />
+        </ancestors>
+      </family>
+      <elements>
+        <element api="M:System.Object.Equals(System.Object)">
+          <apidata name="Equals" group="member" subgroup="method" />
+          <memberdata visibility="public" />
+          <proceduredata virtual="true" />
+          <parameters>
+            <parameter name="obj">
+              <type api="T:System.Object" ref="true" />
+            </parameter>
+          </parameters>
+          <returns>
+            <type api="T:System.Boolean" ref="false" />
+          </returns>
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" kind="DynamicallyLinkedLibrary" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+        <element api="M:System.Object.GetHashCode">
+          <apidata name="GetHashCode" group="member" subgroup="method" />
+          <memberdata visibility="public" />
+          <proceduredata virtual="true" />
+          <returns>
+            <type api="T:System.Int32" ref="false" />
+          </returns>
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" kind="DynamicallyLinkedLibrary" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+        <element api="M:System.Object.GetType">
+          <apidata name="GetType" group="member" subgroup="method" />
+          <memberdata visibility="public" />
+          <proceduredata virtual="false" />
+          <returns>
+            <type api="T:System.Type" ref="true" />
+          </returns>
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" kind="DynamicallyLinkedLibrary" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+        <element api="M:System.Object.Finalize">
+          <apidata name="Finalize" group="member" subgroup="method" />
+          <memberdata visibility="family" />
+          <proceduredata virtual="true" />
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" kind="DynamicallyLinkedLibrary" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+        <element api="M:System.Object.MemberwiseClone">
+          <apidata name="MemberwiseClone" group="member" subgroup="method" />
+          <memberdata visibility="family" />
+          <proceduredata virtual="false" />
+          <returns>
+            <type api="T:System.Object" ref="true" />
+          </returns>
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" kind="DynamicallyLinkedLibrary" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+        <element api="Overload:LanceurRayon.Math.Point.#ctor">
+          <element api="M:LanceurRayon.Math.Point.#ctor" />
+          <element api="M:LanceurRayon.Math.Point.#ctor(System.Double,System.Double,System.Double)" />
+        </element>
+        <element api="M:LanceurRayon.Math.Point.add(LanceurRayon.Math.Vec3)" />
+        <element api="M:LanceurRayon.Math.Point.mul(System.Double)" />
+        <element api="M:LanceurRayon.Math.Point.sub(LanceurRayon.Math.Point)" />
+        <element api="M:LanceurRayon.Math.Point.ToString" />
+        <element api="P:LanceurRayon.Math.Triplet.X" />
+        <element api="P:LanceurRayon.Math.Triplet.Y" />
+        <element api="P:LanceurRayon.Math.Triplet.Z" />
+      </elements>
+      <containers>
+        <library assembly="LanceurRayon.Math" module="LanceurRayon.Math" kind="DynamicallyLinkedLibrary">
+          <assemblydata version="1.0.0.0 (1.0.0.0)" />
+        </library>
+        <namespace api="N:LanceurRayon.Math" />
+      </containers>
+      <file name="55502f6a-a1c9-0114-1e66-25a0d07e2892" />
+    </api>
+    <api id="Methods.T:LanceurRayon.Math.Point">
+      <topicdata name="Point" group="list" subgroup="Methods" typeTopicId="T:LanceurRayon.Math.Point" />
+      <apidata name="Point" group="type" subgroup="class" />
+      <typedata visibility="public" serializable="false" />
+      <elements>
+        <element api="M:System.Object.Equals(System.Object)">
+          <apidata name="Equals" group="member" subgroup="method" />
+          <memberdata visibility="public" />
+          <proceduredata virtual="true" />
+          <parameters>
+            <parameter name="obj">
+              <type api="T:System.Object" ref="true" />
+            </parameter>
+          </parameters>
+          <returns>
+            <type api="T:System.Boolean" ref="false" />
+          </returns>
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" kind="DynamicallyLinkedLibrary" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+        <element api="M:System.Object.GetHashCode">
+          <apidata name="GetHashCode" group="member" subgroup="method" />
+          <memberdata visibility="public" />
+          <proceduredata virtual="true" />
+          <returns>
+            <type api="T:System.Int32" ref="false" />
+          </returns>
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" kind="DynamicallyLinkedLibrary" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+        <element api="M:System.Object.GetType">
+          <apidata name="GetType" group="member" subgroup="method" />
+          <memberdata visibility="public" />
+          <proceduredata virtual="false" />
+          <returns>
+            <type api="T:System.Type" ref="true" />
+          </returns>
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" kind="DynamicallyLinkedLibrary" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+        <element api="M:System.Object.Finalize">
+          <apidata name="Finalize" group="member" subgroup="method" />
+          <memberdata visibility="family" />
+          <proceduredata virtual="true" />
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" kind="DynamicallyLinkedLibrary" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+        <element api="M:System.Object.MemberwiseClone">
+          <apidata name="MemberwiseClone" group="member" subgroup="method" />
+          <memberdata visibility="family" />
+          <proceduredata virtual="false" />
+          <returns>
+            <type api="T:System.Object" ref="true" />
+          </returns>
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" kind="DynamicallyLinkedLibrary" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+        <element api="M:LanceurRayon.Math.Point.add(LanceurRayon.Math.Vec3)" />
+        <element api="M:LanceurRayon.Math.Point.mul(System.Double)" />
+        <element api="M:LanceurRayon.Math.Point.sub(LanceurRayon.Math.Point)" />
+        <element api="M:LanceurRayon.Math.Point.ToString" />
+      </elements>
+      <containers>
+        <library assembly="LanceurRayon.Math" module="LanceurRayon.Math" kind="DynamicallyLinkedLibrary">
+          <assemblydata version="1.0.0.0 (1.0.0.0)" />
+        </library>
+        <namespace api="N:LanceurRayon.Math" />
+        <type api="T:LanceurRayon.Math.Point" />
+      </containers>
+      <file name="2add82a2-f7dc-901b-5119-4ff39d1c290d" />
+    </api>
+    <api id="Properties.T:LanceurRayon.Math.Point">
+      <topicdata name="Point" group="list" subgroup="Properties" typeTopicId="T:LanceurRayon.Math.Point" />
+      <apidata name="Point" group="type" subgroup="class" />
+      <typedata visibility="public" serializable="false" />
+      <elements>
+        <element api="P:LanceurRayon.Math.Triplet.X" />
+        <element api="P:LanceurRayon.Math.Triplet.Y" />
+        <element api="P:LanceurRayon.Math.Triplet.Z" />
+      </elements>
+      <containers>
+        <library assembly="LanceurRayon.Math" module="LanceurRayon.Math" kind="DynamicallyLinkedLibrary">
+          <assemblydata version="1.0.0.0 (1.0.0.0)" />
+        </library>
+        <namespace api="N:LanceurRayon.Math" />
+        <type api="T:LanceurRayon.Math.Point" />
+      </containers>
+      <file name="b1659494-eda2-c14d-6b47-1a3bada1178d" />
+    </api>
+    <api id="Overload:LanceurRayon.Math.Point.#ctor">
+      <topicdata name=".ctor" group="list" subgroup="overload" memberSubgroup="constructor" pseudo="true" allMembersTopicId="" />
+      <apidata name=".ctor" group="member" subgroup="constructor" />
+      <elements>
+        <element api="M:LanceurRayon.Math.Point.#ctor" />
+        <element api="M:LanceurRayon.Math.Point.#ctor(System.Double,System.Double,System.Double)" />
+      </elements>
+      <containers>
+        <library assembly="LanceurRayon.Math" module="LanceurRayon.Math" kind="DynamicallyLinkedLibrary">
+          <assemblydata version="1.0.0.0 (1.0.0.0)" />
+        </library>
+        <namespace api="N:LanceurRayon.Math" />
+        <type api="T:LanceurRayon.Math.Point" ref="true" />
+      </containers>
+      <file name="5ab513f5-ce3f-12fe-c248-35bbbd82ebc2" />
+    </api>
+    <api id="M:LanceurRayon.Math.Point.#ctor">
+      <topicdata group="api" />
+      <apidata name=".ctor" group="member" subgroup="constructor" />
+      <memberdata visibility="public" special="true" overload="Overload:LanceurRayon.Math.Point.#ctor" />
+      <containers>
+        <library assembly="LanceurRayon.Math" module="LanceurRayon.Math" kind="DynamicallyLinkedLibrary">
+          <assemblydata version="1.0.0.0 (1.0.0.0)" />
+          <noAptca />
+        </library>
+        <namespace api="N:LanceurRayon.Math" />
+        <type api="T:LanceurRayon.Math.Point" ref="true" />
+      </containers>
+      <file name="6af67878-2280-048a-f549-ec716b38c654" />
+    </api>
+    <api id="M:LanceurRayon.Math.Point.#ctor(System.Double,System.Double,System.Double)">
+      <topicdata group="api" />
+      <apidata name=".ctor" group="member" subgroup="constructor" />
+      <memberdata visibility="public" special="true" overload="Overload:LanceurRayon.Math.Point.#ctor" />
+      <parameters>
+        <parameter name="x">
+          <type api="T:System.Double" ref="false" />
+        </parameter>
+        <parameter name="y">
+          <type api="T:System.Double" ref="false" />
+        </parameter>
+        <parameter name="z">
+          <type api="T:System.Double" ref="false" />
+        </parameter>
+      </parameters>
+      <containers>
+        <library assembly="LanceurRayon.Math" module="LanceurRayon.Math" kind="DynamicallyLinkedLibrary">
+          <assemblydata version="1.0.0.0 (1.0.0.0)" />
+          <noAptca />
+        </library>
+        <namespace api="N:LanceurRayon.Math" />
+        <type api="T:LanceurRayon.Math.Point" ref="true" />
+      </containers>
+      <file name="5338c3a2-efc6-f59c-cc4d-a24373791d8f" />
+    </api>
+    <api id="M:LanceurRayon.Math.Point.add(LanceurRayon.Math.Vec3)">
+      <topicdata group="api" />
+      <apidata name="add" group="member" subgroup="method" />
+      <memberdata visibility="public" />
+      <proceduredata virtual="false" />
+      <parameters>
+        <parameter name="v">
+          <type api="T:LanceurRayon.Math.Vec3" ref="true" />
+        </parameter>
+      </parameters>
+      <returns>
+        <type api="T:LanceurRayon.Math.Point" ref="true" />
+      </returns>
+      <containers>
+        <library assembly="LanceurRayon.Math" module="LanceurRayon.Math" kind="DynamicallyLinkedLibrary">
+          <assemblydata version="1.0.0.0 (1.0.0.0)" />
+          <noAptca />
+        </library>
+        <namespace api="N:LanceurRayon.Math" />
+        <type api="T:LanceurRayon.Math.Point" ref="true" />
+      </containers>
+      <file name="e66e712d-d9f7-613e-9fe9-75f33cf043db" />
+    </api>
+    <api id="M:LanceurRayon.Math.Point.mul(System.Double)">
+      <topicdata group="api" />
+      <apidata name="mul" group="member" subgroup="method" />
+      <memberdata visibility="public" />
+      <proceduredata virtual="false" />
+      <parameters>
+        <parameter name="scal">
+          <type api="T:System.Double" ref="false" />
+        </parameter>
+      </parameters>
+      <returns>
+        <type api="T:LanceurRayon.Math.Point" ref="true" />
+      </returns>
+      <containers>
+        <library assembly="LanceurRayon.Math" module="LanceurRayon.Math" kind="DynamicallyLinkedLibrary">
+          <assemblydata version="1.0.0.0 (1.0.0.0)" />
+          <noAptca />
+        </library>
+        <namespace api="N:LanceurRayon.Math" />
+        <type api="T:LanceurRayon.Math.Point" ref="true" />
+      </containers>
+      <file name="5533f639-f678-92eb-d3b3-e42e1161746b" />
+    </api>
+    <api id="M:LanceurRayon.Math.Point.sub(LanceurRayon.Math.Point)">
+      <topicdata group="api" />
+      <apidata name="sub" group="member" subgroup="method" />
+      <memberdata visibility="public" />
+      <proceduredata virtual="false" />
+      <parameters>
+        <parameter name="p">
+          <type api="T:LanceurRayon.Math.Point" ref="true" />
+        </parameter>
+      </parameters>
+      <returns>
+        <type api="T:LanceurRayon.Math.Vec3" ref="true" />
+      </returns>
+      <containers>
+        <library assembly="LanceurRayon.Math" module="LanceurRayon.Math" kind="DynamicallyLinkedLibrary">
+          <assemblydata version="1.0.0.0 (1.0.0.0)" />
+          <noAptca />
+        </library>
+        <namespace api="N:LanceurRayon.Math" />
+        <type api="T:LanceurRayon.Math.Point" ref="true" />
+      </containers>
+      <file name="b833581b-99e5-a589-4f75-ddc664833d8c" />
+    </api>
+    <api id="M:LanceurRayon.Math.Point.ToString">
+      <topicdata group="api" />
+      <apidata name="ToString" group="member" subgroup="method" />
+      <memberdata visibility="public" />
+      <proceduredata virtual="true" />
+      <overrides>
+        <member api="M:System.Object.ToString">
+          <type api="T:System.Object" ref="true" />
+        </member>
+      </overrides>
+      <returns>
+        <type api="T:System.String" ref="true" />
+      </returns>
+      <containers>
+        <library assembly="LanceurRayon.Math" module="LanceurRayon.Math" kind="DynamicallyLinkedLibrary">
+          <assemblydata version="1.0.0.0 (1.0.0.0)" />
+          <noAptca />
+        </library>
+        <namespace api="N:LanceurRayon.Math" />
+        <type api="T:LanceurRayon.Math.Point" ref="true" />
+      </containers>
+      <file name="c50ee79b-0af3-ce1f-72ec-0046d9f22ee2" />
+    </api>
+    <api id="T:LanceurRayon.Math.Triplet">
+      <topicdata group="api" />
+      <apidata name="Triplet" group="type" subgroup="class" />
+      <typedata visibility="public" abstract="true" serializable="false" />
+      <family>
+        <ancestors>
+          <type api="T:System.Object" ref="true" />
+        </ancestors>
+        <descendents>
+          <type api="T:LanceurRayon.Math.Point" ref="true" />
+          <type api="T:LanceurRayon.Math.Vec3" ref="true" />
+        </descendents>
+      </family>
+      <elements>
+        <element api="M:System.Object.ToString">
+          <apidata name="ToString" group="member" subgroup="method" />
+          <memberdata visibility="public" />
+          <proceduredata virtual="true" />
+          <returns>
+            <type api="T:System.String" ref="true" />
+          </returns>
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" kind="DynamicallyLinkedLibrary" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+        <element api="M:System.Object.Equals(System.Object)">
+          <apidata name="Equals" group="member" subgroup="method" />
+          <memberdata visibility="public" />
+          <proceduredata virtual="true" />
+          <parameters>
+            <parameter name="obj">
+              <type api="T:System.Object" ref="true" />
+            </parameter>
+          </parameters>
+          <returns>
+            <type api="T:System.Boolean" ref="false" />
+          </returns>
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" kind="DynamicallyLinkedLibrary" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+        <element api="M:System.Object.GetHashCode">
+          <apidata name="GetHashCode" group="member" subgroup="method" />
+          <memberdata visibility="public" />
+          <proceduredata virtual="true" />
+          <returns>
+            <type api="T:System.Int32" ref="false" />
+          </returns>
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" kind="DynamicallyLinkedLibrary" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+        <element api="M:System.Object.GetType">
+          <apidata name="GetType" group="member" subgroup="method" />
+          <memberdata visibility="public" />
+          <proceduredata virtual="false" />
+          <returns>
+            <type api="T:System.Type" ref="true" />
+          </returns>
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" kind="DynamicallyLinkedLibrary" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+        <element api="M:System.Object.Finalize">
+          <apidata name="Finalize" group="member" subgroup="method" />
+          <memberdata visibility="family" />
+          <proceduredata virtual="true" />
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" kind="DynamicallyLinkedLibrary" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+        <element api="M:System.Object.MemberwiseClone">
+          <apidata name="MemberwiseClone" group="member" subgroup="method" />
+          <memberdata visibility="family" />
+          <proceduredata virtual="false" />
+          <returns>
+            <type api="T:System.Object" ref="true" />
+          </returns>
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" kind="DynamicallyLinkedLibrary" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+        <element api="Overload:LanceurRayon.Math.Triplet.#ctor">
+          <element api="M:LanceurRayon.Math.Triplet.#ctor" />
+          <element api="M:LanceurRayon.Math.Triplet.#ctor(System.Double,System.Double,System.Double)" />
+        </element>
+        <element api="P:LanceurRayon.Math.Triplet.X" />
+        <element api="P:LanceurRayon.Math.Triplet.Y" />
+        <element api="P:LanceurRayon.Math.Triplet.Z" />
+      </elements>
+      <containers>
+        <library assembly="LanceurRayon.Math" module="LanceurRayon.Math" kind="DynamicallyLinkedLibrary">
+          <assemblydata version="1.0.0.0 (1.0.0.0)" />
+        </library>
+        <namespace api="N:LanceurRayon.Math" />
+      </containers>
+      <file name="0f54e427-e39d-cdd3-735f-a056b987bb23" />
+    </api>
+    <api id="Methods.T:LanceurRayon.Math.Triplet">
+      <topicdata name="Triplet" group="list" subgroup="Methods" typeTopicId="T:LanceurRayon.Math.Triplet" />
+      <apidata name="Triplet" group="type" subgroup="class" />
+      <typedata visibility="public" abstract="true" serializable="false" />
+      <elements>
+        <element api="M:System.Object.ToString">
+          <apidata name="ToString" group="member" subgroup="method" />
+          <memberdata visibility="public" />
+          <proceduredata virtual="true" />
+          <returns>
+            <type api="T:System.String" ref="true" />
+          </returns>
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" kind="DynamicallyLinkedLibrary" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+        <element api="M:System.Object.Equals(System.Object)">
+          <apidata name="Equals" group="member" subgroup="method" />
+          <memberdata visibility="public" />
+          <proceduredata virtual="true" />
+          <parameters>
+            <parameter name="obj">
+              <type api="T:System.Object" ref="true" />
+            </parameter>
+          </parameters>
+          <returns>
+            <type api="T:System.Boolean" ref="false" />
+          </returns>
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" kind="DynamicallyLinkedLibrary" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+        <element api="M:System.Object.GetHashCode">
+          <apidata name="GetHashCode" group="member" subgroup="method" />
+          <memberdata visibility="public" />
+          <proceduredata virtual="true" />
+          <returns>
+            <type api="T:System.Int32" ref="false" />
+          </returns>
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" kind="DynamicallyLinkedLibrary" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+        <element api="M:System.Object.GetType">
+          <apidata name="GetType" group="member" subgroup="method" />
+          <memberdata visibility="public" />
+          <proceduredata virtual="false" />
+          <returns>
+            <type api="T:System.Type" ref="true" />
+          </returns>
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" kind="DynamicallyLinkedLibrary" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+        <element api="M:System.Object.Finalize">
+          <apidata name="Finalize" group="member" subgroup="method" />
+          <memberdata visibility="family" />
+          <proceduredata virtual="true" />
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" kind="DynamicallyLinkedLibrary" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+        <element api="M:System.Object.MemberwiseClone">
+          <apidata name="MemberwiseClone" group="member" subgroup="method" />
+          <memberdata visibility="family" />
+          <proceduredata virtual="false" />
+          <returns>
+            <type api="T:System.Object" ref="true" />
+          </returns>
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" kind="DynamicallyLinkedLibrary" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+      </elements>
+      <containers>
+        <library assembly="LanceurRayon.Math" module="LanceurRayon.Math" kind="DynamicallyLinkedLibrary">
+          <assemblydata version="1.0.0.0 (1.0.0.0)" />
+        </library>
+        <namespace api="N:LanceurRayon.Math" />
+        <type api="T:LanceurRayon.Math.Triplet" />
+      </containers>
+      <file name="3cffa9ab-8b8f-1c2e-f530-9ece489430a5" />
+    </api>
+    <api id="Properties.T:LanceurRayon.Math.Triplet">
+      <topicdata name="Triplet" group="list" subgroup="Properties" typeTopicId="T:LanceurRayon.Math.Triplet" />
+      <apidata name="Triplet" group="type" subgroup="class" />
+      <typedata visibility="public" abstract="true" serializable="false" />
+      <elements>
+        <element api="P:LanceurRayon.Math.Triplet.X" />
+        <element api="P:LanceurRayon.Math.Triplet.Y" />
+        <element api="P:LanceurRayon.Math.Triplet.Z" />
+      </elements>
+      <containers>
+        <library assembly="LanceurRayon.Math" module="LanceurRayon.Math" kind="DynamicallyLinkedLibrary">
+          <assemblydata version="1.0.0.0 (1.0.0.0)" />
+        </library>
+        <namespace api="N:LanceurRayon.Math" />
+        <type api="T:LanceurRayon.Math.Triplet" />
+      </containers>
+      <file name="99aa7f16-8901-6d32-e61b-0ba46b82416c" />
+    </api>
+    <api id="Overload:LanceurRayon.Math.Triplet.#ctor">
+      <topicdata name=".ctor" group="list" subgroup="overload" memberSubgroup="constructor" pseudo="true" allMembersTopicId="" />
+      <apidata name=".ctor" group="member" subgroup="constructor" />
+      <elements>
+        <element api="M:LanceurRayon.Math.Triplet.#ctor" />
+        <element api="M:LanceurRayon.Math.Triplet.#ctor(System.Double,System.Double,System.Double)" />
+      </elements>
+      <containers>
+        <library assembly="LanceurRayon.Math" module="LanceurRayon.Math" kind="DynamicallyLinkedLibrary">
+          <assemblydata version="1.0.0.0 (1.0.0.0)" />
+        </library>
+        <namespace api="N:LanceurRayon.Math" />
+        <type api="T:LanceurRayon.Math.Triplet" ref="true" />
+      </containers>
+      <file name="d8dd6a33-8599-df9c-e4b1-44b5904cf973" />
+    </api>
+    <api id="M:LanceurRayon.Math.Triplet.#ctor">
+      <topicdata group="api" />
+      <apidata name=".ctor" group="member" subgroup="constructor" />
+      <memberdata visibility="public" special="true" overload="Overload:LanceurRayon.Math.Triplet.#ctor" />
+      <containers>
+        <library assembly="LanceurRayon.Math" module="LanceurRayon.Math" kind="DynamicallyLinkedLibrary">
+          <assemblydata version="1.0.0.0 (1.0.0.0)" />
+          <noAptca />
+        </library>
+        <namespace api="N:LanceurRayon.Math" />
+        <type api="T:LanceurRayon.Math.Triplet" ref="true" />
+      </containers>
+      <file name="9f7eb028-a963-efd6-8698-ad59f37f08fd" />
+    </api>
+    <api id="M:LanceurRayon.Math.Triplet.#ctor(System.Double,System.Double,System.Double)">
+      <topicdata group="api" />
+      <apidata name=".ctor" group="member" subgroup="constructor" />
+      <memberdata visibility="public" special="true" overload="Overload:LanceurRayon.Math.Triplet.#ctor" />
+      <parameters>
+        <parameter name="x">
+          <type api="T:System.Double" ref="false" />
+        </parameter>
+        <parameter name="y">
+          <type api="T:System.Double" ref="false" />
+        </parameter>
+        <parameter name="z">
+          <type api="T:System.Double" ref="false" />
+        </parameter>
+      </parameters>
+      <containers>
+        <library assembly="LanceurRayon.Math" module="LanceurRayon.Math" kind="DynamicallyLinkedLibrary">
+          <assemblydata version="1.0.0.0 (1.0.0.0)" />
+          <noAptca />
+        </library>
+        <namespace api="N:LanceurRayon.Math" />
+        <type api="T:LanceurRayon.Math.Triplet" ref="true" />
+      </containers>
+      <file name="c41f12b4-f4b4-eba7-f0d3-fa893b93cf0d" />
+    </api>
+    <api id="P:LanceurRayon.Math.Triplet.X">
+      <topicdata group="api" />
+      <apidata name="X" group="member" subgroup="property" />
+      <memberdata visibility="public" />
+      <proceduredata virtual="false" />
+      <propertydata get="true" />
+      <getter name="get_X" />
+      <returns>
+        <type api="T:System.Double" ref="false" />
+      </returns>
+      <containers>
+        <library assembly="LanceurRayon.Math" module="LanceurRayon.Math" kind="DynamicallyLinkedLibrary">
+          <assemblydata version="1.0.0.0 (1.0.0.0)" />
+          <noAptca />
+        </library>
+        <namespace api="N:LanceurRayon.Math" />
+        <type api="T:LanceurRayon.Math.Triplet" ref="true" />
+      </containers>
+      <file name="68e52397-cd4e-5208-c4f0-3c05e4e1601c" />
+    </api>
+    <api id="P:LanceurRayon.Math.Triplet.Y">
+      <topicdata group="api" />
+      <apidata name="Y" group="member" subgroup="property" />
+      <memberdata visibility="public" />
+      <proceduredata virtual="false" />
+      <propertydata get="true" />
+      <getter name="get_Y" />
+      <returns>
+        <type api="T:System.Double" ref="false" />
+      </returns>
+      <containers>
+        <library assembly="LanceurRayon.Math" module="LanceurRayon.Math" kind="DynamicallyLinkedLibrary">
+          <assemblydata version="1.0.0.0 (1.0.0.0)" />
+          <noAptca />
+        </library>
+        <namespace api="N:LanceurRayon.Math" />
+        <type api="T:LanceurRayon.Math.Triplet" ref="true" />
+      </containers>
+      <file name="da6c13f2-3087-4017-ebac-f7c89ca495a1" />
+    </api>
+    <api id="P:LanceurRayon.Math.Triplet.Z">
+      <topicdata group="api" />
+      <apidata name="Z" group="member" subgroup="property" />
+      <memberdata visibility="public" />
+      <proceduredata virtual="false" />
+      <propertydata get="true" />
+      <getter name="get_Z" />
+      <returns>
+        <type api="T:System.Double" ref="false" />
+      </returns>
+      <containers>
+        <library assembly="LanceurRayon.Math" module="LanceurRayon.Math" kind="DynamicallyLinkedLibrary">
+          <assemblydata version="1.0.0.0 (1.0.0.0)" />
+          <noAptca />
+        </library>
+        <namespace api="N:LanceurRayon.Math" />
+        <type api="T:LanceurRayon.Math.Triplet" ref="true" />
+      </containers>
+      <file name="4bcf7c9e-638d-9afd-5d87-0ff4f19c2e4a" />
+    </api>
+    <api id="T:LanceurRayon.Math.Vec3">
+      <topicdata group="api" />
+      <apidata name="Vec3" group="type" subgroup="class" />
+      <typedata visibility="public" serializable="false" />
+      <family>
+        <ancestors>
+          <type api="T:LanceurRayon.Math.Triplet" ref="true" />
+          <type api="T:System.Object" ref="true" />
+        </ancestors>
+      </family>
+      <elements>
+        <element api="P:LanceurRayon.Math.Triplet.X" />
+        <element api="P:LanceurRayon.Math.Triplet.Y" />
+        <element api="P:LanceurRayon.Math.Triplet.Z" />
+        <element api="M:System.Object.Equals(System.Object)">
+          <apidata name="Equals" group="member" subgroup="method" />
+          <memberdata visibility="public" />
+          <proceduredata virtual="true" />
+          <parameters>
+            <parameter name="obj">
+              <type api="T:System.Object" ref="true" />
+            </parameter>
+          </parameters>
+          <returns>
+            <type api="T:System.Boolean" ref="false" />
+          </returns>
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" kind="DynamicallyLinkedLibrary" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+        <element api="M:System.Object.GetHashCode">
+          <apidata name="GetHashCode" group="member" subgroup="method" />
+          <memberdata visibility="public" />
+          <proceduredata virtual="true" />
+          <returns>
+            <type api="T:System.Int32" ref="false" />
+          </returns>
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" kind="DynamicallyLinkedLibrary" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+        <element api="M:System.Object.GetType">
+          <apidata name="GetType" group="member" subgroup="method" />
+          <memberdata visibility="public" />
+          <proceduredata virtual="false" />
+          <returns>
+            <type api="T:System.Type" ref="true" />
+          </returns>
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" kind="DynamicallyLinkedLibrary" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+        <element api="M:System.Object.Finalize">
+          <apidata name="Finalize" group="member" subgroup="method" />
+          <memberdata visibility="family" />
+          <proceduredata virtual="true" />
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" kind="DynamicallyLinkedLibrary" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+        <element api="M:System.Object.MemberwiseClone">
+          <apidata name="MemberwiseClone" group="member" subgroup="method" />
+          <memberdata visibility="family" />
+          <proceduredata virtual="false" />
+          <returns>
+            <type api="T:System.Object" ref="true" />
+          </returns>
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" kind="DynamicallyLinkedLibrary" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+        <element api="Overload:LanceurRayon.Math.Vec3.#ctor">
+          <element api="M:LanceurRayon.Math.Vec3.#ctor" />
+          <element api="M:LanceurRayon.Math.Vec3.#ctor(System.Double,System.Double,System.Double)" />
+        </element>
+        <element api="M:LanceurRayon.Math.Vec3.add(LanceurRayon.Math.Vec3)" />
+        <element api="M:LanceurRayon.Math.Vec3.length" />
+        <element api="M:LanceurRayon.Math.Vec3.mul(System.Double)" />
+        <element api="M:LanceurRayon.Math.Vec3.norm" />
+        <element api="M:LanceurRayon.Math.Vec3.scalar(LanceurRayon.Math.Vec3)" />
+        <element api="M:LanceurRayon.Math.Vec3.sub(LanceurRayon.Math.Vec3)" />
+        <element api="M:LanceurRayon.Math.Vec3.ToString" />
+        <element api="M:LanceurRayon.Math.Vec3.vectorial(LanceurRayon.Math.Vec3)" />
+      </elements>
+      <containers>
+        <library assembly="LanceurRayon.Math" module="LanceurRayon.Math" kind="DynamicallyLinkedLibrary">
+          <assemblydata version="1.0.0.0 (1.0.0.0)" />
+        </library>
+        <namespace api="N:LanceurRayon.Math" />
+      </containers>
+      <file name="2d8db316-9c13-e797-52ab-ff6d26e853d2" />
+    </api>
+    <api id="Methods.T:LanceurRayon.Math.Vec3">
+      <topicdata name="Vec3" group="list" subgroup="Methods" typeTopicId="T:LanceurRayon.Math.Vec3" />
+      <apidata name="Vec3" group="type" subgroup="class" />
+      <typedata visibility="public" serializable="false" />
+      <elements>
+        <element api="M:System.Object.Equals(System.Object)">
+          <apidata name="Equals" group="member" subgroup="method" />
+          <memberdata visibility="public" />
+          <proceduredata virtual="true" />
+          <parameters>
+            <parameter name="obj">
+              <type api="T:System.Object" ref="true" />
+            </parameter>
+          </parameters>
+          <returns>
+            <type api="T:System.Boolean" ref="false" />
+          </returns>
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" kind="DynamicallyLinkedLibrary" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+        <element api="M:System.Object.GetHashCode">
+          <apidata name="GetHashCode" group="member" subgroup="method" />
+          <memberdata visibility="public" />
+          <proceduredata virtual="true" />
+          <returns>
+            <type api="T:System.Int32" ref="false" />
+          </returns>
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" kind="DynamicallyLinkedLibrary" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+        <element api="M:System.Object.GetType">
+          <apidata name="GetType" group="member" subgroup="method" />
+          <memberdata visibility="public" />
+          <proceduredata virtual="false" />
+          <returns>
+            <type api="T:System.Type" ref="true" />
+          </returns>
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" kind="DynamicallyLinkedLibrary" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+        <element api="M:System.Object.Finalize">
+          <apidata name="Finalize" group="member" subgroup="method" />
+          <memberdata visibility="family" />
+          <proceduredata virtual="true" />
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" kind="DynamicallyLinkedLibrary" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+        <element api="M:System.Object.MemberwiseClone">
+          <apidata name="MemberwiseClone" group="member" subgroup="method" />
+          <memberdata visibility="family" />
+          <proceduredata virtual="false" />
+          <returns>
+            <type api="T:System.Object" ref="true" />
+          </returns>
+          <containers>
+            <library assembly="mscorlib" module="mscorlib" kind="DynamicallyLinkedLibrary" />
+            <namespace api="N:System" />
+            <type api="T:System.Object" ref="true" />
+          </containers>
+        </element>
+        <element api="M:LanceurRayon.Math.Vec3.add(LanceurRayon.Math.Vec3)" />
+        <element api="M:LanceurRayon.Math.Vec3.length" />
+        <element api="M:LanceurRayon.Math.Vec3.mul(System.Double)" />
+        <element api="M:LanceurRayon.Math.Vec3.norm" />
+        <element api="M:LanceurRayon.Math.Vec3.scalar(LanceurRayon.Math.Vec3)" />
+        <element api="M:LanceurRayon.Math.Vec3.sub(LanceurRayon.Math.Vec3)" />
+        <element api="M:LanceurRayon.Math.Vec3.ToString" />
+        <element api="M:LanceurRayon.Math.Vec3.vectorial(LanceurRayon.Math.Vec3)" />
+      </elements>
+      <containers>
+        <library assembly="LanceurRayon.Math" module="LanceurRayon.Math" kind="DynamicallyLinkedLibrary">
+          <assemblydata version="1.0.0.0 (1.0.0.0)" />
+        </library>
+        <namespace api="N:LanceurRayon.Math" />
+        <type api="T:LanceurRayon.Math.Vec3" />
+      </containers>
+      <file name="3d66a8f6-59ee-675d-7e3b-a487d62a82ef" />
+    </api>
+    <api id="Properties.T:LanceurRayon.Math.Vec3">
+      <topicdata name="Vec3" group="list" subgroup="Properties" typeTopicId="T:LanceurRayon.Math.Vec3" />
+      <apidata name="Vec3" group="type" subgroup="class" />
+      <typedata visibility="public" serializable="false" />
+      <elements>
+        <element api="P:LanceurRayon.Math.Triplet.X" />
+        <element api="P:LanceurRayon.Math.Triplet.Y" />
+        <element api="P:LanceurRayon.Math.Triplet.Z" />
+      </elements>
+      <containers>
+        <library assembly="LanceurRayon.Math" module="LanceurRayon.Math" kind="DynamicallyLinkedLibrary">
+          <assemblydata version="1.0.0.0 (1.0.0.0)" />
+        </library>
+        <namespace api="N:LanceurRayon.Math" />
+        <type api="T:LanceurRayon.Math.Vec3" />
+      </containers>
+      <file name="2e7e471c-a063-9bdc-95b8-44d5ce7034a2" />
+    </api>
+    <api id="Overload:LanceurRayon.Math.Vec3.#ctor">
+      <topicdata name=".ctor" group="list" subgroup="overload" memberSubgroup="constructor" pseudo="true" allMembersTopicId="" />
+      <apidata name=".ctor" group="member" subgroup="constructor" />
+      <elements>
+        <element api="M:LanceurRayon.Math.Vec3.#ctor" />
+        <element api="M:LanceurRayon.Math.Vec3.#ctor(System.Double,System.Double,System.Double)" />
+      </elements>
+      <containers>
+        <library assembly="LanceurRayon.Math" module="LanceurRayon.Math" kind="DynamicallyLinkedLibrary">
+          <assemblydata version="1.0.0.0 (1.0.0.0)" />
+        </library>
+        <namespace api="N:LanceurRayon.Math" />
+        <type api="T:LanceurRayon.Math.Vec3" ref="true" />
+      </containers>
+      <file name="f7d7f628-306b-eb5e-cd5a-7e9ce6473dac" />
+    </api>
+    <api id="M:LanceurRayon.Math.Vec3.#ctor">
+      <topicdata group="api" />
+      <apidata name=".ctor" group="member" subgroup="constructor" />
+      <memberdata visibility="public" special="true" overload="Overload:LanceurRayon.Math.Vec3.#ctor" />
+      <containers>
+        <library assembly="LanceurRayon.Math" module="LanceurRayon.Math" kind="DynamicallyLinkedLibrary">
+          <assemblydata version="1.0.0.0 (1.0.0.0)" />
+          <noAptca />
+        </library>
+        <namespace api="N:LanceurRayon.Math" />
+        <type api="T:LanceurRayon.Math.Vec3" ref="true" />
+      </containers>
+      <file name="9e5e5e0e-8658-81c2-ef24-cb42ae4a1004" />
+    </api>
+    <api id="M:LanceurRayon.Math.Vec3.#ctor(System.Double,System.Double,System.Double)">
+      <topicdata group="api" />
+      <apidata name=".ctor" group="member" subgroup="constructor" />
+      <memberdata visibility="public" special="true" overload="Overload:LanceurRayon.Math.Vec3.#ctor" />
+      <parameters>
+        <parameter name="x">
+          <type api="T:System.Double" ref="false" />
+        </parameter>
+        <parameter name="y">
+          <type api="T:System.Double" ref="false" />
+        </parameter>
+        <parameter name="z">
+          <type api="T:System.Double" ref="false" />
+        </parameter>
+      </parameters>
+      <containers>
+        <library assembly="LanceurRayon.Math" module="LanceurRayon.Math" kind="DynamicallyLinkedLibrary">
+          <assemblydata version="1.0.0.0 (1.0.0.0)" />
+          <noAptca />
+        </library>
+        <namespace api="N:LanceurRayon.Math" />
+        <type api="T:LanceurRayon.Math.Vec3" ref="true" />
+      </containers>
+      <file name="e930c7a5-8185-567e-417f-ca1adefa6d97" />
+    </api>
+    <api id="M:LanceurRayon.Math.Vec3.add(LanceurRayon.Math.Vec3)">
+      <topicdata group="api" />
+      <apidata name="add" group="member" subgroup="method" />
+      <memberdata visibility="public" />
+      <proceduredata virtual="false" />
+      <parameters>
+        <parameter name="v">
+          <type api="T:LanceurRayon.Math.Vec3" ref="true" />
+        </parameter>
+      </parameters>
+      <returns>
+        <type api="T:LanceurRayon.Math.Vec3" ref="true" />
+      </returns>
+      <containers>
+        <library assembly="LanceurRayon.Math" module="LanceurRayon.Math" kind="DynamicallyLinkedLibrary">
+          <assemblydata version="1.0.0.0 (1.0.0.0)" />
+          <noAptca />
+        </library>
+        <namespace api="N:LanceurRayon.Math" />
+        <type api="T:LanceurRayon.Math.Vec3" ref="true" />
+      </containers>
+      <file name="1c2ea1d5-899d-ca67-7521-b717874f44d2" />
+    </api>
+    <api id="M:LanceurRayon.Math.Vec3.length">
+      <topicdata group="api" />
+      <apidata name="length" group="member" subgroup="method" />
+      <memberdata visibility="public" />
+      <proceduredata virtual="false" />
+      <returns>
+        <type api="T:System.Double" ref="false" />
+      </returns>
+      <containers>
+        <library assembly="LanceurRayon.Math" module="LanceurRayon.Math" kind="DynamicallyLinkedLibrary">
+          <assemblydata version="1.0.0.0 (1.0.0.0)" />
+          <noAptca />
+        </library>
+        <namespace api="N:LanceurRayon.Math" />
+        <type api="T:LanceurRayon.Math.Vec3" ref="true" />
+      </containers>
+      <file name="70951e18-7303-e4aa-2286-7bca1119a640" />
+    </api>
+    <api id="M:LanceurRayon.Math.Vec3.mul(System.Double)">
+      <topicdata group="api" />
+      <apidata name="mul" group="member" subgroup="method" />
+      <memberdata visibility="public" />
+      <proceduredata virtual="false" />
+      <parameters>
+        <parameter name="scal">
+          <type api="T:System.Double" ref="false" />
+        </parameter>
+      </parameters>
+      <returns>
+        <type api="T:LanceurRayon.Math.Vec3" ref="true" />
+      </returns>
+      <containers>
+        <library assembly="LanceurRayon.Math" module="LanceurRayon.Math" kind="DynamicallyLinkedLibrary">
+          <assemblydata version="1.0.0.0 (1.0.0.0)" />
+          <noAptca />
+        </library>
+        <namespace api="N:LanceurRayon.Math" />
+        <type api="T:LanceurRayon.Math.Vec3" ref="true" />
+      </containers>
+      <file name="bad330bd-5397-05ec-81d4-d0a80e1c11cd" />
+    </api>
+    <api id="M:LanceurRayon.Math.Vec3.norm">
+      <topicdata group="api" />
+      <apidata name="norm" group="member" subgroup="method" />
+      <memberdata visibility="public" />
+      <proceduredata virtual="false" />
+      <returns>
+        <type api="T:LanceurRayon.Math.Vec3" ref="true" />
+      </returns>
+      <containers>
+        <library assembly="LanceurRayon.Math" module="LanceurRayon.Math" kind="DynamicallyLinkedLibrary">
+          <assemblydata version="1.0.0.0 (1.0.0.0)" />
+          <noAptca />
+        </library>
+        <namespace api="N:LanceurRayon.Math" />
+        <type api="T:LanceurRayon.Math.Vec3" ref="true" />
+      </containers>
+      <file name="ae8db942-b0e1-ffe7-c328-85a58aec4f35" />
+    </api>
+    <api id="M:LanceurRayon.Math.Vec3.scalar(LanceurRayon.Math.Vec3)">
+      <topicdata group="api" />
+      <apidata name="scalar" group="member" subgroup="method" />
+      <memberdata visibility="public" />
+      <proceduredata virtual="false" />
+      <parameters>
+        <parameter name="v">
+          <type api="T:LanceurRayon.Math.Vec3" ref="true" />
+        </parameter>
+      </parameters>
+      <returns>
+        <type api="T:System.Double" ref="false" />
+      </returns>
+      <containers>
+        <library assembly="LanceurRayon.Math" module="LanceurRayon.Math" kind="DynamicallyLinkedLibrary">
+          <assemblydata version="1.0.0.0 (1.0.0.0)" />
+          <noAptca />
+        </library>
+        <namespace api="N:LanceurRayon.Math" />
+        <type api="T:LanceurRayon.Math.Vec3" ref="true" />
+      </containers>
+      <file name="78217e52-a332-1bed-47d5-5daa549b086d" />
+    </api>
+    <api id="M:LanceurRayon.Math.Vec3.sub(LanceurRayon.Math.Vec3)">
+      <topicdata group="api" />
+      <apidata name="sub" group="member" subgroup="method" />
+      <memberdata visibility="public" />
+      <proceduredata virtual="false" />
+      <parameters>
+        <parameter name="v">
+          <type api="T:LanceurRayon.Math.Vec3" ref="true" />
+        </parameter>
+      </parameters>
+      <returns>
+        <type api="T:LanceurRayon.Math.Vec3" ref="true" />
+      </returns>
+      <containers>
+        <library assembly="LanceurRayon.Math" module="LanceurRayon.Math" kind="DynamicallyLinkedLibrary">
+          <assemblydata version="1.0.0.0 (1.0.0.0)" />
+          <noAptca />
+        </library>
+        <namespace api="N:LanceurRayon.Math" />
+        <type api="T:LanceurRayon.Math.Vec3" ref="true" />
+      </containers>
+      <file name="5d70acc2-9b87-4138-40ef-a247591bb804" />
+    </api>
+    <api id="M:LanceurRayon.Math.Vec3.ToString">
+      <topicdata group="api" />
+      <apidata name="ToString" group="member" subgroup="method" />
+      <memberdata visibility="public" />
+      <proceduredata virtual="true" />
+      <overrides>
+        <member api="M:System.Object.ToString">
+          <type api="T:System.Object" ref="true" />
+        </member>
+      </overrides>
+      <returns>
+        <type api="T:System.String" ref="true" />
+      </returns>
+      <containers>
+        <library assembly="LanceurRayon.Math" module="LanceurRayon.Math" kind="DynamicallyLinkedLibrary">
+          <assemblydata version="1.0.0.0 (1.0.0.0)" />
+          <noAptca />
+        </library>
+        <namespace api="N:LanceurRayon.Math" />
+        <type api="T:LanceurRayon.Math.Vec3" ref="true" />
+      </containers>
+      <file name="139ebffe-fe1e-94a0-89dc-385fdceeb66b" />
+    </api>
+    <api id="M:LanceurRayon.Math.Vec3.vectorial(LanceurRayon.Math.Vec3)">
+      <topicdata group="api" />
+      <apidata name="vectorial" group="member" subgroup="method" />
+      <memberdata visibility="public" />
+      <proceduredata virtual="false" />
+      <parameters>
+        <parameter name="v">
+          <type api="T:LanceurRayon.Math.Vec3" ref="true" />
+        </parameter>
+      </parameters>
+      <returns>
+        <type api="T:LanceurRayon.Math.Vec3" ref="true" />
+      </returns>
+      <containers>
+        <library assembly="LanceurRayon.Math" module="LanceurRayon.Math" kind="DynamicallyLinkedLibrary">
+          <assemblydata version="1.0.0.0 (1.0.0.0)" />
+          <noAptca />
+        </library>
+        <namespace api="N:LanceurRayon.Math" />
+        <type api="T:LanceurRayon.Math.Vec3" ref="true" />
+      </containers>
+      <file name="fc837d37-4dc4-0246-3b9f-d26068009d73" />
+    </api>
+  </apis>
+</reflection>

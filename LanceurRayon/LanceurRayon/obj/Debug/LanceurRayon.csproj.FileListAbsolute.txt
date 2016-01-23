@@ -1,0 +1,6 @@
+C:\Users\Tinithrari\Source\Repos\lanceurrayons\LanceurRayon\LanceurRayon\bin\Debug\LanceurRayon.exe.config
+C:\Users\Tinithrari\Source\Repos\lanceurrayons\LanceurRayon\LanceurRayon\bin\Debug\LanceurRayon.exe
+C:\Users\Tinithrari\Source\Repos\lanceurrayons\LanceurRayon\LanceurRayon\bin\Debug\LanceurRayon.pdb
+C:\Users\Tinithrari\Source\Repos\lanceurrayons\LanceurRayon\LanceurRayon\obj\Debug\LanceurRayon.csprojResolveAssemblyReference.cache
+C:\Users\Tinithrari\Source\Repos\lanceurrayons\LanceurRayon\LanceurRayon\obj\Debug\LanceurRayon.exe
+C:\Users\Tinithrari\Source\Repos\lanceurrayons\LanceurRayon\LanceurRayon\obj\Debug\LanceurRayon.pdb

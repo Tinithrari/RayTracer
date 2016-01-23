@@ -1,0 +1,6 @@
+C:\Users\Tinithrari\Source\Repos\lanceurrayons\LanceurRayon\LanceurRayon.Math\bin\Debug\LanceurRayon.Math.dll
+C:\Users\Tinithrari\Source\Repos\lanceurrayons\LanceurRayon\LanceurRayon.Math\bin\Debug\LanceurRayon.Math.pdb
+C:\Users\Tinithrari\Source\Repos\lanceurrayons\LanceurRayon\LanceurRayon.Math\obj\Debug\LanceurRayon.Math.dll
+C:\Users\Tinithrari\Source\Repos\lanceurrayons\LanceurRayon\LanceurRayon.Math\obj\Debug\LanceurRayon.Math.pdb
+C:\Users\Tinithrari\Source\Repos\lanceurrayons\LanceurRayon\LanceurRayon.Math\obj\Debug\LanceurRayon.Math.csprojResolveAssemblyReference.cache
+C:\Users\Tinithrari\Source\Repos\lanceurrayons\LanceurRayon\LanceurRayon.Math\bin\Debug\LanceurRayon.Math.XML

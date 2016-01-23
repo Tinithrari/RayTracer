@@ -1,0 +1,12 @@
+C:\Users\Tinithrari\Source\Repos\lanceurrayons\LanceurRayon\LanceurRayon.TestCalcul\bin\Debug\LanceurRayon.TestCalcul.exe.config
+C:\Users\Tinithrari\Source\Repos\lanceurrayons\LanceurRayon\LanceurRayon.TestCalcul\bin\Debug\LanceurRayon.TestCalcul.exe
+C:\Users\Tinithrari\Source\Repos\lanceurrayons\LanceurRayon\LanceurRayon.TestCalcul\bin\Debug\LanceurRayon.TestCalcul.pdb
+C:\Users\Tinithrari\Source\Repos\lanceurrayons\LanceurRayon\LanceurRayon.TestCalcul\bin\Debug\LanceurRayon.Math.dll
+C:\Users\Tinithrari\Source\Repos\lanceurrayons\LanceurRayon\LanceurRayon.TestCalcul\bin\Debug\LanceurRayon.Math.pdb
+C:\Users\Tinithrari\Source\Repos\lanceurrayons\LanceurRayon\LanceurRayon.TestCalcul\bin\Debug\LanceurRayon.Math.xml
+C:\Users\Tinithrari\Source\Repos\lanceurrayons\LanceurRayon\LanceurRayon.TestCalcul\obj\Debug\LanceurRayon.TestMath.csprojResolveAssemblyReference.cache
+C:\Users\Tinithrari\Source\Repos\lanceurrayons\LanceurRayon\LanceurRayon.TestCalcul\obj\Debug\LanceurRayon.TestCalcul.exe
+C:\Users\Tinithrari\Source\Repos\lanceurrayons\LanceurRayon\LanceurRayon.TestCalcul\obj\Debug\LanceurRayon.TestCalcul.pdb
+C:\Users\Tinithrari\Source\Repos\lanceur_rayons\LanceurRayon\LanceurRayon.TestCalcul\bin\Debug\LanceurRayon.TestCalcul.exe.config
+C:\Users\Tinithrari\Source\Repos\lanceur_rayons\LanceurRayon\LanceurRayon.TestCalcul\obj\Debug\LanceurRayon.TestCalcul.exe
+C:\Users\Tinithrari\Source\Repos\lanceur_rayons\LanceurRayon\LanceurRayon.TestCalcul\obj\Debug\LanceurRayon.TestCalcul.pdb

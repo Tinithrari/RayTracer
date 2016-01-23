@@ -1,0 +1,217 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<doc>
+  <assembly>
+    <name>LanceurRayon.Math</name>
+  </assembly>
+  <members>
+    <member name="M:LanceurRayon.Math.Color.#ctor">
+      <summary>
+            Permet de créer une couleur noire
+            </summary>
+    </member>
+    <member name="M:LanceurRayon.Math.Color.#ctor(System.Double,System.Double,System.Double)">
+      <summary>
+            Permet de créer une couleur à partir de ses valeurs r, g et b
+            </summary>
+      <param name="r">La valeur pour le rouge</param>
+      <param name="g">La valeur pour le vert</param>
+      <param name="b">La valeur pour le bleu</param>
+      <exception cref="T:System.ArgumentOutOfRangeException">Exception lancée si l'un des arguments est en dehors de l'intervalle [0, 1]</exception>
+    </member>
+    <member name="M:LanceurRayon.Math.Color.add(LanceurRayon.Math.Color)">
+      <summary>
+            Permet d'additioner deux couleurs
+            </summary>
+      <param name="c">La couleur à additionner à la couleur courante</param>
+      <returns>La couleur résultante de l'opération</returns>
+      <exception cref="T:System.ArgumentNullException">Exception lancée si l'argument est null</exception>
+      <remarks>Si l'une des valeurs dépasse 1, celle-ci sera remplacée par 1</remarks>
+    </member>
+    <member name="M:LanceurRayon.Math.Color.mul(System.Double)">
+      <summary>
+            Permet de multiplier une couleur par un scalaire
+            </summary>
+      <param name="scal">Le scalaire à utiliser pour la multiplcation</param>
+      <returns>Le résultat de la multiplication par le scalaire</returns>
+      <exception cref="T:System.ArgumentException">Exception levé si l'argument est négatif</exception>
+      <remarks>Si le résultat de la multiplication d'un champs est supérieur à 1, le résultat sera remplacé par 1</remarks>
+    </member>
+    <member name="M:LanceurRayon.Math.Color.schur(LanceurRayon.Math.Color)">
+      <summary>
+            Permet d'effectuer un produit de Schur
+            </summary>
+      <param name="c">La couleur avec laquelle effectuée un produit de Schur</param>
+      <returns>Le résultat du produit de Schur</returns>
+      <exception cref="T:System.ArgumentNullException">Si l'argument est null, cette exception est levée</exception>
+      <remarks>Si le résultat de la multiplication d'un des champs est supérieur à 1, le résultat sera remplacé par 1</remarks>
+    </member>
+    <member name="P:LanceurRayon.Math.Color.R">
+      <summary>
+            Accesseur pour la valeur R
+            </summary>
+    </member>
+    <member name="P:LanceurRayon.Math.Color.G">
+      <summary>
+            Accesseur pour la valeur G
+            </summary>
+    </member>
+    <member name="P:LanceurRayon.Math.Color.B">
+      <summary>
+            Accesseur pour la valeur B
+            </summary>
+    </member>
+    <member name="T:LanceurRayon.Math.Point">
+      <summary>
+            Classe représentant un point par ses coordonnées dans l'espace
+            et permettant d'effectuer quelques calculs
+            </summary>
+    </member>
+    <member name="M:LanceurRayon.Math.Point.#ctor">
+      <summary>
+            Permet d'obtenir le point origine
+            </summary>
+    </member>
+    <member name="M:LanceurRayon.Math.Point.#ctor(System.Double,System.Double,System.Double)">
+      <summary>
+            Permet de construire un point à partir de coordonnées
+            </summary>
+      <param name="x">Position en X</param>
+      <param name="y">Position en Y</param>
+      <param name="z">Position en Z</param>
+    </member>
+    <member name="M:LanceurRayon.Math.Point.add(LanceurRayon.Math.Vec3)">
+      <summary>
+            Permet de créer l'image de la translation d'un point par rapport à un vecteur
+            </summary>
+      <param name="v">Le vecteur à utiliser pour la translation</param>
+      <returns>Le point translaté</returns>
+    </member>
+    <member name="M:LanceurRayon.Math.Point.sub(LanceurRayon.Math.Point)">
+      <summary>
+            Permet de calculer la distance par rapport à un autre point
+            </summary>
+      <param name="p">Le point dont on souhaite connaitre la distance par rapport à l'objet courant</param>
+      <returns>La distance entre le point courant et celui passé en paramètre</returns>
+    </member>
+    <member name="M:LanceurRayon.Math.Point.mul(System.Double)">
+      <summary>
+            Permet de multiplier le point par un scalaire
+            </summary>
+      <param name="scal">Le scalaire</param>
+      <returns>Le point ayant subit la multiplication par le scalaire</returns>
+    </member>
+    <member name="M:LanceurRayon.Math.Point.ToString">
+      <summary>
+            Permet d'afficher de façon formater les coordonnées d'un point
+            </summary>
+      <returns>Une chaine formaté de la manière suivante : (x, y, z)</returns>
+    </member>
+    <member name="T:LanceurRayon.Math.Triplet">
+      <summary>
+            Classe abstraites pour les éléments contenants un triplet de valeurs
+            </summary>
+    </member>
+    <member name="M:LanceurRayon.Math.Triplet.#ctor(System.Double,System.Double,System.Double)">
+      <summary>
+            Permet de construire un triplet à l'aide de trois valeurs
+            </summary>
+      <param name="x">Valeur x du triplet</param>
+      <param name="y">Valeur y du triplet</param>
+      <param name="z">Valeur z du triplet</param>
+    </member>
+    <member name="M:LanceurRayon.Math.Triplet.#ctor">
+      <summary>
+            Permet de construire un triplet ayant toute coordonnées à zéro
+            </summary>
+    </member>
+    <member name="P:LanceurRayon.Math.Triplet.X">
+      <summary>
+            Valeur x du triplet
+            </summary>
+    </member>
+    <member name="P:LanceurRayon.Math.Triplet.Y">
+      <summary>
+            Valeur y du triplet
+            </summary>
+    </member>
+    <member name="P:LanceurRayon.Math.Triplet.Z">
+      <summary>
+            Valeur z du triplet
+            </summary>
+    </member>
+    <member name="T:LanceurRayon.Math.Vec3">
+      <summary>
+            Classe représentant un vecteur dans un repère tridimensionnel
+            </summary>
+    </member>
+    <member name="M:LanceurRayon.Math.Vec3.#ctor">
+      <summary>
+            Permet de créer un vecteur nul
+            </summary>
+    </member>
+    <member name="M:LanceurRayon.Math.Vec3.#ctor(System.Double,System.Double,System.Double)">
+      <summary>
+            Permet de créer un vecteur tridimensionnel à partir de ses coordonnées
+            </summary>
+      <param name="x">Sa position en X</param>
+      <param name="y">Sa position en Y</param>
+      <param name="z">Sa position en Z</param>
+    </member>
+    <member name="M:LanceurRayon.Math.Vec3.add(LanceurRayon.Math.Vec3)">
+      <summary>
+            Permet d'additioner deux vecteurs 
+            </summary>
+      <param name="v">Le vecteur à additioner aux vecteurs courants</param>
+      <returns>Le vecteur résultant de l'opération</returns>
+    </member>
+    <member name="M:LanceurRayon.Math.Vec3.sub(LanceurRayon.Math.Vec3)">
+      <summary>
+            Permet de soustraire deux vecteurs
+            </summary>
+      <param name="v">Le vecteur à soustraire aux vecteurs courant</param>
+      <returns>Le vecteur résultant de la soustraction</returns>
+    </member>
+    <member name="M:LanceurRayon.Math.Vec3.mul(System.Double)">
+      <summary>
+            Permet de faire la multiplication d'un vecteur avec un scalaire
+            </summary>
+      <param name="scal">Le scalaire pour la multiplication</param>
+      <returns>Le résultat du produit par le scalaire scal</returns>
+    </member>
+    <member name="M:LanceurRayon.Math.Vec3.scalar(LanceurRayon.Math.Vec3)">
+      <summary>
+            Permet d'effectuer un produit scalaire
+            </summary>
+      <param name="v">Le vecteur à multiplier au vecteur courant</param>
+      <returns>Le résultat du produit scalaire</returns>
+    </member>
+    <member name="M:LanceurRayon.Math.Vec3.vectorial(LanceurRayon.Math.Vec3)">
+      <summary>
+            Permet d'effectuer un produit vectoriel
+            </summary>
+      <param name="v">Le vecteur à multiplier au vecteur courant</param>
+      <returns>Le résultat du produit vectoriel</returns>
+    </member>
+    <member name="M:LanceurRayon.Math.Vec3.length">
+      <summary>
+            Permet de calculer la norme du vecteur
+            </summary>
+      <returns>La norme du vecteur courant</returns>
+    </member>
+    <member name="M:LanceurRayon.Math.Vec3.norm">
+      <summary>
+            Permet de normaliser le vecteur courant
+            </summary>
+      <returns>Le vecteur normaliser</returns>
+    </member>
+    <member name="M:LanceurRayon.Math.Vec3.ToString">
+      <summary>
+            Permet de créer une chaine pour représenter le vecteur
+            </summary>
+      <returns>Une chaine formatée de la forme [x, y, z]</returns>
+    </member>
+    <member name="N:LanceurRayon.Math">
+      <summary />
+    </member>
+  </members>
+</doc>

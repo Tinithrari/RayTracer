@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shfbBuild product="Sandcastle Help File Builder and Tools" version="2015.7.25.0" projectFile="C:\Users\Tinithrari\Source\Repos\lanceurrayons\LanceurRayon\Doc_LanceurRayon.shfbproj" started="18/01/2016 23:09:16">
+<buildStep step="Initializing">
+Finding tools...
+The Sandcastle tools are located in &#39;C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\&#39;
+Searching for HTML Help 1 compiler...
+Found HTML Help 1 compiler in &#39;C:\Program Files (x86)\HTML Help Workshop\&#39;
+Locating components in the following folder(s):
+    C:\Users\Tinithrari\Source\Repos\lanceurrayons\LanceurRayon
+    C:\ProgramData\EWSoftware\Sandcastle Help File Builder\Components and Plug-Ins\
+    C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\
+Framework reflection data location: C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\Data\.NETFramework
+Using presentation style &#39;VS2013&#39; located in &#39;C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013&#39;
+Loading and initializing plug-ins...
+Lightweight Website Style Version 2015.7.25.0
+Copyright &#169; 2006-2015, Eric Woodruff, All Rights Reserved
+Portions Copyright &#169; 2014, Sam Harwell, All Rights Reserved
+</buildStep>
+<buildStep step="ClearWorkFolder">
+Clearing working folder...
+</buildStep>
+<buildStep step="ValidatingDocumentationSources">
+Validating and copying documentation source information
+Source: C:\Users\Tinithrari\Source\Repos\lanceurrayons\LanceurRayon\LanceurRayon.Math\bin\Debug\LanceurRayon.Math.XML
+Source: C:\Users\Tinithrari\Source\Repos\lanceurrayons\LanceurRayon\LanceurRayon.Math\bin\Debug\LanceurRayon.Math.dll
+    Found assembly &#39;C:\Users\Tinithrari\Source\Repos\lanceurrayons\LanceurRayon\LanceurRayon.Math\bin\Debug\LanceurRayon.Math.dll&#39;
+
+Copying XML comments files
+    C:\Users\Tinithrari\Source\Repos\lanceurrayons\LanceurRayon\LanceurRayon.Math\bin\Debug\LanceurRayon.Math.XML -&gt; C:\Users\Tinithrari\Source\Repos\lanceurrayons\LanceurRayon\Help\Working\LanceurRayon.Math.XML
+</buildStep>
+<buildStep step="GenerateSharedContent">
+Generating shared content files (fr-FR, Fran&#231;ais (France))...
+SHFB: Warning BE0003: Sandcastle shared content for the &#39;fr-FR, Fran&#231;ais (France)&#39; language could not be found.  Using &#39;en-US, English (US)&#39; defaults.
+<plugIn name="Lightweight Website Style" behavior="After" priority="1000">
+</plugIn>    Last step completed in 00:00:00,0738
+</buildStep>
+<buildStep step="GenerateApiFilter">
+Generating API filter for MRefBuilder...
+    Last step completed in 00:00:00,0155
+</buildStep>
+<buildStep step="GenerateReflectionInfo">
+Generating reflection information...
+[C:\Windows\Microsoft.NET\Framework64\v4.0.30319\MSBuild.exe - GenerateRefInfo.proj]
+La g‚n‚ration a d‚marr‚ 18/01/2016 23:09:18.
+Projet &quot;C:\Users\Tinithrari\Source\Repos\lanceurrayons\LanceurRayon\Help\Working\GenerateRefInfo.proj&quot; sur le noud 1 (cibles par d‚faut).
+PrepareForBuild:
+  Cr‚ation du r‚pertoire &quot;obj\Debug\&quot;.
+GenerateRefInfo:
+  MRefBuilder (v2015.7.25.0)
+  Copyright &#184; 2006-2015, Microsoft Corporation, All Rights Reserved.
+  Portions Copyright &#184; 2006-2015, Eric Woodruff, All Rights Reserved.
+  Loaded 1 assemblies for reflection and 1 dependency assemblies.
+  Wrote information on 1 namespaces, 4 types, and 29 members
+  Copie du fichier de &quot;reflection.org&quot; vers &quot;reflection.all&quot;.
+  XslTransform (v2015.7.25.0)
+  Copyright &#184; 2006-2015, Microsoft Corporation, All Rights Reserved.
+  Portions Copyright &#184; 2006-2015, Eric Woodruff, All Rights Reserved.
+  Applying XSL transformation &#39;C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\ProductionTransforms\MergeDuplicates.xsl&#39;.
+G‚n‚ration du projet &quot;C:\Users\Tinithrari\Source\Repos\lanceurrayons\LanceurRayon\Help\Working\GenerateRefInfo.proj&quot; termin‚e (cibles par d‚faut).
+
+La g‚n‚ration a r‚ussi.
+
+Temps ‚coul‚ 00:00:01.97
+    Last step completed in 00:00:02,7093
+</buildStep>
+<buildStep step="TransformReflectionInfo">
+Transforming reflection output...
+[C:\Windows\Microsoft.NET\Framework64\v4.0.30319\MSBuild.exe - TransformManifest.proj]
+La g‚n‚ration a d‚marr‚ 18/01/2016 23:09:20.
+Projet &quot;C:\Users\Tinithrari\Source\Repos\lanceurrayons\LanceurRayon\Help\Working\TransformManifest.proj&quot; sur le noud 1 (cibles par d‚faut).
+TransformManifest:
+  XslTransform (v2015.7.25.0)
+  Copyright &#184; 2006-2015, Microsoft Corporation, All Rights Reserved.
+  Portions Copyright &#184; 2006-2015, Eric Woodruff, All Rights Reserved.
+  Applying XSL transformation &#39;C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\\ProductionTransforms\ApplyVSDocModel.xsl&#39;.
+  Copie du fichier de &quot;reflection.xml&quot; vers &quot;reflection.nofilenames&quot;.
+  XslTransform (v2015.7.25.0)
+  Copyright &#184; 2006-2015, Microsoft Corporation, All Rights Reserved.
+  Portions Copyright &#184; 2006-2015, Eric Woodruff, All Rights Reserved.
+  Applying XSL transformation &#39;C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\ProductionTransforms\AddFilenames.xsl&#39;.
+  XslTransform (v2015.7.25.0)
+  Copyright &#184; 2006-2015, Microsoft Corporation, All Rights Reserved.
+  Portions Copyright &#184; 2006-2015, Eric Woodruff, All Rights Reserved.
+  Applying XSL transformation &#39;C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\ProductionTransforms\ReflectionToManifest.xsl&#39;.
+G‚n‚ration du projet &quot;C:\Users\Tinithrari\Source\Repos\lanceurrayons\LanceurRayon\Help\Working\TransformManifest.proj&quot; termin‚e (cibles par d‚faut).
+
+La g‚n‚ration a r‚ussi.
+
+Temps ‚coul‚ 00:00:01.46
+    Last step completed in 00:00:01,7801
+</buildStep>
+<buildStep step="GenerateNamespaceSummaries">
+Generating namespace summary information...
+    Last step completed in 00:00:00,0542
+</buildStep>
+<buildStep step="CopyAdditionalContent">
+Copying additional content files...
+No additional content to copy
+    Last step completed in 00:00:00,0025
+</buildStep>
+<buildStep step="MergeTablesOfContents">
+Merging conceptual and additional tables of contents...
+    Last step completed in 00:00:00,0000
+</buildStep>
+<buildStep step="GenerateIntermediateTableOfContents">
+Generating intermediate table of contents file...
+[C:\Windows\Microsoft.NET\Framework64\v4.0.30319\MSBuild.exe - GenerateIntermediateTOC.proj]
+La g‚n‚ration a d‚marr‚ 18/01/2016 23:09:22.
+Projet &quot;C:\Users\Tinithrari\Source\Repos\lanceurrayons\LanceurRayon\Help\Working\GenerateIntermediateTOC.proj&quot; sur le noud 1 (cibles par d‚faut).
+GenerateIntermediateTOC:
+  XslTransform (v2015.7.25.0)
+  Copyright &#184; 2006-2015, Microsoft Corporation, All Rights Reserved.
+  Portions Copyright &#184; 2006-2015, Eric Woodruff, All Rights Reserved.
+  Applying XSL transformation &#39;C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\\ProductionTransforms\CreateVSToc.xsl&#39;.
+G‚n‚ration du projet &quot;C:\Users\Tinithrari\Source\Repos\lanceurrayons\LanceurRayon\Help\Working\GenerateIntermediateTOC.proj&quot; termin‚e (cibles par d‚faut).
+
+La g‚n‚ration a r‚ussi.
+
+Temps ‚coul‚ 00:00:00.59
+Generating conceptual content intermediate TOC file...
+    Last step completed in 00:00:00,9041
+</buildStep>
+<buildStep step="CreateBuildAssemblerConfigs">
+Creating Sandcastle configuration files...
+    sandcastle.config
+    Last step completed in 00:00:00,4654
+</buildStep>
+<buildStep step="MergeCustomConfigs">
+Merging custom build component configurations
+C:\Users\Tinithrari\Source\Repos\lanceurrayons\LanceurRayon\Help\Working\sandcastle.config
+    Last step completed in 00:00:00,0115
+</buildStep>
+<buildStep step="BuildReferenceTopics">
+Building reference help topics...
+[C:\Windows\Microsoft.NET\Framework64\v4.0.30319\MSBuild.exe - BuildReferenceTopics.proj]
+La g‚n‚ration a d‚marr‚ 18/01/2016 23:09:23.
+Projet &quot;C:\Users\Tinithrari\Source\Repos\lanceurrayons\LanceurRayon\Help\Working\BuildReferenceTopics.proj&quot; sur le noud 1 (cibles par d‚faut).
+BuildReferenceTopics:
+  BuildAssembler (v2015.7.25.0)
+  Copyright &#184; 2006-2015, Microsoft Corporation, All Rights Reserved.
+  Portions Copyright &#184; 2006-2015, Eric Woodruff, All Rights Reserved.
+  Loading configuration...
+    Last step completed in 00:00:09,0580
+</buildStep>
+<buildStep step="Canceled">
+
+SHFB: Error BE0064: BUILD CANCELLED BY USER
+
+</buildStep>
+</shfbBuild>

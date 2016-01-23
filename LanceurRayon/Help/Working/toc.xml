@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<topics>
+  <topic id="N:LanceurRayon.Math" project="_Namespaces" file="0e8a2b37-4976-ae97-7a86-f8ab4c85ee0c">
+    <topic id="T:LanceurRayon.Math.Color" project="LanceurRayon.Math" file="567502ce-3703-1fd6-f524-61e81b568971">
+      <topic id="Overload:LanceurRayon.Math.Color.#ctor" project="LanceurRayon.Math" file="89aff1b1-fca3-ba96-ae9c-6e837580da7c">
+        <topic id="M:LanceurRayon.Math.Color.#ctor" project="LanceurRayon.Math" file="e69049be-5e8b-7a97-cf6b-9888beb67d44" />
+        <topic id="M:LanceurRayon.Math.Color.#ctor(System.Double,System.Double,System.Double)" project="LanceurRayon.Math" file="f15b3988-700d-7369-9bbb-b1cdf98f4168" />
+      </topic>
+      <topic id="Properties.T:LanceurRayon.Math.Color" project="LanceurRayon.Math" file="78566de4-f6df-2938-fb12-c708a1886bde">
+        <topic id="P:LanceurRayon.Math.Color.B" project="LanceurRayon.Math" file="4de8b4d9-499a-d726-a880-39d67d17c4b0" />
+        <topic id="P:LanceurRayon.Math.Color.G" project="LanceurRayon.Math" file="45e66d0a-1782-4a74-4e87-32cf71af7322" />
+        <topic id="P:LanceurRayon.Math.Color.R" project="LanceurRayon.Math" file="ed669615-a0b7-8211-f58e-c959d5b46769" />
+      </topic>
+      <topic id="Methods.T:LanceurRayon.Math.Color" project="LanceurRayon.Math" file="dc1c2ae6-f58a-57ca-2732-707a6809c572">
+        <topic id="M:LanceurRayon.Math.Color.add(LanceurRayon.Math.Color)" project="LanceurRayon.Math" file="db049202-9159-2c27-a7d8-8c8565f40dd4" />
+        <topic id="M:LanceurRayon.Math.Color.mul(System.Double)" project="LanceurRayon.Math" file="59b11e07-ed90-cc6a-367f-b77436bb3664" />
+        <topic id="M:LanceurRayon.Math.Color.schur(LanceurRayon.Math.Color)" project="LanceurRayon.Math" file="fb909c31-a5ac-3fdb-b5bd-d090283870b1" />
+      </topic>
+    </topic>
+    <topic id="T:LanceurRayon.Math.Point" project="LanceurRayon.Math" file="55502f6a-a1c9-0114-1e66-25a0d07e2892">
+      <topic id="Overload:LanceurRayon.Math.Point.#ctor" project="LanceurRayon.Math" file="5ab513f5-ce3f-12fe-c248-35bbbd82ebc2">
+        <topic id="M:LanceurRayon.Math.Point.#ctor" project="LanceurRayon.Math" file="6af67878-2280-048a-f549-ec716b38c654" />
+        <topic id="M:LanceurRayon.Math.Point.#ctor(System.Double,System.Double,System.Double)" project="LanceurRayon.Math" file="5338c3a2-efc6-f59c-cc4d-a24373791d8f" />
+      </topic>
+      <topic id="Properties.T:LanceurRayon.Math.Point" project="LanceurRayon.Math" file="b1659494-eda2-c14d-6b47-1a3bada1178d" />
+      <topic id="Methods.T:LanceurRayon.Math.Point" project="LanceurRayon.Math" file="2add82a2-f7dc-901b-5119-4ff39d1c290d">
+        <topic id="M:LanceurRayon.Math.Point.add(LanceurRayon.Math.Vec3)" project="LanceurRayon.Math" file="e66e712d-d9f7-613e-9fe9-75f33cf043db" />
+        <topic id="M:LanceurRayon.Math.Point.mul(System.Double)" project="LanceurRayon.Math" file="5533f639-f678-92eb-d3b3-e42e1161746b" />
+        <topic id="M:LanceurRayon.Math.Point.sub(LanceurRayon.Math.Point)" project="LanceurRayon.Math" file="b833581b-99e5-a589-4f75-ddc664833d8c" />
+        <topic id="M:LanceurRayon.Math.Point.ToString" project="LanceurRayon.Math" file="c50ee79b-0af3-ce1f-72ec-0046d9f22ee2" />
+      </topic>
+    </topic>
+    <topic id="T:LanceurRayon.Math.Triplet" project="LanceurRayon.Math" file="0f54e427-e39d-cdd3-735f-a056b987bb23">
+      <topic id="Overload:LanceurRayon.Math.Triplet.#ctor" project="LanceurRayon.Math" file="d8dd6a33-8599-df9c-e4b1-44b5904cf973">
+        <topic id="M:LanceurRayon.Math.Triplet.#ctor" project="LanceurRayon.Math" file="9f7eb028-a963-efd6-8698-ad59f37f08fd" />
+        <topic id="M:LanceurRayon.Math.Triplet.#ctor(System.Double,System.Double,System.Double)" project="LanceurRayon.Math" file="c41f12b4-f4b4-eba7-f0d3-fa893b93cf0d" />
+      </topic>
+      <topic id="Properties.T:LanceurRayon.Math.Triplet" project="LanceurRayon.Math" file="99aa7f16-8901-6d32-e61b-0ba46b82416c">
+        <topic id="P:LanceurRayon.Math.Triplet.X" project="LanceurRayon.Math" file="68e52397-cd4e-5208-c4f0-3c05e4e1601c" />
+        <topic id="P:LanceurRayon.Math.Triplet.Y" project="LanceurRayon.Math" file="da6c13f2-3087-4017-ebac-f7c89ca495a1" />
+        <topic id="P:LanceurRayon.Math.Triplet.Z" project="LanceurRayon.Math" file="4bcf7c9e-638d-9afd-5d87-0ff4f19c2e4a" />
+      </topic>
+      <topic id="Methods.T:LanceurRayon.Math.Triplet" project="LanceurRayon.Math" file="3cffa9ab-8b8f-1c2e-f530-9ece489430a5" />
+    </topic>
+    <topic id="T:LanceurRayon.Math.Vec3" project="LanceurRayon.Math" file="2d8db316-9c13-e797-52ab-ff6d26e853d2">
+      <topic id="Overload:LanceurRayon.Math.Vec3.#ctor" project="LanceurRayon.Math" file="f7d7f628-306b-eb5e-cd5a-7e9ce6473dac">
+        <topic id="M:LanceurRayon.Math.Vec3.#ctor" project="LanceurRayon.Math" file="9e5e5e0e-8658-81c2-ef24-cb42ae4a1004" />
+        <topic id="M:LanceurRayon.Math.Vec3.#ctor(System.Double,System.Double,System.Double)" project="LanceurRayon.Math" file="e930c7a5-8185-567e-417f-ca1adefa6d97" />
+      </topic>
+      <topic id="Properties.T:LanceurRayon.Math.Vec3" project="LanceurRayon.Math" file="2e7e471c-a063-9bdc-95b8-44d5ce7034a2" />
+      <topic id="Methods.T:LanceurRayon.Math.Vec3" project="LanceurRayon.Math" file="3d66a8f6-59ee-675d-7e3b-a487d62a82ef">
+        <topic id="M:LanceurRayon.Math.Vec3.add(LanceurRayon.Math.Vec3)" project="LanceurRayon.Math" file="1c2ea1d5-899d-ca67-7521-b717874f44d2" />
+        <topic id="M:LanceurRayon.Math.Vec3.length" project="LanceurRayon.Math" file="70951e18-7303-e4aa-2286-7bca1119a640" />
+        <topic id="M:LanceurRayon.Math.Vec3.mul(System.Double)" project="LanceurRayon.Math" file="bad330bd-5397-05ec-81d4-d0a80e1c11cd" />
+        <topic id="M:LanceurRayon.Math.Vec3.norm" project="LanceurRayon.Math" file="ae8db942-b0e1-ffe7-c328-85a58aec4f35" />
+        <topic id="M:LanceurRayon.Math.Vec3.scalar(LanceurRayon.Math.Vec3)" project="LanceurRayon.Math" file="78217e52-a332-1bed-47d5-5daa549b086d" />
+        <topic id="M:LanceurRayon.Math.Vec3.sub(LanceurRayon.Math.Vec3)" project="LanceurRayon.Math" file="5d70acc2-9b87-4138-40ef-a247591bb804" />
+        <topic id="M:LanceurRayon.Math.Vec3.ToString" project="LanceurRayon.Math" file="139ebffe-fe1e-94a0-89dc-385fdceeb66b" />
+        <topic id="M:LanceurRayon.Math.Vec3.vectorial(LanceurRayon.Math.Vec3)" project="LanceurRayon.Math" file="fc837d37-4dc4-0246-3b9f-d26068009d73" />
+      </topic>
+    </topic>
+  </topic>
+</topics>
