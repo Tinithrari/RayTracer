@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 
 using LanceurRayon.Math;
+using System.Globalization;
 
 namespace LanceurRayon.TestMath
 {
@@ -31,7 +32,7 @@ namespace LanceurRayon.TestMath
                             obj = new Color(Double.Parse(arg[1]), Double.Parse(arg[2]), Double.Parse(arg[3]));
                             break;
                         default:
-                            obj = Double.Parse(cpt);
+                            obj = Double.Parse(cpt).ToString("0.0", CultureInfo.InvariantCulture);
                         break;
                     }
                     return obj;
