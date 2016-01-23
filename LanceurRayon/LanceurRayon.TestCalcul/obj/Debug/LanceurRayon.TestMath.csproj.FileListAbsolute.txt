@@ -10,3 +10,5 @@ C:\Users\Tinithrari\Source\Repos\lanceurrayons\LanceurRayon\LanceurRayon.TestCal
 C:\Users\Tinithrari\Source\Repos\lanceur_rayons\LanceurRayon\LanceurRayon.TestCalcul\bin\Debug\LanceurRayon.TestCalcul.exe.config
 C:\Users\Tinithrari\Source\Repos\lanceur_rayons\LanceurRayon\LanceurRayon.TestCalcul\obj\Debug\LanceurRayon.TestCalcul.exe
 C:\Users\Tinithrari\Source\Repos\lanceur_rayons\LanceurRayon\LanceurRayon.TestCalcul\obj\Debug\LanceurRayon.TestCalcul.pdb
+C:\Users\Tinithrari\Source\Repos\lanceurrayons\LanceurRayon\LanceurRayon.TestCalcul\bin\Debug\LanceurRayon.TestMath.exe.config
+C:\Users\Tinithrari\Source\Repos\lanceurrayons\LanceurRayon\LanceurRayon.TestCalcul\bin\Debug\triplet.exe.config

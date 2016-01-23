@@ -7,8 +7,8 @@
     <ProjectGuid>{8CB58A54-5FE1-4230-8696-B27962F48955}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>LanceurRayon.TestCalcul</RootNamespace>
-    <AssemblyName>LanceurRayon.TestCalcul</AssemblyName>
+    <RootNamespace>LanceurRayon.TestMath</RootNamespace>
+    <AssemblyName>triplet</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
