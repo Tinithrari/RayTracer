@@ -3,7 +3,6 @@ C:\Users\Tinithrari\Source\Repos\lanceurrayons\LanceurRayon\TestMath\bin\Debug\T
 C:\Users\Tinithrari\Source\Repos\lanceurrayons\LanceurRayon\TestMath\bin\Debug\LanceurRayon.Math.dll
 C:\Users\Tinithrari\Source\Repos\lanceurrayons\LanceurRayon\TestMath\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
 C:\Users\Tinithrari\Source\Repos\lanceurrayons\LanceurRayon\TestMath\bin\Debug\LanceurRayon.Math.pdb
-C:\Users\Tinithrari\Source\Repos\lanceurrayons\LanceurRayon\TestMath\bin\Debug\fr\Microsoft.VisualStudio.QualityTools.UnitTestFramework.resources.dll
 C:\Users\Tinithrari\Source\Repos\lanceurrayons\LanceurRayon\TestMath\obj\Debug\Test.csprojResolveAssemblyReference.cache
 C:\Users\Tinithrari\Source\Repos\lanceurrayons\LanceurRayon\TestMath\obj\Debug\TestMath.dll
 C:\Users\Tinithrari\Source\Repos\lanceurrayons\LanceurRayon\TestMath\obj\Debug\TestMath.pdb

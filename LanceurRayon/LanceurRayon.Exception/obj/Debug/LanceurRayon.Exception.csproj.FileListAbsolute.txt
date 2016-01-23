@@ -2,3 +2,6 @@ C:\Users\Tinithrari\Source\Repos\lanceurrayons\LanceurRayon\LanceurRayon.Excepti
 C:\Users\Tinithrari\Source\Repos\lanceurrayons\LanceurRayon\LanceurRayon.Exception\bin\Debug\LanceurRayon.Exception.pdb
 C:\Users\Tinithrari\Source\Repos\lanceurrayons\LanceurRayon\LanceurRayon.Exception\obj\Debug\LanceurRayon.Exception.dll
 C:\Users\Tinithrari\Source\Repos\lanceurrayons\LanceurRayon\LanceurRayon.Exception\obj\Debug\LanceurRayon.Exception.pdb
+C:\Users\Tinithrari\Source\Repos\lanceurrayons\LanceurRayon\LanceurRayon.Exception\bin\Debug\System.Net.Http.dll
+C:\Users\Tinithrari\Source\Repos\lanceurrayons\LanceurRayon\LanceurRayon.Exception\bin\Debug\System.Net.Http.xml
+C:\Users\Tinithrari\Source\Repos\lanceurrayons\LanceurRayon\LanceurRayon.Exception\bin\Debug\fr\System.Net.Http.resources.dll

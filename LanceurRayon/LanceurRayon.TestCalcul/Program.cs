@@ -16,9 +16,6 @@ namespace LanceurRayon.TestMath
             Object obj;
             string[] arg = cpt.Split(' ');
 
-            if (arg.Length != 4 || ! isComponent(arg[0]))
-                throw new ArgumentException();
-
             try {
                     switch (arg[0][0])
                     {
@@ -33,8 +30,9 @@ namespace LanceurRayon.TestMath
                         case 'C':
                             obj = new Color(Double.Parse(arg[1]), Double.Parse(arg[2]), Double.Parse(arg[3]));
                             break;
-                    default:
-                        throw new ArgumentException();
+                        default:
+                            obj = Double.Parse(cpt);
+                        break;
                     }
                     return obj;
             }
@@ -80,7 +78,7 @@ namespace LanceurRayon.TestMath
             cmp2 = expr[2];
 
             // Vérification de la synthaxe des éléments
-            if (! isComponent(cmp1) || ! isOperation(op) || ! isComponent(cmp2))
+            if (! isComponent(cmp1) || ! isOperation(op))
             {
                 Console.Error.WriteLine("Erreur de synthaxe, usage : Opérande,Opérateur,Opérande");
                 System.Environment.Exit(2);
@@ -96,10 +94,12 @@ namespace LanceurRayon.TestMath
                 Object res = o1.GetType().GetMethod(expr[1]).Invoke(o1, new Object[1] { o2 });
 
                 Console.WriteLine(res);
+                Console.ReadKey();
             }
             catch (Exception e)
             {
-                Console.WriteLine("Interdit");
+                Console.WriteLine("Interdit : " + e.Message);
+                Console.ReadKey();
             }
         }
     }
