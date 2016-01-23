@@ -91,8 +91,15 @@ namespace LanceurRayon.TestMath
                 Object o1 = buildObject(expr[0]);
                 Object o2 = buildObject(expr[2]);
 
-                Object res = o1.GetType().GetMethod(expr[1]).Invoke(o1, new Object[1] { o2 });
+                Object res;
 
+                try {
+                    res = o1.GetType().GetMethod(expr[1]).Invoke(o1, new Object[1] { o2 });
+                }
+                catch (Exception)
+                {
+                    res = o2.GetType().GetMethod(expr[1]).Invoke(o2, new Object[1] { o1 });
+                }
                 if (res.GetType().Equals(typeof(Double)))
                     res = ((Double)res).ToString("0.0#", CultureInfo.InvariantCulture);
                 Console.WriteLine(res);

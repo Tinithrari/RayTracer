@@ -34,18 +34,6 @@ namespace LanceurRayon.Math
         }
 
         /// <summary>
-        /// Permet d'effectuer une translation d'un point via le vecteur
-        /// </summary>
-        /// <param name="p">Le point à déplacé</param>
-        /// <returns>Le point après déplacement</returns>
-        public Point add(Point p)
-        {
-            if (p == null)
-                throw new ArgumentNullException();
-            return new Point(this.X + p.X, this.Y + p.Y, this.Z + p.Z);
-        }
-
-        /// <summary>
         /// Permet de soustraire deux vecteurs
         /// </summary>
         /// <param name="v">Le vecteur à soustraire aux vecteurs courant</param>
