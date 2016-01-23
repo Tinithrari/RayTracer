@@ -2,8 +2,6 @@
 mydir=$(dirname "$0")
 pushd
 cd "$mydir"/LanceurRayon/
-mdtool build -p:LanceurRayon.TestMath
+mdtool build -p:LanceurRayon.TestMath > /dev/null
 popd
-
-mono $mydir/LanceurRayon/LanceurRayon.Calcul/bin/debug/triplet.exe "$1" 2>&1
-
+mono $mydir/LanceurRayon/LanceurRayon.Calcul/bin/triplet.exe "$1" 2>&1
