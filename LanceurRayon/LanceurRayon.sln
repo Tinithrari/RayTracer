@@ -11,7 +11,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test", "TestMath\Test.cspro
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LanceurRayon.TestMath", "LanceurRayon.TestCalcul\LanceurRayon.TestMath.csproj", "{8CB58A54-5FE1-4230-8696-B27962F48955}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LanceurRayon.Comparateur", "Ray_Tracer\LanceurRayon.Comparateur.csproj", "{AE34C972-660E-4EFE-B5AF-912FAE31237D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LanceurRayon.Comparateur", "LanceurRayon.Comparateur\LanceurRayon.Comparateur.csproj", "{AE34C972-660E-4EFE-B5AF-912FAE31237D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
