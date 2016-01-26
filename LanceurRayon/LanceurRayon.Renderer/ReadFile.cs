@@ -185,30 +185,31 @@ namespace LanceurRayon.Renderer
 
                 }
 
-                if (!size_present || !output_present)
-                    Console.WriteLine("Le fichier de scène doit obligatoirement présenté un fichier de sortie et une taille de fenêtre ");
+               
 
-                if (!ambient_present)
-                    Console.WriteLine("Lumière ambiente requise");
+             
+            }
+            if (!size_present || !output_present)
+                Console.WriteLine("Le fichier de scène doit obligatoirement présenté un fichier de sortie et une taille de fenêtre ");
 
-                if (!specular_present)
-                    Console.WriteLine("plop");
+            if (!ambient_present)
+                Console.WriteLine("Lumière ambiente requise");
 
-                if (!diffuse_present)
-                    Console.WriteLine("Diffusion de la lumière requise");
+            if (!specular_present)
+                Console.WriteLine("plop");
 
-                if (!directional_present)
-                    Console.WriteLine("Lumière directionelle requise");
+            if (!diffuse_present)
+                Console.WriteLine("Diffusion de la lumière requise");
 
-                if (!camera_present)
-                {
-                    //camera=0,0,0,0,0,0,0
-                    ;
-                }
+            if (!directional_present)
+                Console.WriteLine("Lumière directionelle requise");
 
-                return ma_scene;
+            if (!camera_present)
+            {
+               ma_scene.Camera=new double[10] {0,0,0,0,0,0,0,0,0,0 };
             }
 
+            return ma_scene;
         }
 
 
