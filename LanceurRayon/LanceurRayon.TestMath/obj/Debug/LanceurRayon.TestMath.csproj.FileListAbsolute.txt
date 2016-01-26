@@ -20,3 +20,4 @@ C:\Users\Tinithrari\Source\Repos\lanceurrayons\LanceurRayon\LanceurRayon.TestMat
 C:\Users\Tinithrari\Source\Repos\lanceurrayons\LanceurRayon\LanceurRayon.TestMath\obj\Debug\LanceurRayon.TestMath.csprojResolveAssemblyReference.cache
 C:\Users\Tinithrari\Source\Repos\lanceurrayons\LanceurRayon\LanceurRayon.TestMath\obj\Debug\triplet.exe
 C:\Users\Tinithrari\Source\Repos\lanceurrayons\LanceurRayon\LanceurRayon.TestMath\obj\Debug\triplet.pdb
+C:\Users\Drew\Source\Repos\lanceurrayons\LanceurRayon\LanceurRayon.TestMath\bin\triplet.exe.config
