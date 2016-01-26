@@ -1,8 +1,7 @@
 ﻿using System.IO;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text.RegularExpressions;
+using System.Drawing;
+
 
 namespace LanceurRayon.Renderer
 {
@@ -10,11 +9,11 @@ namespace LanceurRayon.Renderer
     {
 
         //Chargement du fichier de scène intégralement en mémoire vive .
-        public static void Analyze(string nom_fichier)
+        public  Scene Analyze(string nom_fichier)
         {
 
             string[] lignes_fichier, tmp;
-
+            Scene ma_scene = new Scene();
 
             bool output_present, size_present, camera_present,
                 specular_present, ambient_present, directional_present, diffuse_present;
@@ -47,6 +46,8 @@ namespace LanceurRayon.Renderer
                         if (ReadFile.check_size(tmp)){
 
                             size_present = true;
+                            ma_scene.Fenetre=new Bitmap(Int32.Parse(tmp[1]),Int32.Parse(tmp[2]));
+
                             Console.WriteLine("Création d'un bitmap de " + tmp[1] + " par " + tmp[2] + " pixels");
                         }
 
@@ -57,7 +58,8 @@ namespace LanceurRayon.Renderer
                         if (ReadFile.check_output(tmp)){
 
                             output_present = true;
-                            //TO DO attraper une exception lors la tentative de création du fichier.
+                            ma_scene.Output = tmp[1];
+
                             Console.WriteLine("fichier de sortie : " + tmp[1]);
 
                         }
@@ -71,6 +73,14 @@ namespace LanceurRayon.Renderer
                         {
 
                             camera_present = true;
+                            ma_scene.Camera = new Double[10] { Double.Parse(tmp[1]),Double.Parse(tmp[2]),
+                                                               Double.Parse(tmp[3]),Double.Parse(tmp[4]),
+                                                               Double.Parse(tmp[5]),Double.Parse(tmp[6]),
+                                                               Double.Parse(tmp[7]),Double.Parse(tmp[8]),
+                                                               Double.Parse(tmp[9]),Double.Parse(tmp[10])
+                                               };
+
+
                             Console.WriteLine("Création de la caméra");
                         }
 
@@ -152,7 +162,7 @@ namespace LanceurRayon.Renderer
                         if (ReadFile.check_float(tmp,3,"sphere"))
                         {
 
-
+                            ma_scene.add_Sphere(Double.Parse(tmp[1]), Double.Parse(tmp[2]), Double.Parse(tmp[3]), Double.Parse(tmp[4]));
                             Console.WriteLine("Création d'une sphère");
                         }
 
@@ -196,7 +206,7 @@ namespace LanceurRayon.Renderer
                     ;
                 }
 
-
+                return ma_scene;
             }
 
         }

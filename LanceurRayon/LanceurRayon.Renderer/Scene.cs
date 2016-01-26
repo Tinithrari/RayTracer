@@ -1,34 +1,117 @@
 ﻿using System.Drawing;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+using System.Collections;
+
+
 
 namespace LanceurRayon.Renderer
 {
+    //Les classes suivantes servent de place holder pour une implémentation future
     class Vertex { }
-    class Sphere { }
+    class Sphere {
+
+        private double x;
+        private double y;
+        private double z;
+        private double rayon;
+
+
+        public Sphere(double x ,double y,double z,double rayon) {
+            this.x = x;
+            this.y = y;
+            this.z = z;
+            this.rayon = rayon;
+        }
+
+        public double X
+        {
+            get
+            {
+                return x;
+            }
+
+            set
+            {
+                x = value;
+            }
+        }
+
+        public double Y
+        {
+            get
+            {
+                return y;
+            }
+
+            set
+            {
+                y = value;
+            }
+        }
+
+        public double Z
+        {
+            get
+            {
+                return z;
+            }
+
+            set
+            {
+                z = value;
+            }
+        }
+
+        public double Rayon
+        {
+            get
+            {
+                return rayon;
+            }
+
+            set
+            {
+                rayon = value;
+            }
+        }
+    }
+
+
     class Triangle { }
     class Plan { }
 
     public class Scene
     {
-        
+        private string output;
         private Bitmap fenetre;
+        private double[] camera;
 
         //Les différentes entitées géométriques composants la scène.
-        private Point[] les_points;
-        private Vertex[] les_vertices;
-        private Sphere[] les_spheres;
-        private Triangle[] les_triangles;
-        private Plan[] les_plans;
+        private ArrayList les_points;
+        private ArrayList les_vertices;
+        private ArrayList les_spheres;
+        private ArrayList les_triangles;
+        private ArrayList les_plans;
 
 
         //Données concernant l'éclairage
-        private double[] camera;
+        
         private double[] couleur_ambiante;
         private double[] diffusion_lumiere;
         private double[] lumiere_reflechie;
         private double[] lumiere_directionelle;
+
+        public string Output
+        {
+            get
+            {
+                return output;
+            }
+
+            set
+            {
+                output = value;
+            }
+        }
 
         public Bitmap Fenetre
         {
@@ -43,7 +126,20 @@ namespace LanceurRayon.Renderer
             }
         }
 
-        public Point[] Les_points
+        public double[] Camera
+        {
+            get
+            {
+                return camera;
+            }
+
+            set
+            {
+                camera = value;
+            }
+        }
+
+        public ArrayList Les_points
         {
             get
             {
@@ -56,7 +152,7 @@ namespace LanceurRayon.Renderer
             }
         }
 
-        internal Vertex[] Les_vertices
+        public ArrayList Les_vertices
         {
             get
             {
@@ -69,7 +165,7 @@ namespace LanceurRayon.Renderer
             }
         }
 
-        internal Sphere[] Les_spheres
+        public ArrayList Les_spheres
         {
             get
             {
@@ -82,7 +178,7 @@ namespace LanceurRayon.Renderer
             }
         }
 
-        internal Triangle[] Les_triangles
+        public ArrayList Les_triangles
         {
             get
             {
@@ -95,7 +191,7 @@ namespace LanceurRayon.Renderer
             }
         }
 
-        internal Plan[] Les_plans
+        public ArrayList Les_plans
         {
             get
             {
@@ -105,19 +201,6 @@ namespace LanceurRayon.Renderer
             set
             {
                 les_plans = value;
-            }
-        }
-
-        public double[] Camera
-        {
-            get
-            {
-                return camera;
-            }
-
-            set
-            {
-                camera = value;
             }
         }
 
@@ -160,7 +243,7 @@ namespace LanceurRayon.Renderer
             }
         }
 
-        public double[] Lumiere_directionelle
+         public double[] Lumiere_directionelle
         {
             get
             {
@@ -171,6 +254,12 @@ namespace LanceurRayon.Renderer
             {
                 lumiere_directionelle = value;
             }
+        }
+
+
+        public void add_Sphere(double x,double y,double z ,double R){
+            les_spheres.Add(new Sphere(x,y,z,R));
+
         }
     }
 }
