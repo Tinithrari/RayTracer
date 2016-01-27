@@ -15,13 +15,13 @@ namespace LanceurRayon.RayTracer
             this._scene = _scene;
 
             inter = _scene.Camera.LookFrom.sub(_scene.Camera.LookAt);
-            tmpW = inter.mul(1 / inter.norm());
+            tmpW = inter.mul( (1 / inter.length()) );
 
-            inter = _scene.Camera.Up.sub(tmpW);
-            tmpU = inter.mul(1 / inter.norm());
+            inter = _scene.Camera.UP.sub(tmpW);
+            tmpU = inter.mul(1 / inter.length());
 
             inter = tmpU.cross(tmpW);
-            tmpV = inter.mul(1 / inter.norm());
+            tmpV = inter.mul(1 / inter.length());
 
             _repere = new Repere(tmpU, tmpV, tmpW);
         }
