@@ -10,7 +10,6 @@ namespace LanceurRayon.Math
         private double fov;
 
 
-
         public Camera(Vec3 lookAt, Vec3 lookFrom, Vec3 up, double fov)
         {
 

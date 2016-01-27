@@ -43,9 +43,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Camera.cs" />
+    <Compile Include="Lumiere.cs" />
     <Compile Include="Plan.cs" />
     <Compile Include="Triangle.cs" />
-    <Compile Include="Vertex.cs" />
     <Compile Include="Sphere.cs" />
     <Compile Include="Color.cs" />
     <Compile Include="Point.cs" />

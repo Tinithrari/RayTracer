@@ -49,9 +49,9 @@ namespace LanceurRayon.Renderer
                 {
                     //Caractéristiques de la scène
                     case "size":
-                      
-                        if (tmp.Length !=4)
-                            throw new System.ArgumentException("Nombre d'arguments incorrect", tmp[0]);
+                     
+                        if (tmp.Length != 3)
+                            throw new ArgumentException("Nombre d'arguments incorrect", tmp[0]);
                         
 
                         ma_scene.fenetre=new Bitmap(Int32.Parse(tmp[1]),Int32.Parse(tmp[2]));
@@ -61,8 +61,8 @@ namespace LanceurRayon.Renderer
 
                     case "output":
 
-                        if (tmp.Length != 3)
-                            throw new System.ArgumentException("Nombre d'arguments  incorrect", tmp[0]);
+                        if (tmp.Length != 3 )
+                            throw new ArgumentException("Nombre d'arguments  incorrect", tmp[0]);
 
                             ma_scene.output = tmp[1];
                             output_present = true;
@@ -71,14 +71,14 @@ namespace LanceurRayon.Renderer
 
                     case "camera":
 
-                        if (tmp.Length != 12)
-                            throw new System.ArgumentException("Nombre d'arguments incorrect", tmp[0]);
+                        if (tmp.Length != 12 )
+                            throw new ArgumentException("Nombre d'arguments incorrect", tmp[0]);
 
                       
-                        ma_scene.camera = new Camera ( new Vec3(Double.Parse(tmp[1], CultureInfo.InvariantCulture),Double.Parse(tmp[2], CultureInfo.InvariantCulture),Double.Parse(tmp[3], CultureInfo.InvariantCulture)),
-                                                       new Vec3(Double.Parse(tmp[4], CultureInfo.InvariantCulture),Double.Parse(tmp[5], CultureInfo.InvariantCulture),Double.Parse(tmp[6], CultureInfo.InvariantCulture)),
-                                                       new  Vec3(Double.Parse(tmp[7],CultureInfo.InvariantCulture),Double.Parse(tmp[8], CultureInfo.InvariantCulture),Double.Parse(tmp[9], CultureInfo.InvariantCulture)),
-                                                       Double.Parse(tmp[10], CultureInfo.InvariantCulture)
+                        ma_scene.camera = new Camera ( new Vec3(double.Parse(tmp[1], CultureInfo.InvariantCulture),double.Parse(tmp[2], CultureInfo.InvariantCulture),double.Parse(tmp[3], CultureInfo.InvariantCulture)),
+                                                       new Vec3(double.Parse(tmp[4], CultureInfo.InvariantCulture),double.Parse(tmp[5], CultureInfo.InvariantCulture),double.Parse(tmp[6], CultureInfo.InvariantCulture)),
+                                                       new  Vec3(double.Parse(tmp[7],CultureInfo.InvariantCulture),double.Parse(tmp[8], CultureInfo.InvariantCulture),double.Parse(tmp[9], CultureInfo.InvariantCulture)),
+                                                       double.Parse(tmp[10], CultureInfo.InvariantCulture)
                                                       );
                         camera_present = true;
 
@@ -93,47 +93,88 @@ namespace LanceurRayon.Renderer
 
                     case "diffuse":
 
-                        ma_scene.nb_lumieres++;
+               
 
                         break;
 
                     case "specular":
 
-                        ma_scene.nb_lumieres++;
+                        
 
                         break;
                     
                      //Source de lumière
                     case "directional":
 
-                        if (tmp.Length != 8)
-                            throw new System.ArgumentException("Nombre d'arguments insuffisant", tmp[0]);
+                        if (tmp.Length != 8 )
+                            throw new ArgumentException("Nombre d'arguments insuffisant", tmp[0]);
 
 
+                        ma_scene.add_lumiere_globale(new Vec3(double.Parse(tmp[1], CultureInfo.InvariantCulture),
+                                                              double.Parse(tmp[2], CultureInfo.InvariantCulture),
+                                                              double.Parse(tmp[3], CultureInfo.InvariantCulture)),
+                                                     new Math.Color(double.Parse(tmp[4], CultureInfo.InvariantCulture),
+                                                                    double.Parse(tmp[5], CultureInfo.InvariantCulture),
+                                                                    double.Parse(tmp[6], CultureInfo.InvariantCulture))
+                                                    );
                         ma_scene.nb_lumieres++;
 
                         break;
                    
-                    //Les entités géométriques
+                    
                     case "point":
 
-                        ma_scene.nb_objets++;
-                        break;
+                        if (tmp.Length != 8 )
+                            throw new ArgumentException("Nombre d'arguments incorrect", tmp[0]);
 
+                        ma_scene.add_lumiere_locale(new Vec3(double.Parse(tmp[1], CultureInfo.InvariantCulture),
+                                                            double.Parse(tmp[2], CultureInfo.InvariantCulture),
+                                                            double.Parse(tmp[3], CultureInfo.InvariantCulture)),
+                                                   new Math.Color(double.Parse(tmp[4], CultureInfo.InvariantCulture),
+                                                                  double.Parse(tmp[5], CultureInfo.InvariantCulture),
+                                                                  double.Parse(tmp[6], CultureInfo.InvariantCulture))
+                                                  );
+                        ma_scene.nb_lumieres++;
+                        break;
+                    
+                    //Les entités géométriques
                     case "vertex":
 
+                        if (tmp.Length !=5 )
+                            throw new System.ArgumentException("Nombre d'arguments incorrect", tmp[0]);
+
+                        ma_scene.add_Point(new Math.Point(double.Parse(tmp[1], CultureInfo.InvariantCulture),
+                                                          double.Parse(tmp[2], CultureInfo.InvariantCulture),
+                                                          double.Parse(tmp[3], CultureInfo.InvariantCulture)
+                                                          ));
                         ma_scene.nb_objets++;
 
                         break;
 
                     case "tri":
 
+                        if (tmp.Length != 4 )
+                            throw new System.ArgumentException("Nombre d'arguments incorrect", tmp[0]);
+
+                        ma_scene.add_Triangle(new Math.Point(double.Parse(tmp[1], CultureInfo.InvariantCulture),
+                                                             double.Parse(tmp[2], CultureInfo.InvariantCulture),
+                                                             double.Parse(tmp[3], CultureInfo.InvariantCulture)
+                                                            ));
                         ma_scene.nb_objets++;
 
                         break;
 
 
                     case "sphere":
+
+                        if (tmp.Length != 5 )
+                            throw new ArgumentException("Nombre d'arguments incorrect", tmp[0]);
+
+                        ma_scene.add_Sphere(new Math.Point(double.Parse(tmp[1], CultureInfo.InvariantCulture),
+                                                           double.Parse(tmp[2], CultureInfo.InvariantCulture),
+                                                           double.Parse(tmp[3], CultureInfo.InvariantCulture)),
+                                            double.Parse(tmp[4], CultureInfo.InvariantCulture)
+                                            );
 
                         ma_scene.nb_objets++;
 
@@ -142,8 +183,18 @@ namespace LanceurRayon.Renderer
 
                     case "plane":
 
-                        ma_scene.nb_objets++;
+                        if (tmp.Length != 8 )
+                            throw new System.ArgumentException("Nombre d'arguments incorrect", tmp[0]);
 
+                        ma_scene.nb_objets++;
+                        ma_scene.add_Plan(new Math.Point(double.Parse(tmp[1], CultureInfo.InvariantCulture),
+                                                         double.Parse(tmp[2], CultureInfo.InvariantCulture),
+                                                         double.Parse(tmp[3], CultureInfo.InvariantCulture)),
+
+                                          new Math.Vec3(double.Parse(tmp[4], CultureInfo.InvariantCulture),
+                                                        double.Parse(tmp[5], CultureInfo.InvariantCulture),
+                                                        double.Parse(tmp[6], CultureInfo.InvariantCulture))
+                                          );
                         break;
 
                     default:
@@ -153,14 +204,15 @@ namespace LanceurRayon.Renderer
             }
 
             //On s'assure que un des paramètres indispensable n'à pas été omis .
+           
             if (!size_present )
-                throw new System.ArgumentException("Argument manquant !!!","size");
+                throw new ArgumentException("Argument manquant !!!","size");
 
-            else if(!output_present)
-                throw new System.ArgumentException("Argument maquant !!!","output");
+            if(!output_present)
+                throw new ArgumentException("Argument manquant !!!","output");
 
-            else if( !camera_present)
-                throw new System.ArgumentException("Argument manquant !!!", "camera");
+            if( !camera_present)
+                throw new ArgumentException("Argument manquant !!!", "camera");
 
             return ma_scene;
         }

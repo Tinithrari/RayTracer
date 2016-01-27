@@ -34,7 +34,7 @@ namespace LanceurRayon.Renderer
                 System.Environment.Exit(1);
             }
 
-            catch (FormatException g)
+            catch (FormatException )
             {
                 Console.WriteLine("Un ou plusieurs arguments ne sont pas des nombres !!!");
                 System.Environment.Exit(1);
