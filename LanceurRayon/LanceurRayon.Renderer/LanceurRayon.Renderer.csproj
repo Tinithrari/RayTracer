@@ -52,6 +52,12 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\LanceurRayon.Math\LanceurRayon.Math.csproj">
+      <Project>{e8fc3ce2-4a04-4adc-8d49-fddf34ccb465}</Project>
+      <Name>LanceurRayon.Math</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

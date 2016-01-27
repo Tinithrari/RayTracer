@@ -1,7 +1,7 @@
 ﻿using System.IO;
 using System;
 using System.Drawing;
-
+using LanceurRayon.Math;
 
 namespace LanceurRayon.Renderer
 {
@@ -73,12 +73,11 @@ namespace LanceurRayon.Renderer
                         {
 
                             camera_present = true;
-                            ma_scene.Camera = new Double[10] { Double.Parse(tmp[1]),Double.Parse(tmp[2]),
-                                                               Double.Parse(tmp[3]),Double.Parse(tmp[4]),
-                                                               Double.Parse(tmp[5]),Double.Parse(tmp[6]),
-                                                               Double.Parse(tmp[7]),Double.Parse(tmp[8]),
-                                                               Double.Parse(tmp[9]),Double.Parse(tmp[10])
-                                               };
+                            ma_scene.camera = new Camera ( new Vec3(Double.Parse(tmp[1]),Double.Parse(tmp[2]),Double.Parse(tmp[3])),
+                                                            new Vec3(Double.Parse(tmp[4]),  Double.Parse(tmp[5]),Double.Parse(tmp[6])),
+                                                             new  Vec3(Double.Parse(tmp[7]),Double.Parse(tmp[8]),Double.Parse(tmp[9])),
+                                                               ,Double.Parse(tmp[10])
+                                                            );
 
 
                             Console.WriteLine("Création de la caméra");
