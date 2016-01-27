@@ -6,6 +6,6 @@ namespace LanceurRayon.Math
     class Plan
     {
 
-        //TO DO
+       
     }
 }

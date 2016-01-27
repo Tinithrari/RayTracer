@@ -20,12 +20,15 @@ namespace LanceurRayon.Math
             this.fov = fov;
         }
 
+
         public Vec3 LookAt
         {
             get
             {
                 return lookAt;
             }
+
+
         }
 
         public Vec3 LookFrom

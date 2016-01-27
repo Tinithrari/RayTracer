@@ -5,9 +5,9 @@ namespace LanceurRayon.Renderer
 {
     class Program
     {
-        static void Main(string[] args){
+        static void Main(string[] args) {
 
-            ReadFile reader=new ReadFile();
+            ReadFile reader = new ReadFile();
             Scene infos_scene = new Scene();
 
             if (args.Length != 1)
@@ -18,18 +18,32 @@ namespace LanceurRayon.Renderer
 
             try
             {
-              infos_scene= reader.Analyze(args[0]);
+                infos_scene = reader.Analyze(args[0]);
             }
-            catch (FileNotFoundException e)
+
+            catch (IOException e )
             {
+
+                Console.WriteLine("Le fichier de sortie n'à pas pu être enregistré !!!");
                 Console.Error.WriteLine(e.Message);
                 System.Environment.Exit(1);
             }
 
+            catch (ArgumentException f) {
+                Console.Error.WriteLine(f.Message);
+                System.Environment.Exit(1);
+            }
+
+            catch (FormatException g)
+            {
+                Console.WriteLine("Un ou plusieurs arguments ne sont pas des nombres !!!");
+                System.Environment.Exit(1);
+            }
+
+            Console.WriteLine(infos_scene.toString());
 
 
-
-
+            }
         }
     }
-}
+

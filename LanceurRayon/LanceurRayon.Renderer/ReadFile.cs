@@ -2,31 +2,36 @@
 using System;
 using System.Drawing;
 using LanceurRayon.Math;
+using System.Globalization;
 
 namespace LanceurRayon.Renderer
 {
+    /// <summary>
+    /// Classe permetant de lire un fichier de scène
+    /// </summary>
     public class ReadFile
     {
-
+        /// <summary>
+        /// Analyse le fichier de scène et convertit en un objet scène.
+        /// </summary>
         //Chargement du fichier de scène intégralement en mémoire vive .
-        public  Scene Analyze(string nom_fichier)
+        /// <param name="nom_fichier">nom fichier de scène</param>
+
+        public Scene Analyze(string nom_fichier)
         {
 
             string[] lignes_fichier, tmp;
             Scene ma_scene = new Scene();
 
-            bool output_present, size_present, camera_present,
-                specular_present, ambient_present, directional_present, diffuse_present;
+            bool output_present, size_present, camera_present;
+                
 
             lignes_fichier = System.IO.File.ReadAllLines(nom_fichier);
 
             output_present = false;
             size_present = false;
             camera_present = false;
-            specular_present = false;
-            ambient_present = false;
-            directional_present = false;
-            diffuse_present = false;
+          
 
             foreach (string ligne_courante in lignes_fichier)
             {
@@ -38,245 +43,127 @@ namespace LanceurRayon.Renderer
                 //On découpe la ligne de manière à récupérer séparément les mots constituants la ligne.
                 tmp = ligne_courante.Split(' ');
 
+
+                //Reconnaissance des différents mot clefs
                 switch (tmp[0])
                 {
-
+                    //Caractéristiques de la scène
                     case "size":
+                      
+                        if (tmp.Length !=4)
+                            throw new System.ArgumentException("Nombre d'arguments incorrect", tmp[0]);
+                        
 
-                        if (ReadFile.check_size(tmp)){
-
-                            size_present = true;
-                            ma_scene.Fenetre=new Bitmap(Int32.Parse(tmp[1]),Int32.Parse(tmp[2]));
-
-                            Console.WriteLine("Création d'un bitmap de " + tmp[1] + " par " + tmp[2] + " pixels");
-                        }
+                        ma_scene.fenetre=new Bitmap(Int32.Parse(tmp[1]),Int32.Parse(tmp[2]));
+                        size_present = true;
 
                         break;
 
                     case "output":
 
-                        if (ReadFile.check_output(tmp)){
+                        if (tmp.Length != 3)
+                            throw new System.ArgumentException("Nombre d'arguments  incorrect", tmp[0]);
 
+                            ma_scene.output = tmp[1];
                             output_present = true;
-                            ma_scene.Output = tmp[1];
-
-                            Console.WriteLine("fichier de sortie : " + tmp[1]);
-
-                        }
-
 
                         break;
 
                     case "camera":
 
-                        if (ReadFile.check_float(tmp,10,"camera"))
-                        {
+                        if (tmp.Length != 12)
+                            throw new System.ArgumentException("Nombre d'arguments incorrect", tmp[0]);
 
-                            camera_present = true;
-                            ma_scene.camera = new Camera ( new Vec3(Double.Parse(tmp[1]),Double.Parse(tmp[2]),Double.Parse(tmp[3])),
-                                                            new Vec3(Double.Parse(tmp[4]),  Double.Parse(tmp[5]),Double.Parse(tmp[6])),
-                                                             new  Vec3(Double.Parse(tmp[7]),Double.Parse(tmp[8]),Double.Parse(tmp[9])),
-                                                               ,Double.Parse(tmp[10])
-                                                            );
-
-
-                            Console.WriteLine("Création de la caméra");
-                        }
+                      
+                        ma_scene.camera = new Camera ( new Vec3(Double.Parse(tmp[1], CultureInfo.InvariantCulture),Double.Parse(tmp[2], CultureInfo.InvariantCulture),Double.Parse(tmp[3], CultureInfo.InvariantCulture)),
+                                                       new Vec3(Double.Parse(tmp[4], CultureInfo.InvariantCulture),Double.Parse(tmp[5], CultureInfo.InvariantCulture),Double.Parse(tmp[6], CultureInfo.InvariantCulture)),
+                                                       new  Vec3(Double.Parse(tmp[7],CultureInfo.InvariantCulture),Double.Parse(tmp[8], CultureInfo.InvariantCulture),Double.Parse(tmp[9], CultureInfo.InvariantCulture)),
+                                                       Double.Parse(tmp[10], CultureInfo.InvariantCulture)
+                                                      );
+                        camera_present = true;
 
                         break;
 
+                    //Les couleurs
                     case "ambient":
 
-                        if (ReadFile.check_float(tmp,3,"ambient"))
-                        {
-
-                            ambient_present = true;
-                            Console.WriteLine("Création de la lumière ambiante ");
-                        }
+                        
 
                         break;
 
                     case "diffuse":
 
-                        if (ReadFile.check_float(tmp,3,"diffuse"))
-                        {
-
-                            diffuse_present = true;
-                            Console.WriteLine("Diffusion de la lumière");
-                        }
+                        ma_scene.nb_lumieres++;
 
                         break;
 
                     case "specular":
 
-                        if (ReadFile.check_float(tmp,3,"specular"))
-                        {
-
-                            specular_present = true;
-                            Console.WriteLine("Dispersion de la lumière ");
-                        }
+                        ma_scene.nb_lumieres++;
 
                         break;
-
+                    
+                     //Source de lumière
                     case "directional":
 
-                        if (ReadFile.check_float(tmp,3,"directional"))
-                        {
+                        if (tmp.Length != 8)
+                            throw new System.ArgumentException("Nombre d'arguments insuffisant", tmp[0]);
 
-                            directional_present = true;
-                            Console.WriteLine("Direction de la lumière");
-                        }
+
+                        ma_scene.nb_lumieres++;
 
                         break;
-
+                   
+                    //Les entités géométriques
                     case "point":
 
-
+                        ma_scene.nb_objets++;
                         break;
 
                     case "vertex":
 
-                        if (ReadFile.check_float(tmp,3,"vertex"))
-                        {
-
-
-                            Console.WriteLine("Création d'une vertice");
-                        }
+                        ma_scene.nb_objets++;
 
                         break;
 
                     case "tri":
 
-                        if (ReadFile.check_float(tmp,3,"tri"))
-                        {
-
-                            Console.WriteLine("Création d'un triangle");
-                        }
+                        ma_scene.nb_objets++;
 
                         break;
 
 
                     case "sphere":
 
-                        if (ReadFile.check_float(tmp,3,"sphere"))
-                        {
+                        ma_scene.nb_objets++;
 
-                            ma_scene.add_Sphere(Double.Parse(tmp[1]), Double.Parse(tmp[2]), Double.Parse(tmp[3]), Double.Parse(tmp[4]));
-                            Console.WriteLine("Création d'une sphère");
-                        }
 
                         break;
 
                     case "plane":
 
-                        if (ReadFile.check_float(tmp,3,"plane"))
-                        {
-
-
-                            Console.WriteLine("Création d'un plan ");
-                        }
+                        ma_scene.nb_objets++;
 
                         break;
 
                     default:
-                        Console.WriteLine("mot clef inconnu");
-                        break;
-
+                        throw new System.ArgumentException("Mot clef inconnu !!!", tmp[0]);
+                      
                 }
-
-               
-
-             
             }
-            if (!size_present || !output_present)
-                Console.WriteLine("Le fichier de scène doit obligatoirement présenté un fichier de sortie et une taille de fenêtre ");
 
-            if (!ambient_present)
-                Console.WriteLine("Lumière ambiente requise");
+            //On s'assure que un des paramètres indispensable n'à pas été omis .
+            if (!size_present )
+                throw new System.ArgumentException("Argument manquant !!!","size");
 
-            if (!specular_present)
-                Console.WriteLine("plop");
+            else if(!output_present)
+                throw new System.ArgumentException("Argument maquant !!!","output");
 
-            if (!diffuse_present)
-                Console.WriteLine("Diffusion de la lumière requise");
-
-            if (!directional_present)
-                Console.WriteLine("Lumière directionelle requise");
-
-            if (!camera_present)
-            {
-               ma_scene.Camera=new double[10] {0,0,0,0,0,0,0,0,0,0 };
-            }
+            else if( !camera_present)
+                throw new System.ArgumentException("Argument manquant !!!", "camera");
 
             return ma_scene;
         }
-
-
-
-        public static bool check_size(string[] s)
-        {
-
-            int test_int;
-
-            if (s.Length != 3){
-
-                Console.WriteLine("le mot clef size doit être suivi de 2 entiers !!!");
-                return false;
-            }
-
-            if (!Int32.TryParse(s[1], out test_int) || !Int32.TryParse(s[1], out test_int)){
-
-                Console.WriteLine("un ou plusieurs paramètres ne sont pas de type entier !!!");
-                return false;
-            }
-
-            return true;
-        }
-
-  
-
-     
-        public static bool check_float(string[] s,int nb_arg_to_check,string keyword)
-        {
-
-            double test_float;
-            int i;
-
-            if (s.Length != nb_arg_to_check+1){
-
-                Console.WriteLine("le mot clef"+keyword +" doit être suivi de "+nb_arg_to_check +" réels !!!");
-                return false;
-            }
-
-
-            for (i = 1; i < nb_arg_to_check; i++){
-
-                if (!Double.TryParse(s[i], out test_float)) { 
-                    Console.WriteLine("Le paramètre"+s[i]+" n'est pas de type réel !!!");
-                    return false;
-                }
-            }
-      
-
-            return true;
-
-        }
-
-
-        public static bool check_output(string[] s)
-        {
-
-
-            if (s.Length != 2){
-
-                Console.WriteLine("le mot clef output doit être suivi d'un nom de fichier !!!");
-                return false;
-            }
-
-
-            return true;
-
-        }    
 
     }
 }
