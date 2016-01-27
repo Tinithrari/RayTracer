@@ -1,5 +1,4 @@
-﻿using System.IO;
-using System;
+﻿using System;
 using System.Drawing;
 using LanceurRayon.Math;
 using System.Globalization;
@@ -75,6 +74,7 @@ namespace LanceurRayon.Renderer
                             throw new ArgumentException("Nombre d'arguments incorrect", tmp[0]);
 
                       
+
                         ma_scene.camera = new Camera ( new Vec3(double.Parse(tmp[1], CultureInfo.InvariantCulture),double.Parse(tmp[2], CultureInfo.InvariantCulture),double.Parse(tmp[3], CultureInfo.InvariantCulture)),
                                                        new Vec3(double.Parse(tmp[4], CultureInfo.InvariantCulture),double.Parse(tmp[5], CultureInfo.InvariantCulture),double.Parse(tmp[6], CultureInfo.InvariantCulture)),
                                                        new  Vec3(double.Parse(tmp[7],CultureInfo.InvariantCulture),double.Parse(tmp[8], CultureInfo.InvariantCulture),double.Parse(tmp[9], CultureInfo.InvariantCulture)),
@@ -170,11 +170,15 @@ namespace LanceurRayon.Renderer
                         if (tmp.Length != 5 )
                             throw new ArgumentException("Nombre d'arguments incorrect", tmp[0]);
 
-                        ma_scene.add_Sphere(new Math.Point(double.Parse(tmp[1], CultureInfo.InvariantCulture),
-                                                           double.Parse(tmp[2], CultureInfo.InvariantCulture),
-                                                           double.Parse(tmp[3], CultureInfo.InvariantCulture)),
-                                            double.Parse(tmp[4], CultureInfo.InvariantCulture)
-                                            );
+                      
+
+                        
+
+                       ma_scene.add_Sphere(new Sphere(new Math.Point(double.Parse(tmp[1], CultureInfo.InvariantCulture),
+                                                      double.Parse(tmp[2], CultureInfo.InvariantCulture),
+                                                      double.Parse(tmp[3], CultureInfo.InvariantCulture)),
+                                                      double.Parse(tmp[4], CultureInfo.InvariantCulture)
+                                            ));
 
                         ma_scene.nb_objets++;
 

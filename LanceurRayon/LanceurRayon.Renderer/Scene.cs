@@ -45,9 +45,10 @@ namespace LanceurRayon.Renderer
 
         }
 
-        public void add_Sphere(Math.Point centre,double R){
+        public void add_Sphere(Sphere S){
 
-            les_spheres.Add(new Sphere(centre,R));
+           
+            les_spheres.Add(S);
 
         }
 
@@ -79,6 +80,17 @@ namespace LanceurRayon.Renderer
                     nb_objets + "\n" +
                     nb_lumieres;
                                     
+        }
+
+        public Scene()
+        {
+
+            les_points = new ArrayList();
+            les_spheres = new ArrayList();
+            les_triangles = new ArrayList();
+            les_plans = new ArrayList();
+            les_lumieres_globales = new ArrayList();
+            les_lumieres_locales = new ArrayList();
         }
     }
 }
