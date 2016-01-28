@@ -106,17 +106,19 @@ namespace LanceurRayon.Renderer
                      //Source de lumière
                     case "directional":
 
-                        if (tmp.Length != 8 )
-                            throw new ArgumentException("Nombre d'arguments insuffisant", tmp[0]);
+                        if (tmp.Length != 7 )
+                            throw new ArgumentException("Nombre d'arguments incorrect", tmp[0]);
 
 
-                        ma_scene.add_lumiere_globale(new Vec3(double.Parse(tmp[1], CultureInfo.InvariantCulture),
-                                                              double.Parse(tmp[2], CultureInfo.InvariantCulture),
-                                                              double.Parse(tmp[3], CultureInfo.InvariantCulture)),
-                                                     new Math.Color(double.Parse(tmp[4], CultureInfo.InvariantCulture),
-                                                                    double.Parse(tmp[5], CultureInfo.InvariantCulture),
-                                                                    double.Parse(tmp[6], CultureInfo.InvariantCulture))
-                                                    );
+                        ma_scene.add_lumiere_globale(new Lumiere(
+                                                                new Vec3(double.Parse(tmp[1], CultureInfo.InvariantCulture),
+                                                                         double.Parse(tmp[2], CultureInfo.InvariantCulture),
+                                                                         double.Parse(tmp[3], CultureInfo.InvariantCulture)),
+                                                                new Math.Color(double.Parse(tmp[4], CultureInfo.InvariantCulture),
+                                                                               double.Parse(tmp[5], CultureInfo.InvariantCulture),
+                                                                               double.Parse(tmp[6], CultureInfo.InvariantCulture))
+                                                                  )
+                                                     );
                         ma_scene.nb_lumieres++;
 
                         break;
@@ -124,29 +126,37 @@ namespace LanceurRayon.Renderer
                     
                     case "point":
 
-                        if (tmp.Length != 8 )
+                        if (tmp.Length != 7 )
                             throw new ArgumentException("Nombre d'arguments incorrect", tmp[0]);
 
-                        ma_scene.add_lumiere_locale(new Vec3(double.Parse(tmp[1], CultureInfo.InvariantCulture),
-                                                            double.Parse(tmp[2], CultureInfo.InvariantCulture),
-                                                            double.Parse(tmp[3], CultureInfo.InvariantCulture)),
-                                                   new Math.Color(double.Parse(tmp[4], CultureInfo.InvariantCulture),
-                                                                  double.Parse(tmp[5], CultureInfo.InvariantCulture),
-                                                                  double.Parse(tmp[6], CultureInfo.InvariantCulture))
-                                                  );
+                        ma_scene.add_lumiere_locale(new Lumiere(
+                                                                 new Vec3(double.Parse(tmp[1], CultureInfo.InvariantCulture),
+                                                                          double.Parse(tmp[2], CultureInfo.InvariantCulture),
+                                                                          double.Parse(tmp[3], CultureInfo.InvariantCulture)
+                                                                          )           
+                                                                ,new Math.Color(double.Parse(tmp[4], CultureInfo.InvariantCulture),
+                                                                                double.Parse(tmp[5], CultureInfo.InvariantCulture),
+                                                                                double.Parse(tmp[6], CultureInfo.InvariantCulture)
+                                                                                )
+                                                                )
+                                                     );
+
                         ma_scene.nb_lumieres++;
                         break;
                     
-                    //Les entités géométriques
+                    //Les entitées géométriques
                     case "vertex":
 
                         if (tmp.Length !=5 )
                             throw new System.ArgumentException("Nombre d'arguments incorrect", tmp[0]);
 
-                        ma_scene.add_Point(new Math.Point(double.Parse(tmp[1], CultureInfo.InvariantCulture),
+                        ma_scene.add_Point(new Math.Point(
+                                                          double.Parse(tmp[1], CultureInfo.InvariantCulture),
                                                           double.Parse(tmp[2], CultureInfo.InvariantCulture),
                                                           double.Parse(tmp[3], CultureInfo.InvariantCulture)
-                                                          ));
+                                                          )
+                                           );
+
                         ma_scene.nb_objets++;
 
                         break;
@@ -156,10 +166,15 @@ namespace LanceurRayon.Renderer
                         if (tmp.Length != 4 )
                             throw new System.ArgumentException("Nombre d'arguments incorrect", tmp[0]);
 
-                        ma_scene.add_Triangle(new Math.Point(double.Parse(tmp[1], CultureInfo.InvariantCulture),
-                                                             double.Parse(tmp[2], CultureInfo.InvariantCulture),
-                                                             double.Parse(tmp[3], CultureInfo.InvariantCulture)
-                                                            ));
+                        ma_scene.add_Triangle (new Triangle(
+                                                             new Math.Point(
+                                                                             double.Parse(tmp[1], CultureInfo.InvariantCulture),
+                                                                             double.Parse(tmp[2], CultureInfo.InvariantCulture),
+                                                                             double.Parse(tmp[3], CultureInfo.InvariantCulture)
+                                                                            )
+                                                              )               
+                                                );
+
                         ma_scene.nb_objets++;
 
                         break;
@@ -174,11 +189,14 @@ namespace LanceurRayon.Renderer
 
                         
 
-                       ma_scene.add_Sphere(new Sphere(new Math.Point(double.Parse(tmp[1], CultureInfo.InvariantCulture),
-                                                      double.Parse(tmp[2], CultureInfo.InvariantCulture),
-                                                      double.Parse(tmp[3], CultureInfo.InvariantCulture)),
-                                                      double.Parse(tmp[4], CultureInfo.InvariantCulture)
-                                            ));
+                       ma_scene.add_Sphere(new Sphere(
+                                                       new Math.Point(double.Parse(tmp[1], CultureInfo.InvariantCulture),
+                                                                      double.Parse(tmp[2], CultureInfo.InvariantCulture),
+                                                                      double.Parse(tmp[3], CultureInfo.InvariantCulture)
+                                                                      )
+                                                      ,double.Parse(tmp[4], CultureInfo.InvariantCulture)
+                                                       )
+                                            );
 
                         ma_scene.nb_objets++;
 
@@ -186,19 +204,26 @@ namespace LanceurRayon.Renderer
                         break;
 
                     case "plane":
-
-                        if (tmp.Length != 8 )
+                        
+                        if (tmp.Length != 7 )
                             throw new System.ArgumentException("Nombre d'arguments incorrect", tmp[0]);
 
-                        ma_scene.nb_objets++;
-                        ma_scene.add_Plan(new Math.Point(double.Parse(tmp[1], CultureInfo.InvariantCulture),
-                                                         double.Parse(tmp[2], CultureInfo.InvariantCulture),
-                                                         double.Parse(tmp[3], CultureInfo.InvariantCulture)),
+                        
+                        ma_scene.add_Plan(new Plan(
+                                                     new Math.Point(double.Parse(tmp[1], CultureInfo.InvariantCulture),
+                                                                    double.Parse(tmp[2], CultureInfo.InvariantCulture),
+                                                                    double.Parse(tmp[3], CultureInfo.InvariantCulture)
+                                                                    )
 
-                                          new Math.Vec3(double.Parse(tmp[4], CultureInfo.InvariantCulture),
-                                                        double.Parse(tmp[5], CultureInfo.InvariantCulture),
-                                                        double.Parse(tmp[6], CultureInfo.InvariantCulture))
+                                                     ,new Math.Vec3(double.Parse(tmp[4], CultureInfo.InvariantCulture),
+                                                                    double.Parse(tmp[5], CultureInfo.InvariantCulture),
+                                                                    double.Parse(tmp[6], CultureInfo.InvariantCulture)
+                                                                    )
+                                                    )
                                           );
+
+                        ma_scene.nb_objets++;
+
                         break;
 
                     default:

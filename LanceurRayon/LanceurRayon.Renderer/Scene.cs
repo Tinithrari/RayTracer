@@ -5,7 +5,9 @@ using LanceurRayon.Math;
 
 namespace LanceurRayon.Renderer
 {
-
+    /// <summary>
+    /// Classe contenant les différentes entitées géométriques, sources de lumières
+    /// </summary>
     public class Scene{
 
         //Les informations générales de la scène
@@ -29,58 +31,6 @@ namespace LanceurRayon.Renderer
         public ArrayList les_lumieres_locales { get; private set; }
 
 
-        //Les méthodes
-
-        public void add_lumiere_globale(Vec3 direction ,Math.Color couleur )
-        {
-
-            les_lumieres_globales.Add(new Lumiere(direction,couleur));
-
-        }
-
-        public void add_lumiere_locale(Vec3 direction, Math.Color couleur)
-        {
-
-            les_lumieres_locales.Add(new Lumiere(direction, couleur));
-
-        }
-
-        public void add_Sphere(Sphere S){
-
-           
-            les_spheres.Add(S);
-
-        }
-
-        public void add_Plan(Math.Point pt, Vec3 vecteur_normal)
-        {
-
-            les_plans.Add(new Plan(pt, vecteur_normal));
-
-        }
-
-        public void add_Triangle(Math.Point pt)
-        {
-
-            les_triangles.Add(new Triangle(pt));
-
-        }
-
-        public void add_Point(Math.Point pt)
-        {
-
-            les_points.Add(pt);
-
-        }
-
-        public string toString(){
-
-            return output + "\n" +
-                    (fenetre.Size.Height * fenetre.Size.Width) + "\n" +
-                    nb_objets + "\n" +
-                    nb_lumieres;
-                                    
-        }
 
         public Scene()
         {
@@ -92,5 +42,97 @@ namespace LanceurRayon.Renderer
             les_lumieres_globales = new ArrayList();
             les_lumieres_locales = new ArrayList();
         }
+
+        //Les méthodes
+
+        /// <summary>
+        /// Ajoute une source de lumière globale à la scène
+        /// </summary>
+        /// <param name="L">Source de lumière</param>
+
+        public void add_lumiere_globale(Lumiere L )
+        {
+
+            les_lumieres_globales.Add(L);
+
+        }
+
+
+        /// <summary>
+        /// Ajoute une source de lumière locale à la scène
+        /// </summary>
+        /// <param name="L">Source de lumière</param>
+
+        public void add_lumiere_locale(Lumiere L)
+        {
+
+            les_lumieres_locales.Add(L);
+
+        }
+
+
+        /// <summary>
+        /// Ajoute une Sphère à la scène
+        /// </summary>
+        /// <param name="S">Sphère</param>
+
+        public void add_Sphere(Sphere S){
+
+           
+            les_spheres.Add(S);
+
+        }
+
+        /// <summary>
+        /// Ajoute un plan à la scène
+        /// </summary>
+        /// <param name="P">Plan </param>
+
+        public void add_Plan(Plan P)
+        {
+
+            les_plans.Add(P);
+
+        }
+
+        /// <summary>
+        /// Ajoute un triangle à la scène
+        /// </summary>
+        /// <param name="T">Triangle</param>
+
+        public void add_Triangle(Triangle T)
+        {
+
+            les_triangles.Add(T);
+
+        }
+
+        /// <summary>
+        /// Ajoute un point à la scène
+        /// </summary>
+        /// <param name="P">Point</param>
+
+        public void add_Point(Math.Point pt)
+        {
+
+            les_points.Add(pt);
+
+        }
+
+        /// <summary>
+        /// Fournit une description de la scène
+        /// </summary>
+    
+
+        public string toString(){
+
+            return output + "\n" +
+                    (fenetre.Size.Height * fenetre.Size.Width) + "\n" +
+                    nb_objets + "\n" +
+                    nb_lumieres;
+                                    
+        }
+
+      
     }
 }
