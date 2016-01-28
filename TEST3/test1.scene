@@ -28,7 +28,7 @@ camera 0 0 4 0 0 0 0 1 0 45
 ambient .1 .1 .1
 directional 0 0 1 .5 .5 .5 
 point 4 0 4 .5 .5 .5
-diffuse 1 0 0 
+diffuse .9 0 0 
 specular 0 0 0
 
 # Now specify the geometry 
@@ -50,5 +50,5 @@ vertex +0 +1 0
 # Les points sont référencés par leur indice de déclaration, à partir de 0.
 
 # On déclare deux triangles pour faire un carré rouge
-ambient 1.0 .0 .0
+ambient .1 .0 .0
 tri 0 1 2

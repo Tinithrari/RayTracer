@@ -43,6 +43,5 @@ specular 0 0 0
 # Définition de formes géométriques à partir des points.
 # Les points sont référencés par leur indice de déclaration, à partir de 0.
 
-# On déclare deux triangles pour faire un carré rouge
 ambient 0.5 .0 .0
 sphere 0 0 0 1
