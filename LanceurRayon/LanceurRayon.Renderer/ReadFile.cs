@@ -23,14 +23,14 @@ namespace LanceurRayon.Renderer
             Scene ma_scene = new Scene();
 
             bool output_present, size_present, camera_present;
-                 specular_present
+                 
 
             lignes_fichier = System.IO.File.ReadAllLines(nom_fichier);
 
             output_present = false;
             size_present = false;
             camera_present = false;
-          
+           
 
             foreach (string ligne_courante in lignes_fichier)
             {
