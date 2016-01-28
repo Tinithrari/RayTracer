@@ -2,8 +2,10 @@
 
 
 namespace LanceurRayon.Math
-{
-   public class Sphere{
+{/// <summary>
+ /// Classe permetant de représenter une sphère.
+ /// </summary>
+    public class Sphere{
 
         public Point centre{ get; private set; }  
         public double rayon{ get; private set; }
