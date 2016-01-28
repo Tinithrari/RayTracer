@@ -23,7 +23,10 @@ namespace LanceurRayon.Renderer
             Scene ma_scene = new Scene();
 
             bool output_present, size_present, camera_present;
-                 
+
+            Math.Color ambient= new Math.Color();
+            Math.Color specular= new Math.Color();
+            Math.Color diffuse= new Math.Color();  
 
             lignes_fichier = System.IO.File.ReadAllLines(nom_fichier);
 
@@ -172,10 +175,18 @@ namespace LanceurRayon.Renderer
                                                                              double.Parse(tmp[2], CultureInfo.InvariantCulture),
                                                                              double.Parse(tmp[3], CultureInfo.InvariantCulture)
                                                                             )
-                                                              )               
+                                                             ,specular
+                                                             ,ambient
+                                                             ,diffuse
+                                                             )               
                                                 );
 
                         ma_scene.nb_objets++;
+                      
+                        //Remise a zéro de la couleur
+                        ambient = new Math.Color();
+                        specular = new Math.Color();
+                        diffuse = new Math.Color();
 
                         break;
 
@@ -195,11 +206,18 @@ namespace LanceurRayon.Renderer
                                                                       double.Parse(tmp[3], CultureInfo.InvariantCulture)
                                                                       )
                                                       ,double.Parse(tmp[4], CultureInfo.InvariantCulture)
+                                                      ,specular
+                                                      ,ambient
+                                                      ,diffuse
                                                        )
                                             );
 
                         ma_scene.nb_objets++;
-
+                       
+                        //Remise a zéro de la couleur
+                        ambient = new Math.Color();
+                        specular = new Math.Color();
+                        diffuse = new Math.Color();
 
                         break;
 
