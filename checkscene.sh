@@ -7,7 +7,7 @@ MYPATH=$(dirname "$0")
 
 CURRENT=`pwd`
 pushd
-cd "$mydir"/LanceurRayon/
+cd "$MYPATH"/LanceurRayon/
 mdtool build -p:LanceurRayon.Renderer 2>&1
 popd
-mono $mydir/LanceurRayon/LanceurRayon.Renderer/bin/renderer.exe "$CURRENT/$1" 2>&1
+mono $MYPATH/LanceurRayon/LanceurRayon.Renderer/bin/renderer.exe "$CURRENT/$1" 2>&1
