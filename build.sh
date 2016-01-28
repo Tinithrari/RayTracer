@@ -16,7 +16,7 @@ fi
 # javac -d $MYPATH/bin @$MYPATH/tocompile
 
 CURRENT=`pwd`
-pushd
+pushd $CURRENT
 cd "$MYPATH"/LanceurRayon/
 mdtool build -p:LanceurRayon.Comparateur > /dev/null
 mdtool build -p:LanceurRayon.TestMath > /dev/null
