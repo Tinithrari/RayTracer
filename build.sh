@@ -20,5 +20,5 @@ pushd
 cd "$MYPATH"/LanceurRayon/
 mdtool build -p:LanceurRayon.Comparateur > /dev/null
 mdtool build -p:LanceurRayon.TestMath > /dev/null
-mdtool build -p:LanceurRayon.Renderer 2>&1
+mdtool build -p:LanceurRayon.Renderer > /dev/null
 popd
