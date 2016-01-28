@@ -23,7 +23,7 @@ namespace LanceurRayon.Renderer
             Scene ma_scene = new Scene();
 
             bool output_present, size_present, camera_present;
-                
+                 specular_present
 
             lignes_fichier = System.IO.File.ReadAllLines(nom_fichier);
 
