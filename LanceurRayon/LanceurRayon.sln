@@ -15,7 +15,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LanceurRayon.TestMath", "La
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LanceurRayon.Renderer", "LanceurRayon.Renderer\LanceurRayon.Renderer.csproj", "{FFD35DBF-1E17-45A7-9DD2-789A09129D48}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LanceurRayon.Lanceur", "LanceurRayon.RayTracer\LanceurRayon.Lanceur.csproj", "{DC68CEA5-E124-4005-990B-172D702DAC6B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LanceurRayon.Lanceur", "LanceurRayon.Lanceur\LanceurRayon.Lanceur.csproj", "{DC68CEA5-E124-4005-990B-172D702DAC6B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -73,8 +73,8 @@ Global
 		{FFD35DBF-1E17-45A7-9DD2-789A09129D48}.Release|x86.Build.0 = Release|x86
 		{DC68CEA5-E124-4005-990B-172D702DAC6B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{DC68CEA5-E124-4005-990B-172D702DAC6B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{DC68CEA5-E124-4005-990B-172D702DAC6B}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{DC68CEA5-E124-4005-990B-172D702DAC6B}.Debug|x86.Build.0 = Debug|Any CPU
+		{DC68CEA5-E124-4005-990B-172D702DAC6B}.Debug|x86.ActiveCfg = Debug|x86
+		{DC68CEA5-E124-4005-990B-172D702DAC6B}.Debug|x86.Build.0 = Debug|x86
 		{DC68CEA5-E124-4005-990B-172D702DAC6B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DC68CEA5-E124-4005-990B-172D702DAC6B}.Release|Any CPU.Build.0 = Release|Any CPU
 		{DC68CEA5-E124-4005-990B-172D702DAC6B}.Release|x86.ActiveCfg = Release|x86
