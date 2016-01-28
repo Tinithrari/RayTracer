@@ -27,3 +27,14 @@ assert "./checktriplet.sh \"V 1 1 1,dot,V 2 2 2\"" "6.0"
 assert "./checktriplet.sh \"V 1 0 0,cross,V 0 1 0\"" "V 0.0 0.0 1.0"
 
 assert_end regression
+
+echo "Tests de la lecture des scènes"
+
+assert "./checkscene.sh TEST3/test1.scene" "mascene.png\n307200\n1\n2\n"
+assert "./checkscene.sh TEST3/test2.scene" "mascene.png\n307200\n1\n2\n"
+assert "./checkscene.sh TEST3/test3.scene" "mascene.png\n307200\n3\n2\n"
+assert "./checkscene.sh TEST3/test4.scene" "mascene.png\n307200\n6\n2\n"
+assert "./checkscene.sh TEST3/test5.scene" "mascene.png\n307200\n1\n1\n"
+assert "./checkscene.sh TEST3/test6.scene" "mascene.png\n786432\n4\n2\n"
+
+assert_end regression

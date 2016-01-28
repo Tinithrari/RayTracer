@@ -1,7 +1,8 @@
-mydir=$(dirname "$0")
-CURRENT=`pwd`
-pushd
-cd "$mydir"/LanceurRayon/
-mdtool build -p:LanceurRayon.Renderer > /dev/null
-popd
-mono $mydir/LanceurRayon/LanceurRayon.Renderer/bin/comparateur.exe "$CURRENT/$1" "$CURRENT/$2" 2>&1
+#!/bin/bash
+
+# Pour connaître l'emplacement du script compare.sh
+MYPATH=$(dirname "$0")
+
+# java -Dapple.awt.UIElement=true -cp $MYPATH/bin CheckScene "$1" 2>&1
+
+echo "Not implemented yet"

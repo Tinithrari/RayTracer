@@ -18,6 +18,14 @@ job2:
    tags: 
      - shell
 
+job3:
+   stage: test
+   script: "./build.sh ; cd testsl32016; ./tests3.sh"
+   artifacts:
+     untracked: true
+   tags: 
+     - shell
+
 cache:
   untracked: true
   paths:
