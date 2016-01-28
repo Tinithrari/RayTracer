@@ -5,9 +5,20 @@
     /// </summary>
     public abstract class Triplet
     {
-        private double x;
-        private double y;
-        private double z;
+        /// <summary>
+        /// Accesseur pour la coordonnée X du triplet
+        /// </summary>
+        public double X { get; private set; }
+
+        /// <summary>
+        /// Accesseur pour la coordonnée Y du triplet
+        /// </summary>
+        public double Y { get; private set; }
+
+        /// <summary>
+        /// Accesseur pour la coordonnée Z du triplet
+        /// </summary>
+        public double Z { get; private set; }
 
         /// <summary>
         /// Permet de construire un triplet à l'aide de trois valeurs
@@ -17,9 +28,9 @@
         /// <param name="z">Valeur z du triplet</param>
         public Triplet(double x, double y, double z)
         {
-            this.x = x;
-            this.y = y;
-            this.z = z;
+            this.X = x;
+            this.Y = y;
+            this.Z = z;
         }
 
         /// <summary>
@@ -27,38 +38,5 @@
         /// </summary>
         public Triplet() : this(0,0,0)
         {}
-
-        /// <summary>
-        /// Valeur x du triplet
-        /// </summary>
-        public double X
-        {
-            get
-            {
-                return x;
-            }
-        }
-
-        /// <summary>
-        /// Valeur y du triplet
-        /// </summary>
-        public double Y
-        {
-            get
-            {
-                return y;
-            }
-        }
-
-        /// <summary>
-        /// Valeur z du triplet
-        /// </summary>
-        public double Z
-        {
-            get
-            {
-                return z;
-            }
-        }
     }
 }

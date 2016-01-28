@@ -40,7 +40,7 @@ namespace LanceurRayon.Renderer
                 System.Environment.Exit(1);
             }
 
-            Console.WriteLine(infos_scene.toString());
+            Console.WriteLine(infos_scene);
 
 
             }

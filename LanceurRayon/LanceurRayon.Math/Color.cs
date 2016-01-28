@@ -8,9 +8,20 @@ namespace LanceurRayon.Math
     /// </summary>
     public class Color
     {
-        private double r;
-        private double g;
-        private double b;
+        /// <summary>
+        /// Accesseur pour la variante rouge
+        /// </summary>
+        public double R { get; private set; }
+
+        /// <summary>
+        /// Accesseur pour la variante verte
+        /// </summary>
+        public double G { get; private set; }
+
+        /// <summary>
+        /// Accesseur pour la variante bleu
+        /// </summary>
+        public double B { get; private set; }
 
         /// <summary>
         /// Permet de créer une couleur noire
@@ -34,9 +45,9 @@ namespace LanceurRayon.Math
             if (b < 0 || b > 1)
                 throw new ArgumentOutOfRangeException("La valeur b doit être comprise entre 0 et 1");
 
-            this.r = r;
-            this.g = g;
-            this.b = b;
+            this.R = r;
+            this.G = g;
+            this.B = b;
         }
 
         /// <summary>
@@ -111,20 +122,5 @@ namespace LanceurRayon.Math
             return string.Format("C {0} {1} {2}", this.R.ToString("0.0#", CultureInfo.InvariantCulture),
                 this.G.ToString("0.0#", CultureInfo.InvariantCulture), this.B.ToString("0.0#", CultureInfo.InvariantCulture));
         }
-
-        /// <summary>
-        /// Accesseur pour la valeur R
-        /// </summary>
-        public double R { get { return r; } }
-
-        /// <summary>
-        /// Accesseur pour la valeur G
-        /// </summary>
-        public double G { get { return g; } }
-
-        /// <summary>
-        /// Accesseur pour la valeur B
-        /// </summary>
-        public double B { get { return b; } }
     }
 }

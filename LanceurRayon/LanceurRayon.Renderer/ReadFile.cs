@@ -56,7 +56,7 @@ namespace LanceurRayon.Renderer
                             throw new ArgumentException("Nombre d'arguments incorrect", tmp[0]);
                         
 
-                        ma_scene.fenetre=new Bitmap(Int32.Parse(tmp[1]),Int32.Parse(tmp[2]));
+                        ma_scene.Fenetre=new Bitmap(Int32.Parse(tmp[1]),Int32.Parse(tmp[2]));
                         size_present = true;
 
                         break;
@@ -66,7 +66,7 @@ namespace LanceurRayon.Renderer
                         if (tmp.Length != 3 )
                             throw new ArgumentException("Nombre d'arguments  incorrect", tmp[0]);
 
-                            ma_scene.output = tmp[1];
+                            ma_scene.Output = tmp[1];
                             output_present = true;
 
                         break;
@@ -78,7 +78,7 @@ namespace LanceurRayon.Renderer
 
                       
 
-                        ma_scene.camera = new Camera ( new Vec3(double.Parse(tmp[1], CultureInfo.InvariantCulture),double.Parse(tmp[2], CultureInfo.InvariantCulture),double.Parse(tmp[3], CultureInfo.InvariantCulture)),
+                        ma_scene.Camera = new Camera ( new Vec3(double.Parse(tmp[1], CultureInfo.InvariantCulture),double.Parse(tmp[2], CultureInfo.InvariantCulture),double.Parse(tmp[3], CultureInfo.InvariantCulture)),
                                                        new Vec3(double.Parse(tmp[4], CultureInfo.InvariantCulture),double.Parse(tmp[5], CultureInfo.InvariantCulture),double.Parse(tmp[6], CultureInfo.InvariantCulture)),
                                                        new  Vec3(double.Parse(tmp[7],CultureInfo.InvariantCulture),double.Parse(tmp[8], CultureInfo.InvariantCulture),double.Parse(tmp[9], CultureInfo.InvariantCulture)),
                                                        double.Parse(tmp[10], CultureInfo.InvariantCulture)
@@ -122,7 +122,7 @@ namespace LanceurRayon.Renderer
                                                                                double.Parse(tmp[6], CultureInfo.InvariantCulture))
                                                                   )
                                                      );
-                        ma_scene.nb_lumieres++;
+                        ma_scene.NbLumieres++;
 
                         break;
                    
@@ -144,7 +144,7 @@ namespace LanceurRayon.Renderer
                                                                 )
                                                      );
 
-                        ma_scene.nb_lumieres++;
+                        ma_scene.NbLumieres++;
                         break;
                     
                     //Les entitées géométriques
@@ -160,7 +160,7 @@ namespace LanceurRayon.Renderer
                                                           )
                                            );
 
-                        ma_scene.nb_objets++;
+                        ma_scene.NbObjets++;
 
                         break;
 
@@ -181,7 +181,7 @@ namespace LanceurRayon.Renderer
                                                              )               
                                                 );
 
-                        ma_scene.nb_objets++;
+                        ma_scene.NbObjets++;
                       
                         //Remise a zéro de la couleur
                         ambient = new Math.Color();
@@ -212,7 +212,7 @@ namespace LanceurRayon.Renderer
                                                        )
                                             );
 
-                        ma_scene.nb_objets++;
+                        ma_scene.NbObjets++;
                        
                         //Remise a zéro de la couleur
                         ambient = new Math.Color();
@@ -240,7 +240,7 @@ namespace LanceurRayon.Renderer
                                                     )
                                           );
 
-                        ma_scene.nb_objets++;
+                        ma_scene.NbObjets++;
 
                         break;
 

@@ -11,36 +11,36 @@ namespace LanceurRayon.Renderer
     public class Scene{
 
         //Les informations générales de la scène
-        public string output { get; set; }
-        public Bitmap fenetre { get; set; }
-        public Camera camera { get; set; }
+        public string Output { get; set; }
+        public Bitmap Fenetre { get; set; }
+        public Camera Camera { get; set; }
 
-        public  int nb_objets { get; set; }
-        public int nb_lumieres { get; set; }
+        public  int NbObjets { get; set; }
+        public int NbLumieres { get; set; }
 
         //Les différentes entitées géométriques composants la scène.
 
-        public ArrayList les_points { get; private set;}
-        public ArrayList les_spheres { get; private set; }
-        public ArrayList les_triangles { get; private set; }
-        public ArrayList les_plans { get; private set; }
+        public ArrayList LesPoints { get; private set;}
+        public ArrayList LesSpheres { get; private set; }
+        public ArrayList LesTriangles { get; private set; }
+        public ArrayList LesPlans { get; private set; }
 
         //Les sources de lumières
 
-        public ArrayList les_lumieres_globales { get; private set; }
-        public ArrayList les_lumieres_locales { get; private set; }
+        public ArrayList LesLumieresGlobales { get; private set; }
+        public ArrayList LesLumieresLocales { get; private set; }
 
 
 
         public Scene()
         {
 
-            les_points = new ArrayList();
-            les_spheres = new ArrayList();
-            les_triangles = new ArrayList();
-            les_plans = new ArrayList();
-            les_lumieres_globales = new ArrayList();
-            les_lumieres_locales = new ArrayList();
+            LesPoints = new ArrayList();
+            LesSpheres = new ArrayList();
+            LesTriangles = new ArrayList();
+            LesPlans = new ArrayList();
+            LesLumieresGlobales = new ArrayList();
+            LesLumieresLocales = new ArrayList();
         }
 
         //Les méthodes
@@ -53,7 +53,7 @@ namespace LanceurRayon.Renderer
         public void add_lumiere_globale(Lumiere L )
         {
 
-            les_lumieres_globales.Add(L);
+            LesLumieresGlobales.Add(L);
 
         }
 
@@ -66,7 +66,7 @@ namespace LanceurRayon.Renderer
         public void add_lumiere_locale(Lumiere L)
         {
 
-            les_lumieres_locales.Add(L);
+            LesLumieresLocales.Add(L);
 
         }
 
@@ -79,7 +79,7 @@ namespace LanceurRayon.Renderer
         public void add_Sphere(Sphere S){
 
            
-            les_spheres.Add(S);
+            LesSpheres.Add(S);
 
         }
 
@@ -91,7 +91,7 @@ namespace LanceurRayon.Renderer
         public void add_Plan(Plan P)
         {
 
-            les_plans.Add(P);
+            LesPlans.Add(P);
 
         }
 
@@ -103,7 +103,7 @@ namespace LanceurRayon.Renderer
         public void add_Triangle(Triangle T)
         {
 
-            les_triangles.Add(T);
+            LesTriangles.Add(T);
 
         }
 
@@ -115,24 +115,22 @@ namespace LanceurRayon.Renderer
         public void add_Point(Math.Point pt)
         {
 
-            les_points.Add(pt);
+            LesPoints.Add(pt);
 
         }
 
         /// <summary>
         /// Fournit une description de la scène
         /// </summary>
-    
 
-        public string toString(){
 
-            return output + "\n" +
-                    (fenetre.Size.Height * fenetre.Size.Width) + "\n" +
-                    nb_objets + "\n" +
-                    nb_lumieres;
+        public override string ToString()
+        {
+            return Output + "\n" +
+                    (Fenetre.Size.Height * Fenetre.Size.Width) + "\n" +
+                    NbObjets + "\n" +
+                    NbLumieres;
                                     
         }
-
-      
     }
 }
