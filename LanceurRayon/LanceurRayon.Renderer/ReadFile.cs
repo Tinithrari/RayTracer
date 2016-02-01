@@ -26,17 +26,20 @@ namespace LanceurRayon.Renderer
 
             Math.Color ambient= new Math.Color();
             Math.Color specular= new Math.Color();
-            Math.Color diffuse= new Math.Color();  
+            Math.Color diffuse= new Math.Color();
 
-            lignes_fichier = System.IO.File.ReadAllLines(nom_fichier, System.Text.Encoding.UTF8);
+            try {
+                lignes_fichier = System.IO.File.ReadAllLines(nom_fichier, System.Text.Encoding.UTF8);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
 
             output_present = false;
             size_present = false;
             camera_present = false;
 
-#if DEBUG
-            try {
-#endif
             foreach (string ligne_courante in lignes_fichier)
             {
 
@@ -251,14 +254,6 @@ namespace LanceurRayon.Renderer
                       
                 }
             }
-
-#if DEBUG
-            }
-            catch (System.IndexOutOfRangeException e)
-            {
-                throw e;
-            }
-#endif
 
             //On s'assure que un des paramètres indispensable n'à pas été omis .
 
