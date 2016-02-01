@@ -34,6 +34,9 @@ namespace LanceurRayon.Renderer
             size_present = false;
             camera_present = false;
 
+#if DEBUG
+            try {
+#endif
             foreach (string ligne_courante in lignes_fichier)
             {
 
@@ -249,8 +252,16 @@ namespace LanceurRayon.Renderer
                 }
             }
 
+#if DEBUG
+            }
+            catch (System.IndexOutOfRangeException e)
+            {
+                throw e;
+            }
+#endif
+
             //On s'assure que un des paramètres indispensable n'à pas été omis .
-           
+
             if (!size_present )
                 throw new ArgumentException("Argument manquant !!!","size");
 
