@@ -28,7 +28,7 @@ namespace LanceurRayon.Renderer
             Math.Color specular= new Math.Color();
             Math.Color diffuse= new Math.Color();  
 
-            lignes_fichier = System.IO.File.ReadAllLines(nom_fichier);
+            lignes_fichier = System.IO.File.ReadAllLines(nom_fichier, System.Text.Encoding.UTF8);
 
             output_present = false;
             size_present = false;
