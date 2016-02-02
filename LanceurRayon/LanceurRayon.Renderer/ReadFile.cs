@@ -163,9 +163,6 @@ namespace LanceurRayon.Renderer
                                                               double.Parse(tmp[3], CultureInfo.InvariantCulture)
                                                               )
                                                );
-                            nbPoint++;
-                            if (nbPoint == composantePoint)
-                                ma_scene.NbObjets++;
 
                             break;
 
