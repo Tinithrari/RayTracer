@@ -23,6 +23,7 @@ namespace LanceurRayon.Renderer
 
             string ligne_courante;
             string[] tmp;
+            int composantePoint = 0, nbPoint = 0;
             Scene ma_scene = new Scene();
 
             bool output_present, size_present, camera_present;
@@ -146,6 +147,8 @@ namespace LanceurRayon.Renderer
                                                                                     )
                                                                     )
                                                          );
+
+                            ma_scene.NbLumieres++;
                             break;
 
                         //Les entitées géométriques
@@ -160,8 +163,9 @@ namespace LanceurRayon.Renderer
                                                               double.Parse(tmp[3], CultureInfo.InvariantCulture)
                                                               )
                                                );
-
-                            ma_scene.NbObjets++;
+                            nbPoint++;
+                            if (nbPoint == composantePoint)
+                                ma_scene.NbObjets++;
 
                             break;
 
@@ -243,6 +247,10 @@ namespace LanceurRayon.Renderer
 
                             ma_scene.NbObjets++;
 
+                            break;
+
+                        case "maxverts":
+                            composantePoint = Int32.Parse(tmp[1]);
                             break;
                     }
                 }
