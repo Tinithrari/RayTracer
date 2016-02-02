@@ -45,7 +45,8 @@ namespace LanceurRayon.Renderer
                 Console.WriteLine(e.StackTrace);
             }
 
-            Console.WriteLine(infos_scene);
+            if (infos_scene != null)
+                Console.WriteLine(infos_scene);
             }
         }
     }
