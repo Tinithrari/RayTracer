@@ -2,31 +2,26 @@ before_script:
    - "git submodule add https://forge.univ-artois.fr/root/testsl32016.git"
    - "git submodule update --remote --init"
 
-job1:
+comparateur:
    stage: test
    script: "./build.sh ; cd testsl32016; ./tests1.sh"
-   artifacts:
-     untracked: true
    tags: 
      - shell
 
-job2:
+vectests:
    stage: test
    script: "./build.sh ; cd testsl32016; ./tests2.sh"
-   artifacts:
-     untracked: true
    tags: 
      - shell
 
-job3:
+lecturescenes:
    stage: test
    script: "./build.sh ; cd testsl32016; ./tests3.sh"
-   artifacts:
-     untracked: true
    tags: 
      - shell
 
-cache:
-  untracked: true
-  paths:
-  - bin
+premieresimages:
+   stage: test
+   script: "./build.sh ; cd testsl32016; ./tests4.sh"
+   tags:
+     - shell
