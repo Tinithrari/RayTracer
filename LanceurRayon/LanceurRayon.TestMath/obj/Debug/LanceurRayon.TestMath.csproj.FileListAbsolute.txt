@@ -27,3 +27,4 @@ C:\Users\Drew\Source\Repos\lanceurrayons\LanceurRayon\LanceurRayon.TestMath\bin\
 C:\Users\Drew\Source\Repos\lanceurrayons\LanceurRayon\LanceurRayon.TestMath\bin\LanceurRayon.Math.xml
 C:\Users\Drew\Source\Repos\lanceurrayons\LanceurRayon\LanceurRayon.TestMath\obj\Debug\triplet.exe
 C:\Users\Drew\Source\Repos\lanceurrayons\LanceurRayon\LanceurRayon.TestMath\obj\Debug\triplet.pdb
+C:\Users\Tinithrari\Source\Repos\lanceurrayons\LanceurRayon\LanceurRayon.TestMath\bin\LanceurRayon.Math.xml

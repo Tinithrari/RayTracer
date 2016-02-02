@@ -5,10 +5,11 @@ namespace LanceurRayon.Renderer
 {
     class Program
     {
-        static void Main(string[] args) {
+        static void Main(string[] args)
+        {
 
             ReadFile reader = new ReadFile();
-            Scene infos_scene = new Scene();
+            Scene infos_scene;
 
             if (args.Length != 1)
             {
@@ -19,35 +20,29 @@ namespace LanceurRayon.Renderer
             try
             {
                 infos_scene = reader.Analyze(args[0]);
+                Console.WriteLine(infos_scene);
             }
 
-            catch (IOException e )
+            catch (IOException e)
             {
 
                 Console.WriteLine("Le fichier de sortie n'à pas pu être enregistré !!!");
                 Console.Error.WriteLine(e.Message);
                 System.Environment.Exit(1);
             }
-
-            catch (ArgumentException f) {
-                Console.Error.WriteLine(f.Message);
+            /*
+            catch (ArgumentException f)
+            {
+                Console.WriteLine(f.Message);
                 System.Environment.Exit(1);
             }
-
-            catch (FormatException )
+            */
+            catch (FormatException)
             {
                 Console.WriteLine("Un ou plusieurs arguments ne sont pas des nombres !!!");
                 System.Environment.Exit(1);
             }
-
-            catch (IndexOutOfRangeException g)
-            {
-                Console.WriteLine(g.Message);
-            }
-
-            if (infos_scene != null)
-                Console.WriteLine(infos_scene);
-            }
         }
     }
+}
 
