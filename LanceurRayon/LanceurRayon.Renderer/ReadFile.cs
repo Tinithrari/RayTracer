@@ -2,6 +2,7 @@
 using System.Drawing;
 using LanceurRayon.Math;
 using System.Globalization;
+using System.IO;
 
 namespace LanceurRayon.Renderer
 {
@@ -19,7 +20,8 @@ namespace LanceurRayon.Renderer
         public Scene Analyze(string nom_fichier)
         {
 
-            string[] lignes_fichier, tmp;
+            string ligne_courante;
+            string[] tmp;
             Scene ma_scene = new Scene();
 
             bool output_present, size_present, camera_present;
@@ -28,19 +30,13 @@ namespace LanceurRayon.Renderer
             Math.Color specular= new Math.Color();
             Math.Color diffuse= new Math.Color();
 
-            try {
-                lignes_fichier = System.IO.File.ReadAllLines(nom_fichier, System.Text.Encoding.UTF8);
-            }
-            catch (Exception e)
-            {
-                throw e;
-            }
+            StreamReader stream = new StreamReader(nom_fichier);
 
             output_present = false;
             size_present = false;
             camera_present = false;
 
-            foreach (string ligne_courante in lignes_fichier)
+            while ( ( ligne_courante = stream.ReadLine() ) != null)
             {
 
                 if (ligne_courante[0] == '#')//Si le parser rencontre un #  la ligne est considéré comme un commentaire et ignoré.
