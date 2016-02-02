@@ -40,6 +40,11 @@ namespace LanceurRayon.Renderer
                 System.Environment.Exit(1);
             }
 
+            catch (IndexOutOfRangeException e)
+            {
+                Console.WriteLine(e.StackTrace);
+            }
+
             Console.WriteLine(infos_scene);
             }
         }
