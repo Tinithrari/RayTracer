@@ -146,8 +146,6 @@ namespace LanceurRayon.Renderer
                                                                                     )
                                                                     )
                                                          );
-
-                            ma_scene.NbLumieres++;
                             break;
 
                         //Les entitées géométriques
