@@ -93,42 +93,43 @@ namespace LanceurRayon.Renderer
                             break;
 
                         //Les couleurs
+                        
                         case "ambient":
-
+                            /*
                             if (tmp.Length != 4)
                                 throw new System.ArgumentException("Nombre d'arguments incorrect", tmp[0]);
 
                             ambient = new Math.Color(double.Parse(tmp[0], CultureInfo.InvariantCulture),
                                                      double.Parse(tmp[1], CultureInfo.InvariantCulture),
                                                      double.Parse(tmp[2], CultureInfo.InvariantCulture));
-
+                               */
                             break;
 
                         case "diffuse":
-
+                        /*
                             if (tmp.Length != 4)
-                                throw new System.ArgumentException("Nombre d'arguments incorrect", tmp[0]);
+                                throw new ArgumentException("Nombre d'arguments incorrect", tmp[0]);
 
                             diffuse = new Math.Color(double.Parse(tmp[0], CultureInfo.InvariantCulture),
                                                      double.Parse(tmp[1], CultureInfo.InvariantCulture),
                                                      double.Parse(tmp[2], CultureInfo.InvariantCulture));
 
-
+                            */
                             break;
 
                         case "specular":
-
+                        /*
                             if (tmp.Length != 4)
-                                throw new System.ArgumentException("Nombre d'arguments incorrect", tmp[0]);
+                                throw new ArgumentException("Nombre d'arguments incorrect", tmp[0]);
 
                             specular = new Math.Color(double.Parse(tmp[0], CultureInfo.InvariantCulture),
                                                      double.Parse(tmp[1], CultureInfo.InvariantCulture),
                                                      double.Parse(tmp[2], CultureInfo.InvariantCulture));
 
-
+                            */
 
                             break;
-
+                            
                         //Source de lumière
                         case "directional":
 
@@ -247,7 +248,7 @@ namespace LanceurRayon.Renderer
                         case "plane":
 
                             if (tmp.Length != 7)
-                                throw new System.ArgumentException("Nombre d'arguments incorrect", tmp[0]);
+                                throw new ArgumentException("Nombre d'arguments incorrect", tmp[0]);
 
 
                             ma_scene.add_Plan(new Plan(

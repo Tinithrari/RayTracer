@@ -30,13 +30,11 @@ namespace LanceurRayon.Renderer
                 Console.Error.WriteLine(e.Message);
                 System.Environment.Exit(1);
             }
-            /*
             catch (ArgumentException f)
             {
                 Console.WriteLine(f.Message);
                 System.Environment.Exit(1);
             }
-            */
             catch (FormatException)
             {
                 Console.WriteLine("Un ou plusieurs arguments ne sont pas des nombres !!!");
