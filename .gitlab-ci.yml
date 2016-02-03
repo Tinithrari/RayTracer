@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 before_script: 
    - "git submodule add https://forge.univ-artois.fr/root/testsl32016.git"
    - "git submodule update --remote --init"
@@ -31,32 +30,3 @@ cache:
   untracked: true
   paths:
   - bin
-=======
-before_script: 
-   - "git submodule add https://forge.univ-artois.fr/root/testsl32016.git"
-   - "git submodule update --remote --init"
-
-comparateur:
-   stage: test
-   script: "./build.sh ; cd testsl32016; ./tests1.sh"
-   tags: 
-     - shell
-
-vectests:
-   stage: test
-   script: "./build.sh ; cd testsl32016; ./tests2.sh"
-   tags: 
-     - shell
-
-lecturescenes:
-   stage: test
-   script: "./build.sh ; cd testsl32016; ./tests3.sh"
-   tags: 
-     - shell
-
-premieresimages:
-   stage: test
-   script: "./build.sh ; cd testsl32016; ./tests4.sh"
-   tags:
-     - shell
->>>>>>> 146cddf75e12b856c38084fd51df624b4ed78568
