@@ -2,11 +2,11 @@
 
 
 namespace LanceurRayon.Math
-{/// <summary>
+{
+ /// <summary>
  /// Classe permetant de représenter une sphère.
  /// </summary>
     public class Sphere{
-        
         /// <summary>
         /// Reflêt.
         /// </summary>
@@ -35,6 +35,11 @@ namespace LanceurRayon.Math
         /// <summary>
         /// Constructeur de la classe.
         /// </summary>
+        /// <param name="Centre">Centre de la sphère</param>
+        /// <param name="Rayon">Rayon de la sphère.</param>
+        /// <param name="Specular">Reflêt.</param>
+        /// <param name="Ambient">Lumière ambiante.</param>
+        /// <param name="Diffuse">Lumière diffuse.</param>
         public Sphere(Point Centre, double Rayon, Math.Color Specular, Math.Color Ambient, Math.Color Diffuse)
         {
             this.Ambient = Ambient;

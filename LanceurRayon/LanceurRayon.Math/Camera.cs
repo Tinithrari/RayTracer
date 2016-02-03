@@ -28,6 +28,10 @@
         /// <summary>
         /// Constructeur de la classe.
         /// </summary>
+        /// <param name="LookAt">Direction où regarde la caméra.</param>
+        /// <param name="LookFrom">Vecteur décrivant la positon de la caméra.</param>
+        /// <param name="Up">Inclinaison de la caméra.</param>
+        /// <param name="Fov">Angle d'inclinaison.</param>
         public Camera(Vec3 LookAt, Vec3 LookFrom, Vec3 Up, double Fov)
         {
                 this.LookAt = LookAt;

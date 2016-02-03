@@ -31,6 +31,10 @@ namespace LanceurRayon.Math
         /// <summary>
         /// Constructeur de la classe.
         /// </summary>
+        /// <param name="Pt">Centre de gravité du triangle</param>
+        /// <param name="Specular">Reflêt</param>
+        /// <param name="Ambient">Lumière ambiante</param>
+        /// <param name="Diffuse">Lumière diffuse</param> 
         public Triangle(Point Pt, Math.Color Specular, Math.Color Ambient, Math.Color Diffuse)
         {
             this.Pt = Pt;
