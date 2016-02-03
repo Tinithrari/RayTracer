@@ -45,8 +45,8 @@ namespace LanceurRayon.Math
         /// <param name="Specular">Reflêt.</param>
         /// <param name="Ambient">Lumière ambiante.</param>
         /// <param name="Diffuse">Lumière diffuse.</param>
-        /// <param name="Brillance ">Brillance de la scène.</param>
-        public Sphere(Point Centre, double Rayon, Math.Color Specular, Math.Color Ambient, Math.Color Diffuse,double Brillance)
+        /// <param name="Brillance">Brillance de la scène.</param>
+        public Sphere(Point Centre, double Rayon, Math.Color Specular, Math.Color Ambient, Math.Color Diffuse, double Brillance)
         {
             this.Ambient = Ambient;
             this.Specular = Specular;
