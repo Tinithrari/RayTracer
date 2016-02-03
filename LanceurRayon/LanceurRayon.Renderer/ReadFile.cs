@@ -22,11 +22,12 @@ namespace LanceurRayon.Renderer
 
             string ligne_courante;
             string[] tmp;
-            int composantePoint = 0;
-            Scene ma_scene = new Scene();
-
+            int maxPoint = -1,PointsRecontres=0;
             bool output_present, size_present, camera_present;
 
+            double brillance=1.0f;
+
+            Scene ma_scene = new Scene();
             Math.Color couleur_noire = new Math.Color();
 
             Math.Color ambient = couleur_noire;
@@ -132,7 +133,18 @@ namespace LanceurRayon.Renderer
                             
 
                             break;
-                            
+
+                        case "shininess":
+
+                            if (tmp.Length != 2)
+                                throw new ArgumentException("Nombre d'arguments incorrect", tmp[0]);
+
+                            brillance = double.Parse(tmp[1], CultureInfo.InvariantCulture);
+                                               
+                                                     
+
+                            break;
+
                         //Source de lumière
                         case "directional":
 
@@ -178,7 +190,14 @@ namespace LanceurRayon.Renderer
                         case "vertex":
 
                             if (tmp.Length != 4)
-                                throw new System.ArgumentException("Nombre d'arguments incorrect", tmp[0]);
+                                throw new ArgumentException("Nombre d'arguments incorrect", tmp[0]);
+
+                            if(maxPoint == -1)
+                                throw new ArgumentException("Le nombre de poiint doit être définit à l'avance.", tmp[0]);
+
+                            if(maxPoint ==PointsRecontres)
+                                throw new ArgumentException("Le nombre de points rencontrés dépasse la contrainte définit.", tmp[0]);
+
 
                             ma_scene.add_Point(new Math.Point(
                                                               double.Parse(tmp[1], CultureInfo.InvariantCulture),
@@ -186,6 +205,8 @@ namespace LanceurRayon.Renderer
                                                               double.Parse(tmp[3], CultureInfo.InvariantCulture)
                                                               )
                                                );
+
+                            PointsRecontres++;
 
                             break;
 
@@ -203,7 +224,7 @@ namespace LanceurRayon.Renderer
                                                                  , specular
                                                                  , ambient
                                                                  , diffuse
-                                                                 )
+                                                                 ,brillance)
                                                     );
 
                            
@@ -236,6 +257,7 @@ namespace LanceurRayon.Renderer
                                                            , specular
                                                            , ambient
                                                            , diffuse
+                                                           ,brillance
                                                             )
                                                  );
 
@@ -272,7 +294,11 @@ namespace LanceurRayon.Renderer
                             break;
 
                         case "maxverts":
-                            composantePoint = Int32.Parse(tmp[1]);
+
+                            if (tmp.Length != 2)
+                                throw new ArgumentException("Nombre d'arguments incorrect", tmp[0]);
+
+                            maxPoint = Int32.Parse(tmp[1]);
                             break;
                     }
                 }

@@ -7,7 +7,12 @@ namespace LanceurRayon.Math
     /// Classe permetant de représenter un triangle
     /// </summary>
     public class Triangle{
-       
+
+        /// <summary>
+        /// Coefficient de brillance de la scène.
+        /// </summary>
+        public double Brillance { get; private set; }
+
         /// <summary>
         /// Reflêt
         /// </summary>
@@ -34,13 +39,15 @@ namespace LanceurRayon.Math
         /// <param name="Pt">Centre de gravité du triangle</param>
         /// <param name="Specular">Reflêt</param>
         /// <param name="Ambient">Lumière ambiante</param>
-        /// <param name="Diffuse">Lumière diffuse</param> 
-        public Triangle(Point Pt, Math.Color Specular, Math.Color Ambient, Math.Color Diffuse)
+        /// <param name="Diffuse">Lumière diffuse</param>
+        /// <param name="Brillance">Brillance de la scène.</param> 
+        public Triangle(Point Pt, Math.Color Specular, Math.Color Ambient, Math.Color Diffuse,double Brillance)
         {
             this.Pt = Pt;
             this.Ambient = Ambient;
             this.Specular = Specular;
             this.Diffuse = Diffuse;
+            this.Brillance = Brillance;
         }
 
     }

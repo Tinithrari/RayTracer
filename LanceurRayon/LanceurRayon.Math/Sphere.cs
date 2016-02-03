@@ -8,6 +8,11 @@ namespace LanceurRayon.Math
  /// </summary>
     public class Sphere{
         /// <summary>
+        /// Coefficient de brillance de la scène.
+        /// </summary>
+        public double Brillance { get; private set; }
+
+        /// <summary>
         /// Reflêt.
         /// </summary>
         public Math.Color Specular { get; private set; }
@@ -40,13 +45,15 @@ namespace LanceurRayon.Math
         /// <param name="Specular">Reflêt.</param>
         /// <param name="Ambient">Lumière ambiante.</param>
         /// <param name="Diffuse">Lumière diffuse.</param>
-        public Sphere(Point Centre, double Rayon, Math.Color Specular, Math.Color Ambient, Math.Color Diffuse)
+        /// <param name="Brillance ">Brillance de la scène.</param>
+        public Sphere(Point Centre, double Rayon, Math.Color Specular, Math.Color Ambient, Math.Color Diffuse,double Brillance)
         {
             this.Ambient = Ambient;
             this.Specular = Specular;
             this.Diffuse = Diffuse;
             this.Centre = Centre;
             this.Rayon = Rayon;
+            this.Brillance = Brillance;
         }
        
 
