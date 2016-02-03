@@ -1,66 +1,41 @@
-﻿using System;
-
-namespace LanceurRayon.Math
+﻿namespace LanceurRayon.Math
 {
-    public class Camera{
+    /// <summary>
+    /// Classe représentant une caméra,décrit par là ou elle regarde ,la direction ,l'angle de vision et l'inclinaison.
+    /// </summary>
+    public class Camera {
 
-        private Vec3 lookAt;
-        private Vec3 lookFrom;
-        private Vec3 up;
-        private double fov;
+        /// <summary>
+        /// Direction où regarde la caméra.
+        /// </summary>
+        public Vec3 LookAt { get; private set; }
+        
+        /// <summary>
+        /// Vecteur décrivant la positon de la caméra.
+        /// </summary>
+        public Vec3 LookFrom { get; private set; }
+        
+        /// <summary>
+        /// Inclinaison de la caméra.
+        /// </summary>
+        public Vec3 Up { get; private set; }
+        
+        /// <summary>
+        /// Angle d'inclinaison.
+        /// </summary>
+        public double Fov { get; private set; }
 
-
-        public Camera(Vec3 lookAt, Vec3 lookFrom, Vec3 up, double fov)
+        /// <summary>
+        /// Constructeur de la classe.
+        /// </summary>
+        public Camera(Vec3 LookAt, Vec3 LookFrom, Vec3 Up, double Fov)
         {
-
-            this.lookAt = lookAt;
-            this.lookFrom = lookFrom;
-            this.up = up;
-            this.fov = fov;
-        }
-
-
-        public Vec3 LookAt
-        {
-            get
-            {
-                return lookAt;
+                this.LookAt = LookAt;
+                this.LookFrom = LookFrom;
+                this.Up = Up;
+                this.Fov = Fov;
             }
 
-
-        }
-
-        public Vec3 LookFrom
-        {
-            get
-            {
-                return lookFrom;
-            }
-
-         
-        }
-
-        public Vec3 UP
-        {
-            get
-            {
-                return up;
-            }
-
-          
-        }
-
-        public double Fov
-        {
-            get
-            {
-                return fov;
-            }
-
-        }
-
-      }
-
-
-    }
+        } 
+     }
 

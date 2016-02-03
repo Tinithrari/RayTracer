@@ -17,20 +17,21 @@ namespace LanceurRayon.Renderer
         /// </summary>
         //Chargement du fichier de scène intégralement en mémoire vive .
         /// <param name="nom_fichier">nom fichier de scène</param>
-
         public Scene Analyze(string nom_fichier)
         {
 
             string ligne_courante;
             string[] tmp;
-            int composantePoint = 0, nbPoint = 0;
+            int composantePoint = 0;
             Scene ma_scene = new Scene();
 
             bool output_present, size_present, camera_present;
 
-            Math.Color ambient= new Math.Color();
-            Math.Color specular= new Math.Color();
-            Math.Color diffuse= new Math.Color();
+            Math.Color couleur_noire = new Math.Color();
+
+            Math.Color ambient = couleur_noire;
+            Math.Color specular = couleur_noire;
+            Math.Color diffuse = couleur_noire;
 
             StreamReader stream = new StreamReader(nom_fichier);
 
@@ -94,17 +95,35 @@ namespace LanceurRayon.Renderer
                         //Les couleurs
                         case "ambient":
 
+                            if (tmp.Length != 4)
+                                throw new System.ArgumentException("Nombre d'arguments incorrect", tmp[0]);
 
+                            ambient = new Math.Color(double.Parse(tmp[0], CultureInfo.InvariantCulture),
+                                                     double.Parse(tmp[1], CultureInfo.InvariantCulture),
+                                                     double.Parse(tmp[2], CultureInfo.InvariantCulture));
 
                             break;
 
                         case "diffuse":
 
+                            if (tmp.Length != 4)
+                                throw new System.ArgumentException("Nombre d'arguments incorrect", tmp[0]);
+
+                            diffuse = new Math.Color(double.Parse(tmp[0], CultureInfo.InvariantCulture),
+                                                     double.Parse(tmp[1], CultureInfo.InvariantCulture),
+                                                     double.Parse(tmp[2], CultureInfo.InvariantCulture));
 
 
                             break;
 
                         case "specular":
+
+                            if (tmp.Length != 4)
+                                throw new System.ArgumentException("Nombre d'arguments incorrect", tmp[0]);
+
+                            specular = new Math.Color(double.Parse(tmp[0], CultureInfo.InvariantCulture),
+                                                     double.Parse(tmp[1], CultureInfo.InvariantCulture),
+                                                     double.Parse(tmp[2], CultureInfo.InvariantCulture));
 
 
 
@@ -183,12 +202,14 @@ namespace LanceurRayon.Renderer
                                                                  )
                                                     );
 
+                           
+
                             ma_scene.NbObjets++;
 
                             //Remise a zéro de la couleur
-                            ambient = new Math.Color();
-                            specular = new Math.Color();
-                            diffuse = new Math.Color();
+                            specular = couleur_noire;
+                            ambient = couleur_noire;
+                            diffuse = couleur_noire;
 
                             break;
 
@@ -217,9 +238,9 @@ namespace LanceurRayon.Renderer
                             ma_scene.NbObjets++;
 
                             //Remise a zéro de la couleur
-                            ambient = new Math.Color();
-                            specular = new Math.Color();
-                            diffuse = new Math.Color();
+                            specular = couleur_noire;
+                            ambient = couleur_noire;
+                            diffuse = couleur_noire;
 
                             break;
 
