@@ -95,38 +95,41 @@ namespace LanceurRayon.Renderer
                         //Les couleurs
                         
                         case "ambient":
-                            /*
+                            
                             if (tmp.Length != 4)
                                 throw new System.ArgumentException("Nombre d'arguments incorrect", tmp[0]);
 
-                            ambient = new Math.Color(double.Parse(tmp[0], CultureInfo.InvariantCulture),
-                                                     double.Parse(tmp[1], CultureInfo.InvariantCulture),
-                                                     double.Parse(tmp[2], CultureInfo.InvariantCulture));
-                               */
+                            ambient = new Math.Color(double.Parse(tmp[1], CultureInfo.InvariantCulture),
+                                                     double.Parse(tmp[2], CultureInfo.InvariantCulture),
+                                                     double.Parse(tmp[3], CultureInfo.InvariantCulture)
+                                                     );
+                               
                             break;
 
                         case "diffuse":
-                        /*
+                        
                             if (tmp.Length != 4)
                                 throw new ArgumentException("Nombre d'arguments incorrect", tmp[0]);
 
-                            diffuse = new Math.Color(double.Parse(tmp[0], CultureInfo.InvariantCulture),
-                                                     double.Parse(tmp[1], CultureInfo.InvariantCulture),
-                                                     double.Parse(tmp[2], CultureInfo.InvariantCulture));
+                            diffuse = new Math.Color(double.Parse(tmp[1], CultureInfo.InvariantCulture),
+                                                     double.Parse(tmp[2], CultureInfo.InvariantCulture),
+                                                     double.Parse(tmp[3], CultureInfo.InvariantCulture)
+                                                     );
 
-                            */
+                            
                             break;
 
                         case "specular":
-                        /*
+                        
                             if (tmp.Length != 4)
                                 throw new ArgumentException("Nombre d'arguments incorrect", tmp[0]);
 
-                            specular = new Math.Color(double.Parse(tmp[0], CultureInfo.InvariantCulture),
-                                                     double.Parse(tmp[1], CultureInfo.InvariantCulture),
-                                                     double.Parse(tmp[2], CultureInfo.InvariantCulture));
+                            specular = new Math.Color(double.Parse(tmp[1], CultureInfo.InvariantCulture),
+                                                      double.Parse(tmp[2], CultureInfo.InvariantCulture),
+                                                      double.Parse(tmp[3], CultureInfo.InvariantCulture)
+                                                     );
 
-                            */
+                            
 
                             break;
                             
