@@ -6,27 +6,7 @@ namespace LanceurRayon.Math
  /// <summary>
  /// Classe permetant de représenter une sphère.
  /// </summary>
-    public class Sphere{
-        /// <summary>
-        /// Coefficient de brillance de la scène.
-        /// </summary>
-        public double Brillance { get; private set; }
-
-        /// <summary>
-        /// Reflêt.
-        /// </summary>
-        public Math.Color Specular { get; private set; }
-
-        /// <summary>
-        /// Lumière ambiante.
-        /// </summary>
-        public Math.Color Ambient { get; private set; }
-
-        /// <summary>
-        /// Lumière diffuse
-        /// </summary>
-        public Math.Color Diffuse { get; private set; }
-
+    public class Sphere : VisualEntity{
         /// <summary>
         /// Centre de la sphère.
         /// </summary>
@@ -55,7 +35,32 @@ namespace LanceurRayon.Math
             this.Rayon = Rayon;
             this.Brillance = Brillance;
         }
-       
 
+        public override double? Collide(Vec3 ray, Point eye)
+        {
+            double delta, a, b, c, t1, t2;
+            Vec3 eyeToCenter;
+
+            if (ray == null)
+                throw new ArgumentNullException("ray doit-être défini");
+
+            eyeToCenter = eye.sub(Centre);
+
+            a = ray.dot(ray);
+            b = 2 * eyeToCenter.dot(ray);
+            c = eyeToCenter.dot(eyeToCenter) - System.Math.Pow(Rayon, 2);
+
+            delta = System.Math.Pow(b, 2) - 4 * a * c;
+
+            if (delta < 0)
+                return null;
+            else if (delta == 0)
+                return -b / 2 * a;
+
+            t1 = (-b + System.Math.Sqrt(delta)) / (2 * a);
+            t2 = (-b - System.Math.Sqrt(delta)) / (2 * a);
+
+            return t2 < 0 ? t1 : (t2 < t1 ? t2 : t1);
+        }
     }
 }

@@ -8,12 +8,12 @@
         /// <summary>
         /// Direction où regarde la caméra.
         /// </summary>
-        public Vec3 LookAt { get; private set; }
+        public Point LookAt { get; private set; }
         
         /// <summary>
         /// Vecteur décrivant la positon de la caméra.
         /// </summary>
-        public Vec3 LookFrom { get; private set; }
+        public Point LookFrom { get; private set; }
         
         /// <summary>
         /// Inclinaison de la caméra.
@@ -32,7 +32,7 @@
         /// <param name="LookFrom">Vecteur décrivant la positon de la caméra.</param>
         /// <param name="Up">Inclinaison de la caméra.</param>
         /// <param name="Fov">Angle d'inclinaison.</param>
-        public Camera(Vec3 LookAt, Vec3 LookFrom, Vec3 Up, double Fov)
+        public Camera(Point LookAt, Point LookFrom, Vec3 Up, double Fov)
         {
                 this.LookAt = LookAt;
                 this.LookFrom = LookFrom;

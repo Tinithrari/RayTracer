@@ -1,9 +1,11 @@
-﻿namespace LanceurRayon.Math
+﻿using System;
+
+namespace LanceurRayon.Math
 {
     /// <summary>
     /// Classe décrivant un plan .
     /// </summary>
-    public class Plan
+    public class Plan : VisualEntity
     {
 
         /// <summary>
@@ -28,6 +30,9 @@
           
         }
 
-    
+        public override double? Collide(Vec3 ray, Point eye)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

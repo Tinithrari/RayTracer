@@ -1,7 +1,7 @@
 ﻿using System.Drawing;
 using System.Collections;
 using LanceurRayon.Math;
-
+using System.Collections.Generic;
 
 namespace LanceurRayon.Renderer
 {
@@ -21,12 +21,9 @@ namespace LanceurRayon.Renderer
         //Les différentes entitées géométriques composants la scène.
 
         public ArrayList LesPoints { get; private set;}
-        public ArrayList LesSpheres { get; private set; }
-        public ArrayList LesTriangles { get; private set; }
-        public ArrayList LesPlans { get; private set; }
+        public List<VisualEntity> Entite { get; private set; }
 
         //Les sources de lumières
-
         public ArrayList LesLumieresGlobales { get; private set; }
         public ArrayList LesLumieresLocales { get; private set; }
 
@@ -36,9 +33,7 @@ namespace LanceurRayon.Renderer
         {
 
             LesPoints = new ArrayList();
-            LesSpheres = new ArrayList();
-            LesTriangles = new ArrayList();
-            LesPlans = new ArrayList();
+            Entite = new List<VisualEntity>();
             LesLumieresGlobales = new ArrayList();
             LesLumieresLocales = new ArrayList();
         }
@@ -67,43 +62,6 @@ namespace LanceurRayon.Renderer
         {
 
             LesLumieresLocales.Add(L);
-
-        }
-
-
-        /// <summary>
-        /// Ajoute une Sphère à la scène
-        /// </summary>
-        /// <param name="S">Sphère</param>
-
-        public void add_Sphere(Sphere S){
-
-           
-            LesSpheres.Add(S);
-
-        }
-
-        /// <summary>
-        /// Ajoute un plan à la scène
-        /// </summary>
-        /// <param name="P">Plan </param>
-
-        public void add_Plan(Plan P)
-        {
-
-            LesPlans.Add(P);
-
-        }
-
-        /// <summary>
-        /// Ajoute un triangle à la scène
-        /// </summary>
-        /// <param name="T">Triangle</param>
-
-        public void add_Triangle(Triangle T)
-        {
-
-            LesTriangles.Add(T);
 
         }
 

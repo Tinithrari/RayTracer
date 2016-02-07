@@ -33,7 +33,7 @@ namespace LanceurRayon.RayTracer
             inter = Scene.Camera.LookFrom.sub(Scene.Camera.LookAt);
             tmpW = inter.mul( (1 / inter.length()) );
 
-            inter = Scene.Camera.UP.sub(tmpW);
+            inter = Scene.Camera.Up.sub(tmpW);
             tmpU = inter.mul(1 / inter.length());
 
             inter = tmpU.cross(tmpW);
@@ -70,6 +70,34 @@ namespace LanceurRayon.RayTracer
             d = d.sub(Repere.W).norm();
 
             return d;
+        }
+
+        /// <summary>
+        /// Génère l'image relative à la scène
+        /// </summary>
+        public void GenerateImage()
+        {
+            for (int i = 0; i < Scene.Fenetre.Width; i++)
+                for (int j = 0; j < Scene.Fenetre.Width; j++)
+                {
+                    double? t = null;
+                    Color c = new Color();
+                    Vec3 unit = VecteurDirForPixel(i, j);
+
+                    foreach (VisualEntity entity in this.Scene.Entite)
+                    {
+                        double? tmp = entity.Collide(unit, this.Scene.Camera.LookFrom);
+                        if (tmp != null && t != null && tmp < t)
+                        {
+                            // Calcul lumière
+                            t = tmp;
+                            c = entity.Ambient;
+                        }
+                    }
+
+                    this.Scene.Fenetre.SetPixel(i, j, System.Drawing.Color.FromArgb((int) c.R * 255, (int) c.G * 255, (int) c.B * 255));
+                }
+            this.Scene.Fenetre.Save(this.Scene.Output);
         }
     }
 }

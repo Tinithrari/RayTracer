@@ -6,27 +6,7 @@ namespace LanceurRayon.Math
     /// <summary>
     /// Classe permetant de représenter un triangle
     /// </summary>
-    public class Triangle{
-
-        /// <summary>
-        /// Coefficient de brillance de la scène.
-        /// </summary>
-        public double Brillance { get; private set; }
-
-        /// <summary>
-        /// Reflêt
-        /// </summary>
-        public Math.Color Specular { get; private set; }
-        
-        /// <summary>
-        /// Lumière ambiante
-        /// </summary>
-        public Math.Color Ambient { get; private set; }
-        
-        /// <summary>
-        /// Lumière diffuse
-        /// </summary>
-        public Math.Color Diffuse { get; private set; }
+    public class Triangle : VisualEntity{
         
         /// <summary>
         /// Centre d'un triangle
@@ -50,5 +30,9 @@ namespace LanceurRayon.Math
             this.Brillance = Brillance;
         }
 
+        public override double? Collide(Vec3 ray, Point eye)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
