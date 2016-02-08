@@ -98,7 +98,7 @@ namespace LanceurRayon.RayTracer
                         }
                     }
 
-                    this.Scene.Fenetre.SetPixel(i, j, System.Drawing.Color.FromArgb((int)(c.R * 255), (int)(c.G * 255), (int)(c.B * 255)));
+                    this.Scene.Fenetre.SetPixel(i, j, System.Drawing.Color.FromArgb((int)(c.R * 256), (int)(c.G * 256), (int)(c.B * 256)));
                 }
             }
             this.Scene.Fenetre.Save(this.Scene.Output);
