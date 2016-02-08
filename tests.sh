@@ -85,9 +85,9 @@ echo "Tests de la génération des images"
 
 for testfile in `ls TEST4/*.test`
 do
-   imagefile=${testfile%.txt}.png
-   assert "./raytrace.sh TEST4/$testfile" ""
-   assert "./compare.sh TEST4/$imagefile $imagefile" "OK\n0\nmage"
+   imagefile=${testfile%.test}.png
+   assert "./raytrace.sh $testfile" ""
+   assert "./compare.sh $imagefile ${imagefile#TEST4/}" "OK\n0\n"
 done
 
 assert_end regression
