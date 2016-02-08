@@ -233,7 +233,6 @@ namespace LanceurRayon.Renderer
 
                             //Remise a zéro de la couleur
                             specular = couleur_noire;
-                            ambient = couleur_noire;
                             diffuse = couleur_noire;
 
                             break;
@@ -265,7 +264,6 @@ namespace LanceurRayon.Renderer
 
                             //Remise a zéro de la couleur
                             specular = couleur_noire;
-                            ambient = couleur_noire;
                             diffuse = couleur_noire;
 
                             break;

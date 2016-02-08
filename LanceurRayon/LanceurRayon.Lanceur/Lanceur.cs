@@ -2,6 +2,7 @@
 using LanceurRayon.Renderer;
 
 using System;
+using System.IO;
 
 namespace LanceurRayon.RayTracer
 {
@@ -31,13 +32,13 @@ namespace LanceurRayon.RayTracer
             // Calcul du repère orthonormé de la scène par rapport à la caméra
 
             inter = Scene.Camera.LookFrom.sub(Scene.Camera.LookAt);
-            tmpW = inter.mul( (1 / inter.length()) );
+            tmpW = inter.norm();
 
-            inter = Scene.Camera.Up.sub(tmpW);
-            tmpU = inter.mul(1 / inter.length());
+            inter = Scene.Camera.Up.cross(tmpW);
+            tmpU = inter.norm();
 
-            inter = tmpU.cross(tmpW);
-            tmpV = inter.mul(1 / inter.length());
+            inter = tmpW.cross(tmpU);
+            tmpV = inter.norm();
 
             Repere = new Repere(tmpU, tmpV, tmpW);
 
@@ -46,7 +47,7 @@ namespace LanceurRayon.RayTracer
             fovRad = (Scene.Camera.Fov * System.Math.PI) / 180; // Conversion du fielf of view en radian
 
             PixelHeight = System.Math.Tan(fovRad / 2); // Calcul de la hauteur d'un pixel (Voir trigonométrie)
-            PixelWidth = PixelHeight * (Scene.Fenetre.Width / Scene.Fenetre.Height); // Calcul de la largeur en utilisant le ratio de l'image
+            PixelWidth = PixelHeight * Scene.Fenetre.Width / Scene.Fenetre.Height; // Calcul de la largeur en utilisant le ratio de l'image
         }
 
         /// <summary>
@@ -62,12 +63,13 @@ namespace LanceurRayon.RayTracer
 
             // On projete i et dans le repère de la scène
             a = (PixelWidth * (i - (Scene.Fenetre.Width / 2) + 0.5)) / (Scene.Fenetre.Width / 2);
-            b = (PixelHeight * (i - (Scene.Fenetre.Height / 2) + 0.5)) / (Scene.Fenetre.Height / 2);
+            b = (PixelHeight * (j - (Scene.Fenetre.Height / 2) + 0.5)) / (Scene.Fenetre.Height / 2);
 
             // On crée le vecteur d
             d = Repere.U.mul(a);
             d = d.add(Repere.V.mul(b));
-            d = d.sub(Repere.W).norm();
+            d = d.sub(Repere.W);
+            d = d.norm();
 
             return d;
         }
@@ -78,7 +80,8 @@ namespace LanceurRayon.RayTracer
         public void GenerateImage()
         {
             for (int i = 0; i < Scene.Fenetre.Width; i++)
-                for (int j = 0; j < Scene.Fenetre.Width; j++)
+            {
+                for (int j = 0; j < Scene.Fenetre.Height; j++)
                 {
                     double? t = null;
                     Color c = new Color();
@@ -87,7 +90,7 @@ namespace LanceurRayon.RayTracer
                     foreach (VisualEntity entity in this.Scene.Entite)
                     {
                         double? tmp = entity.Collide(unit, this.Scene.Camera.LookFrom);
-                        if (tmp != null && t != null && tmp < t)
+                        if (tmp != null && (t == null || tmp < t && tmp != null))
                         {
                             // Calcul lumière
                             t = tmp;
@@ -95,9 +98,47 @@ namespace LanceurRayon.RayTracer
                         }
                     }
 
-                    this.Scene.Fenetre.SetPixel(i, j, System.Drawing.Color.FromArgb((int) c.R * 255, (int) c.G * 255, (int) c.B * 255));
+                    this.Scene.Fenetre.SetPixel(i, j, System.Drawing.Color.FromArgb((int)(c.R * 255), (int)(c.G * 255), (int)(c.B * 255)));
                 }
+            }
             this.Scene.Fenetre.Save(this.Scene.Output);
+        }
+
+        public static void Main(string[] args)
+        {
+            ReadFile reader = new ReadFile();
+            Scene scene;
+
+            if (args.Length != 1)
+            {
+                Console.Error.WriteLine("Le lecteur de fichier de scène attend un fichier exactement !!");
+                System.Environment.Exit(1);
+            }
+
+            try
+            {
+                scene = reader.Analyze(args[0]);
+                Lanceur lanceur = new Lanceur(scene);
+                lanceur.GenerateImage();
+            }
+
+            catch (IOException e)
+            {
+
+                Console.WriteLine("Le fichier de sortie n'à pas pu être enregistré !!!");
+                Console.Error.WriteLine(e.Message);
+                System.Environment.Exit(1);
+            }
+            catch (ArgumentException f)
+            {
+                Console.WriteLine(f.Message);
+                System.Environment.Exit(1);
+            }
+            catch (FormatException)
+            {
+                Console.WriteLine("Un ou plusieurs arguments ne sont pas des nombres !!!");
+                System.Environment.Exit(1);
+            }
         }
     }
 }
