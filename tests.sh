@@ -49,3 +49,14 @@ do
 done
 
 assert_end regression
+
+echo "Tests de la génération des images"
+
+for testfile in `ls TEST5/*.test`
+do
+   imagefile=${testfile%.test}.png
+   assert "./raytrace.sh $testfile" ""
+   assert "./compare.sh $imagefile ${imagefile#TEST5/}" "OK\n0\n"
+done
+
+assert_end regression
