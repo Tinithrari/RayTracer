@@ -25,3 +25,9 @@ premieresimages:
    script: "./build.sh ; cd testsl32016; ./tests4.sh"
    tags:
      - shell
+
+imagescouleur:
+   stage: test
+   script: "./build.sh ; cd testsl32016; ./tests5.sh"
+   tags:
+     - shell
