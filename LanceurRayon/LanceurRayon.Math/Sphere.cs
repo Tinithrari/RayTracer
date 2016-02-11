@@ -36,6 +36,12 @@ namespace LanceurRayon.Math
             this.Brillance = Brillance;
         }
 
+        /// <summary>
+        /// Detecte si le rayon entre en collision avec l'objet
+        /// </summary>
+        /// <param name="ray">Le rayon</param>
+        /// <param name="eye">L'origine du rayon</param>
+        /// <returns>Le discriminant de l'intersection ou null si pas d'intersection</returns>
         public override double? Collide(Vec3 ray, Point eye)
         {
             double delta, a, b, c, t1, t2;

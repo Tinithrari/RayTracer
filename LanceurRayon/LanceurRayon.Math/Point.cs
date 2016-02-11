@@ -23,7 +23,14 @@ namespace LanceurRayon.Math
         /// <param name="z">Position en Z</param>
         public Point(double x, double y, double z) : base(x, y, z)
         { }
-      
+
+        /// <summary>
+        /// Permet de construire un point à partir de coordonnées passé en chaine de caractère
+        /// </summary>
+        /// <param name="x">Coordonnées en x</param>
+        /// <param name="y">Coordonnées en y</param>
+        /// <param name="z">Coordonnées en z</param>
+        /// <returns>Le point correspondant à la description passé en paramètre</returns>
         public static Point createPoint(string x, string y, string z)
         {
             try {
