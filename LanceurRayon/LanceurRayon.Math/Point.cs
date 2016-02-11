@@ -24,7 +24,16 @@ namespace LanceurRayon.Math
         public Point(double x, double y, double z) : base(x, y, z)
         { }
       
-        
+        public static Point createPoint(string x, string y, string z)
+        {
+            try {
+                return new Point(double.Parse(x, CultureInfo.InvariantCulture), double.Parse(y, CultureInfo.InvariantCulture), double.Parse(z, CultureInfo.InvariantCulture));
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }        
         
         /// <summary>
         /// Permet de créer l'image de la translation d'un point par rapport à un vecteur

@@ -50,6 +50,18 @@ namespace LanceurRayon.Math
             this.B = b;
         }
 
+        public static Color createColor(string x, string y, string z)
+        {
+            try
+            {
+                return new Color(double.Parse(x, CultureInfo.InvariantCulture), double.Parse(y, CultureInfo.InvariantCulture), double.Parse(z, CultureInfo.InvariantCulture));
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
         /// <summary>
         /// Permet d'additioner deux couleurs
         /// </summary>

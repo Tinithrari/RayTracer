@@ -21,6 +21,17 @@ namespace LanceurRayon.Math
         /// <param name="z">Sa position en Z</param>
         public Vec3(double x, double y, double z) : base(x, y, z) { }
 
+        public static Vec3 createVec3(string x, string y, string z)
+        {
+            try {
+                return new Vec3(double.Parse(x, CultureInfo.InvariantCulture), double.Parse(y, CultureInfo.InvariantCulture), double.Parse(z, CultureInfo.InvariantCulture));
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
         /// <summary>
         /// Permet d'additioner deux vecteurs 
         /// </summary>
