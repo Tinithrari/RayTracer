@@ -15,8 +15,8 @@ namespace LanceurRayon.Renderer
         /// <summary>
         /// Analyse le fichier de scène et convertit en un objet scène.
         /// </summary>
-        //Chargement du fichier de scène intégralement en mémoire vive .
         /// <param name="nom_fichier">nom fichier de scène</param>
+        /// <returns>Scène décrite par le fichier en paramètre.</returns>
         public Scene Analyze(string nom_fichier)
         {
             string ligne_courante;
