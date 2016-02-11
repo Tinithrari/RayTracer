@@ -24,5 +24,12 @@ namespace LanceurRayon.Math
             this.Couleur = Couleur;
             this.Position = Position;
         }
+
+        /// <summary>
+        /// Calcule le vecteur direction de la lumière
+        /// </summary>
+        /// <param name="p">Le poin t pour lequel on calcule le vecteur direction</param>
+        /// <returns>Le vecteur direction correspondant à cette lumière</returns>
+        public abstract Vec3 getDirection(Point p);
     }
 }

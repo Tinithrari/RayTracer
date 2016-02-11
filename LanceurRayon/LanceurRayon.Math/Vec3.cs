@@ -21,6 +21,13 @@ namespace LanceurRayon.Math
         /// <param name="z">Sa position en Z</param>
         public Vec3(double x, double y, double z) : base(x, y, z) { }
 
+        /// <summary>
+        /// Permet de créer un Vec3 à partir de coordonnées
+        /// </summary>
+        /// <param name="x">Coordonnées en x</param>
+        /// <param name="y">Coordonnées en y</param>
+        /// <param name="z">Coordonnées en z</param>
+        /// <returns>Le Vec3 correspondant à la description données en paramètre</returns>
         public static Vec3 createVec3(string x, string y, string z)
         {
             try {

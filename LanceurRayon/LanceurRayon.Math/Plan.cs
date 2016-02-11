@@ -30,6 +30,12 @@ namespace LanceurRayon.Math
           
         }
 
+        /// <summary>
+        /// Detecte si le rayon entre en collision avec l'objet
+        /// </summary>
+        /// <param name="ray">Le rayon</param>
+        /// <param name="eye">L'origine du rayon</param>
+        /// <returns>Le discriminant de l'intersection ou null si pas d'intersection</returns>
         public override double? Collide(Vec3 ray, Point eye)
         {
             throw new NotImplementedException();

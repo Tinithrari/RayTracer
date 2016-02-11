@@ -1,4 +1,6 @@
-﻿namespace LanceurRayon.Math
+﻿using System;
+
+namespace LanceurRayon.Math
 {/// <summary>
  /// Classe permetant de représenter une lumière directionelle.
  /// </summary>
@@ -16,5 +18,14 @@
 
         }
 
+        /// <summary>
+        /// Calcule le vecteur direction de la lumière
+        /// </summary>
+        /// <param name="p">Le poin t pour lequel on calcule le vecteur direction</param>
+        /// <returns>Le vecteur direction correspondant à cette lumière</returns>
+        public override Vec3 getDirection(Point p)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

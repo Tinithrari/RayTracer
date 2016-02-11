@@ -50,11 +50,18 @@ namespace LanceurRayon.Math
             this.B = b;
         }
 
-        public static Color createColor(string x, string y, string z)
+        /// <summary>
+        /// Méthode fabrique construisant le point à partir de chaine de caractère
+        /// </summary>
+        /// <param name="r">La valeur de R</param>
+        /// <param name="g">La valeur de G</param>
+        /// <param name="b">La valeur de B</param>
+        /// <returns>La couleur correspondant à a description passé en paramètre</returns>
+        public static Color createColor(string r, string g, string b)
         {
             try
             {
-                return new Color(double.Parse(x, CultureInfo.InvariantCulture), double.Parse(y, CultureInfo.InvariantCulture), double.Parse(z, CultureInfo.InvariantCulture));
+                return new Color(double.Parse(r, CultureInfo.InvariantCulture), double.Parse(g, CultureInfo.InvariantCulture), double.Parse(b, CultureInfo.InvariantCulture));
             }
             catch (Exception e)
             {
