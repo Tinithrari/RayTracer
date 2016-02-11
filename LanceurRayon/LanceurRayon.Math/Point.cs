@@ -23,7 +23,9 @@ namespace LanceurRayon.Math
         /// <param name="z">Position en Z</param>
         public Point(double x, double y, double z) : base(x, y, z)
         { }
-
+      
+        
+        
         /// <summary>
         /// Permet de créer l'image de la translation d'un point par rapport à un vecteur
         /// </summary>

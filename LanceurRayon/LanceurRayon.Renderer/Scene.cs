@@ -24,18 +24,15 @@ namespace LanceurRayon.Renderer
         public List<VisualEntity> Entite { get; private set; }
 
         //Les sources de lumières
-        public ArrayList LesLumieresGlobales { get; private set; }
-        public ArrayList LesLumieresLocales { get; private set; }
-
-
+        public List<Lumiere> Eclairage { get; private set; }
+  
 
         public Scene()
         {
 
             LesPoints = new ArrayList();
             Entite = new List<VisualEntity>();
-            LesLumieresGlobales = new ArrayList();
-            LesLumieresLocales = new ArrayList();
+            Eclairage = new List<Lumiere>();
         }
 
         //Les méthodes
@@ -45,26 +42,7 @@ namespace LanceurRayon.Renderer
         /// </summary>
         /// <param name="L">Source de lumière</param>
 
-        public void add_lumiere_globale(Lumiere L )
-        {
-
-            LesLumieresGlobales.Add(L);
-
-        }
-
-
-        /// <summary>
-        /// Ajoute une source de lumière locale à la scène
-        /// </summary>
-        /// <param name="L">Source de lumière</param>
-
-        public void add_lumiere_locale(Lumiere L)
-        {
-
-            LesLumieresLocales.Add(L);
-
-        }
-
+      
         /// <summary>
         /// Ajoute un point à la scène
         /// </summary>
@@ -90,5 +68,14 @@ namespace LanceurRayon.Renderer
                     NbLumieres;
                                     
         }
+        /*
+        /// <summary>
+        /// Vérifie que la somme des contributions des couleurs ne de passe pas 1.
+        /// </summary>
+        public void check_Lumiere()
+        {
+            LesLumieresLocales[2]=; 
+        }
+        */
     }
 }

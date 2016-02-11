@@ -1,31 +1,28 @@
-﻿namespace LanceurRayon.Math
+﻿using System;
+
+namespace LanceurRayon.Math
 {/// <summary>
- /// Classe permetant de représenter une lumière.
+ /// Classe/Interface permetant de représenter une lumière.
  /// </summary>
-    public class Lumiere
+    public abstract class Lumiere
     {
-
-      /// <summary>
-      /// Vecteur désignant la direction.
-      /// </summary>
-      public Vec3  Direction{ get; private set; }
-
-      /// <summary>
-      /// Couleur de la lumière.
-      /// </summary>
-      public Color Couleur{ get; private set; }
+        /// <summary>
+        /// Couleur de la source de lumière.
+        /// </summary>
+        public Math.Color Couleur { get; protected set; }
+        
+        /// <summary>
+        /// Position de l'objet.
+        /// </summary>
+        public Point Position { get; protected set; }
 
         /// <summary>
         /// Constructeur de la classe.
         /// </summary>
-        /// <param name="Direction">Vecteur désignant la direction.</param>
-        /// <param name="Couleur">Couleur de la lumière.</param>
-        public Lumiere(Vec3 Direction, Color Couleur)
+        public Lumiere(Color Couleur, Point Position)
         {
-            this.Direction = Direction;
             this.Couleur = Couleur;
-
+            this.Position = Position;
         }
-
     }
 }

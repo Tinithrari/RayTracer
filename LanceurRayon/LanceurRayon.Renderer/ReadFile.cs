@@ -152,13 +152,13 @@ namespace LanceurRayon.Renderer
                                 throw new ArgumentException("Nombre d'arguments incorrect", tmp[0]);
 
 
-                            ma_scene.add_lumiere_globale(new Lumiere(
-                                                                    new Vec3(double.Parse(tmp[1], CultureInfo.InvariantCulture),
-                                                                             double.Parse(tmp[2], CultureInfo.InvariantCulture),
-                                                                             double.Parse(tmp[3], CultureInfo.InvariantCulture)),
+                            ma_scene.Eclairage.Add(new LumierePonctuelle(
+                                                                  
                                                                     new Math.Color(double.Parse(tmp[4], CultureInfo.InvariantCulture),
                                                                                    double.Parse(tmp[5], CultureInfo.InvariantCulture),
                                                                                    double.Parse(tmp[6], CultureInfo.InvariantCulture))
+
+                                                                                     ,new Math.Point(tmp[1], tmp[2], tmp[3])
                                                                       )
                                                          );
                             ma_scene.NbLumieres++;
@@ -316,5 +316,6 @@ namespace LanceurRayon.Renderer
             return ma_scene;
         }
 
+       
     }
 }
