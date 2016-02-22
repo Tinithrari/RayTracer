@@ -98,11 +98,11 @@ namespace LanceurRayon.RayTracer
                                 Color somme = new Color();
                                 Point p;
                                 t = tmp;
-                                p = Scene.Camera.LookFrom.add(d.mul(t.Value));
+                                p = Scene.Camera.LookFrom.add(d.mul((double) t));
 
                                 foreach (Lumiere l in Scene.Eclairage)
                                 {
-                                    Color cPoint = l.Couleur.mul(System.Math.Max(entity.getNormaleIntersection(p).dot(l.getDirection(this.Scene.Camera.LookFrom)), 0));
+                                    Color cPoint = l.Couleur.mul(System.Math.Max(entity.getNormaleIntersection(p).dot(l.getDirection(p)), 0));
                                     somme = somme.add(cPoint);
                                 }
 
@@ -120,7 +120,7 @@ namespace LanceurRayon.RayTracer
                         }
                     }
 
-                    this.Scene.Fenetre.SetPixel(i, j, System.Drawing.Color.FromArgb((int) System.Math.Round((c.R * 255)), (int)System.Math.Round((c.G * 255)), (int)System.Math.Round((c.B * 255))));
+                    this.Scene.Fenetre.SetPixel(i, j, System.Drawing.Color.FromArgb((int) System.Math.Round(c.R * 255), (int)System.Math.Round(c.G * 255), (int)System.Math.Round(c.B * 255)));
                 }
             }
             this.Scene.Fenetre.Save(this.Scene.Output);
