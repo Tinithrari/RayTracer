@@ -148,7 +148,7 @@ namespace LanceurRayon.Renderer
                             ma_scene.NbObjets++;
 
                             //Remise a zéro de la couleur
-                            specular = diffuse = couleur_noire;
+                            specular = couleur_noire;
                             break;
 
                         case "sphere":
@@ -161,7 +161,7 @@ namespace LanceurRayon.Renderer
                             ma_scene.NbObjets++;
 
                             //Remise a zéro de la couleur
-                            specular = diffuse = couleur_noire;
+                            specular = couleur_noire;
                             break;
 
                         case "plane":

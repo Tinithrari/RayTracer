@@ -77,11 +77,9 @@ namespace LanceurRayon.Math
                 return null;
         }
 
-        public override Vec3 getNormaleIntersection(Vec3 rayon, double discriminant, Point eye)
+        public override Vec3 getNormaleIntersection(Point p)
         {
-            Point intersection = eye.add(rayon.mul(discriminant));
-
-            return intersection.sub(Centre).norm();
+            return p.sub(Centre).norm();
         }
     }
 }

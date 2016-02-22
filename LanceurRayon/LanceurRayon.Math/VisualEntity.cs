@@ -38,10 +38,8 @@ namespace LanceurRayon.Math
         /// <summary>
         /// Calcule la normale d'un point d'intersection
         /// </summary>
-        /// <param name="rayon">Le vecteur entrainant un point de collision dont on souhaite la normal</param>
-        /// <param name="discriminant"></param>
-        /// <param name="eye"></param>
+        /// <param name="p">Le point de collisition dont on souhaite connaitre la normale</param>
         /// <returns>LA normal du point d'intersection</returns>
-        public abstract Vec3 getNormaleIntersection(Vec3 rayon, double discriminant, Point eye);
+        public abstract Vec3 getNormaleIntersection(Point p);
     }
 }

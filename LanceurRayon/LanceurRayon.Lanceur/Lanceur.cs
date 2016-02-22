@@ -85,22 +85,24 @@ namespace LanceurRayon.RayTracer
                 {
                     double? t = null;
                     Color c = new Color();
-                    Vec3 unit = VecteurDirForPixel(i, j);
+                    Vec3 d = VecteurDirForPixel(i, j);
 
                     foreach (VisualEntity entity in this.Scene.Entite)
                     {
-                        double? tmp = entity.Collide(unit, this.Scene.Camera.LookFrom);
+                        double? tmp = entity.Collide(d, this.Scene.Camera.LookFrom);
 
                         if (Scene.NbLumieres > 0)
                         {
                             if (tmp != null && (t == null || tmp < t && tmp != null))
                             {
                                 Color somme = new Color();
+                                Point p;
                                 t = tmp;
+                                p = Scene.Camera.LookFrom.add(d.mul(t.Value));
 
                                 foreach (Lumiere l in Scene.Eclairage)
                                 {
-                                    Color cPoint = l.Couleur.mul(System.Math.Max(entity.getNormaleIntersection(unit, (double)tmp, Scene.Camera.LookFrom).dot(l.getDirection(this.Scene.Camera.LookFrom)), 0));
+                                    Color cPoint = l.Couleur.mul(System.Math.Max(entity.getNormaleIntersection(p).dot(l.getDirection(this.Scene.Camera.LookFrom)), 0));
                                     somme = somme.add(cPoint);
                                 }
 
