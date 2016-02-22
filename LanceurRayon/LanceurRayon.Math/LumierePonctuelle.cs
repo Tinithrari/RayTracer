@@ -10,14 +10,16 @@ namespace LanceurRayon.Math
     public class LumierePonctuelle : Lumiere
     {
 
+        public Point Position { get; private set; }
+
         /// <summary>
         /// Constructeur de la classe.
         /// </summary>
         /// <param name="Position">Vecteur désignant la direction.</param>
         /// <param name="Couleur">Couleur de la lumière.</param>
-        public LumierePonctuelle(Color Couleur, Point Position) : base(Couleur, Position)
+        public LumierePonctuelle(Color Couleur, Point Position) : base(Couleur)
         {
-
+            this.Position = Position;
         }
 
         /// <summary>
@@ -27,7 +29,7 @@ namespace LanceurRayon.Math
         /// <returns>Le vecteur direction correspondant à cette lumière</returns>
         public override Vec3 getDirection(Point p)
         {
-            throw new NotImplementedException();
+            return Position.sub(p).norm();
         }
     }
 }

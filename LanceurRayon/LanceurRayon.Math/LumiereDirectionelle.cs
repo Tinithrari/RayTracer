@@ -7,15 +7,16 @@ namespace LanceurRayon.Math
     public class LumiereDirectionelle :Lumiere
     {
 
+        public Vec3 Direction { get; private set; }
+
         /// <summary>
         /// Constructeur de la classe.
         /// </summary>
         /// <param name="Position">Vecteur désignant la direction.</param>
         /// <param name="Couleur">Couleur de la lumière.</param>
-        public LumiereDirectionelle(Color Couleur,Point Position) : base(Couleur, Position)
+        public LumiereDirectionelle(Color Couleur, Vec3 Direction) : base(Couleur)
         {
-         
-
+            this.Direction = Direction;
         }
 
         /// <summary>
@@ -25,7 +26,7 @@ namespace LanceurRayon.Math
         /// <returns>Le vecteur direction correspondant à cette lumière</returns>
         public override Vec3 getDirection(Point p)
         {
-            throw new NotImplementedException();
+            return this.Direction;
         }
     }
 }

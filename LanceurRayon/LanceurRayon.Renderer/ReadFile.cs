@@ -108,7 +108,7 @@ namespace LanceurRayon.Renderer
                                 throw new ArgumentException("Nombre d'arguments incorrect", tmp[0]);
 
                             ma_scene.Eclairage.Add(new LumiereDirectionelle(Math.Color.createColor(tmp[4], tmp[5], tmp[6]),
-                                                                            Math.Point.createPoint(tmp[1], tmp[2], tmp[3])));
+                                                                            Math.Vec3.createVec3(tmp[1], tmp[2], tmp[3])));
 
                             ma_scene.NbLumieres++;
                             break;
