@@ -91,16 +91,21 @@ namespace LanceurRayon.RayTracer
                     {
                         double? tmp = entity.Collide(unit, this.Scene.Camera.LookFrom);
 
-                        if (Scene.NbLumieres > 0 && tmp != null && tmp < t)
+                        if (Scene.NbLumieres > 0)
                         {
-                            Color somme = new Color();
+                            if (tmp != null && (t == null || tmp < t && tmp != null))
+                            {
+                                Color somme = new Color();
+                                t = tmp;
 
-                            foreach (Lumiere l in Scene.Eclairage)
-                                somme = somme.add(l.Couleur.mul(System.Math.Max(entity.getNormaleIntersection(unit, (double) tmp, Scene.Camera.LookFrom).dot(l.getDirection(this.Scene.Camera.LookFrom)), 0)));
+                                foreach (Lumiere l in Scene.Eclairage)
+                                {
+                                    Color cPoint = l.Couleur.mul(System.Math.Max(entity.getNormaleIntersection(unit, (double)tmp, Scene.Camera.LookFrom).dot(l.getDirection(this.Scene.Camera.LookFrom)), 0));
+                                    somme = somme.add(cPoint);
+                                }
 
-                            c = entity.Ambient.add(somme.times(entity.Diffuse));
-
-                            t = tmp;
+                                c = entity.Ambient.add(somme.times(entity.Diffuse));
+                            }
                         }
                         else
                         {
