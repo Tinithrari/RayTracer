@@ -40,5 +40,10 @@ namespace LanceurRayon.Math
         {
             throw new NotImplementedException();
         }
+
+        public override Vec3 getNormaleIntersection(Vec3 rayon, double discriminant, Point eye)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

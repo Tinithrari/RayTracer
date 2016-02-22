@@ -76,5 +76,12 @@ namespace LanceurRayon.Math
             else
                 return null;
         }
+
+        public override Vec3 getNormaleIntersection(Vec3 rayon, double discriminant, Point eye)
+        {
+            Point intersection = eye.add(rayon.mul(discriminant));
+
+            return intersection.sub(Centre).norm();
+        }
     }
 }

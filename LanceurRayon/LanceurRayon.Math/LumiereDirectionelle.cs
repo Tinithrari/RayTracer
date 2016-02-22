@@ -16,7 +16,7 @@ namespace LanceurRayon.Math
         /// <param name="Couleur">Couleur de la lumière.</param>
         public LumiereDirectionelle(Color Couleur, Vec3 Direction) : base(Couleur)
         {
-            this.Direction = Direction;
+            this.Direction = Direction.norm();
         }
 
         /// <summary>

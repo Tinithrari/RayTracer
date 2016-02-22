@@ -90,11 +90,24 @@ namespace LanceurRayon.RayTracer
                     foreach (VisualEntity entity in this.Scene.Entite)
                     {
                         double? tmp = entity.Collide(unit, this.Scene.Camera.LookFrom);
-                        if (tmp != null && (t == null || tmp < t && tmp != null))
+
+                        if (Scene.NbLumieres > 0 && tmp != null)
                         {
-                            // Calcul lumière
-                            t = tmp;
-                            c = entity.Ambient;
+                            Color somme = new Color();
+
+                            foreach (Lumiere l in Scene.Eclairage)
+                                somme = somme.add(l.Couleur.mul(System.Math.Max(entity.getNormaleIntersection(unit, (double) tmp, Scene.Camera.LookFrom).dot(l.getDirection(this.Scene.Camera.LookFrom)), 0)));
+
+                            c = entity.Ambient.add(somme.times(entity.Diffuse));
+                        }
+                        else
+                        {
+                            
+                            if (tmp != null && (t == null || tmp < t && tmp != null))
+                            {
+                                t = tmp;
+                                c = entity.Ambient;
+                            }
                         }
                     }
 
