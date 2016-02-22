@@ -91,7 +91,7 @@ namespace LanceurRayon.RayTracer
                     {
                         double? tmp = entity.Collide(unit, this.Scene.Camera.LookFrom);
 
-                        if (Scene.NbLumieres > 0 && tmp != null)
+                        if (Scene.NbLumieres > 0 && tmp != null && tmp < t)
                         {
                             Color somme = new Color();
 
@@ -99,6 +99,8 @@ namespace LanceurRayon.RayTracer
                                 somme = somme.add(l.Couleur.mul(System.Math.Max(entity.getNormaleIntersection(unit, (double) tmp, Scene.Camera.LookFrom).dot(l.getDirection(this.Scene.Camera.LookFrom)), 0)));
 
                             c = entity.Ambient.add(somme.times(entity.Diffuse));
+
+                            t = tmp;
                         }
                         else
                         {
