@@ -66,7 +66,7 @@ namespace LanceurRayon.Comparateur
 
 			else
 				Console.WriteLine("OK");
-
+            // comm
 			Console.WriteLine(nb_pixels_diff);
 			return ;
 		}
