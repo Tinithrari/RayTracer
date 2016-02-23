@@ -62,8 +62,8 @@ namespace LanceurRayon.RayTracer
             Vec3 d;
 
             // On projete i et dans le repère de la scène
-            a = (PixelWidth * (i - (Scene.Fenetre.Width / 2) + 0.5)) / (Scene.Fenetre.Width / 2);
-            b = (PixelHeight * (j - (Scene.Fenetre.Height / 2) + 0.5)) / (Scene.Fenetre.Height / 2);
+            a = (PixelWidth * (i - (Scene.Fenetre.Width / 2d) + 0.5)) / (Scene.Fenetre.Width / 2d);
+            b = (PixelHeight * (j - (Scene.Fenetre.Height / 2d) + 0.5)) / (Scene.Fenetre.Height / 2d);
 
             // On crée le vecteur d
             d = Repere.U.mul(a);
@@ -99,7 +99,7 @@ namespace LanceurRayon.RayTracer
                                 Color somme = new Color();
                                 Point p;
                                 t = tmp;
-                                p = Scene.Camera.LookFrom.add(d.mul((double) t));
+                                p = Scene.Camera.LookFrom.add(d.mul(t.Value));
 
                                 foreach (Lumiere l in Scene.Eclairage)
                                 {
@@ -121,8 +121,8 @@ namespace LanceurRayon.RayTracer
                         }
                     }
                     r = c.R == 1.0 ? 255 : (int)( (c.R + 0.5) * 255);
-                    g = c.G == 1.0 ? 255 : (int)((c.G + 0.5) * 255);
-                    b = c.B == 1.0 ? 255 : (int)((c.B + 0.5) * 255);
+                    g = c.G == 1.0 ? 255 : (int)( (c.G + 0.5) * 255);
+                    b = c.B == 1.0 ? 255 : (int)( (c.B + 0.5) * 255);
                     this.Scene.Fenetre.SetPixel(i, j, System.Drawing.Color.FromArgb(r, g, b));
                 }
             }
