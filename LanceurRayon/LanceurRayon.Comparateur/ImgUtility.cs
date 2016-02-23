@@ -53,7 +53,7 @@ namespace LanceurRayon.Comparateur
 					couleur_pixel_courant = img_diff.GetPixel (x, y);
 
 					//On vérfie si le pixel obtenu n'est pas noir signe que la couleur des deux images est différente.
-					if ( couleur_pixel_courant.A != 255 ||couleur_pixel_courant.R !=0   ||couleur_pixel_courant.G != 0  || couleur_pixel_courant.B != 0   )
+					if ( couleur_pixel_courant.A != 255 || couleur_pixel_courant.R !=0 || couleur_pixel_courant.G != 0  || couleur_pixel_courant.B != 0   )
 						nb_pixels_diff++;	
 				}
 			}
