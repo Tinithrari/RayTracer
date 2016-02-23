@@ -53,10 +53,10 @@ namespace LanceurRayon.Math
             eyeToCenter = eye.sub(Centre);
 
             a = ray.dot(ray);
-            b = 2 * eyeToCenter.dot(ray);
-            c = eyeToCenter.dot(eyeToCenter) - System.Math.Pow(Rayon, 2);
+            b = 2d * eyeToCenter.dot(ray);
+            c = eyeToCenter.dot(eyeToCenter) - (Rayon * Rayon);
 
-            delta = System.Math.Pow(b, 2) - 4 * a * c;
+            delta = (b * b) -(4 * a * c);
 
             if (delta < 0)
                 return null;

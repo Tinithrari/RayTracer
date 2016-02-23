@@ -83,6 +83,7 @@ namespace LanceurRayon.RayTracer
             {
                 for (int j = 0; j < Scene.Fenetre.Height; j++)
                 {
+                    int r, g, b;
                     double? t = null;
                     Color c = new Color();
                     Vec3 d = VecteurDirForPixel(i, j);
@@ -119,8 +120,10 @@ namespace LanceurRayon.RayTracer
                             }
                         }
                     }
-
-                    this.Scene.Fenetre.SetPixel(i, j, System.Drawing.Color.FromArgb((int) System.Math.Round(c.R * 255), (int)System.Math.Round(c.G * 255), (int)System.Math.Round(c.B * 255)));
+                    r = c.R == 1.0 ? 255 : (int)( (c.R + 0.5) * 255);
+                    g = c.G == 1.0 ? 255 : (int)((c.G + 0.5) * 255);
+                    b = c.B == 1.0 ? 255 : (int)((c.B + 0.5) * 255);
+                    this.Scene.Fenetre.SetPixel(i, j, System.Drawing.Color.FromArgb(r, g, b));
                 }
             }
             this.Scene.Fenetre.Save(this.Scene.Output);
