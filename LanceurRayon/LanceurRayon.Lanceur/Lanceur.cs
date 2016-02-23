@@ -120,7 +120,7 @@ namespace LanceurRayon.RayTracer
                         }
                     }
 
-                    this.Scene.Fenetre.SetPixel(i, j, System.Drawing.Color.FromArgb((int) System.Math.Round(c.R * 255), (int)System.Math.Round(c.G * 255), (int)System.Math.Round(c.B * 255)));
+                    this.Scene.Fenetre.SetPixel(i, j, System.Drawing.Color.FromArgb((int) System.Math.Round(c.R * 255, MidpointRounding.AwayFromZero), (int)System.Math.Round(c.G * 255, MidpointRounding.AwayFromZero), (int)System.Math.Round(c.B * 255, MidpointRounding.AwayFromZero)));
                 }
             }
             this.Scene.Fenetre.Save(this.Scene.Output);
