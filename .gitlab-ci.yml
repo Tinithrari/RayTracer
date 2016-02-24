@@ -31,3 +31,9 @@ imagescouleur:
    script: "./build.sh ; cd testsl32016; ./tests5.sh"
    tags:
      - shell
+
+plansettriangles:
+   stage: test
+   script: "./build.sh ; cd testsl32016; ./tests6.sh"
+   tags:
+     - shell
