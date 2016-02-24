@@ -93,7 +93,7 @@ namespace LanceurRayon.RayTracer
 
                         if (Scene.NbLumieres > 0)
                         {
-                            if (tmp != null && (t == null || tmp < t && tmp != null))
+                            if (tmp != null && (t == null || tmp <= t && tmp != null))
                             {
                                 Color somme = new Color();
                                 Point p;
@@ -112,7 +112,7 @@ namespace LanceurRayon.RayTracer
                         else
                         {
                             
-                            if (tmp != null && (t == null || tmp < t && tmp != null))
+                            if (tmp != null && (t == null || tmp <= t && tmp != null))
                             {
                                 t = tmp;
                                 c = entity.Ambient;
