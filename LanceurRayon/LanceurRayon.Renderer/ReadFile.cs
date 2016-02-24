@@ -41,7 +41,7 @@ namespace LanceurRayon.Renderer
 
                     //On découpe la ligne de manière à récupérer séparément les mots constituants la ligne.
                     tmp = ligne_courante.Split(' ');
-                    tmp = tmp.Where(val => !val.Equals("")).ToArray();
+                    tmp = tmp.Where(val => !val.Equals("") || !val.Equals(" ")).ToArray();
 
                     //Reconnaissance des différents mot clefs
                     switch (tmp[0])
