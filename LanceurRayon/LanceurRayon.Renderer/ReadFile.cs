@@ -36,12 +36,12 @@ namespace LanceurRayon.Renderer
             {
                 if (!ligne_courante.Equals(""))
                 {
-                    if (ligne_courante[0] == '#')//Si le parser rencontre un #  la ligne est considéré comme un commentaire et ignoré.
+                    if (ligne_courante[0] == '#' || ligne_courante == " ")//Si le parser rencontre un #  la ligne est considéré comme un commentaire et ignoré.
                         continue;
 
                     //On découpe la ligne de manière à récupérer séparément les mots constituants la ligne.
                     tmp = ligne_courante.Split(' ');
-                    tmp = tmp.Where(val => !val.Equals("") || !val.Equals(" ")).ToArray();
+                    tmp = tmp.Where(val => !val.Equals("")).ToArray();
 
                     //Reconnaissance des différents mot clefs
                     switch (tmp[0])
