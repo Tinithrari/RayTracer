@@ -9,9 +9,19 @@ namespace LanceurRayon.Math
     public class Triangle : VisualEntity{
         
         /// <summary>
-        /// Centre d'un triangle
+        /// Coordonnées du point A
         /// </summary>
-        public Point Pt { get; private set; }
+        public Point A { get; private set; }
+
+        /// <summary>
+        /// Coordonnées du point B
+        /// </summary>
+        public Point B { get; private set; }
+        
+        /// <summary>
+        /// Coordonnées du point C
+        /// </summary>
+        public Point C { get; private set; }
 
         /// <summary>
         /// Constructeur de la classe.
@@ -21,9 +31,11 @@ namespace LanceurRayon.Math
         /// <param name="Ambient">Lumière ambiante</param>
         /// <param name="Diffuse">Lumière diffuse</param>
         /// <param name="Brillance">Brillance de la scène.</param> 
-        public Triangle(Point Pt, Math.Color Specular, Math.Color Ambient, Math.Color Diffuse,double Brillance)
+        public Triangle(Point A, Point B, Point C, Math.Color Specular, Math.Color Ambient, Math.Color Diffuse,double Brillance)
         {
-            this.Pt = Pt;
+            this.A = A;
+            this.B = B;
+            this.C = C;
             this.Ambient = Ambient;
             this.Specular = Specular;
             this.Diffuse = Diffuse;

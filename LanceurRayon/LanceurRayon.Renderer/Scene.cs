@@ -20,7 +20,7 @@ namespace LanceurRayon.Renderer
 
         //Les différentes entitées géométriques composants la scène.
 
-        public ArrayList LesPoints { get; private set;}
+        public List<Math.Point> LesPoints { get; private set;}
         public List<VisualEntity> Entite { get; private set; }
 
         //Les sources de lumières
@@ -30,7 +30,7 @@ namespace LanceurRayon.Renderer
         public Scene()
         {
 
-            LesPoints = new ArrayList();
+            LesPoints = new List<Math.Point>();
             Entite = new List<VisualEntity>();
             Eclairage = new List<Lumiere>();
         }

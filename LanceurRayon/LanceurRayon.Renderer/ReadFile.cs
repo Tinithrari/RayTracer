@@ -144,7 +144,7 @@ namespace LanceurRayon.Renderer
                             if (tmp.Length != 4)
                                 throw new System.ArgumentException("Nombre d'arguments incorrect", tmp[0]);
 
-                            ma_scene.Entite.Add(new Triangle(Math.Point.createPoint(tmp[1], tmp[2], tmp[3]), specular, ambient, diffuse, brillance));
+                            ma_scene.Entite.Add(new Triangle(ma_scene.LesPoints[int.Parse(tmp[0])], ma_scene.LesPoints[int.Parse(tmp[1])], ma_scene.LesPoints[int.Parse(tmp[2])], specular, ambient, diffuse, brillance));
                             ma_scene.NbObjets++;
 
                             //Remise a zéro de la couleur
