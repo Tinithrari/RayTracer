@@ -42,6 +42,16 @@ namespace LanceurRayon.Math
             this.Brillance = Brillance;
         }
 
+        private Vec3 getNormale()
+        {
+            return this.B.sub(this.A).cross(this.C.sub(this.A)).norm();
+        }
+
+        private bool collideWithPlan()
+        {
+            return false;
+        }
+
         /// <summary>
         /// Detecte si le rayon entre en collision avec l'objet
         /// </summary>
