@@ -58,9 +58,9 @@ namespace LanceurRayon.Math
 
             delta = (b * b) - (4 * a * c);
 
-            if (delta < - 0.0000025d)
+            if (delta < - 0.0000035d)
                 return null;
-            else if (delta >= -0.0000025d && delta <= 0.0000025d)
+            else if (delta >= -0.0000035d && delta <= 0.0000035d)
                 if (-b / (2 * a) > 0)
                     return -b / (2 * a);
                 else
