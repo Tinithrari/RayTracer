@@ -60,7 +60,7 @@ namespace LanceurRayon.Math
 
             if (delta < - 0.000001d)
                 return null;
-            else if (delta >= -0.000001d && delta <= 0.000001d)
+            else if (delta >= -0.00001d && delta <= 0.00001d)
                 if (-b / (2 * a) > 0)
                     return -b / (2 * a);
                 else
