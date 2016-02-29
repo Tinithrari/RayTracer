@@ -42,16 +42,6 @@ namespace LanceurRayon.Math
             this.Brillance = Brillance;
         }
 
-        private Vec3 getNormale()
-        {
-            return this.B.sub(this.A).cross(this.C.sub(this.A)).norm();
-        }
-
-        private bool collideWithPlan()
-        {
-            return false;
-        }
-
         /// <summary>
         /// Detecte si le rayon entre en collision avec l'objet
         /// </summary>
@@ -60,12 +50,30 @@ namespace LanceurRayon.Math
         /// <returns>Le discriminant de l'intersection ou null si pas d'intersection</returns>
         public override double? Collide(Vec3 ray, Point eye)
         {
-            throw new NotImplementedException();
+            Vec3 normale = getNormaleIntersection(null);
+
+            double? t;
+
+            if (ray.dot(normale) == 0)
+                t = null;
+            else
+                t = A.sub(eye).dot(normale) / ray.dot(normale);
+
+            if (B.sub(A).cross(eye.sub(A)).dot(normale) < 0)
+                return null;
+
+            if (C.sub(B).cross(eye.sub(B)).dot(normale) < 0)
+                return null;
+
+            if (A.sub(C).cross(eye.sub(C)).dot(normale) < 0)
+                return null;
+
+            return t;
         }
 
         public override Vec3 getNormaleIntersection(Point p)
         {
-            throw new NotImplementedException();
+            return this.B.sub(this.A).cross(this.C.sub(this.A)).norm();
         }
     }
 }

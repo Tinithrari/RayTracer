@@ -1,4 +1,4 @@
-﻿using LanceurRayon.Math;
+﻿ using LanceurRayon.Math;
 using LanceurRayon.Renderer;
 
 using System;
