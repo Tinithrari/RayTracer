@@ -8,7 +8,6 @@ namespace LanceurRayon.RayTracer
 {
     public class Lanceur
     {
-
         public Scene Scene { get; private set; }
         public Repere Repere { get; private set; }
         public double PixelWidth { get; private set; }

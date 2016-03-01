@@ -2,6 +2,7 @@
 using System.Collections;
 using LanceurRayon.Math;
 using System.Collections.Generic;
+using System;
 
 namespace LanceurRayon.Renderer
 {
@@ -11,6 +12,7 @@ namespace LanceurRayon.Renderer
     public class Scene{
 
         //Les informations générales de la scène
+        public bool Shadow { get;  set; }
         public string Output { get; set; }
         public Bitmap Fenetre { get; set; }
         public Camera Camera { get; set; }

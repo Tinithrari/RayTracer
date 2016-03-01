@@ -47,6 +47,13 @@ namespace LanceurRayon.Renderer
                     switch (tmp[0])
                     {
                         //Caractéristiques de la scène
+                        case "shadow":
+
+                            if (tmp.Length != 2)
+                                throw new ArgumentException("Nombre d'arguments incorrect", tmp[0]);
+                           ma_scene.Shadow= bool.Parse(tmp[1]);
+
+                            break;
                         case "size":
 
                             if (tmp.Length != 3)
