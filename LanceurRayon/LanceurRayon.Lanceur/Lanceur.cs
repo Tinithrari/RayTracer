@@ -88,11 +88,11 @@ namespace LanceurRayon.RayTracer
 
                     foreach (VisualEntity entity in this.Scene.Entite)
                     {
-                        double? tmp = entity.Collide(d, this.Scene.Camera.LookFrom);
+                        double? tmp = entity.GetType().Equals(typeof(Triangle)) ? null : entity.Collide(d, this.Scene.Camera.LookFrom);
 
                         if (Scene.NbLumieres > 0)
                         {
-                            if (tmp != null && (t == null || tmp <= t && tmp != null))
+                            if (tmp != null && (t == null || tmp < t && tmp != null))
                             {
                                 Color somme = new Color();
                                 Point p;
@@ -111,7 +111,7 @@ namespace LanceurRayon.RayTracer
                         else
                         {
                             
-                            if (tmp != null && (t == null || tmp <= t && tmp != null))
+                            if (tmp != null && (t == null || tmp < t && tmp != null))
                             {
                                 t = tmp;
                                 c = entity.Ambient;

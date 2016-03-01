@@ -42,9 +42,9 @@ namespace LanceurRayon.Math
         public override double? Collide(Vec3 ray, Point eye)
         {
             double? t;
-            double tmp =ray.dot(Vecteur_normal);
+            double tmp = ray.dot(Vecteur_normal);
 
-            if (tmp == 0)
+            if (tmp == 0.0)
                 t = null;
 
             else
