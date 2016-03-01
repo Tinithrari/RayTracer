@@ -175,7 +175,7 @@ namespace LanceurRayon.Renderer
                             if (tmp.Length != 7)
                                 throw new ArgumentException("Nombre d'arguments incorrect", tmp[0]);
 
-                            ma_scene.Entite.Add(new Plan(Math.Point.createPoint(tmp[1], tmp[2], tmp[3]), Math.Vec3.createVec3(tmp[4], tmp[5], tmp[6])));
+                            ma_scene.Entite.Add(new Plan(Math.Point.createPoint(tmp[1], tmp[2], tmp[3]), Math.Vec3.createVec3(tmp[4], tmp[5], tmp[6]), specular, ambient, diffuse, brillance));
 
                             ma_scene.NbObjets++;
                             break;

@@ -1,8 +1,5 @@
-﻿using System;
-
-
-namespace LanceurRayon.Math
-{   
+﻿namespace LanceurRayon.Math
+{
     /// <summary>
     /// Classe permetant de représenter un triangle
     /// </summary>

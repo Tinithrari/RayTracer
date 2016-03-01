@@ -23,11 +23,14 @@ namespace LanceurRayon.Math
         /// </summary>
         /// <param name="Pt">Point décrivant un plan.</param>
         /// <param name="Vecteur_normal">Vecteur normal au plan.</param>
-        public Plan(Point Pt,Vec3 Vecteur_normal)
+        public Plan(Point Pt,Vec3 Vecteur_normal, Math.Color Specular, Math.Color Ambient, Math.Color Diffuse, double Brillance)
         {
             this.Pt = Pt;
             this.Vecteur_normal = Vecteur_normal;
-          
+            this.Ambient = Ambient;
+            this.Specular = Specular;
+            this.Diffuse = Diffuse;
+            this.Brillance = Brillance;
         }
 
         /// <summary>
@@ -38,12 +41,21 @@ namespace LanceurRayon.Math
         /// <returns>Le discriminant de l'intersection ou null si pas d'intersection</returns>
         public override double? Collide(Vec3 ray, Point eye)
         {
-            throw new NotImplementedException();
+            double? t;
+            double tmp =ray.dot(Vecteur_normal);
+
+            if (tmp == 0)
+                t = null;
+
+            else
+                t =  Pt.sub(eye).dot(Vecteur_normal) / tmp;
+         
+            return t;
         }
 
         public override Vec3 getNormaleIntersection(Point p)
         {
-            throw new NotImplementedException();
+            return Vecteur_normal;
         }
     }
 }
