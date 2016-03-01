@@ -28,7 +28,7 @@ namespace LanceurRayon.Renderer
             Math.Color ambient, specular, diffuse,couleur_noire= new Math.Color();
             StreamReader stream = new StreamReader(nom_fichier);
             Scene ma_scene = new Scene();
-
+            ma_scene.Shadow = false;
             output_present = size_present = camera_present = false;
             ambient =specular=diffuse= couleur_noire;
 
