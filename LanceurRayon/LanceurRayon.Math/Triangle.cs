@@ -50,8 +50,9 @@
             Vec3 normale = getNormaleIntersection(null);
 
             double? t;
+            double tmp = ray.dot(normale);
 
-            if (ray.dot(normale) == 0)
+            if (tmp == 0.0)
                 t = null;
             else
                 t = A.sub(eye).dot(normale) / ray.dot(normale);
