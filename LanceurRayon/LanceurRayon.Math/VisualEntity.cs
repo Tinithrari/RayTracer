@@ -5,6 +5,9 @@ using System.Text;
 
 namespace LanceurRayon.Math
 {
+    /// <summary>
+    /// Classe abstraite permetant de regroupés les entités géométriques tels que les triangles, les sphères ou les plans.
+    /// </summary>
     public abstract class VisualEntity
     {
         /// <summary>

@@ -76,7 +76,12 @@ namespace LanceurRayon.Math
             else
                 return null;
         }
-
+        
+        /// <summary>
+        /// Calcul l'intersection entre le rayon et la normale a la sphère. 
+        /// </summary>
+        /// <param name="p">Le point décrivant le Pla</param>
+        /// <returns>Le vecteur normale à l'intersection</returns>
         public override Vec3 getNormaleIntersection(Point p)
         {
             return p.sub(Centre).norm();

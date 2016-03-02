@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace LanceurRayon.Math
+﻿namespace LanceurRayon.Math
 {
     /// <summary>
     /// Classe décrivant un plan .
@@ -23,6 +21,10 @@ namespace LanceurRayon.Math
         /// </summary>
         /// <param name="Pt">Point décrivant un plan.</param>
         /// <param name="Vecteur_normal">Vecteur normal au plan.</param>
+        /// <param name="Specular">Reflêt</param>
+        /// <param name="Ambient">Lumière ambiante</param>
+        /// <param name="Diffuse">Lumière diffuse</param>
+        /// <param name="Brillance">Brillance de la scène.</param> 
         public Plan(Point Pt,Vec3 Vecteur_normal, Math.Color Specular, Math.Color Ambient, Math.Color Diffuse, double Brillance)
         {
             this.Pt = Pt;
@@ -53,6 +55,11 @@ namespace LanceurRayon.Math
             return t;
         }
 
+        /// <summary>
+        /// Calcul l'intersection entre le rayon et la normale au plan. 
+        /// </summary>
+        /// <param name="p">Le point décrivant le Pla</param>
+        /// <returns>Le vecteur normale à l'intersection</returns>
         public override Vec3 getNormaleIntersection(Point p)
         {
             return Vecteur_normal;

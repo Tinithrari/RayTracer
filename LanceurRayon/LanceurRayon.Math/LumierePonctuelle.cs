@@ -10,8 +10,12 @@ namespace LanceurRayon.Math
     public class LumierePonctuelle : Lumiere
     {
 
+        /// <summary>
+        /// Position dans l'espace de la source de lumière ponctuelle.
+        /// </summary>
         public Point Position { get; private set; }
-
+        
+        
         /// <summary>
         /// Constructeur de la classe.
         /// </summary>
