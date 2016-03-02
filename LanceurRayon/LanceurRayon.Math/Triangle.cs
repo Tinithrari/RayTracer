@@ -23,7 +23,6 @@
         /// <summary>
         /// Constructeur de la classe.
         /// </summary>
-        /// <param name="Pt">Centre de gravité du triangle</param>
         /// <param name="Specular">Reflêt</param>
         /// <param name="Ambient">Lumière ambiante</param>
         /// <param name="Diffuse">Lumière diffuse</param>
