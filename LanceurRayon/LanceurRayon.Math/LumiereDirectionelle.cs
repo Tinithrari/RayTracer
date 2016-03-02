@@ -7,6 +7,9 @@ namespace LanceurRayon.Math
     public class LumiereDirectionelle :Lumiere
     {
 
+        /// <summary>
+        /// Vecteur décrivant la direction des rayons lumineux émanant de la source.
+        /// </summary>
         public Vec3 Direction { get; private set; }
 
         /// <summary>

@@ -27,7 +27,10 @@
         /// <param name="Specular">Reflêt</param>
         /// <param name="Ambient">Lumière ambiante</param>
         /// <param name="Diffuse">Lumière diffuse</param>
-        /// <param name="Brillance">Brillance de la scène.</param> 
+        /// <param name="Brillance">Brillance de la scène.</param>
+        /// <param name="A">Coordonnées du point A</param>
+        /// <param name="B">Coordonnées du point B</param>
+        /// <param name="C">Coordonnées du point C</param>
         public Triangle(Point A, Point B, Point C, Math.Color Specular, Math.Color Ambient, Math.Color Diffuse,double Brillance)
         {
             this.A = A;
@@ -68,6 +71,11 @@
             return t;
         }
 
+        /// <summary>
+        /// Calcul l'intersection entre le rayon et la normale au triangle. 
+        /// </summary>
+        /// <param name="p">Le point décrivant le Pla</param>
+        /// <returns>Le vecteur normale à l'intersection</returns>
         public override Vec3 getNormaleIntersection(Point p)
         {
             return this.B.sub(this.A).cross(this.C.sub(this.A)).norm();
