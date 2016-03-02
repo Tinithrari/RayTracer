@@ -57,7 +57,7 @@
             if (tmp == 0.0)
                 return null;
             else
-                t = - ( (eye.sub(A).dot(normale)) / tmp);
+                t = ( (A.sub(eye).dot(normale)) / tmp);
 
             p = eye.add(ray.mul(t.Value));
 

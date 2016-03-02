@@ -43,10 +43,10 @@ namespace LanceurRayon.RayTracer
 
             // Calcul des dimensions d'un pixels par rapport au domaine 3D
 
-            fovRad = (Scene.Camera.Fov * System.Math.PI) / 180; // Conversion du fielf of view en radian
+            fovRad = (Scene.Camera.Fov * System.Math.PI) / 180d; // Conversion du fielf of view en radian
 
-            PixelHeight = System.Math.Tan(fovRad / 2); // Calcul de la hauteur d'un pixel (Voir trigonométrie)
-            PixelWidth = PixelHeight * Scene.Fenetre.Width / Scene.Fenetre.Height; // Calcul de la largeur en utilisant le ratio de l'image
+            PixelHeight = System.Math.Tan(fovRad / 2d); // Calcul de la hauteur d'un pixel (Voir trigonométrie)
+            PixelWidth = PixelHeight * (Scene.Fenetre.Width / Scene.Fenetre.Height); // Calcul de la largeur en utilisant le ratio de l'image
         }
 
         /// <summary>
@@ -61,8 +61,10 @@ namespace LanceurRayon.RayTracer
             Vec3 d;
 
             // On projete i et dans le repère de la scène
-            a = (PixelWidth * (i - (Scene.Fenetre.Width / 2d) + 0.5)) / (Scene.Fenetre.Width / 2d);
-            b = (PixelHeight * (j - (Scene.Fenetre.Height / 2d) + 0.5)) / (Scene.Fenetre.Height / 2d);
+            a = (PixelWidth * (i - (Scene.Fenetre.Width / 2d) + 0.5));
+            a /= (Scene.Fenetre.Width / 2d);
+            b = (PixelHeight * (j - (Scene.Fenetre.Height / 2d) + 0.5));
+            b /= (Scene.Fenetre.Height / 2d);
 
             // On crée le vecteur d
             d = Repere.U.mul(a);
@@ -89,7 +91,7 @@ namespace LanceurRayon.RayTracer
 
                     foreach (VisualEntity entity in this.Scene.Entite)
                     {
-                        double? tmp = entity.Collide(d, this.Scene.Camera.LookAt);
+                        double? tmp = entity.Collide(d, this.Scene.Camera.LookFrom);
 
                         if (tmp.HasValue && (tmp < t || ! t.HasValue))
                         {

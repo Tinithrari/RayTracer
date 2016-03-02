@@ -52,17 +52,17 @@ namespace LanceurRayon.Math
 
             eyeToCenter = eye.sub(Centre);
 
-            a = ray.dot(ray);
-            b = 2d * eyeToCenter.dot(ray);
-            c = eyeToCenter.dot(eyeToCenter) - (Rayon * Rayon);
+            a = 1.0;
+            b = 2.0 * (eyeToCenter.dot(ray));
+            c = (eyeToCenter.dot(eyeToCenter)) - (Rayon * Rayon);
 
             delta = (b * b) - (4 * a * c);
 
-            if (delta < 0)
+            if (delta < - 0.000001)
                 return null;
-            else if (delta == 0.0)
-                if (-b / (2 * a) > 0)
-                    return -b / (2 * a);
+            else if (delta <= 0.000001)
+                if ( (-b / (2 * a)) > 0)
+                    return (-b / (2 * a));
                 else
                     return null;
 
