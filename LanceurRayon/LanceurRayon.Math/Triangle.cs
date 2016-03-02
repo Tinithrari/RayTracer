@@ -51,21 +51,24 @@
         public override double? Collide(Vec3 ray, Point eye)
         {
             Vec3 normale = getNormaleIntersection(null);
-
             double? t;
+            double tmp = ray.dot(normale);
+            Point p;
 
-            if (ray.dot(normale) == 0)
-                t = null;
+            if (tmp == 0.0)
+                return null;
             else
-                t = A.sub(eye).dot(normale) / ray.dot(normale);
+                t = - ( (eye.sub(A).dot(normale)) / tmp);
 
-            if (B.sub(A).cross(eye.sub(A)).dot(normale) < 0)
+            p = eye.add(ray.mul(t.Value));
+
+            if (B.sub(A).cross(p.sub(A)).dot(normale) < 0)
                 return null;
 
-            if (C.sub(B).cross(eye.sub(B)).dot(normale) < 0)
+            if (C.sub(B).cross(p.sub(B)).dot(normale) < 0)
                 return null;
 
-            if (A.sub(C).cross(eye.sub(C)).dot(normale) < 0)
+            if (A.sub(C).cross(p.sub(C)).dot(normale) < 0)
                 return null;
 
             return t;

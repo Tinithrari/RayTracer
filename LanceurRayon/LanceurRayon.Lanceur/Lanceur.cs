@@ -88,7 +88,7 @@ namespace LanceurRayon.RayTracer
 
                     foreach (VisualEntity entity in this.Scene.Entite)
                     {
-                        double? tmp = entity.GetType().Equals(typeof(Triangle)) ? null : entity.Collide(d, this.Scene.Camera.LookFrom);
+                        double? tmp = entity.Collide(d, this.Scene.Camera.LookFrom);
 
                         if (Scene.NbLumieres > 0)
                         {
@@ -97,6 +97,8 @@ namespace LanceurRayon.RayTracer
                                 Color somme = new Color();
                                 Point p;
                                 t = tmp;
+                                if (entity.GetType().Equals(typeof(Triangle)))
+                                    Console.WriteLine();
                                 p = Scene.Camera.LookFrom.add(d.mul((double) t));
 
                                 foreach (Lumiere l in Scene.Eclairage)
