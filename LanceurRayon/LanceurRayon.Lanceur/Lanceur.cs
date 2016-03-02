@@ -85,40 +85,37 @@ namespace LanceurRayon.RayTracer
                     double? t = null;
                     Color c = new Color();
                     Vec3 d = VecteurDirForPixel(i, j);
+                    VisualEntity e = null;
 
                     foreach (VisualEntity entity in this.Scene.Entite)
                     {
-                        double? tmp = entity.Collide(d, this.Scene.Camera.LookFrom);
+                        double? tmp = entity.Collide(d, this.Scene.Camera.LookAt);
 
+                        if (tmp.HasValue && (tmp < t || ! t.HasValue))
+                        {
+                            t = tmp;
+                            e = entity;
+                        }
+                    }
+
+                    if (e != null)
+                    {
                         if (Scene.NbLumieres > 0)
                         {
-                            if (tmp != null && (t == null || tmp < t && tmp != null))
+                            Color somme = new Color();
+                            Point p;
+                            p = Scene.Camera.LookFrom.add(d.mul(t.Value));
+
+                            foreach (Lumiere l in Scene.Eclairage)
                             {
-                                Color somme = new Color();
-                                Point p;
-                                t = tmp;
-                                if (entity.GetType().Equals(typeof(Triangle)))
-                                    Console.WriteLine();
-                                p = Scene.Camera.LookFrom.add(d.mul((double) t));
-
-                                foreach (Lumiere l in Scene.Eclairage)
-                                {
-                                    Color cPoint = l.Couleur.mul(System.Math.Max(entity.getNormaleIntersection(p).dot(l.getDirection(p)), 0));
-                                    somme = somme.add(cPoint);
-                                }
-
-                                c = entity.Ambient.add(somme.times(entity.Diffuse));
+                                Color cPoint = l.Couleur.mul(System.Math.Max(e.getNormaleIntersection(p).dot(l.getDirection(p)), 0));
+                                somme = somme.add(cPoint);
                             }
+
+                            c = e.Ambient.add(somme.times(e.Diffuse));
                         }
                         else
-                        {
-                            
-                            if (tmp != null && (t == null || tmp < t && tmp != null))
-                            {
-                                t = tmp;
-                                c = entity.Ambient;
-                            }
-                        }
+                            c = e.Ambient;
                     }
 
                     this.Scene.Fenetre.SetPixel(i, j, System.Drawing.Color.FromArgb((int) System.Math.Round(c.R * 255, MidpointRounding.AwayFromZero), (int)System.Math.Round(c.G * 255, MidpointRounding.AwayFromZero), (int)System.Math.Round(c.B * 255, MidpointRounding.AwayFromZero)));
