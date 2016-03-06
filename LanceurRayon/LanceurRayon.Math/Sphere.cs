@@ -66,12 +66,12 @@ namespace LanceurRayon.Math
                 else
                     return null;
 
-            t1 = (-b + System.Math.Sqrt(delta)) / (2 * a);
-            t2 = (-b - System.Math.Sqrt(delta)) / (2 * a);
+            t1 = (-b + System.Math.Sqrt(delta)) / (2d * a);
+            t2 = (-b - System.Math.Sqrt(delta)) / (2d * a);
 
-            if (t2 > 0)
+            if (t2 > 0.0)
                 return t2;
-            else if (t1 > 0)
+            else if (t1 > 0.0)
                 return t1;
             else
                 return null;

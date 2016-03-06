@@ -46,7 +46,7 @@ namespace LanceurRayon.RayTracer
             fovRad = (Scene.Camera.Fov * System.Math.PI) / 180d; // Conversion du fielf of view en radian
 
             PixelHeight = System.Math.Tan(fovRad / 2d); // Calcul de la hauteur d'un pixel (Voir trigonométrie)
-            PixelWidth = PixelHeight * (Scene.Fenetre.Width / Scene.Fenetre.Height); // Calcul de la largeur en utilisant le ratio de l'image
+            PixelWidth = PixelHeight * ((double)Scene.Fenetre.Width / (double)Scene.Fenetre.Height); // Calcul de la largeur en utilisant le ratio de l'image
         }
 
         /// <summary>
@@ -118,7 +118,7 @@ namespace LanceurRayon.RayTracer
                             c = e.Ambient;
                     }
 
-                    this.Scene.Fenetre.SetPixel(i, j, System.Drawing.Color.FromArgb((int) System.Math.Round(c.R * 255, MidpointRounding.AwayFromZero), (int)System.Math.Round(c.G * 255, MidpointRounding.AwayFromZero), (int)System.Math.Round(c.B * 255, MidpointRounding.AwayFromZero)));
+                    this.Scene.Fenetre.SetPixel(i, (Scene.Fenetre.Height - 1) - j, System.Drawing.Color.FromArgb((int) System.Math.Round(c.R * 255, MidpointRounding.AwayFromZero), (int)System.Math.Round(c.G * 255, MidpointRounding.AwayFromZero), (int)System.Math.Round(c.B * 255, MidpointRounding.AwayFromZero)));
                 }
             }
             this.Scene.Fenetre.Save(this.Scene.Output);

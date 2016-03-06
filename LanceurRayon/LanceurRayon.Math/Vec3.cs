@@ -94,7 +94,7 @@ namespace LanceurRayon.Math
         {
             if (v == null)
                 throw new ArgumentNullException();
-            return new Vec3( (this.Y * v.Z) - (this.Z * v.Y), (this.X * v.Z) - (this.Z * v.X), (this.X * v.Y) - (this.Y * v.X));
+            return new Vec3( (this.Y * v.Z) - (this.Z * v.Y), (this.Z * v.X) - (this.X * v.Z), (this.X * v.Y) - (this.Y * v.X));
         }
 
         /// <summary>
@@ -114,7 +114,7 @@ namespace LanceurRayon.Math
         {
             double len = this.length();
 
-            return new Vec3(this.X / len, this.Y / len, this.Z / len);
+            return this.mul(1/len);
         }
 
         /// <summary>
