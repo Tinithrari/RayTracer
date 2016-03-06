@@ -61,10 +61,8 @@ namespace LanceurRayon.RayTracer
             Vec3 d;
 
             // On projete i et dans le repère de la scène
-            a = (PixelWidth * (i - (Scene.Fenetre.Width / 2d) + 0.5));
-            a /= (Scene.Fenetre.Width / 2d);
-            b = (PixelHeight * (j - (Scene.Fenetre.Height / 2d) + 0.5));
-            b /= (Scene.Fenetre.Height / 2d);
+            a = (PixelWidth * (i - (Scene.Fenetre.Width / 2d) + 0.5)) / (Scene.Fenetre.Width / 2d);
+            b = (PixelHeight * (j - (Scene.Fenetre.Height / 2d) + 0.5)) / (Scene.Fenetre.Height / 2d);
 
             // On crée le vecteur d
             d = Repere.U.mul(a);
@@ -93,7 +91,7 @@ namespace LanceurRayon.RayTracer
                     {
                         double? tmp = entity.Collide(d, this.Scene.Camera.LookFrom);
 
-                        if (tmp.HasValue && (tmp < t || ! t.HasValue))
+                        if (tmp.HasValue && (tmp <= t || ! t.HasValue))
                         {
                             t = tmp;
                             e = entity;

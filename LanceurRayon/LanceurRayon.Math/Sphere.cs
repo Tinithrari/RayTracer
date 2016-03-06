@@ -56,9 +56,9 @@ namespace LanceurRayon.Math
             b = 2.0 * (eyeToCenter.dot(ray));
             c = (eyeToCenter.dot(eyeToCenter)) - (Rayon * Rayon);
 
-            delta = (b * b) - (4 * a * c);
+            delta = (b * b) - (4.0 * a * c);
 
-            if (delta < - 0.000001)
+            if (delta < 0.0)
                 return null;
             else if (delta <= 0.000001)
                 if ( (-b / (2 * a)) > 0)
