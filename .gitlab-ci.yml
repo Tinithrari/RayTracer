@@ -37,3 +37,9 @@ plansettriangles:
    script: "./build.sh ; cd testsl32016; ./tests6.sh"
    tags:
      - shell
+
+lumiereindirecte:
+   stage: test
+   script: "./build.sh ; cd testsl32016; ./tests7.sh"
+   tags:
+     - shell
