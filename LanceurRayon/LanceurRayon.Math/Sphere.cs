@@ -42,7 +42,7 @@ namespace LanceurRayon.Math
         /// <param name="ray">Le rayon</param>
         /// <param name="eye">L'origine du rayon</param>
         /// <returns>Le discriminant de l'intersection ou null si pas d'intersection</returns>
-        public override double? Collide(Vec3 ray, Point eye)
+        public override Intersection Collide(Vec3 ray, Point eye)
         {
             double delta, a, b, c, t1, t2;
             Vec3 eyeToCenter;
@@ -62,7 +62,7 @@ namespace LanceurRayon.Math
                 return null;
             else if (delta <= 0.00000001)
                 if ( (-b / (2 * a)) > 0)
-                    return (-b / (2 * a));
+                    return new Intersection ((-b / (2 * a)), this);
                 else
                     return null;
 
@@ -70,9 +70,9 @@ namespace LanceurRayon.Math
             t2 = (-b - System.Math.Sqrt(delta)) / (2d * a);
 
             if (t2 > 0.0)
-                return t2;
+                return new Intersection(t2,this);
             else if (t1 > 0.0)
-                return t1;
+                return new Intersection(t1, this);
             else
                 return null;
         }

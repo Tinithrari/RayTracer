@@ -47,10 +47,10 @@
         /// <param name="ray">Le rayon</param>
         /// <param name="eye">L'origine du rayon</param>
         /// <returns>Le discriminant de l'intersection ou null si pas d'intersection</returns>
-        public override double? Collide(Vec3 ray, Point eye)
+        public override Intersection Collide(Vec3 ray, Point eye)
         {
             Vec3 normale = getNormaleIntersection(null);
-            double? t;
+            double t;
             double tmp = ray.dot(normale);
             Point p;
 
@@ -59,7 +59,7 @@
             else
                 t = ( (A.sub(eye).dot(normale)) / tmp);
 
-            p = eye.add(ray.mul(t.Value));
+            p = eye.add(ray.mul(t));
 
             if (B.sub(A).cross(p.sub(A)).dot(normale) < 0)
                 return null;
@@ -70,7 +70,7 @@
             if (A.sub(C).cross(p.sub(C)).dot(normale) < 0)
                 return null;
 
-            return t;
+            return new Intersection(t,this);
         }
 
         /// <summary>

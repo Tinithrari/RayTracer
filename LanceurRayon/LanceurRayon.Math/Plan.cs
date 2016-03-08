@@ -41,18 +41,11 @@
         /// <param name="ray">Le rayon</param>
         /// <param name="eye">L'origine du rayon</param>
         /// <returns>Le discriminant de l'intersection ou null si pas d'intersection</returns>
-        public override double? Collide(Vec3 ray, Point eye)
+        public override Intersection Collide(Vec3 ray, Point eye)
         {
-            double? t;
             double tmp = ray.dot(Vecteur_normal);
 
-            if (tmp == 0.0)
-                t = null;
-
-            else
-                t =  Pt.sub(eye).dot(Vecteur_normal) / tmp;
-         
-            return t;
+            return tmp == 0.0 ? null : new Intersection(Pt.sub(eye).dot(Vecteur_normal) / tmp, this);
         }
 
         /// <summary>

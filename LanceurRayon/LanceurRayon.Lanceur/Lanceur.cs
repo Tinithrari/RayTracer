@@ -82,23 +82,21 @@ namespace LanceurRayon.RayTracer
             {
                 for (int j = 0; j < Scene.Fenetre.Height; j++)
                 {
-                    double? t = null;
+                    Intersection intersect = null;
                     Color c = new Color();
                     Vec3 d = VecteurDirForPixel(i, j);
-                    VisualEntity e = null;
+                   
 
                     foreach (VisualEntity entity in this.Scene.Entite)
                     {
-                        double? tmp = entity.Collide(d, this.Scene.Camera.LookFrom);
+                        Intersection tmp = entity.Collide(d, this.Scene.Camera.LookFrom);
 
-                        if (tmp.HasValue && (tmp <= t || ! t.HasValue))
-                        {
-                            t = tmp;
-                            e = entity;
-                        }
+                        if (tmp != null && (intersect == null || intersect.T > tmp.T))
+                            intersect = tmp;
+                      
                     }
 
-                    if (e != null)
+                    if (intersect != null)
                     {
                         if (Scene.NbLumieres > 0)
                         {
@@ -106,20 +104,44 @@ namespace LanceurRayon.RayTracer
                             Point p;
                           
                             //Calcul du point d'intersection.
-                            p = Scene.Camera.LookFrom.add(d.mul(t.Value));
+                            p = Scene.Camera.LookFrom.add(d.mul(intersect.T));
                   
                              foreach (Lumiere l in Scene.Eclairage)
                              {
-                                    
-                                    Color cPoint = l.Couleur.mul(System.Math.Max(e.getNormaleIntersection(p).dot(l.getDirection(p)), 0));
-                                    somme = somme.add(cPoint);
+                                Color c_temp = l.Couleur;
+
+                                if (Scene.Shadow)
+                                {
+                                    Vec3 vec_lumiere = l.getDirection(p);
+                                    Vec3 inv_vec_lum = vec_lumiere.mul(-1);
+
+                                    foreach (VisualEntity e in Scene.Entite) {
+                                        Intersection intersection  = e.Collide(inv_vec_lum, p);
+
+                                        if (intersection != null)
+                                        {
+                                            Point inter_lum = p.add(inv_vec_lum.mul(intersection.T));
+                                            if (inter_lum.sub(p).length() > 0.0001d) 
+                                            {
+                                                c_temp = new Color();
+                                                break;
+                                            }
+                                        }
+                                    }
+
+                                  
+                                }
+
+                                 Color cPoint = c_temp.mul(System.Math.Max(intersect.Obj.getNormaleIntersection(p).dot(l.getDirection(p)), 0));
+
+                                 somme = somme.add(cPoint);
                              }
                             
-                            c = e.Ambient.add(somme.times(e.Diffuse));
+                            c = intersect.Obj.Ambient.add(somme.times(intersect.Obj.Diffuse));
                         }
 
                         else
-                            c = e.Ambient;
+                            c = intersect.Obj.Ambient;
                     }
 
                     this.Scene.Fenetre.SetPixel(i, (Scene.Fenetre.Height - 1) - j, System.Drawing.Color.FromArgb((int) System.Math.Round(c.R * 255, MidpointRounding.AwayFromZero), (int)System.Math.Round(c.G * 255, MidpointRounding.AwayFromZero), (int)System.Math.Round(c.B * 255, MidpointRounding.AwayFromZero)));

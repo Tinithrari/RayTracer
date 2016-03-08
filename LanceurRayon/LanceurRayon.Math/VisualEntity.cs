@@ -36,7 +36,7 @@ namespace LanceurRayon.Math
         /// <param name="ray">Le rayon</param>
         /// <param name="eye">L'origine du rayon</param>
         /// <returns>Le discriminant de l'intersection ou null si pas d'intersection</returns>
-        public abstract double? Collide(Vec3 ray, Point eye);
+        public abstract Intersection Collide(Vec3 ray, Point eye);
 
         /// <summary>
         /// Calcule la normale d'un point d'intersection
