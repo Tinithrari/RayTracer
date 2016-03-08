@@ -6,7 +6,7 @@
     <ProductVersion>10.0.0</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{AE34C972-660E-4EFE-B5AF-912FAE31237D}</ProjectGuid>
-    <OutputType>Library</OutputType>
+    <OutputType>Exe</OutputType>
     <RootNamespace>LanceurRayon.Comparateur</RootNamespace>
     <AssemblyName>comparateur</AssemblyName>
     <PublishUrl>publier\</PublishUrl>
