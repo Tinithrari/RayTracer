@@ -6,7 +6,7 @@
     <ProductVersion>10.0.0</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{AE34C972-660E-4EFE-B5AF-912FAE31237D}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <OutputType>Library</OutputType>
     <RootNamespace>LanceurRayon.Comparateur</RootNamespace>
     <AssemblyName>comparateur</AssemblyName>
     <PublishUrl>publier\</PublishUrl>
@@ -44,6 +44,9 @@
     <WarningLevel>4</WarningLevel>
     <Externalconsole>fals</Externalconsole>
     <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />

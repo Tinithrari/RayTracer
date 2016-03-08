@@ -104,16 +104,20 @@ namespace LanceurRayon.RayTracer
                         {
                             Color somme = new Color();
                             Point p;
+                          
+                            //Calcul du point d'intersection.
                             p = Scene.Camera.LookFrom.add(d.mul(t.Value));
-
-                            foreach (Lumiere l in Scene.Eclairage)
-                            {
-                                Color cPoint = l.Couleur.mul(System.Math.Max(e.getNormaleIntersection(p).dot(l.getDirection(p)), 0));
-                                somme = somme.add(cPoint);
-                            }
-
+                  
+                             foreach (Lumiere l in Scene.Eclairage)
+                             {
+                                    
+                                    Color cPoint = l.Couleur.mul(System.Math.Max(e.getNormaleIntersection(p).dot(l.getDirection(p)), 0));
+                                    somme = somme.add(cPoint);
+                             }
+                            
                             c = e.Ambient.add(somme.times(e.Diffuse));
                         }
+
                         else
                             c = e.Ambient;
                     }
