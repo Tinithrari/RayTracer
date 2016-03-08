@@ -66,6 +66,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Intersection.cs" />
     <Compile Include="Lanceur.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repere.cs" />
