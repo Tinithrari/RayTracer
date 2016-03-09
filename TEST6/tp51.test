@@ -4,6 +4,8 @@ output tp51.png
 
 camera 0 4 8 0 0 0 0 1 0 45
 
+shadow true
+
 point 0 4 1 .4 .4 .4
 point 4 4 4 .3 .3 .3
 point -4 4 4 .3 .3 .3
