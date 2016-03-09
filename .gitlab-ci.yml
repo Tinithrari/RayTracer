@@ -43,3 +43,9 @@ lumiereindirecte:
    script: "./build.sh ; cd testsl32016; ./tests7.sh"
    tags:
      - shell
+
+mysteres:
+   stage: test
+   script: "./build.sh ; cd testsl32016; ./mysteres.sh"
+   tags:
+     - shell
