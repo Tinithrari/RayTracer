@@ -113,15 +113,15 @@ namespace LanceurRayon.RayTracer
                                 if (Scene.Shadow)
                                 {
                                     Vec3 vec_lumiere = l.getDirection(p);
-                                    Vec3 inv_vec_lum = vec_lumiere.mul(-1);
+                                    Vec3 inv_vec_lum = vec_lumiere.mul(1);
 
                                     foreach (VisualEntity e in Scene.Entite) {
-                                        Intersection intersection  = e.Collide(inv_vec_lum, p);
+                                        Intersection intersection  = e.Collide(inv_vec_lum, p.add(inv_vec_lum.mul(0.000001d)));
 
                                         if (intersection != null)
                                         {
                                             Point inter_lum = p.add(inv_vec_lum.mul(intersection.T));
-                                            if (inter_lum.sub(p).length() > 0.0001d) 
+                                            if (intersection.T > 0.00001d) 
                                             {
                                                 c_temp = new Color();
                                                 break;
