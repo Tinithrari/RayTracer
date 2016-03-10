@@ -54,10 +54,10 @@
             double tmp = ray.dot(normale);
             Point p;
 
-            if (tmp == 0.0)
+            if (tmp >= 0.0000001)
                 return null;
             else
-                t = ( (A.sub(eye).dot(normale)) / tmp);
+                t = A.sub(eye).dot(normale) / tmp;
 
             p = eye.add(ray.mul(t));
 
@@ -80,7 +80,7 @@
         /// <returns>Le vecteur normale à l'intersection</returns>
         public override Vec3 getNormaleIntersection(Point p)
         {
-            return this.B.sub(this.A).cross(this.C.sub(this.A)).norm();
+            return (this.B.sub(this.A).cross(this.C.sub(this.A))).norm();
         }
     }
 }

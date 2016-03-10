@@ -1,4 +1,4 @@
-﻿ using LanceurRayon.Math;
+﻿using LanceurRayon.Math;
 using LanceurRayon.Renderer;
 
 using System;
@@ -12,7 +12,7 @@ namespace LanceurRayon.RayTracer
         public Repere Repere { get; private set; }
         public double PixelWidth { get; private set; }
         public double PixelHeight { get; private set; }
-        
+
         /// <summary>
         /// Initialise un lanceur de rayon pour une scène donnée
         /// </summary>
@@ -85,58 +85,60 @@ namespace LanceurRayon.RayTracer
                     Intersection intersect = null;
                     Color c = new Color();
                     Vec3 d = VecteurDirForPixel(i, j);
-                   
 
+                    // Détection de l'intersection la plus proche
                     foreach (VisualEntity entity in this.Scene.Entite)
                     {
                         Intersection tmp = entity.Collide(d, this.Scene.Camera.LookFrom);
 
                         if (tmp != null && (intersect == null || intersect.T > tmp.T))
                             intersect = tmp;
-                      
+
                     }
 
                     if (intersect != null)
                     {
+                        // Lorsqu'il y a présence de source(s) de lumière(s)
                         if (Scene.NbLumieres > 0)
                         {
                             Color somme = new Color();
                             Point p;
-                          
+
                             //Calcul du point d'intersection.
                             p = Scene.Camera.LookFrom.add(d.mul(intersect.T));
-                  
-                             foreach (Lumiere l in Scene.Eclairage)
-                             {
+
+                            // Calcul de la couleur à afficher
+                            foreach (Lumiere l in Scene.Eclairage)
+                            {
                                 Color c_temp = l.Couleur;
 
+                                // Si les ombres sont activées
                                 if (Scene.Shadow)
                                 {
                                     Vec3 vec_lumiere = l.getDirection(p);
 
+                                    // On regarde s'il y a un objet entre la lumière et le point d'intersection
                                     foreach (VisualEntity e in Scene.Entite)
                                     {
-                                        Intersection intersection  = e.Collide(vec_lumiere, p.add(vec_lumiere.mul(0.000001d)));
+                                        Intersection intersection = e.Collide(vec_lumiere, p.add(vec_lumiere.mul(0.000001d)));
 
                                         if (intersection != null)
                                         {
                                             Point inter_lum = p.add(vec_lumiere.mul(intersection.T));
-                                            if (intersection.T > 0.00001d) 
+                                            if (intersection.T > 0.00001d)
                                             {
                                                 c_temp = new Color();
                                                 break;
                                             }
                                         }
                                     }
-
-                                  
                                 }
 
-                                 Color cPoint = c_temp.mul(System.Math.Max(intersect.Obj.getNormaleIntersection(p).dot(l.getDirection(p)), 0));
+                                Color cPoint = c_temp.mul(System.Math.Max(intersect.Obj.getNormaleIntersection(p).dot(l.getDirection(p)), 0));
 
-                                 somme = somme.add(cPoint);
-                             }
-                            
+                                somme = somme.add(cPoint);
+                            }
+
                             c = intersect.Obj.Ambient.add(somme.times(intersect.Obj.Diffuse));
                         }
 
@@ -144,7 +146,7 @@ namespace LanceurRayon.RayTracer
                             c = intersect.Obj.Ambient;
                     }
 
-                    this.Scene.Fenetre.SetPixel(i, (Scene.Fenetre.Height - 1) - j, System.Drawing.Color.FromArgb((int) System.Math.Round(c.R * 255, MidpointRounding.AwayFromZero), (int)System.Math.Round(c.G * 255, MidpointRounding.AwayFromZero), (int)System.Math.Round(c.B * 255, MidpointRounding.AwayFromZero)));
+                    this.Scene.Fenetre.SetPixel(i, (Scene.Fenetre.Height - 1) - j, System.Drawing.Color.FromArgb((int)System.Math.Round(c.R * 255, MidpointRounding.AwayFromZero), (int)System.Math.Round(c.G * 255, MidpointRounding.AwayFromZero), (int)System.Math.Round(c.B * 255, MidpointRounding.AwayFromZero)));
                 }
             }
             this.Scene.Fenetre.Save(this.Scene.Output);
