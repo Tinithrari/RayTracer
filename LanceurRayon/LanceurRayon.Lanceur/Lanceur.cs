@@ -91,7 +91,7 @@ namespace LanceurRayon.RayTracer
                     {
                         Intersection tmp = entity.Collide(d, this.Scene.Camera.LookFrom);
 
-                        if (tmp != null && (intersect == null || intersect.T > tmp.T))
+                        if (tmp != null && (intersect == null || tmp.T < intersect.T))
                             intersect = tmp;
 
                     }
