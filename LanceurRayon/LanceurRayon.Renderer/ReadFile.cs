@@ -29,6 +29,7 @@ namespace LanceurRayon.Renderer
             StreamReader stream = new StreamReader(nom_fichier);
             Scene ma_scene = new Scene();
             ma_scene.Shadow = false;
+            ma_scene.maxdepth = 0;
             output_present = size_present = camera_present = false;
             ambient =specular=diffuse= couleur_noire;
 
@@ -78,6 +79,14 @@ namespace LanceurRayon.Renderer
                             ma_scene.Camera = new Camera(Math.Point.createPoint(tmp[1], tmp[2], tmp[3]), Math.Point.createPoint(tmp[4], tmp[5], tmp[6]),
                                                          Math.Vec3.createVec3(tmp[7], tmp[8], tmp[9]), double.Parse(tmp[10], CultureInfo.InvariantCulture));
                             camera_present = true;
+                            break;
+
+                        case "maxdepth":
+                            if (tmp.Length != 2)
+                                throw new ArgumentException("Nombre d'arguments incorrect", tmp[0]);
+
+                            ma_scene.maxdepth = Int32.Parse(tmp[1]);
+                          
                             break;
 
                         //Les couleurs

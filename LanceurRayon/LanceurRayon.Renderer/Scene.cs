@@ -16,7 +16,7 @@ namespace LanceurRayon.Renderer
         public string Output { get; set; }
         public Bitmap Fenetre { get; set; }
         public Camera Camera { get; set; }
-
+        public int maxdepth { get; set; }
         public  int NbObjets { get; set; }
         public int NbLumieres { get; set; }
 
