@@ -11,7 +11,7 @@
         public Point LookAt { get; private set; }
         
         /// <summary>
-        /// Vecteur décrivant la positon de la caméra.
+        /// Vecteur décrivant la position de la caméra.
         /// </summary>
         public Point LookFrom { get; private set; }
         
