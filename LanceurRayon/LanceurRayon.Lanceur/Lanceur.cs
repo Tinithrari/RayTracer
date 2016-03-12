@@ -124,7 +124,6 @@ namespace LanceurRayon.RayTracer
 
                                         if (intersection != null)
                                         {
-                                            Point inter_lum = p.add(vec_lumiere.mul(intersection.T));
                                             if (intersection.T > 0.00001d)
                                             {
                                                 c_temp = new Color();
