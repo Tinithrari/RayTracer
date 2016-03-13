@@ -195,6 +195,30 @@ namespace LanceurRayon.Renderer
 
                             maxPoint = Int32.Parse(tmp[1]);
                             break;
+
+                        //Les transformations
+
+                        case "translate":
+                            if (tmp.Length != 4)
+                                throw new ArgumentException("Nombre d'arguments  incorrect", tmp[0]);
+
+                          
+                            break;
+
+                        case "scale":
+                            if (tmp.Length != 4)
+                                throw new ArgumentException("Nombre d'arguments  incorrect", tmp[0]);
+
+                            
+                            break;
+
+                        case "rotate":
+                            if (tmp.Length != 5)
+                                throw new ArgumentException("Nombre d'arguments  incorrect", tmp[0]);
+
+                            break;
+
+
                     }
                 }
             }

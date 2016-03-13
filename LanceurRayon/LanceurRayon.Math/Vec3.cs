@@ -48,7 +48,7 @@ namespace LanceurRayon.Math
         {
             if (v == null)
                 throw new ArgumentNullException();
-            return new Vec3(this.X + v.X, this.Y + v.Y, this.Z + v.Z);
+            return new Vec3((double)(this.X + v.X), (double)(this.Y + v.Y), (double)(this.Z + v.Z));
         }
 
         /// <summary>
@@ -60,7 +60,7 @@ namespace LanceurRayon.Math
         {
             if (v == null)
                 throw new ArgumentNullException();
-            return new Vec3(this.X - v.X, this.Y - v.Y, this.Z - v.Z);
+            return new Vec3((double)(this.X - v.X), (double)(this.Y - v.Y), (double)(this.Z - v.Z));
         }
 
         /// <summary>
@@ -70,7 +70,7 @@ namespace LanceurRayon.Math
         /// <returns>Le résultat du produit par le scalaire scal</returns>
         public Vec3 mul(Double scal)
         {
-            return new Vec3(this.X * scal, this.Y * scal, this.Z * scal);
+            return new Vec3((double)(this.X * scal), (double)(this.Y * scal), (double)(this.Z * scal));
         }
 
         /// <summary>
@@ -94,7 +94,7 @@ namespace LanceurRayon.Math
         {
             if (v == null)
                 throw new ArgumentNullException();
-            return new Vec3( (this.Y * v.Z) - (this.Z * v.Y), (this.Z * v.X) - (this.X * v.Z), (this.X * v.Y) - (this.Y * v.X));
+            return new Vec3( (double)((this.Y * v.Z) - (this.Z * v.Y)), (double)((this.Z * v.X) - (this.X * v.Z)), (double)((this.X * v.Y) - (this.Y * v.X)));
         }
 
         /// <summary>
