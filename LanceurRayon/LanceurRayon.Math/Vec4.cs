@@ -5,7 +5,7 @@ using System.Text;
 
 namespace LanceurRayon.Math
 {
-    class Vec4 : Vec3
+    public class Vec4 : Vec3
     {
 
         public double T { get; set; }

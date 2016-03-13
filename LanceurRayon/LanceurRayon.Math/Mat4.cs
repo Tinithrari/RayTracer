@@ -5,21 +5,19 @@ using System.Text;
 
 namespace LanceurRayon.Math
 {
-    class Mat4
+     public class Mat4
     {
-        public Vec4 C1 { get; set; }
+        public Vec4 C1 { get;  set; }
         public Vec4 C2 { get; set; }
         public Vec4 C3 { get; set; }
         public Vec4 C4 { get; set; }
 
         public Mat4(Vec4 C1, Vec4 C2, Vec4 C3, Vec4 C4)
         {
-
             this.C1 = C1;
             this.C2 = C2;
             this.C3 = C3;
             this.C4 = C4;
-
         }
 
         public Mat4 add(Mat4 m)
@@ -45,7 +43,7 @@ namespace LanceurRayon.Math
         }
 
 
-        public Mat4 CreateRotationMatrix(double angle, Vec3 v)
+        public static Mat4 CreateRotationMatrix(Vec3 v,double angle)
         {
 
             double cos_angle = System.Math.Cos(angle), sin_angle = System.Math.Sin(angle), minus_cos_angle = 1 - cos_angle;
@@ -58,7 +56,7 @@ namespace LanceurRayon.Math
         }
 
 
-        public Mat4 CreateTranslationMatrix(Vec3 v)
+        public static Mat4 CreateTranslationMatrix(Vec3 v)
         {
 
             return new Mat4(new Vec4(1, 0, 0, 0),
@@ -68,7 +66,7 @@ namespace LanceurRayon.Math
                             );
         }
 
-        public Mat4 CreateScalingMatrix(Vec3 v)
+        public static Mat4 CreateScalingMatrix(Vec3 v)
         {
 
             return new Mat4(new Vec4(v.X, 0, 0, 0),
