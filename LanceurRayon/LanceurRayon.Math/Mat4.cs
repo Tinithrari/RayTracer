@@ -128,5 +128,23 @@ namespace LanceurRayon.Math
                             );
         }
 
+        /// <summary>
+        /// Calcul le produit d'un vecteur par une matrice 4*4 
+        /// </summary>
+        /// <param name="v"></param>
+        /// <param name="mode"></param>
+        /// <returns>le vecteur résultant de l'opération</returns>
+        public Vec4 productOneVector(Vec3 v,int mode) {
+            Vec4 vt;
+           
+           vt= mode==1 ?  new Vec4(v.X,v.Y,v.Z,1) : new Vec4(v.X, v.Y, v.Z, 0) ;
+
+            return new Vec4(vt.X * C1.X + vt.Y * C2.X + vt.Z * C3.X + vt.T * C4.X,
+                            vt.X * C1.Y + vt.Y * C2.Y + vt.Z * C3.Y + vt.T * C4.Y,
+                            vt.X * C1.Z + vt.Y * C2.Z + vt.Z * C3.Z + vt.T * C4.Z,
+                            vt.X * C1.T + vt.Y * C2.T + vt.Z * C3.T + vt.T * C4.T
+                            );
+        }
+
     }
 }
