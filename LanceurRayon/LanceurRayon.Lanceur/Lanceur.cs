@@ -83,7 +83,7 @@ namespace LanceurRayon.RayTracer
 
             interLum = getCloserIntersection(p, r);
 
-            if (interLum == null)
+            if (interLum == null || interLum.T < 0)
                 return new Color();
 
             pp = p.add(r.mul(interLum.T));
@@ -179,7 +179,7 @@ namespace LanceurRayon.RayTracer
 
                     p = Scene.Camera.LookFrom.add(d.mul(intersect.T));
                     c = calculLumierePoint(intersect, d);
-                    c.add(intersect.Obj.Specular.times(calculLumiereReflechie(intersect, p, d, 1)));
+                    c.add(calculLumiereReflechie(intersect, p, d, 1));
 
                     this.Scene.Fenetre.SetPixel(i, (Scene.Fenetre.Height - 1) - j, System.Drawing.Color.FromArgb((int)System.Math.Round(c.R * 255, MidpointRounding.AwayFromZero), (int)System.Math.Round(c.G * 255, MidpointRounding.AwayFromZero), (int)System.Math.Round(c.B * 255, MidpointRounding.AwayFromZero)));
                 }

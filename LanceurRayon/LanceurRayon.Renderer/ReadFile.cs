@@ -163,8 +163,6 @@ namespace LanceurRayon.Renderer
                             ma_scene.Entite.Add(new Triangle(ma_scene.LesPoints[int.Parse(tmp[1])], ma_scene.LesPoints[int.Parse(tmp[2])], ma_scene.LesPoints[int.Parse(tmp[3])], specular, ambient, diffuse, brillance));
                             ma_scene.NbObjets++;
 
-                            //Remise a zéro de la couleur
-                            specular = couleur_noire;
                             break;
 
                         case "sphere":
@@ -176,8 +174,6 @@ namespace LanceurRayon.Renderer
 
                             ma_scene.NbObjets++;
 
-                            //Remise a zéro de la couleur
-                            specular = couleur_noire;
                             break;
 
                         case "plane":
