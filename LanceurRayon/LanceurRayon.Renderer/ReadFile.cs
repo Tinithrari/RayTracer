@@ -29,7 +29,7 @@ namespace LanceurRayon.Renderer
             StreamReader stream = new StreamReader(nom_fichier);
             Scene ma_scene = new Scene();
             ma_scene.Shadow = false;
-            ma_scene.maxdepth = 0;
+            ma_scene.maxdepth = 1;
             output_present = size_present = camera_present = false;
             ambient =specular=diffuse= couleur_noire;
 

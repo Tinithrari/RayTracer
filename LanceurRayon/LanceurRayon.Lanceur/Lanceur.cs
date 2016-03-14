@@ -67,72 +67,119 @@ namespace LanceurRayon.RayTracer
             return d;
         }
 
+        private Color calculLumiereReflechie(Intersection intersect, Point p, Vec3 d, int maxDepth)
+        {
+            Vec3 r, negD, n;
+            Color c;
+            Intersection interLum;
+            Point pp;
+
+            if (intersect.Obj.Specular.R == 0 && intersect.Obj.Specular.G == 0 && intersect.Obj.Specular.R == 0 || maxDepth == Scene.maxdepth)
+                return new Color();
+
+            n = intersect.Obj.getNormaleIntersection(p);
+            negD = new Vec3(-d.X, -d.Y, -d.Z);
+            r = d.add( n.mul( 2 * n.dot(negD) ) );
+
+            interLum = getCloserIntersection(p, r);
+
+            if (interLum == null)
+                return new Color();
+
+            pp = p.add(r.mul(interLum.T));
+
+            c = calculLumierePoint(interLum, r);
+
+            return c.add(interLum.Obj.Specular.times( calculLumiereReflechie(interLum, pp, r, maxDepth + 1) ) );
+        }
+
+        private Color calculLumierePoint(Intersection intersect, Vec3 d)
+        {
+            Color c = new Color();
+
+            if (intersect != null)
+            {
+                // Lorsqu'il y a présence de source(s) de lumière(s)
+                if (Scene.NbLumieres > 0)
+                {
+                    Color somme = new Color();
+                    Point p = Scene.Camera.LookFrom.add(d.mul(intersect.T));
+
+                    // Calcul de la couleur à afficher
+                    foreach (Lumiere l in Scene.Eclairage)
+                    {
+                        Color lightColor = l.Couleur;
+                        Vec3 n = intersect.Obj.getNormaleIntersection(p), lightdir = l.getDirection(p);
+
+                        // Si les ombres sont activées
+                        if (Scene.Shadow)
+                        {
+
+                            // On regarde s'il y a un objet entre la lumière et le point d'intersection
+                            foreach (VisualEntity e in Scene.Entite)
+                            {
+                                Intersection intersection = e.Collide(lightdir, p.add(lightdir.mul(0.000001d)));
+
+                                if (intersection != null)
+                                {
+                                    if (intersection.T > 0.00001d)
+                                    {
+                                        lightColor = new Color();
+                                        break;
+                                    }
+                                }
+                            }
+                        }
+                        // Initialisation des variables pour Blinn-Phong
+                        Vec3 eyedir = Scene.Camera.LookFrom.sub(Scene.Camera.LookAt).norm(), h = lightdir.cross(eyedir).norm();
+
+                        somme = intersect.Obj.Diffuse.times(somme.add(lightColor.mul(System.Math.Max(n.dot(lightdir), 0))));
+                        somme = somme.add( intersect.Obj.Specular.times( lightColor.mul( System.Math.Pow(System.Math.Max( n.dot(h), 0 ), intersect.Obj.Brillance ) ) ) );
+                    }
+                    c = intersect.Obj.Ambient.add(somme);
+                }
+
+                else
+                    c = intersect.Obj.Ambient;
+            }
+            return c;
+        }
+
+        private Intersection getCloserIntersection(Point o, Vec3 d)
+        {
+            Intersection intersect = null;
+            // Détection de l'intersection la plus proche
+            foreach (VisualEntity entity in this.Scene.Entite)
+            {
+                Intersection tmp = entity.Collide(d, o);
+
+                if (tmp != null && (intersect == null || tmp.T < intersect.T))
+                    intersect = tmp;
+            }
+
+            return intersect;
+        }
+
         /// <summary>
         /// Génère l'image relative à la scène
         /// </summary>
         public void GenerateImage()
         {
+            Color c;
             for (int i = 0; i < Scene.Fenetre.Width; i++)
             {
                 for (int j = 0; j < Scene.Fenetre.Height; j++)
                 {
                     Intersection intersect = null;
-                    Color c = new Color();
                     Vec3 d = VecteurDirForPixel(i, j);
+                    Point p;
 
                     // Détection de l'intersection la plus proche
-                    foreach (VisualEntity entity in this.Scene.Entite)
-                    {
-                        Intersection tmp = entity.Collide(d, this.Scene.Camera.LookFrom);
+                    intersect = getCloserIntersection(Scene.Camera.LookFrom, d);
 
-                        if (tmp != null && (intersect == null || tmp.T < intersect.T))
-                            intersect = tmp;
-
-                    }
-
-                    if (intersect != null)
-                    {
-                        // Lorsqu'il y a présence de source(s) de lumière(s)
-                        if (Scene.NbLumieres > 0)
-                        {
-                            Color somme = new Color();
-                            Point p = Scene.Camera.LookFrom.add(d.mul(intersect.T));
-
-                            // Calcul de la couleur à afficher
-                            foreach (Lumiere l in Scene.Eclairage)
-                            {
-                                Color lightColor = l.Couleur;
-                                Vec3 n = intersect.Obj.getNormaleIntersection(p), lightdir = l.getDirection(p);
-
-                                // Si les ombres sont activées
-                                if (Scene.Shadow)
-                                {
-
-                                    // On regarde s'il y a un objet entre la lumière et le point d'intersection
-                                    foreach (VisualEntity e in Scene.Entite)
-                                    {
-                                        Intersection intersection = e.Collide(lightdir, p.add(lightdir.mul(0.000001d)));
-
-                                        if (intersection != null)
-                                        {
-                                            if (intersection.T > 0.00001d)
-                                            {
-                                                lightColor = new Color();
-                                                break;
-                                            }
-                                        }
-                                    }
-                                }
-
-                                somme = somme.add( lightColor.mul(System.Math.Max(n.dot(lightdir), 0)) );
-                            }
-                            somme = intersect.Obj.Diffuse.times(somme);
-                            c = intersect.Obj.Ambient.add(somme);
-                        }
-
-                        else
-                            c = intersect.Obj.Ambient;
-                    }
+                    p = Scene.Camera.LookFrom.add(d.mul(intersect.T));
+                    c = calculLumierePoint(intersect, d);
+                    c.add(intersect.Obj.Specular.times(calculLumiereReflechie(intersect, p, d, 1)));
 
                     this.Scene.Fenetre.SetPixel(i, (Scene.Fenetre.Height - 1) - j, System.Drawing.Color.FromArgb((int)System.Math.Round(c.R * 255, MidpointRounding.AwayFromZero), (int)System.Math.Round(c.G * 255, MidpointRounding.AwayFromZero), (int)System.Math.Round(c.B * 255, MidpointRounding.AwayFromZero)));
                 }
