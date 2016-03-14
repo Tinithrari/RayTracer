@@ -15,7 +15,6 @@
     <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -23,6 +22,8 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>3</WarningLevel>
+    <Commandlineparameters>C:\Users\Tinithrari\Source\Repos\lanceurrayons\TEST6\tp53.test</Commandlineparameters>
+    <Externalconsole>true</Externalconsole>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -33,9 +34,6 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-  <PropertyGroup>
-    <StartupObject />
-  </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
     <DebugSymbols>true</DebugSymbols>
     <OutputPath>bin\x86\Debug\</OutputPath>
@@ -44,6 +42,8 @@
     <PlatformTarget>x86</PlatformTarget>
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <WarningLevel>4</WarningLevel>
+    <Optimize>false</Optimize>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
     <OutputPath>bin\x86\Release\</OutputPath>
@@ -53,6 +53,7 @@
     <PlatformTarget>x86</PlatformTarget>
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -74,11 +75,11 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\LanceurRayon.Math\LanceurRayon.Math.csproj">
-      <Project>{e8fc3ce2-4a04-4adc-8d49-fddf34ccb465}</Project>
+      <Project>{E8FC3CE2-4A04-4ADC-8D49-FDDF34CCB465}</Project>
       <Name>LanceurRayon.Math</Name>
     </ProjectReference>
     <ProjectReference Include="..\LanceurRayon.Renderer\LanceurRayon.Renderer.csproj">
-      <Project>{ffd35dbf-1e17-45a7-9dd2-789a09129d48}</Project>
+      <Project>{FFD35DBF-1E17-45A7-9DD2-789A09129D48}</Project>
       <Name>LanceurRayon.Renderer</Name>
     </ProjectReference>
   </ItemGroup>

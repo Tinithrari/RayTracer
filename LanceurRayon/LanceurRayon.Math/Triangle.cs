@@ -62,9 +62,9 @@
 
             p = o.add( (d.mul(intersectionPlan.T)) );
 
-            a = ( ( B.sub(A) ).cross( ( p.sub(A) ) ) ).dot(n) >= 0d;
-            b = ( ( C.sub(B) ).cross( ( p.sub(B) ) ) ).dot(n) >= 0d;
-            c = ( ( A.sub(C) ).cross( ( p.sub(C) ) ) ).dot(n) >= 0d;
+            a = ( ( B.sub(A) ).cross( ( p.sub(A) ) ) ).dot(n) >= 0;
+            b = ( ( C.sub(B) ).cross( ( p.sub(B) ) ) ).dot(n) >= 0;
+            c = ( ( A.sub(C) ).cross( ( p.sub(C) ) ) ).dot(n) >= 0;
 
             return a && b && c ? new Intersection(intersectionPlan.T, this) : null;
         }

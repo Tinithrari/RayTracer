@@ -83,7 +83,7 @@ namespace LanceurRayon.RayTracer
 
             interLum = getCloserIntersection(p, r);
 
-            if (interLum == null || interLum.T < 0)
+            if (interLum == null)
                 return new Color();
 
             pp = p.add(r.mul(interLum.T));
@@ -118,11 +118,11 @@ namespace LanceurRayon.RayTracer
                             // On regarde s'il y a un objet entre la lumière et le point d'intersection
                             foreach (VisualEntity e in Scene.Entite)
                             {
-                                Intersection intersection = e.Collide(lightdir, p.add(lightdir.mul(0.000001d)));
+                                Intersection intersection = e.Collide(lightdir, p.add(lightdir.mul(0.00001d)));
 
                                 if (intersection != null)
                                 {
-                                    if (intersection.T > 0.00001d)
+                                    if (intersection.T >= 0.00001d)
                                     {
                                         lightColor = new Color();
                                         break;
@@ -153,7 +153,7 @@ namespace LanceurRayon.RayTracer
             {
                 Intersection tmp = entity.Collide(d, o);
 
-                if (tmp != null && (intersect == null || tmp.T < intersect.T))
+				if (tmp != null && (intersect == null || tmp.T < intersect.T))
                     intersect = tmp;
             }
 
@@ -165,7 +165,7 @@ namespace LanceurRayon.RayTracer
         /// </summary>
         public void GenerateImage()
         {
-            Color c;
+			Color c = new Color();
             for (int i = 0; i < Scene.Fenetre.Width; i++)
             {
                 for (int j = 0; j < Scene.Fenetre.Height; j++)
@@ -177,9 +177,12 @@ namespace LanceurRayon.RayTracer
                     // Détection de l'intersection la plus proche
                     intersect = getCloserIntersection(Scene.Camera.LookFrom, d);
 
-                    p = Scene.Camera.LookFrom.add(d.mul(intersect.T));
-                    c = calculLumierePoint(intersect, d);
-                    c.add(calculLumiereReflechie(intersect, p, d, 1));
+					if (intersect != null)
+					{
+	                    p = Scene.Camera.LookFrom.add(d.mul(intersect.T));
+	                    c = calculLumierePoint(intersect, d);
+	                    c.add(calculLumiereReflechie(intersect, p, d, 1));
+					}
 
                     this.Scene.Fenetre.SetPixel(i, (Scene.Fenetre.Height - 1) - j, System.Drawing.Color.FromArgb((int)System.Math.Round(c.R * 255, MidpointRounding.AwayFromZero), (int)System.Math.Round(c.G * 255, MidpointRounding.AwayFromZero), (int)System.Math.Round(c.B * 255, MidpointRounding.AwayFromZero)));
                 }
