@@ -4,6 +4,8 @@ output tp64.png
 
 camera 2 5 5 0 0 0 0 1 0 45
 
+shadow true
+
 ambient .1 .1 .1
 directional 0 0 1 .5 .5 .5 
 point 5 0 5 .5 .5 .5

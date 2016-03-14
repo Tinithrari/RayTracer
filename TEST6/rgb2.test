@@ -1,6 +1,6 @@
 size 1024 768
 
-output rgb.png
+output rgb2.png
 
 camera 0 0 6 0 0 0 0 1 0 45
 
