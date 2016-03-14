@@ -33,10 +33,10 @@ namespace LanceurRayon.Math
         /// <summary>
         /// Detecte si le rayon entre en collision avec l'objet
         /// </summary>
-        /// <param name="ray">Le rayon</param>
-        /// <param name="eye">L'origine du rayon</param>
+        /// <param name="d">Le rayon</param>
+        /// <param name="o">L'origine du rayon</param>
         /// <returns>Le discriminant de l'intersection ou null si pas d'intersection</returns>
-        public abstract Intersection Collide(Vec3 ray, Point eye);
+        public abstract Intersection Collide(Vec3 d, Point o);
 
         /// <summary>
         /// Calcule la normale d'un point d'intersection

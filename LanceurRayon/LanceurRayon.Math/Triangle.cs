@@ -44,32 +44,29 @@
         /// <summary>
         /// Detecte si le rayon entre en collision avec l'objet
         /// </summary>
-        /// <param name="ray">Le rayon</param>
-        /// <param name="eye">L'origine du rayon</param>
+        /// <param name="d">Le rayon</param>
+        /// <param name="o">L'origine du rayon</param>
         /// <returns>Le discriminant de l'intersection ou null si pas d'intersection</returns>
-        public override Intersection Collide(Vec3 ray, Point eye)
+        public override Intersection Collide(Vec3 d, Point o)
         {
-            Vec3 normale = getNormaleIntersection(null);
-            double t;
-            double tmp = ray.dot(normale);
+            Vec3 n = getNormaleIntersection(null);
+            Intersection intersectionPlan;
+            bool a, b, c;
+            Plan plan = new Plan(C, n, Specular, Ambient, Diffuse, Brillance);
             Point p;
 
-            if (tmp == 0.0)
-                return null;
-            
-            t = A.sub(eye).dot(normale) / tmp;
-            p = eye.add(ray.mul(t));
+            intersectionPlan = plan.Collide(d, o);
 
-            if (B.sub(A).cross(p.sub(A)).dot(normale) < 0.0)
+            if (intersectionPlan == null)
                 return null;
 
-            if (C.sub(B).cross(p.sub(B)).dot(normale) < 0.0)
-                return null;
+            p = o.add( (d.mul(intersectionPlan.T)) );
 
-            if (A.sub(C).cross(p.sub(C)).dot(normale) < 0.0)
-                return null;
+            a = ( ( B.sub(A) ).cross( ( p.sub(A) ) ) ).dot(n) >= 0d;
+            b = ( ( C.sub(B) ).cross( ( p.sub(B) ) ) ).dot(n) >= 0d;
+            c = ( ( A.sub(C) ).cross( ( p.sub(C) ) ) ).dot(n) >= 0d;
 
-            return new Intersection(t,this);
+            return a && b && c ? new Intersection(intersectionPlan.T, this) : null;
         }
 
         /// <summary>
@@ -79,7 +76,7 @@
         /// <returns>Le vecteur normale à l'intersection</returns>
         public override Vec3 getNormaleIntersection(Point p)
         {
-            return B.sub(A).cross(C.sub(A)).norm();
+            return ( ( B.sub(A) ).cross( ( C.sub(A) ) ) ).norm();
         }
     }
 }

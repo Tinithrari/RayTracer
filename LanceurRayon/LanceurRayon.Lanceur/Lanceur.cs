@@ -20,7 +20,7 @@ namespace LanceurRayon.RayTracer
         /// <exception cref="ArgumentNullException">Exception lancée si la scène n'est pas précisée</exception>
         public Lanceur(Scene Scene)
         {
-            Vec3 tmpU, tmpV, tmpW, inter;
+            Vec3 tmpU, tmpV, tmpW;
             double fovRad;
 
             if (Scene == null)
@@ -30,14 +30,11 @@ namespace LanceurRayon.RayTracer
 
             // Calcul du repère orthonormé de la scène par rapport à la caméra
 
-            inter = Scene.Camera.LookFrom.sub(Scene.Camera.LookAt);
-            tmpW = inter.norm();
+            tmpW = Scene.Camera.LookFrom.sub(Scene.Camera.LookAt).norm();
 
-            inter = Scene.Camera.Up.cross(tmpW);
-            tmpU = inter.norm();
+            tmpU = Scene.Camera.Up.cross(tmpW).norm();
 
-            inter = tmpW.cross(tmpU);
-            tmpV = inter.norm();
+            tmpV = tmpW.cross(tmpU).norm();
 
             Repere = new Repere(tmpU, tmpV, tmpW);
 
@@ -61,14 +58,11 @@ namespace LanceurRayon.RayTracer
             Vec3 d;
 
             // On projete i et dans le repère de la scène
-            a = (PixelWidth * (i - (Scene.Fenetre.Width / 2d) + 0.5)) / (Scene.Fenetre.Width / 2d);
-            b = (PixelHeight * (j - (Scene.Fenetre.Height / 2d) + 0.5)) / (Scene.Fenetre.Height / 2d);
+            a = (PixelWidth * ((double) i - ((double) Scene.Fenetre.Width / 2d) + 0.5)) / ((double) Scene.Fenetre.Width / 2d);
+            b = (PixelHeight * ((double) j - ((double) Scene.Fenetre.Height / 2d) + 0.5)) / ((double) Scene.Fenetre.Height / 2d);
 
             // On crée le vecteur d
-            d = Repere.U.mul(a);
-            d = d.add(Repere.V.mul(b));
-            d = d.sub(Repere.W);
-            d = d.norm();
+            d = (Repere.U.mul(a)).add((Repere.V.mul(b)).sub(Repere.W)).norm();
 
             return d;
         }
@@ -102,43 +96,38 @@ namespace LanceurRayon.RayTracer
                         if (Scene.NbLumieres > 0)
                         {
                             Color somme = new Color();
-                            Point p;
-
-                            //Calcul du point d'intersection.
-                            p = Scene.Camera.LookFrom.add(d.mul(intersect.T));
+                            Point p = Scene.Camera.LookFrom.add(d.mul(intersect.T));
 
                             // Calcul de la couleur à afficher
                             foreach (Lumiere l in Scene.Eclairage)
                             {
-                                Color c_temp = l.Couleur;
+                                Color lightColor = l.Couleur;
+                                Vec3 n = intersect.Obj.getNormaleIntersection(p), lightdir = l.getDirection(p);
 
                                 // Si les ombres sont activées
                                 if (Scene.Shadow)
                                 {
-                                    Vec3 vec_lumiere = l.getDirection(p);
 
                                     // On regarde s'il y a un objet entre la lumière et le point d'intersection
                                     foreach (VisualEntity e in Scene.Entite)
                                     {
-                                        Intersection intersection = e.Collide(vec_lumiere, p.add(vec_lumiere.mul(0.000001d)));
+                                        Intersection intersection = e.Collide(lightdir, p.add(lightdir.mul(0.000001d)));
 
                                         if (intersection != null)
                                         {
                                             if (intersection.T > 0.00001d)
                                             {
-                                                c_temp = new Color();
+                                                lightColor = new Color();
                                                 break;
                                             }
                                         }
                                     }
                                 }
 
-                                Color cPoint = c_temp.mul(System.Math.Max(intersect.Obj.getNormaleIntersection(p).dot(l.getDirection(p)), 0));
-
-                                somme = somme.add(cPoint);
+                                somme = somme.add( lightColor.mul(System.Math.Max(n.dot(lightdir), 0)) );
                             }
-
-                            c = intersect.Obj.Ambient.add(somme.times(intersect.Obj.Diffuse));
+                            somme = intersect.Obj.Diffuse.times(somme);
+                            c = intersect.Obj.Ambient.add(somme);
                         }
 
                         else

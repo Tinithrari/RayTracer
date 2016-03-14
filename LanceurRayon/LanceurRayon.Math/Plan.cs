@@ -9,26 +9,26 @@
         /// <summary>
         /// Point décrivant un plan.
         /// </summary>
-        public Point Pt { get; private set; }
+        public Point Q { get; private set; }
 
         /// <summary>
         /// Vecteur normal au plan.
         /// </summary>
-        public Vec3 Vecteur_normal { get; private set; }
+        public Vec3 N { get; private set; }
 
         /// <summary>
         /// Constructeur de la classe.
         /// </summary>
-        /// <param name="Pt">Point décrivant un plan.</param>
-        /// <param name="Vecteur_normal">Vecteur normal au plan.</param>
+        /// <param name="Q">Point décrivant un plan.</param>
+        /// <param name="N">Vecteur normal au plan.</param>
         /// <param name="Specular">Reflêt</param>
         /// <param name="Ambient">Lumière ambiante</param>
         /// <param name="Diffuse">Lumière diffuse</param>
         /// <param name="Brillance">Brillance de la scène.</param> 
-        public Plan(Point Pt,Vec3 Vecteur_normal, Math.Color Specular, Math.Color Ambient, Math.Color Diffuse, double Brillance)
+        public Plan(Point Q,Vec3 N, Math.Color Specular, Math.Color Ambient, Math.Color Diffuse, double Brillance)
         {
-            this.Pt = Pt;
-            this.Vecteur_normal = Vecteur_normal;
+            this.Q = Q;
+            this.N = N;
             this.Ambient = Ambient;
             this.Specular = Specular;
             this.Diffuse = Diffuse;
@@ -38,14 +38,15 @@
         /// <summary>
         /// Detecte si le rayon entre en collision avec l'objet
         /// </summary>
-        /// <param name="ray">Le rayon</param>
-        /// <param name="eye">L'origine du rayon</param>
+        /// <param name="d">Le rayon</param>
+        /// <param name="o">L'origine du rayon</param>
         /// <returns>Le discriminant de l'intersection ou null si pas d'intersection</returns>
-        public override Intersection Collide(Vec3 ray, Point eye)
+        public override Intersection Collide(Vec3 d, Point o)
         {
-            double tmp = ray.dot(Vecteur_normal);
+            double numerateur = (Q.sub(o)).dot(N);
+            double denominateur = d.dot(N);
 
-            return tmp == 0.0 ? null : new Intersection(Pt.sub(eye).dot(Vecteur_normal) / tmp, this);
+            return denominateur == 0d ? null : new Intersection(numerateur / denominateur, this);
         }
 
         /// <summary>
@@ -55,7 +56,7 @@
         /// <returns>Le vecteur normale à l'intersection</returns>
         public override Vec3 getNormaleIntersection(Point p)
         {
-            return Vecteur_normal;
+            return N;
         }
     }
 }

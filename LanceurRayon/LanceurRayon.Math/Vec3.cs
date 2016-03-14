@@ -114,7 +114,7 @@ namespace LanceurRayon.Math
         {
             double len = this.length();
 
-            return this.mul(1/len);
+            return this.mul( (1d/len) );
         }
 
         /// <summary>
