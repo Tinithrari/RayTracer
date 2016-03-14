@@ -7,12 +7,12 @@ namespace LanceurRayon.Math
 {   /// <summary>
     /// Vecteur de dimension quatre.
     /// </summary>
-    public class Vec4 : Vec3
+    public class Vec4 : Quadruplet
     {
         /// <summary>
-        /// Quatrième coordonnée du vecteur
+        /// Permet de créer un vecteur nul
         /// </summary>
-        public double T { get; set; }
+        public Vec4() : base() { }
 
         /// <summary>
         /// Constructeur de la classe.
@@ -21,9 +21,8 @@ namespace LanceurRayon.Math
         /// <param name="y">Ordonnée</param>
         /// <param name="z">Côte</param>
         /// <param name="T">4 ème coordonnée</param>
-        public Vec4(double x, double y, double z, double T) :base(x,y,z){
+        public Vec4(double x, double y, double z, double t) :base(x,y,z,t){
 
-            this.T = T;
         }
 
         /// <summary>
