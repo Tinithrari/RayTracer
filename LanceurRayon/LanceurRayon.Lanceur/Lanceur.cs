@@ -158,7 +158,7 @@ namespace LanceurRayon.RayTracer
             {
                 Intersection tmp = entity.Collide(d, o);
 
-				if (tmp != null && tmp.T > 0.00001d && (intersect == null || tmp.T < intersect.T))
+				if (tmp != null && tmp.T > 0.0000001d && (intersect == null || tmp.T < intersect.T))
                     intersect = tmp;
             }
 

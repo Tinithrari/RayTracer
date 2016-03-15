@@ -235,6 +235,8 @@ namespace LanceurRayon.Math
             A_D = A.RightMatrixProduct(D);
             B_C = B.RightMatrixProduct(C);
 
+            return 0;
+
         }
         /*
         public Mat4 Inverse()
