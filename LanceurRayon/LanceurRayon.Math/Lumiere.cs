@@ -25,5 +25,12 @@ namespace LanceurRayon.Math
         /// <param name="p">Le point pour lequel on calcule le vecteur direction</param>
         /// <returns>Le vecteur direction correspondant à cette lumière</returns>
         public abstract Vec3 getDirection(Point p);
+
+        /// <summary>
+        /// Calcule la distance entre la lumière et un point donné
+        /// </summary>
+        /// <param name="p">Le point dont on souhaite connaitre la distance par rapport à la lumière</param>
+        /// <returns>La distance entre un point et la lumière</returns>
+        public abstract double getDistance(Point p);
     }
 }

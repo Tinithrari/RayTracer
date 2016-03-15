@@ -35,5 +35,10 @@ namespace LanceurRayon.Math
         {
             return Position.sub(p).norm();
         }
+
+        public override double getDistance(Point p)
+        {
+            return Position.sub(p).length(); 
+        }
     }
 }

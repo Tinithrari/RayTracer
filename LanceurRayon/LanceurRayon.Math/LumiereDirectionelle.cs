@@ -31,5 +31,10 @@ namespace LanceurRayon.Math
         {
             return this.Direction;
         }
+
+        public override double getDistance(Point p)
+        {
+            return double.PositiveInfinity;
+        }
     }
 }
