@@ -58,11 +58,14 @@ namespace LanceurRayon.RayTracer
             Vec3 d;
 
             // On projete i et dans le repère de la scène
-            a = (PixelWidth * ((double) i - ((double) Scene.Fenetre.Width / 2d) + 0.5)) / ((double) Scene.Fenetre.Width / 2d);
-            b = (PixelHeight * ((double) j - ((double) Scene.Fenetre.Height / 2d) + 0.5)) / ((double) Scene.Fenetre.Height / 2d);
+            a = (PixelWidth * (i - (Scene.Fenetre.Width / 2d) + 0.5)) / (Scene.Fenetre.Width / 2d);
+            b = (PixelHeight * (j - (Scene.Fenetre.Height / 2d) + 0.5)) / (Scene.Fenetre.Height / 2d);
 
             // On crée le vecteur d
-            d = (Repere.U.mul(a)).add((Repere.V.mul(b)).sub(Repere.W)).norm();
+			d = Repere.U.mul(a);
+			d = d.add(Repere.V.mul(b));
+			d = d.sub(Repere.W);
+			d = d.norm(); 
 
             return d;
         }
@@ -88,12 +91,12 @@ namespace LanceurRayon.RayTracer
 
             pp = p.add(r.mul(interLum.T));
 
-            c = calculLumierePoint(interLum, r);
+            c = calculLumierePoint(pp, interLum, r);
 
             return c.add(interLum.Obj.Specular.times( calculLumiereReflechie(interLum, pp, r, maxDepth + 1) ) );
         }
 
-        private Color calculLumierePoint(Intersection intersect, Vec3 d)
+        private Color calculLumierePoint(Point o, Intersection intersect, Vec3 d)
         {
             Color c = new Color();
 
@@ -103,7 +106,7 @@ namespace LanceurRayon.RayTracer
                 if (Scene.NbLumieres > 0)
                 {
                     Color somme = new Color();
-                    Point p = Scene.Camera.LookFrom.add(d.mul(intersect.T));
+                    Point p = o.add(d.mul(intersect.T));
 
                     // Calcul de la couleur à afficher
                     foreach (Lumiere l in Scene.Eclairage)
@@ -118,7 +121,7 @@ namespace LanceurRayon.RayTracer
                             // On regarde s'il y a un objet entre la lumière et le point d'intersection
                             foreach (VisualEntity e in Scene.Entite)
                             {
-                                Intersection intersection = e.Collide(lightdir, p.add(lightdir.mul(0.00001d)));
+                                Intersection intersection = e.Collide(lightdir, p.add(lightdir.mul(0.000001d)));
 
                                 if (intersection != null)
                                 {
@@ -131,10 +134,11 @@ namespace LanceurRayon.RayTracer
                             }
                         }
                         // Initialisation des variables pour Blinn-Phong
-                        Vec3 eyedir = Scene.Camera.LookFrom.sub(Scene.Camera.LookAt).norm(), h = lightdir.cross(eyedir).norm();
+						Vec3 eyedir = new Vec3(-d.X, -d.Y, -d.Z), h = lightdir.add(eyedir).norm();
 
-                        somme = intersect.Obj.Diffuse.times(somme.add(lightColor.mul(System.Math.Max(n.dot(lightdir), 0))));
-                        somme = somme.add( intersect.Obj.Specular.times( lightColor.mul( System.Math.Pow(System.Math.Max( n.dot(h), 0 ), intersect.Obj.Brillance ) ) ) );
+						somme = somme.add(lightColor.mul(System.Math.Max(n.dot(lightdir), 0)));
+						somme = intersect.Obj.Diffuse.times(somme);
+                       	somme = somme.add(intersect.Obj.Specular.times( lightColor.mul( System.Math.Pow(System.Math.Max( n.dot(h), 0 ), intersect.Obj.Brillance ) ) ) );
                     }
                     c = intersect.Obj.Ambient.add(somme);
                 }
@@ -153,13 +157,43 @@ namespace LanceurRayon.RayTracer
             {
                 Intersection tmp = entity.Collide(d, o);
 
-				if (tmp != null && (intersect == null || tmp.T < intersect.T))
+				if (tmp != null && tmp.T > 0.0 && (intersect == null || tmp.T < intersect.T))
                     intersect = tmp;
             }
 
             return intersect;
         }
+        /// <summary>
+        /// Génère l'image relative à la scène
+        /// </summary>
+        public void GenerateImage()
+        {
+            for (int i = 0; i < Scene.Fenetre.Width; i++)
+            {
+                for (int j = 0; j < Scene.Fenetre.Height; j++)
+                {
+                    Intersection intersect = null;
+                    Color c = new Color();
+                    Vec3 d = VecteurDirForPixel(i, j);
+					Point p;
 
+					intersect = getCloserIntersection(Scene.Camera.LookFrom, d);
+
+					if (intersect != null)
+					{
+						p = Scene.Camera.LookFrom.add(d.mul(intersect.T));
+						c = calculLumierePoint(Scene.Camera.LookFrom, intersect, d);
+						c.add(calculLumiereReflechie(intersect, p, d, 1));
+					}
+
+
+                    this.Scene.Fenetre.SetPixel(i, (Scene.Fenetre.Height - 1) - j, System.Drawing.Color.FromArgb((int)System.Math.Round(c.R * 255, MidpointRounding.AwayFromZero), (int)System.Math.Round(c.G * 255, MidpointRounding.AwayFromZero), (int)System.Math.Round(c.B * 255, MidpointRounding.AwayFromZero)));
+                }
+            }
+            this.Scene.Fenetre.Save(this.Scene.Output);
+        }
+
+        /*
         /// <summary>
         /// Génère l'image relative à la scène
         /// </summary>
@@ -180,15 +214,15 @@ namespace LanceurRayon.RayTracer
 					if (intersect != null)
 					{
 	                    p = Scene.Camera.LookFrom.add(d.mul(intersect.T));
-	                    c = calculLumierePoint(intersect, d);
-	                    c.add(calculLumiereReflechie(intersect, p, d, 1));
+						c = calculLumierePoint(Scene.Camera.LookFrom, intersect, d);
+	                   	c.add(calculLumiereReflechie(intersect, p, d, 1));
 					}
 
-                    this.Scene.Fenetre.SetPixel(i, (Scene.Fenetre.Height - 1) - j, System.Drawing.Color.FromArgb((int)System.Math.Round(c.R * 255, MidpointRounding.AwayFromZero), (int)System.Math.Round(c.G * 255, MidpointRounding.AwayFromZero), (int)System.Math.Round(c.B * 255, MidpointRounding.AwayFromZero)));
+                    this.Scene.Fenetre.SetPixel(i, Scene.Fenetre.Height - 1 - j, System.Drawing.Color.FromArgb((int)System.Math.Round(c.R * 255, MidpointRounding.AwayFromZero), (int)System.Math.Round(c.G * 255, MidpointRounding.AwayFromZero), (int)System.Math.Round(c.B * 255, MidpointRounding.AwayFromZero)));
                 }
             }
             this.Scene.Fenetre.Save(this.Scene.Output);
-        }
+        }*/
 
         public static void Main(string[] args)
         {

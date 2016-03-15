@@ -49,24 +49,27 @@
         /// <returns>Le discriminant de l'intersection ou null si pas d'intersection</returns>
         public override Intersection Collide(Vec3 d, Point o)
         {
-            Vec3 n = getNormaleIntersection(null);
-            Intersection intersectionPlan;
-            bool a, b, c;
-            Plan plan = new Plan(C, n, Specular, Ambient, Diffuse, Brillance);
-            Point p;
+			Vec3 n = getNormaleIntersection(null);
+			Point p;
+			double t;
+			double tmp = d.dot(n);
 
-            intersectionPlan = plan.Collide(d, o);
+			if (tmp == 0.0)
+				return null;
+			
+			t = A.sub(o).dot(n) / tmp;
+			p = o.add(d.mul(t));
 
-            if (intersectionPlan == null)
-                return null;
+			if (B.sub (A).cross (p.sub (A)).dot (n) < 0.0)
+				return null;
 
-            p = o.add( (d.mul(intersectionPlan.T)) );
+			if (C.sub (B).cross (p.sub (B)).dot (n) < 0.0)
+				return null;
+			
+			if (A.sub (C).cross (p.sub (C)).dot (n) < 0.0)
+				return null;
 
-            a = ( ( B.sub(A) ).cross( ( p.sub(A) ) ) ).dot(n) >= 0;
-            b = ( ( C.sub(B) ).cross( ( p.sub(B) ) ) ).dot(n) >= 0;
-            c = ( ( A.sub(C) ).cross( ( p.sub(C) ) ) ).dot(n) >= 0;
-
-            return a && b && c ? new Intersection(intersectionPlan.T, this) : null;
+			return new Intersection(t,this);
         }
 
         /// <summary>
