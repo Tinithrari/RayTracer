@@ -64,6 +64,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Camera.cs" />
+    <Compile Include="Mat2.cs" />
+    <Compile Include="Vec2.cs" />
+    <Compile Include="Doublet.cs" />
     <Compile Include="Quadruplet.cs" />
     <Compile Include="Vec4.cs" />
     <Compile Include="Mat4.cs" />

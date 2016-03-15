@@ -6,9 +6,9 @@ using System.Text;
 
 namespace LanceurRayon.Math
 {
-    public class Quadruplet : Triplet
+    public abstract class Quadruplet : Triplet
     {
-        public double T { get; set; }
+        public double T { get; private  set; }
 
         public Quadruplet(double x, double y, double z,double t) : base(x,y,z)
         {
