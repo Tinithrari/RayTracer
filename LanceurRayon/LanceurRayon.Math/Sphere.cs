@@ -50,7 +50,7 @@ namespace LanceurRayon.Math
             if (ray == null)
                 throw new ArgumentNullException("ray doit-être défini");
 
-            eyeToCenter = eye.sub(Centre);
+			eyeToCenter = eye.sub (Centre);
 
             a = 1.0;
             b = 2.0 * (eyeToCenter.dot(ray));
@@ -58,9 +58,9 @@ namespace LanceurRayon.Math
 
             delta = (b * b) - (4.0 * a * c);
 
-            if (delta < -0.000000001)
+            if (delta < 0)
                 return null;
-            else if (delta <= 0.00000001)
+            else if (delta == 0.0)
                 if ( (-b / (2 * a)) > 0)
                     return new Intersection ((-b / (2 * a)), this);
                 else
