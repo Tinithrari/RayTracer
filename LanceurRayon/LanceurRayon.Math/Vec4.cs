@@ -48,5 +48,15 @@ namespace LanceurRayon.Math
             return new Vec4((double)(this.X - v.X), (double)(this.Y - v.Y), (double)(this.Z - v.Z), (double)(this.T - v.T));
         }
 
+        /// <summary>
+        /// Effectue le produit scalaire entre les 2 vecteurs.
+        /// </summary>
+        /// <param name="v"></param>
+        /// <returns>Résultat du produit scalaire des 2 vecteurs</returns>
+        public double dot(Vec4 v)
+        {
+            return (this.X*v.X) + (this.Y * v.Y) + (this.Z * v.Z) + (this.T * v.T);
+        }
+
     }
 }

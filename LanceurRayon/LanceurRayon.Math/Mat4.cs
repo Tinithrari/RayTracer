@@ -45,15 +45,24 @@ namespace LanceurRayon.Math
         }
 
         /// <summary>
+        /// Créer une matrice 4*4 remplit de zéro
+        /// </summary>
+        public Mat4()
+        {
+            C1 = new Vec4();
+            C2 = new Vec4();
+            C3 = new Vec4();
+            C4 = new Vec4();
+        }
+
+        /// <summary>
         /// Addition de 2 matrices.
         /// </summary>
         /// <param name="m"></param>
         /// <returns>Résultat de l'opération</returns>
         public Mat4 add(Mat4 m)
         {
-
             return new Mat4(this.C1.add(m.C1), this.C2.add(m.C2), this.C3.add(m.C3), this.C4.add(m.C4));
-
         }
 
         /// <summary>
@@ -145,6 +154,67 @@ namespace LanceurRayon.Math
                             vt.X * C1.T + vt.Y * C2.T + vt.Z * C3.T + vt.T * C4.T
                             );
         }
+        
+        /// <summary>
+        /// Produit matriciel droite
+        /// </summary>
+        /// <param name="m">Résultat de l'opération </param>
+        /// <returns></returns>
+        public Mat4 RightMatrixProduct(Mat4 m) {
+
+              Vec4 vl1, vl2, vl3, vl4;
+
+            vl1 = new Vec4(m.C1.X, m.C2.X, m.C3.X, m.C4.X);
+            vl2 = new Vec4(m.C1.Y, m.C2.Y,m.C3.Y, m.C4.Y);
+            vl3 = new Vec4(m.C1.Z, m.C2.Z, m.C3.Z, m.C4.Z);
+            vl4 = new Vec4(m.C1.T, m.C2.T, m.C3.T, m.C4.T);
+
+           return new Mat4(
+                            new Vec4(vl1.dot(this.C1) , vl1.dot(this.C2), vl1.dot(this.C3), vl1.dot(this.C4)),
+                            new Vec4(vl2.dot(this.C1), vl2.dot(this.C2), vl2.dot(this.C3), vl2.dot(this.C4)),
+                            new Vec4(vl3.dot(this.C1), vl3.dot(this.C2), vl3.dot(this.C3), vl3.dot(this.C4)),
+                            new Vec4(vl4.dot(this.C1), vl4.dot(this.C2), vl4.dot(this.C3), vl4.dot(this.C4))
+                            );
+
+
+        }
+
+        /// <summary>
+        /// Produit matriciel gauche.
+        /// </summary>
+        /// <param name="m">Résultat de l'opération </param>
+        /// <returns></returns>
+        public Mat4 LeftMatrixProduct(Mat4 m)
+        {
+            Vec4 vl1, vl2, vl3, vl4;
+
+            vl1 = new Vec4(C1.X, C2.X, C3.X, C4.X);
+            vl2 = new Vec4(C1.Y, C2.Y, C3.Y, C4.Y);
+            vl3 = new Vec4(C1.Z, C2.Z, C3.Z, C4.Z);
+            vl4 = new Vec4(C1.T, C2.T, C3.T, C4.T);
+
+            return new Mat4(
+                            new Vec4(vl1.dot(m.C1) , vl1.dot(m.C2), vl1.dot(m.C3), vl1.dot(m.C4)),
+                            new Vec4(vl2.dot(m.C1), vl2.dot(m.C2), vl2.dot(m.C3), vl2.dot(m.C4)),
+                            new Vec4(vl3.dot(m.C1), vl3.dot(m.C2), vl3.dot(m.C3), vl3.dot(m.C4)),
+                            new Vec4(vl4.dot(m.C1), vl4.dot(m.C2), vl4.dot(m.C3), vl4.dot(m.C4))
+                            );
+
+        }
+
+        /// <summary>
+        /// Fournit une répresentation textuel d'une matrice
+        /// </summary>
+        /// <returns>Le texte décrivant la matrice.</returns>
+        public override String ToString() {
+
+            return C1.X.ToString() + " " + C2.X.ToString() + " " + C3.X.ToString() + " " + C4.X.ToString() + "\n"+
+                   C1.Y.ToString() + " " + C2.Y.ToString() + " " + C3.Y.ToString() + " " + C4.Y.ToString() + "\n" +
+                   C1.Z.ToString() + " " + C2.Z.ToString() + " " + C3.Z.ToString() + " " + C4.Z.ToString() + "\n" +
+                   C1.T.ToString() + " " + C2.T.ToString() + " " + C3.T.ToString() + " " + C4.T.ToString() + "\n" ;
+                   
+        }
+
 
     }
 }
