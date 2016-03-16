@@ -214,28 +214,12 @@ namespace LanceurRayon.Math
                    C1.T.ToString() + " " + C2.T.ToString() + " " + C3.T.ToString() + " " + C4.T.ToString() + "\n" ;
                    
         }
-
+        /*
         public double Determinant() {
-            Mat2 A, B, C, D,A_D,B_C;
-
-            //Découpage en matrice 2*2
-            A = new Mat2(new Vec2(C1.X,C1.Y),
-                         new Vec2(C2.X,C2.Y)
-                         );
-
-            B = new Mat2(new Vec2(C3.X, C3.Y),
-                         new Vec2(C4.X, C4.Y));
-
-            C = new Mat2(new Vec2(C1.Z, C1.T),
-                         new Vec2(C2.Z, C2.T)
-                         );
-            D = new Mat2(new Vec2(C3.Z, C3.T),
-                         new Vec2(C4.Z, C4.T));
-
-            A_D = A.RightMatrixProduct(D);
-            B_C = B.RightMatrixProduct(C);
+           
 
         }
+        */
         /*
         public Mat4 Inverse()
         {
