@@ -218,6 +218,8 @@ namespace LanceurRayon.Math
         public double Determinant() {
            
 
+            return 0;
+
         }
         */
         /*

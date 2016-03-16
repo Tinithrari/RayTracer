@@ -77,21 +77,22 @@ namespace LanceurRayon.RayTracer
             Intersection interLum;
             Point pp;
 
-            if (intersect.Obj.Specular.R == 0 && intersect.Obj.Specular.G == 0 && intersect.Obj.Specular.R == 0 || maxDepth == Scene.maxdepth)
+            if ( (intersect.Obj.Specular.R == 0 && intersect.Obj.Specular.G == 0 && intersect.Obj.Specular.B == 0) || maxDepth == Scene.maxdepth)
                 return new Color();
 
             n = intersect.Obj.getNormaleIntersection(p);
             negD = new Vec3(-d.X, -d.Y, -d.Z);
+
             r = d.add( n.mul( 2 * n.dot(negD) ) );
 
             interLum = getCloserIntersection(p, r);
 
-            if (interLum == null)
+            if (interLum == null || interLum.T < 0.00001d)
                 return new Color();
 
             pp = p.add(r.mul(interLum.T));
 
-            c = calculLumierePoint(pp, interLum, r);
+            c = calculLumierePoint(p, interLum, r);
 
             return c.add(interLum.Obj.Specular.times( calculLumiereReflechie(interLum, pp, r, maxDepth + 1) ) );
         }
@@ -121,11 +122,11 @@ namespace LanceurRayon.RayTracer
                             // On regarde s'il y a un objet entre la lumière et le point d'intersection
                             foreach (VisualEntity e in Scene.Entite)
                             {
-                                Intersection intersection = e.Collide(lightdir, p.add(lightdir.mul(0.000001d)));
+                                Intersection intersection = e.Collide(lightdir, p.add(lightdir.mul(0.00001d)));
 
                                 if (intersection != null)
                                 {
-                                    if (intersection.T >= 0.00001d)
+                                    if (intersection.T > 0.00001d && intersection.T < l.getDistance(p))
                                     {
                                         lightColor = new Color();
                                         break;
@@ -136,9 +137,9 @@ namespace LanceurRayon.RayTracer
                         // Initialisation des variables pour Blinn-Phong
 						Vec3 eyedir = new Vec3(-d.X, -d.Y, -d.Z), h = lightdir.add(eyedir).norm();
 
-						somme = somme.add(lightColor.mul(System.Math.Max(n.dot(lightdir), 0)));
+						somme = somme.add(lightColor.mul(System.Math.Max(n.dot(lightdir), 0.00001)));
 						somme = intersect.Obj.Diffuse.times(somme);
-                       	somme = somme.add(intersect.Obj.Specular.times( lightColor.mul( System.Math.Pow(System.Math.Max( n.dot(h), 0 ), intersect.Obj.Brillance ) ) ) );
+                       	somme = somme.add(intersect.Obj.Specular.times( lightColor.mul( System.Math.Pow(System.Math.Max( n.dot(h), 0.00001 ), intersect.Obj.Brillance ) ) ) );
                     }
                     c = intersect.Obj.Ambient.add(somme);
                 }
@@ -157,7 +158,7 @@ namespace LanceurRayon.RayTracer
             {
                 Intersection tmp = entity.Collide(d, o);
 
-				if (tmp != null && tmp.T > 0.0 && (intersect == null || tmp.T < intersect.T))
+				if (tmp != null && tmp.T > 0.00001d && (intersect == null || tmp.T < intersect.T))
                     intersect = tmp;
             }
 
@@ -183,7 +184,7 @@ namespace LanceurRayon.RayTracer
 					{
 						p = Scene.Camera.LookFrom.add(d.mul(intersect.T));
 						c = calculLumierePoint(Scene.Camera.LookFrom, intersect, d);
-						c.add(calculLumiereReflechie(intersect, p, d, 1));
+                        c = c.add(intersect.Obj.Specular.times(calculLumiereReflechie(intersect, p, d, 1)));
 					}
 
 
