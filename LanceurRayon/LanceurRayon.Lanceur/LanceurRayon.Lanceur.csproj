@@ -22,7 +22,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>3</WarningLevel>
-    <Commandlineparameters>C:\Users\Tinithrari\Source\Repos\lanceurrayons\TEST7/tp61-dir.test</Commandlineparameters>
+    <Commandlineparameters>/home/licence/xavier_heugue/Source/Repos/lanceurrayons/TEST7/tp64.test</Commandlineparameters>
     <Externalconsole>true</Externalconsole>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">

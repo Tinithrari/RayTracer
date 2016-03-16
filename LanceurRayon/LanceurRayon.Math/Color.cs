@@ -38,13 +38,6 @@ namespace LanceurRayon.Math
         /// <exception cref="ArgumentOutOfRangeException">Exception lancée si l'un des arguments est en dehors de l'intervalle [0, 1]</exception>
         public Color(double r, double g, double b)
         {
-            if (r < 0 || r > 1)
-                throw new ArgumentOutOfRangeException("La valeur r doit être comprise entre 0 et 1");
-            if (g < 0 || g > 1)
-                throw new ArgumentOutOfRangeException("La valeur g doit être comprise entre 0 et 1");
-            if (b < 0 || b > 1)
-                throw new ArgumentOutOfRangeException("La valeur b doit être comprise entre 0 et 1");
-
             this.R = r;
             this.G = g;
             this.B = b;
@@ -83,9 +76,9 @@ namespace LanceurRayon.Math
             if (c == null)
                 throw new ArgumentNullException("On ne peut additioner une couleur à une couleur non définie");
 
-            newR = this.R + c.R > 1 ? 1 : this.R + c.R;
-            newG = this.G + c.G > 1 ? 1 : this.G + c.G;
-            newB = this.B + c.B > 1 ? 1 : this.B + c.B;
+            newR = this.R + c.R;
+            newG = this.G + c.G;
+            newB = this.B + c.B;
 
             return new Color(newR, newG, newB);
         }
@@ -104,9 +97,9 @@ namespace LanceurRayon.Math
             if (scal < 0)
                 throw new ArgumentException("Le scalaire doit être strictement positif");
 
-            newR = this.R * scal > 1 ? 1 : this.R * scal;
-            newG = this.G * scal > 1 ? 1 : this.G * scal;
-            newB = this.B * scal > 1 ? 1 : this.B * scal;
+            newR = this.R * scal;
+            newG = this.G * scal;
+            newB = this.B * scal;
 
             return new Color(newR, newG, newB);
         }
@@ -125,9 +118,9 @@ namespace LanceurRayon.Math
             if (c == null)
                 throw new ArgumentNullException("On ne peut effectuer un produit avec une couleur non définie");
 
-            newR = this.R * c.R > 1 ? 1 : this.R * c.R;
-            newG = this.G * c.G > 1 ? 1 : this.G * c.G;
-            newB = this.B * c.B > 1 ? 1 : this.B * c.B;
+            newR = this.R * c.R;
+            newG = this.G * c.G;
+            newB = this.B * c.B;
 
             return new Color(newR, newG, newB);
         }

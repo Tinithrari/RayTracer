@@ -126,7 +126,7 @@ namespace LanceurRayon.RayTracer
 
                                 if (intersection != null)
                                 {
-                                    if (intersection.T > 0.00001d && intersection.T < l.getDistance(p))
+                                    if (intersection.T >= 0.00001d && intersection.T < l.getDistance(p))
                                     {
                                         lightColor = new Color();
                                         break;
@@ -135,11 +135,11 @@ namespace LanceurRayon.RayTracer
                             }
                         }
                         // Initialisation des variables pour Blinn-Phong
-						Vec3 eyedir = new Vec3(-d.X, -d.Y, -d.Z), h = lightdir.add(eyedir).norm();
+						Vec3 eyedir = new Vec3(-d.X, -d.Y, -d.Z), 
+						h = lightdir.add(eyedir).norm();
 
-						somme = somme.add(lightColor.mul(System.Math.Max(n.dot(lightdir), 0.00001)));
-						somme = intersect.Obj.Diffuse.times(somme);
-                       	somme = somme.add(intersect.Obj.Specular.times( lightColor.mul( System.Math.Pow(System.Math.Max( n.dot(h), 0.00001 ), intersect.Obj.Brillance ) ) ) );
+						somme = somme.add (intersect.Obj.Diffuse.times (lightColor.mul (System.Math.Max (n.dot (lightdir), 0))));
+						somme = somme.add (intersect.Obj.Specular.times (lightColor.mul (System.Math.Pow (System.Math.Max (n.dot (h), 0), intersect.Obj.Brillance))));
                     }
                     c = intersect.Obj.Ambient.add(somme);
                 }
@@ -186,7 +186,12 @@ namespace LanceurRayon.RayTracer
 						c = calculLumierePoint(Scene.Camera.LookFrom, intersect, d);
                         c = c.add(intersect.Obj.Specular.times(calculLumiereReflechie(intersect, p, d, 1)));
 					}
+					double newR, newG, newB;
+					newR = c.R > 1 ? 1 : c.R;
+					newG = c.G > 1 ? 1 : c.G;
+					newB = c.B > 1 ? 1 : c.B;
 
+					c = new Color (newR, newG, newB);
 
                     this.Scene.Fenetre.SetPixel(i, (Scene.Fenetre.Height - 1) - j, System.Drawing.Color.FromArgb((int)System.Math.Round(c.R * 255, MidpointRounding.AwayFromZero), (int)System.Math.Round(c.G * 255, MidpointRounding.AwayFromZero), (int)System.Math.Round(c.B * 255, MidpointRounding.AwayFromZero)));
                 }
