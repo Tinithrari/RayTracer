@@ -199,37 +199,6 @@ namespace LanceurRayon.RayTracer
             this.Scene.Fenetre.Save(this.Scene.Output);
         }
 
-        /*
-        /// <summary>
-        /// Génère l'image relative à la scène
-        /// </summary>
-        public void GenerateImage()
-        {
-			Color c = new Color();
-            for (int i = 0; i < Scene.Fenetre.Width; i++)
-            {
-                for (int j = 0; j < Scene.Fenetre.Height; j++)
-                {
-                    Intersection intersect = null;
-                    Vec3 d = VecteurDirForPixel(i, j);
-                    Point p;
-
-                    // Détection de l'intersection la plus proche
-                    intersect = getCloserIntersection(Scene.Camera.LookFrom, d);
-
-					if (intersect != null)
-					{
-	                    p = Scene.Camera.LookFrom.add(d.mul(intersect.T));
-						c = calculLumierePoint(Scene.Camera.LookFrom, intersect, d);
-	                   	c.add(calculLumiereReflechie(intersect, p, d, 1));
-					}
-
-                    this.Scene.Fenetre.SetPixel(i, Scene.Fenetre.Height - 1 - j, System.Drawing.Color.FromArgb((int)System.Math.Round(c.R * 255, MidpointRounding.AwayFromZero), (int)System.Math.Round(c.G * 255, MidpointRounding.AwayFromZero), (int)System.Math.Round(c.B * 255, MidpointRounding.AwayFromZero)));
-                }
-            }
-            this.Scene.Fenetre.Save(this.Scene.Output);
-        }*/
-
         public static void Main(string[] args)
         {
             ReadFile reader = new ReadFile();
