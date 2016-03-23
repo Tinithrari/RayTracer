@@ -44,8 +44,14 @@ lumiereindirecte:
    tags:
      - shell
 
-mysteres:
+imagesmystere:
    stage: test
    script: "./build.sh ; cd testsl32016; ./mysteres.sh"
+   tags:
+     - shell
+
+auditcode:
+   stage: test
+   script: "./testsl32016/sonar-scanner-2.5.1/bin/sonar-runner -Dsonar.projectKey=tracer$CI_PROJECT_ID -Dsonar.projectName='Raytracer by $CI_PROJECT_ID'"
    tags:
      - shell
