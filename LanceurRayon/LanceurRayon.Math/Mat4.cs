@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using LanceurRayon.Exceptions;
 
 namespace LanceurRayon.Math
 {   /// <summary>
@@ -238,6 +239,11 @@ namespace LanceurRayon.Math
         {
             Mat4 co_fact;
             double C1_X,C1_Y,C1_Z,C1_T,C2_X,C2_Y,C2_Z,C2_T,C3_X,C3_Y,C3_Z,C3_T,C4_X,C4_Y,C4_Z,C4_T;
+            double det = this.Determinant();
+
+
+            if (det == 0)
+                throw new UninvertableMatrixException();
 
             //1ére ligne
 
@@ -274,7 +280,7 @@ namespace LanceurRayon.Math
 
             co_fact = co_fact.transpose();
 
-            return co_fact.Scalaire(1/(this.Determinant()));
+            return co_fact.Scalaire(1/det);
 
         }
 
