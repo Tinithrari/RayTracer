@@ -5,7 +5,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{E8FC3CE2-4A04-4ADC-8D49-FDDF34CCB465}</ProjectGuid>
-    <OutputType>Library</OutputType>
+    <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>LanceurRayon.Math</RootNamespace>
     <AssemblyName>LanceurRayon.Math</AssemblyName>
@@ -64,6 +64,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Camera.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Quadruplet.cs" />
     <Compile Include="Vec4.cs" />
     <Compile Include="Mat4.cs" />

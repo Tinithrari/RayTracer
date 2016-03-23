@@ -214,19 +214,81 @@ namespace LanceurRayon.Math
                    C1.T.ToString() + " " + C2.T.ToString() + " " + C3.T.ToString() + " " + C4.T.ToString() + "\n" ;
                    
         }
-        /*
+        /// <summary>
+        /// Calcul le détermiant d'une matrice 4*4
+        /// </summary>
+        /// <returns>determinant d'une matrice 4*4</returns>
         public double Determinant() {
-           
 
-            return 0;
+            double  A, B, C, D;
+
+
+            A = C1.X * ((C2.Y * C3.Z * C4.T)   + (C3.Y *C4.Z *C2.T) + (C4.Y *C2.Z *C3.T) - (C2.T *C3.Z *C4.Y) - (C3.T * C4.Z * C2.Y) - (C4.T *  C2.Z * C3.Y) ) ;
+            B = -C2.X * ((C1.Y * C3.Z * C4.T) + (C3.Y* C4.Z* C1.T) + (C4.Y *C1.Z *C3.T) - (C1.T *C3.Z * C4.Y) - (C3.T *C4.Z *C1.Y) - (C4.T *C1.Z * C3.Y));
+            C = C3.X * ((C1.Y * C2.Z * C4.T) + (C2.Y * C4.Z * C1.T) + (C4.Y * C1.Z * C2.T ) - (C1.T * C2.Z * C4.Y) - (C2.T * C4.Z * C1.Y) - (C4.T * C1.Z * C2.Y));
+            D = -C4.X * ((C1.Y * C2.Z * C3.T) + (C2.Y * C3.Z * C1.T) + (C3.Y * C1.Z * C2.T) - (C1.T * C2.Z * C3.Y) - (C2.T * C3.Z * C1.Y) - (C3.T * C1.Z * C2.Y));
+
+         
+            return A + B + C + D;
 
         }
-        */
-        /*
+        
+        
         public Mat4 Inverse()
         {
+            Mat4 co_fact;
+            double C1_X,C1_Y,C1_Z,C1_T,C2_X,C2_Y,C2_Z,C2_T,C3_X,C3_Y,C3_Z,C3_T,C4_X,C4_Y,C4_Z,C4_T;
+
+            //1ére ligne
+            C1_X = ((C2.Y * C3.Z * C4.T) + (C3.Y * C4.Z * C2.T) + (C4.Y * C2.Z * C3.T) - (C2.T * C3.Z * C4.Y) - (C3.T * C4.Z * C2.Y) - (C4.T * C2.Z * C3.Y));
+          
+            
+            C2_X = -((C1.Y * C2.Z * C4.T) + (C2.Y * C4.Z * C1.T) + (C4.Y * C1.Z * C2.T) - (C1.T * C2.Z * C4.Y) - (C2.T * C4.Z * C1.Y) - (C4.T * C1.Z * C2.Y));
+            C3_X = ((C1.Y * C2.Z * C3.T) + (C2.Y * C3.Z * C1.T) + (C3.Y * C1.Z * C2.T) - (C1.T * C2.Z * C3.Y) - (C2.T * C3.Z * C1.Y) - (C3.T * C1.Z * C2.Y));
+            C4_X = -((C1.Y * C3.Z * C4.T) + (C3.Y * C4.Z * C1.T) + (C4.Y * C1.Z * C3.T) - (C1.T * C3.Z * C4.Y) - (C3.T * C4.Z * C1.Y) - (C4.T * C1.Z * C3.Y));
+
+
+            //2 éme ligne
+            C1_Y = -((C2.Y * C3.Z * C4.T) + (C3.Y * C4.Z * C2.T) + (C4.Y * C2.Z * C3.T) - (C2.T * C3.Z * C4.Y) - (C3.T * C4.Z * C2.Y) - (C4.T * C2.Z * C3.Y));
+            C2_Y = ((C1.Y * C2.Z * C4.T) + (C2.Y * C4.Z * C1.T) + (C4.Y * C1.Z * C2.T) - (C1.T * C2.Z * C4.Y) - (C2.T * C4.Z * C1.Y) - (C4.T * C1.Z * C2.Y));
+            C3_Y = -((C1.Y * C2.Z * C3.T) + (C2.Y * C3.Z * C1.T) + (C3.Y * C1.Z * C2.T) - (C1.T * C2.Z * C3.Y) - (C2.T * C3.Z * C1.Y) - (C3.T * C1.Z * C2.Y));
+            C4_Y = ((C1.Y * C3.Z * C4.T) + (C3.Y * C4.Z * C1.T) + (C4.Y * C1.Z * C3.T) - (C1.T * C3.Z * C4.Y) - (C3.T * C4.Z * C1.Y) - (C4.T * C1.Z * C3.Y));
+
+            //3 éme ligne
+            C1_Z = ((C2.Y * C3.Z * C4.T) + (C3.Y * C4.Z * C2.T) + (C4.Y * C2.Z * C3.T) - (C2.T * C3.Z * C4.Y) - (C3.T * C4.Z * C2.Y) - (C4.T * C2.Z * C3.Y));
+            C2_Z = -((C1.Y * C2.Z * C4.T) + (C2.Y * C4.Z * C1.T) + (C4.Y * C1.Z * C2.T) - (C1.T * C2.Z * C4.Y) - (C2.T * C4.Z * C1.Y) - (C4.T * C1.Z * C2.Y));
+            C3_Z = ((C1.Y * C2.Z * C3.T) + (C2.Y * C3.Z * C1.T) + (C3.Y * C1.Z * C2.T) - (C1.T * C2.Z * C3.Y) - (C2.T * C3.Z * C1.Y) - (C3.T * C1.Z * C2.Y));
+            C4_Z = -((C1.Y * C3.Z * C4.T) + (C3.Y * C4.Z * C1.T) + (C4.Y * C1.Z * C3.T) - (C1.T * C3.Z * C4.Y) - (C3.T * C4.Z * C1.Y) - (C4.T * C1.Z * C3.Y));
+
+            //4éme ligne
+            C1_T = -((C2.Y * C3.Z * C4.T) + (C3.Y * C4.Z * C2.T) + (C4.Y * C2.Z * C3.T) - (C2.T * C3.Z * C4.Y) - (C3.T * C4.Z * C2.Y) - (C4.T * C2.Z * C3.Y));
+            C2_T = ((C1.Y * C2.Z * C4.T) + (C2.Y * C4.Z * C1.T) + (C4.Y * C1.Z * C2.T) - (C1.T * C2.Z * C4.Y) - (C2.T * C4.Z * C1.Y) - (C4.T * C1.Z * C2.Y));
+            C3_T = -((C1.Y * C2.Z * C3.T) + (C2.Y * C3.Z * C1.T) + (C3.Y * C1.Z * C2.T) - (C1.T * C2.Z * C3.Y) - (C2.T * C3.Z * C1.Y) - (C3.T * C1.Z * C2.Y));
+            C4_T = ((C1.Y * C3.Z * C4.T) + (C3.Y * C4.Z * C1.T) + (C4.Y * C1.Z * C3.T) - (C1.T * C3.Z * C4.Y) - (C3.T * C4.Z * C1.Y) - (C4.T * C1.Z * C3.Y));
+
+
+            co_fact = new Mat4( new Vec4(C1.X,C1.Y,C1.T,C1.T),
+                                new Vec4(C2.X, C2.Y, C2.T, C2.T),
+                                new Vec4(C3.X, C3.Y, C3.T, C3.T),
+                                new Vec4(C4.X, C4.Y, C4.T, C4.T)
+                                );
+
+            co_fact = co_fact.transpose();
+
+            return co_fact.Scalaire(1/(this.Determinant()));
 
         }
-        */
+
+        public Mat4 Scalaire(double lambda) {
+
+            return new Mat4(new Vec4(lambda * this.C1.X, lambda * this.C1.Y, lambda * this.C1.Z, lambda * this.C1.T),
+                            new Vec4(lambda * this.C2.X, lambda * this.C2.Y, lambda * this.C2.Z, lambda * this.C2.T),
+                            new Vec4(lambda * this.C3.X, lambda * this.C3.Y, lambda * this.C3.Z, lambda * this.C3.T),
+                            new Vec4(lambda * this.C4.X, lambda * this.C4.Y, lambda * this.C4.Z, lambda * this.C4.T));
+                
+        }
+        
+
+
     }
 }
