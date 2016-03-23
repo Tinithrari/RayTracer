@@ -240,31 +240,30 @@ namespace LanceurRayon.Math
             double C1_X,C1_Y,C1_Z,C1_T,C2_X,C2_Y,C2_Z,C2_T,C3_X,C3_Y,C3_Z,C3_T,C4_X,C4_Y,C4_Z,C4_T;
 
             //1ére ligne
+
             C1_X = ((C2.Y * C3.Z * C4.T) + (C3.Y * C4.Z * C2.T) + (C4.Y * C2.Z * C3.T) - (C2.T * C3.Z * C4.Y) - (C3.T * C4.Z * C2.Y) - (C4.T * C2.Z * C3.Y));
-          
-            
             C2_X = -((C1.Y * C2.Z * C4.T) + (C2.Y * C4.Z * C1.T) + (C4.Y * C1.Z * C2.T) - (C1.T * C2.Z * C4.Y) - (C2.T * C4.Z * C1.Y) - (C4.T * C1.Z * C2.Y));
             C3_X = ((C1.Y * C2.Z * C3.T) + (C2.Y * C3.Z * C1.T) + (C3.Y * C1.Z * C2.T) - (C1.T * C2.Z * C3.Y) - (C2.T * C3.Z * C1.Y) - (C3.T * C1.Z * C2.Y));
             C4_X = -((C1.Y * C3.Z * C4.T) + (C3.Y * C4.Z * C1.T) + (C4.Y * C1.Z * C3.T) - (C1.T * C3.Z * C4.Y) - (C3.T * C4.Z * C1.Y) - (C4.T * C1.Z * C3.Y));
 
 
             //2 éme ligne
-            C1_Y = -((C2.Y * C3.Z * C4.T) + (C3.Y * C4.Z * C2.T) + (C4.Y * C2.Z * C3.T) - (C2.T * C3.Z * C4.Y) - (C3.T * C4.Z * C2.Y) - (C4.T * C2.Z * C3.Y));
-            C2_Y = ((C1.Y * C2.Z * C4.T) + (C2.Y * C4.Z * C1.T) + (C4.Y * C1.Z * C2.T) - (C1.T * C2.Z * C4.Y) - (C2.T * C4.Z * C1.Y) - (C4.T * C1.Z * C2.Y));
-            C3_Y = -((C1.Y * C2.Z * C3.T) + (C2.Y * C3.Z * C1.T) + (C3.Y * C1.Z * C2.T) - (C1.T * C2.Z * C3.Y) - (C2.T * C3.Z * C1.Y) - (C3.T * C1.Z * C2.Y));
-            C4_Y = ((C1.Y * C3.Z * C4.T) + (C3.Y * C4.Z * C1.T) + (C4.Y * C1.Z * C3.T) - (C1.T * C3.Z * C4.Y) - (C3.T * C4.Z * C1.Y) - (C4.T * C1.Z * C3.Y));
+            C1_Y = -((C2.X * C3.Z * C4.T) + (C3.X * C4.Z * C2.T) + (C4.X * C2.Z * C3.T) - (C2.T * C3.Z * C4.X) - (C3.T * C4.Z * C2.X) - (C4.T * C2.Z * C3.X));
+            C2_Y = ((C1.X * C2.Z * C4.T) + (C2.X * C4.Z * C1.T) + (C4.X * C1.Z * C2.T) - (C1.T * C2.Z * C4.X) - (C2.T * C4.Z * C1.X) - (C4.T * C1.Z * C2.X));
+            C3_Y = -((C1.X * C2.Z * C3.T) + (C2.X * C3.Z * C1.T) + (C3.X * C1.Z * C2.T) - (C1.T * C2.Z * C3.X) - (C2.T * C3.Z * C1.X) - (C3.T * C1.Z * C2.X));
+            C4_Y = ((C1.X * C3.Z * C4.T) + (C3.X * C4.Z * C1.T) + (C4.X * C1.Z * C3.T) - (C1.T * C3.Z * C4.X) - (C3.T * C4.Z * C1.X) - (C4.T * C1.Z * C3.X));
 
             //3 éme ligne
-            C1_Z = ((C2.Y * C3.Z * C4.T) + (C3.Y * C4.Z * C2.T) + (C4.Y * C2.Z * C3.T) - (C2.T * C3.Z * C4.Y) - (C3.T * C4.Z * C2.Y) - (C4.T * C2.Z * C3.Y));
-            C2_Z = -((C1.Y * C2.Z * C4.T) + (C2.Y * C4.Z * C1.T) + (C4.Y * C1.Z * C2.T) - (C1.T * C2.Z * C4.Y) - (C2.T * C4.Z * C1.Y) - (C4.T * C1.Z * C2.Y));
-            C3_Z = ((C1.Y * C2.Z * C3.T) + (C2.Y * C3.Z * C1.T) + (C3.Y * C1.Z * C2.T) - (C1.T * C2.Z * C3.Y) - (C2.T * C3.Z * C1.Y) - (C3.T * C1.Z * C2.Y));
-            C4_Z = -((C1.Y * C3.Z * C4.T) + (C3.Y * C4.Z * C1.T) + (C4.Y * C1.Z * C3.T) - (C1.T * C3.Z * C4.Y) - (C3.T * C4.Z * C1.Y) - (C4.T * C1.Z * C3.Y));
+            C1_Z = ((C2.X * C3.Y * C4.T) + (C3.X * C4.Y * C2.T) + (C4.X * C2.Y * C3.T) - (C2.T * C3.Y * C4.X) - (C3.T * C4.Y * C2.X) - (C4.T * C2.Y * C3.X));
+            C2_Z = -((C1.X * C2.Y * C4.T) + (C2.X * C4.Y * C1.T) + (C4.X * C1.Y * C2.T) - (C1.T * C2.Y * C4.X) - (C2.T * C4.Y * C1.X) - (C4.T * C1.Y * C2.X));
+            C3_Z = ((C1.X * C2.Y * C3.T) + (C2.X * C3.Y * C1.T) + (C3.X * C1.Y * C2.T) - (C1.T * C2.Y * C3.X) - (C2.T * C3.Y * C1.X) - (C3.T * C1.Y * C2.X));
+            C4_Z = -((C1.X * C3.Y * C4.T) + (C3.X * C4.Y * C1.T) + (C4.X * C1.Y * C3.T) - (C1.T * C3.Y * C4.X) - (C3.T * C4.Y * C1.X) - (C4.T * C1.Y * C3.X));
 
             //4éme ligne
-            C1_T = -((C2.Y * C3.Z * C4.T) + (C3.Y * C4.Z * C2.T) + (C4.Y * C2.Z * C3.T) - (C2.T * C3.Z * C4.Y) - (C3.T * C4.Z * C2.Y) - (C4.T * C2.Z * C3.Y));
-            C2_T = ((C1.Y * C2.Z * C4.T) + (C2.Y * C4.Z * C1.T) + (C4.Y * C1.Z * C2.T) - (C1.T * C2.Z * C4.Y) - (C2.T * C4.Z * C1.Y) - (C4.T * C1.Z * C2.Y));
-            C3_T = -((C1.Y * C2.Z * C3.T) + (C2.Y * C3.Z * C1.T) + (C3.Y * C1.Z * C2.T) - (C1.T * C2.Z * C3.Y) - (C2.T * C3.Z * C1.Y) - (C3.T * C1.Z * C2.Y));
-            C4_T = ((C1.Y * C3.Z * C4.T) + (C3.Y * C4.Z * C1.T) + (C4.Y * C1.Z * C3.T) - (C1.T * C3.Z * C4.Y) - (C3.T * C4.Z * C1.Y) - (C4.T * C1.Z * C3.Y));
+            C1_T = -((C2.X * C3.Y * C4.Z) + (C3.X * C4.Y * C2.Z) + (C4.X * C2.Y * C3.Z) - (C2.Z * C3.Y * C4.X) - (C3.Z * C4.Y * C2.X) - (C4.Z * C2.Y * C3.X));
+            C2_T = ((C1.X * C2.Y * C4.Z) + (C2.X * C4.Y * C1.Z) + (C4.X * C1.Y * C2.Z) - (C1.Z * C2.Y * C4.X) - (C2.Z * C4.Y * C1.X) - (C4.Z * C1.Y * C2.X));
+            C3_T = -((C1.X * C2.Y * C3.Z) + (C2.X * C3.Y * C1.Z) + (C3.X * C1.Y * C2.Z) - (C1.Z * C2.Y * C3.X) - (C2.Z * C3.Y * C1.X) - (C3.Z * C1.Y * C2.X));
+            C4_T = ((C1.X * C3.Y * C4.Z) + (C3.X * C4.Y * C1.Z) + (C4.X * C1.Y * C3.Z) - (C1.Z * C3.Y * C4.X) - (C3.Z * C4.Y * C1.X) - (C4.Z * C1.Y * C3.X));
 
 
             co_fact = new Mat4( new Vec4(C1.X,C1.Y,C1.T,C1.T),
