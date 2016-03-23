@@ -50,6 +50,19 @@ imagesmystere:
    tags:
      - shell
 
+
+transformations1:
+   stage: test
+   script: "./build.sh ; cd testsl32016; ./tests8.sh"
+   tags:
+     - shell
+
+transformations2:
+   stage: test
+   script: "./build.sh ; cd testsl32016; ./tests9.sh"
+   tags:
+     - shell
+
 auditcode:
    stage: test
    script: "./testsl32016/sonar-scanner-2.5.1/bin/sonar-runner -Dsonar.projectKey=tracer$CI_PROJECT_ID -Dsonar.projectName=Raytracerr_ by_$CI_PROJECT_ID"
