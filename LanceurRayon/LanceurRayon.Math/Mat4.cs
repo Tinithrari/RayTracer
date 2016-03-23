@@ -231,10 +231,12 @@ namespace LanceurRayon.Math
 
          
             return A + B + C + D;
-
         }
         
-        
+        /// <summary>
+        /// Calcul l'inverse d'une matrice quand c'est possible.
+        /// </summary>
+        /// <returns>L'inverse de la amtrice ou UninvertableMatrixException est lancé sinon</returns>
         public Mat4 Inverse()
         {
             Mat4 co_fact;
@@ -284,6 +286,11 @@ namespace LanceurRayon.Math
 
         }
 
+        /// <summary>
+        /// Multiplie la matrice par un scalaire
+        /// </summary>
+        /// <param name="lambda"></param>
+        /// <returns>La matrice résultante</returns>
         public Mat4 Scalaire(double lambda) {
 
             return new Mat4(new Vec4(lambda * this.C1.X, lambda * this.C1.Y, lambda * this.C1.Z, lambda * this.C1.T),

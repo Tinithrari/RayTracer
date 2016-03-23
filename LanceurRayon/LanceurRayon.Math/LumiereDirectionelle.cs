@@ -32,6 +32,11 @@ namespace LanceurRayon.Math
             return this.Direction;
         }
 
+        /// <summary>
+        /// Permet d'obtenir la distance au point d'intersection
+        /// </summary>
+        /// <param name="p"></param>
+        /// <returns>La distance au point d'intersection</returns>
         public override double getDistance(Point p)
         {
             return double.PositiveInfinity;

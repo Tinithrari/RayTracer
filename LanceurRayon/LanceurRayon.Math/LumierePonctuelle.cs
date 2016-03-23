@@ -36,6 +36,12 @@ namespace LanceurRayon.Math
             return Position.sub(p).norm();
         }
 
+
+        /// <summary>
+        /// Permet d'obtenir la distance au point d'intersection.
+        /// </summary>
+        /// <param name="p"></param>
+        /// <returns>La distance au point d'intersection.</returns>
         public override double getDistance(Point p)
         {
             return Position.sub(p).length(); 
