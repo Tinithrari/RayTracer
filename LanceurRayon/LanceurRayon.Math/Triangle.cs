@@ -81,5 +81,16 @@
         {
             return ( ( B.sub(A) ).cross( ( C.sub(A) ) ) ).norm();
         }
+
+        /// <summary>
+        /// Effectue la transformation du triangle par la matrice donnée en paramètre.
+        /// </summary>
+        /// <param name="m"></param>
+        /// <returns>Le triangle Transformé</returns>
+        /*
+        public Triangle getTransform(Mat4 m) {
+            Triangle t = new Triangle(m.productOneVector(A,1), m.productOneVector(B, 1), m.productOneVector(C, 1), Ambient,Diffuse,Brillance);
+        }
+        */
     }
 }
