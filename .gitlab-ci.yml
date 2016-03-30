@@ -50,7 +50,6 @@ imagesmystere:
    tags:
      - shell
 
-
 transformations1:
    stage: test
    script: "./build.sh ; cd testsl32016; ./tests8.sh"
@@ -60,6 +59,10 @@ transformations1:
 transformations2:
    stage: test
    script: "./build.sh ; cd testsl32016; ./tests9.sh"
+
+damiers:
+   stage: test
+   script: "./build.sh ; cd testsl32016; ./tests10.sh"
    tags:
      - shell
 
