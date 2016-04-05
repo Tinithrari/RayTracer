@@ -1,5 +1,5 @@
 before_script: 
-   - "git submodule add https://forge.univ-artois.fr/root/testsl32016.git"
+   - "git submodule add -b transformations https://forge.univ-artois.fr/root/testsl32016.git"
    - "git submodule update --remote --init"
 
 comparateur:
@@ -49,6 +49,16 @@ imagesmystere:
    script: "./build.sh ; cd testsl32016; ./mysteres.sh"
    tags:
      - shell
+
+transformations1:
+   stage: test
+   script: "./build.sh ; cd testsl32016; ./tests8.sh"
+   tags:
+     - shell
+
+transformations2:
+   stage: test
+   script: "./build.sh ; cd testsl32016; ./tests9.sh"
 
 damiers:
    stage: test
