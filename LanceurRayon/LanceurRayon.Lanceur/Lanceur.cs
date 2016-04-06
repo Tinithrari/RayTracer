@@ -213,6 +213,16 @@ namespace LanceurRayon.RayTracer
             try
             {
                 scene = reader.Analyze(args[0]);
+                Triangle t;
+                int i ;
+                
+                for (i=0;i<scene.Entite.Count;i++ ) {
+                    if (scene.Entite[i].GetType() == typeof(Triangle)) { 
+                        t = (Triangle)scene.Entite[i];
+                        scene.Entite[i] = t.getTransform(scene.Transformation[0]);
+                    }
+                }
+                
                 Lanceur lanceur = new Lanceur(scene);
                 lanceur.GenerateImage();
             }

@@ -44,5 +44,7 @@ namespace LanceurRayon.Math
         /// <param name="p">Le point de collisition dont on souhaite connaitre la normale</param>
         /// <returns>LA normal du point d'intersection</returns>
         public abstract Vec3 getNormaleIntersection(Point p);
+
+      
     }
 }

@@ -87,10 +87,14 @@
         /// </summary>
         /// <param name="m"></param>
         /// <returns>Le triangle Transformé</returns>
-        /*
+        
         public Triangle getTransform(Mat4 m) {
-            Triangle t = new Triangle(m.productOneVector(A,1), m.productOneVector(B, 1), m.productOneVector(C, 1), Ambient,Diffuse,Brillance);
+             return new Triangle(m.productOnePoint(A), 
+                                 m.productOnePoint(B), 
+                                 m.productOnePoint(C),
+                                 Specular, Ambient,Diffuse,Brillance);
+            
         }
-        */
+        
     }
 }

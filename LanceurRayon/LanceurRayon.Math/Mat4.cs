@@ -98,7 +98,7 @@ namespace LanceurRayon.Math
         /// <returns>Résultat de l'opération</returns>
         public static Mat4 CreateRotationMatrix(Vec3 v,double angle)
         {
-
+            angle = (angle * System.Math.PI) / 180d;
             double cos_angle = System.Math.Cos(angle), sin_angle = System.Math.Sin(angle), minus_cos_angle = 1 - cos_angle;
 
             return new Mat4(new Vec4(cos_angle + (v.X * v.X) * minus_cos_angle, (v.X * v.Y) * minus_cos_angle + (v.Z * sin_angle), (v.X * v.Z) * minus_cos_angle - (v.Y * sin_angle), 0),
@@ -142,20 +142,34 @@ namespace LanceurRayon.Math
         /// Calcul le produit d'un vecteur par une matrice 4*4 
         /// </summary>
         /// <param name="v"></param>
-        /// <param name="mode"></param>
         /// <returns>le vecteur résultant de l'opération</returns>
-        public Vec4 productOneVector(Vec3 v,int mode) {
-            Vec4 vt;
-           
-           vt= mode==1 ?  new Vec4(v.X,v.Y,v.Z,1) : new Vec4(v.X, v.Y, v.Z, 0) ;
+        public Vec3 productOneVector(Vec3 v) {
+            Vec4 vt= new Vec4(v.X, v.Y, v.Z, 0);
 
-            return new Vec4(vt.X * C1.X + vt.Y * C2.X + vt.Z * C3.X + vt.T * C4.X,
+            
+            return new Vec3(vt.X * C1.X + vt.Y * C2.X + vt.Z * C3.X + vt.T * C4.X,
                             vt.X * C1.Y + vt.Y * C2.Y + vt.Z * C3.Y + vt.T * C4.Y,
-                            vt.X * C1.Z + vt.Y * C2.Z + vt.Z * C3.Z + vt.T * C4.Z,
-                            vt.X * C1.T + vt.Y * C2.T + vt.Z * C3.T + vt.T * C4.T
+                            vt.X * C1.Z + vt.Y * C2.Z + vt.Z * C3.Z + vt.T * C4.Z 
                             );
         }
-        
+
+
+        /// <summary>
+        /// Calcul le produit d'un point par une matrice 4*4 
+        /// </summary>
+        /// <param name="p"></param>
+        /// <returns>le vecteur résultant de l'opération</returns>
+        public Point productOnePoint(Point p)
+        {
+            Vec4 vt = new Vec4(p.X, p.Y, p.Z, 1);
+
+
+            return new Point(vt.X * C1.X + vt.Y * C2.X + vt.Z * C3.X + vt.T * C4.X,
+                            vt.X * C1.Y + vt.Y * C2.Y + vt.Z * C3.Y + vt.T * C4.Y,
+                            vt.X * C1.Z + vt.Y * C2.Z + vt.Z * C3.Z + vt.T * C4.Z
+                            );
+        }
+
         /// <summary>
         /// Produit matriciel droite
         /// </summary>

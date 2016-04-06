@@ -36,6 +36,7 @@ namespace LanceurRayon.Renderer
             LesPoints = new List<Math.Point>();
             Entite = new List<VisualEntity>();
             Eclairage = new List<Lumiere>();
+            Transformation = new List<Mat4>();
         }
 
         //Les méthodes
@@ -71,14 +72,6 @@ namespace LanceurRayon.Renderer
                     NbLumieres;
                                     
         }
-        /*
-        /// <summary>
-        /// Vérifie que la somme des contributions des couleurs ne de passe pas 1.
-        /// </summary>
-        public void check_Lumiere()
-        {
-            LesLumieresLocales[2]=; 
-        }
-        */
+  
     }
 }

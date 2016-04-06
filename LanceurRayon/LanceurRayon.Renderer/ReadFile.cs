@@ -212,7 +212,7 @@ namespace LanceurRayon.Renderer
                             if (tmp.Length != 5)
                                 throw new ArgumentException("Nombre d'arguments  incorrect", tmp[0]);
 
-                            ma_scene.Transformation.Add(Mat4.CreateRotationMatrix(Vec3.createVec3(tmp[1], tmp[2], tmp[3]),Double.Parse(tmp[4])));
+                            ma_scene.Transformation.Add(Mat4.CreateRotationMatrix(Vec3.createVec3(tmp[1], tmp[2], tmp[3]),Double.Parse(tmp[4]))  );
                             break;
 
 
