@@ -45,6 +45,15 @@ namespace LanceurRayon.Math
         /// <returns>LA normal du point d'intersection</returns>
         public abstract Vec3 getNormaleIntersection(Point p);
 
+        /// <summary>
+        /// Méthode virtuelle permetant la transformée géométrique d'une entitée.
+        /// </summary>
+        /// <param name="m"></param>
+        /// <returns></returns>
+        public virtual VisualEntity getTransform(Mat4 m)
+        {
+            return this;
+        }
       
     }
 }

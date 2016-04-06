@@ -190,8 +190,6 @@ namespace LanceurRayon.Math
                             new Vec4(vl3.dot(this.C1), vl3.dot(this.C2), vl3.dot(this.C3), vl3.dot(this.C4)),
                             new Vec4(vl4.dot(this.C1), vl4.dot(this.C2), vl4.dot(this.C3), vl4.dot(this.C4))
                             );
-
-
         }
 
         /// <summary>
@@ -214,7 +212,6 @@ namespace LanceurRayon.Math
                             new Vec4(vl3.dot(m.C1), vl3.dot(m.C2), vl3.dot(m.C3), vl3.dot(m.C4)),
                             new Vec4(vl4.dot(m.C1), vl4.dot(m.C2), vl4.dot(m.C3), vl4.dot(m.C4))
                             );
-
         }
 
         /// <summary>
@@ -226,9 +223,9 @@ namespace LanceurRayon.Math
             return C1.X.ToString() + " " + C2.X.ToString() + " " + C3.X.ToString() + " " + C4.X.ToString() + "\n"+
                    C1.Y.ToString() + " " + C2.Y.ToString() + " " + C3.Y.ToString() + " " + C4.Y.ToString() + "\n" +
                    C1.Z.ToString() + " " + C2.Z.ToString() + " " + C3.Z.ToString() + " " + C4.Z.ToString() + "\n" +
-                   C1.T.ToString() + " " + C2.T.ToString() + " " + C3.T.ToString() + " " + C4.T.ToString() + "\n" ;
-                   
+                   C1.T.ToString() + " " + C2.T.ToString() + " " + C3.T.ToString() + " " + C4.T.ToString() + "\n" ;           
         }
+       
         /// <summary>
         /// Calcul le détermiant d'une matrice 4*4
         /// </summary>
@@ -237,12 +234,10 @@ namespace LanceurRayon.Math
 
             double  A, B, C, D;
 
-
             A = C1.X * ((C2.Y * C3.Z * C4.T)   + (C3.Y *C4.Z *C2.T) + (C4.Y *C2.Z *C3.T) - (C2.T *C3.Z *C4.Y) - (C3.T * C4.Z * C2.Y) - (C4.T *  C2.Z * C3.Y) ) ;
             B = -C2.X * ((C1.Y * C3.Z * C4.T) + (C3.Y* C4.Z* C1.T) + (C4.Y *C1.Z *C3.T) - (C1.T *C3.Z * C4.Y) - (C3.T *C4.Z *C1.Y) - (C4.T *C1.Z * C3.Y));
             C = C3.X * ((C1.Y * C2.Z * C4.T) + (C2.Y * C4.Z * C1.T) + (C4.Y * C1.Z * C2.T ) - (C1.T * C2.Z * C4.Y) - (C2.T * C4.Z * C1.Y) - (C4.T * C1.Z * C2.Y));
             D = -C4.X * ((C1.Y * C2.Z * C3.T) + (C2.Y * C3.Z * C1.T) + (C3.Y * C1.Z * C2.T) - (C1.T * C2.Z * C3.Y) - (C2.T * C3.Z * C1.Y) - (C3.T * C1.Z * C2.Y));
-
          
             return A + B + C + D;
         }
@@ -310,11 +305,7 @@ namespace LanceurRayon.Math
             return new Mat4(new Vec4(lambda * this.C1.X, lambda * this.C1.Y, lambda * this.C1.Z, lambda * this.C1.T),
                             new Vec4(lambda * this.C2.X, lambda * this.C2.Y, lambda * this.C2.Z, lambda * this.C2.T),
                             new Vec4(lambda * this.C3.X, lambda * this.C3.Y, lambda * this.C3.Z, lambda * this.C3.T),
-                            new Vec4(lambda * this.C4.X, lambda * this.C4.Y, lambda * this.C4.Z, lambda * this.C4.T));
-                
+                            new Vec4(lambda * this.C4.X, lambda * this.C4.Y, lambda * this.C4.Z, lambda * this.C4.T));       
         }
-        
-
-
     }
 }
