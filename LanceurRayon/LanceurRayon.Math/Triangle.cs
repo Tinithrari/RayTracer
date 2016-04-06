@@ -73,7 +73,7 @@
         }
 
         /// <summary>
-        /// Calcul l'intersection entre le rayon et la normale au triangle. 
+        /// Calcul  de l'intersection entre le rayon et la normale au triangle. 
         /// </summary>
         /// <param name="p">Le point décrivant le Pla</param>
         /// <returns>Le vecteur normale à l'intersection</returns>
