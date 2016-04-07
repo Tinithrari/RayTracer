@@ -183,9 +183,10 @@ namespace LanceurRayon.RayTracer
 					if (intersect != null)
 					{
                         p = Scene.Camera.LookFrom.add(d.mul(intersect.T));
+                        /*
                         if (intersect.Obj.GetType() == typeof(Sphere)) {
                            p = Scene.Transformation[0].productOnePoint(p);
-                        }
+                        }*/
                         
 						c = calculLumierePoint(Scene.Camera.LookFrom, intersect, d);
                         c = c.add(intersect.Obj.Specular.times(calculLumiereReflechie(intersect, p, d, 1)));
@@ -207,7 +208,7 @@ namespace LanceurRayon.RayTracer
         {
             ReadFile reader = new ReadFile();
             Scene scene;
-
+           
             if (args.Length != 1)
             {
                 Console.Error.WriteLine("Le lecteur de fichier de scène attend un fichier exactement !!");
@@ -216,9 +217,10 @@ namespace LanceurRayon.RayTracer
 
             try
             {
-                scene = reader.Analyze(args[0]);  
+              
+                scene = reader.Analyze(args[0]);
                 
-                ///Application des transformation aux triangles
+                ///Application des transformations aux triangles
                 if (scene.Transformation.Count > 0)
                 {
                     for (int i = 0; i < scene.Entite.Count; i++)

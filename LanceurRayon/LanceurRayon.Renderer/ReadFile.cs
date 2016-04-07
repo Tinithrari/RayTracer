@@ -32,7 +32,7 @@ namespace LanceurRayon.Renderer
             ma_scene.maxdepth = 1;
             output_present = size_present = camera_present = false;
             ambient =specular=diffuse= couleur_noire;
-
+            
             while ((ligne_courante = stream.ReadLine()) != null)
             {
                 if (!ligne_courante.Equals(""))
@@ -43,13 +43,12 @@ namespace LanceurRayon.Renderer
                     //On découpe la ligne de manière à récupérer séparément les mots constituants la ligne.
                     tmp = ligne_courante.Split(' ');
                     tmp = tmp.Where(val => !val.Equals("")).ToArray();
-
+                    
                     //Reconnaissance des différents mot clefs
                     switch (tmp[0])
                     {
                         //Caractéristiques de la scène
-
-
+                      
                         case "checker":
 
                             if (tmp.Length != 8)
@@ -60,7 +59,7 @@ namespace LanceurRayon.Renderer
                                                          Double.Parse(tmp[7]));
                            
                             break;
-
+                            
                         case "shadow":
 
                             if (tmp.Length != 2)
