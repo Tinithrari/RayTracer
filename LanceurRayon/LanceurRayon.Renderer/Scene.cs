@@ -12,6 +12,7 @@ namespace LanceurRayon.Renderer
     public class Scene{
 
         //Les informations générales de la scène
+        public Damier damier { get; set; }
         public List<Mat4> Transformation { get; set; }
         public bool Shadow { get;  set; }
         public string Output { get; set; }

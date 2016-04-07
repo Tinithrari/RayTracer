@@ -48,6 +48,19 @@ namespace LanceurRayon.Renderer
                     switch (tmp[0])
                     {
                         //Caractéristiques de la scène
+
+
+                        case "checker":
+
+                            if (tmp.Length != 8)
+                                throw new ArgumentException("Nombre d'arguments incorrect", tmp[0]);
+
+                            ma_scene.damier=new Damier(  Math.Color.createColor(tmp[1], tmp[2], tmp[3]), 
+                                                         Math.Color.createColor(tmp[4], tmp[5], tmp[6]),
+                                                         Double.Parse(tmp[7]));
+                           
+                            break;
+
                         case "shadow":
 
                             if (tmp.Length != 2)
@@ -55,6 +68,7 @@ namespace LanceurRayon.Renderer
                            ma_scene.Shadow= bool.Parse(tmp[1]);
 
                             break;
+
                         case "size":
 
                             if (tmp.Length != 3)

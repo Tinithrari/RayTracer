@@ -182,7 +182,11 @@ namespace LanceurRayon.RayTracer
 
 					if (intersect != null)
 					{
-						p = Scene.Camera.LookFrom.add(d.mul(intersect.T));
+                        p = Scene.Camera.LookFrom.add(d.mul(intersect.T));
+                        if (intersect.Obj.GetType() == typeof(Sphere)) {
+                           p = Scene.Transformation[0].productOnePoint(p);
+                        }
+                        
 						c = calculLumierePoint(Scene.Camera.LookFrom, intersect, d);
                         c = c.add(intersect.Obj.Specular.times(calculLumiereReflechie(intersect, p, d, 1)));
 					}
