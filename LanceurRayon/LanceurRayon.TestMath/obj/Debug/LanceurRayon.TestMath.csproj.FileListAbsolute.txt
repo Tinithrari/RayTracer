@@ -31,3 +31,5 @@ C:\Users\Drew\Source\Repos\lanceurrayons\LanceurRayon\LanceurRayon.TestMath\bin\
 C:\Users\Drew\Source\Repos\lanceurrayons\LanceurRayon\LanceurRayon.TestMath\obj\Debug\LanceurRayon.TestMath.csprojResolveAssemblyReference.cache
 C:\Users\Drew\Source\Repos\lanceurrayons\LanceurRayon\LanceurRayon.TestMath\obj\Debug\triplet.exe
 C:\Users\Drew\Source\Repos\lanceurrayons\LanceurRayon\LanceurRayon.TestMath\obj\Debug\triplet.pdb
+C:\Users\Tinithrari\Source\Repos\lanceurrayons\LanceurRayon\LanceurRayon.TestMath\bin\LanceurRayon.Exceptions.dll
+C:\Users\Tinithrari\Source\Repos\lanceurrayons\LanceurRayon\LanceurRayon.TestMath\bin\LanceurRayon.Exceptions.pdb
