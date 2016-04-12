@@ -175,7 +175,7 @@ namespace LanceurRayon.Math
         /// </summary>
         /// <param name="m">Résultat de l'opération </param>
         /// <returns></returns>
-        public Mat4 RightMatrixProduct(Mat4 m) {
+        public Mat4 LeftMatrixProduct(Mat4 m) {
 
               Vec4 vl1, vl2, vl3, vl4;
 
@@ -185,10 +185,11 @@ namespace LanceurRayon.Math
             vl4 = new Vec4(m.C1.T, m.C2.T, m.C3.T, m.C4.T);
 
            return new Mat4(
-                            new Vec4(vl1.dot(this.C1) , vl1.dot(this.C2), vl1.dot(this.C3), vl1.dot(this.C4)),
-                            new Vec4(vl2.dot(this.C1), vl2.dot(this.C2), vl2.dot(this.C3), vl2.dot(this.C4)),
-                            new Vec4(vl3.dot(this.C1), vl3.dot(this.C2), vl3.dot(this.C3), vl3.dot(this.C4)),
-                            new Vec4(vl4.dot(this.C1), vl4.dot(this.C2), vl4.dot(this.C3), vl4.dot(this.C4))
+                            new Vec4(vl1.dot(this.C1), vl2.dot(this.C1), vl3.dot(this.C1), vl4.dot(this.C1)),
+                            new Vec4(vl1.dot(this.C2), vl2.dot(this.C2), vl3.dot(this.C2), vl4.dot(this.C2)),
+                            new Vec4(vl1.dot(this.C3),vl2.dot(this.C3), vl3.dot(this.C3), vl4.dot(this.C3)),
+                            new Vec4(vl1.dot(this.C4), vl2.dot(this.C4), vl3.dot(this.C4), vl4.dot(this.C4))
+
                             );
         }
 
@@ -197,7 +198,7 @@ namespace LanceurRayon.Math
         /// </summary>
         /// <param name="m">Résultat de l'opération </param>
         /// <returns></returns>
-        public Mat4 LeftMatrixProduct(Mat4 m)
+        public Mat4 RightMatrixProduct(Mat4 m)
         {
             Vec4 vl1, vl2, vl3, vl4;
 
@@ -207,10 +208,10 @@ namespace LanceurRayon.Math
             vl4 = new Vec4(C1.T, C2.T, C3.T, C4.T);
 
             return new Mat4(
-                            new Vec4(vl1.dot(m.C1) , vl1.dot(m.C2), vl1.dot(m.C3), vl1.dot(m.C4)),
-                            new Vec4(vl2.dot(m.C1), vl2.dot(m.C2), vl2.dot(m.C3), vl2.dot(m.C4)),
-                            new Vec4(vl3.dot(m.C1), vl3.dot(m.C2), vl3.dot(m.C3), vl3.dot(m.C4)),
-                            new Vec4(vl4.dot(m.C1), vl4.dot(m.C2), vl4.dot(m.C3), vl4.dot(m.C4))
+                            new Vec4(vl1.dot(m.C1) , vl2.dot(m.C1), vl3.dot(m.C1), vl4.dot(m.C1)),
+                            new Vec4(vl1.dot(m.C2), vl2.dot(m.C2), vl3.dot(m.C2), vl4.dot(m.C2)),
+                            new Vec4(vl1.dot(m.C3), vl2.dot(m.C3), vl3.dot(m.C3), vl4.dot(m.C3)),
+                            new Vec4(vl1.dot(m.C4), vl2.dot(m.C4), vl3.dot(m.C4), vl4.dot(m.C4))
                             );
         }
 
@@ -259,39 +260,41 @@ namespace LanceurRayon.Math
             //1ére ligne
 
             C1_X = ((C2.Y * C3.Z * C4.T) + (C3.Y * C4.Z * C2.T) + (C4.Y * C2.Z * C3.T) - (C2.T * C3.Z * C4.Y) - (C3.T * C4.Z * C2.Y) - (C4.T * C2.Z * C3.Y));
-            C2_X = -((C1.Y * C2.Z * C4.T) + (C2.Y * C4.Z * C1.T) + (C4.Y * C1.Z * C2.T) - (C1.T * C2.Z * C4.Y) - (C2.T * C4.Z * C1.Y) - (C4.T * C1.Z * C2.Y));
-            C3_X = ((C1.Y * C2.Z * C3.T) + (C2.Y * C3.Z * C1.T) + (C3.Y * C1.Z * C2.T) - (C1.T * C2.Z * C3.Y) - (C2.T * C3.Z * C1.Y) - (C3.T * C1.Z * C2.Y));
-            C4_X = -((C1.Y * C3.Z * C4.T) + (C3.Y * C4.Z * C1.T) + (C4.Y * C1.Z * C3.T) - (C1.T * C3.Z * C4.Y) - (C3.T * C4.Z * C1.Y) - (C4.T * C1.Z * C3.Y));
-
+            C2_X = -((C1.Y * C3.Z * C4.T) + (C3.Y * C4.Z * C1.T) + (C4.Y * C1.Z * C3.T) - (C1.T * C3.Z * C4.Y) - (C3.T * C4.Z * C1.Y) - (C4.T * C1.Z * C3.Y));
+            C3_X = ((C1.Y * C2.Z * C4.T) + (C2.Y * C4.Z * C1.T) + (C4.Y * C1.Z * C2.T) - (C1.T * C2.Z * C4.Y) - (C2.T * C4.Z * C1.Y) - (C4.T * C1.Z * C2.Y));
+            C4_X = -((C1.Y * C2.Z * C3.T) + (C2.Y * C3.Z * C1.T) + (C3.Y * C1.Z * C2.T) - (C1.T * C2.Z * C3.Y) - (C2.T * C3.Z * C1.Y) - (C3.T * C1.Z * C2.Y));
 
             //2 éme ligne
             C1_Y = -((C2.X * C3.Z * C4.T) + (C3.X * C4.Z * C2.T) + (C4.X * C2.Z * C3.T) - (C2.T * C3.Z * C4.X) - (C3.T * C4.Z * C2.X) - (C4.T * C2.Z * C3.X));
-            C2_Y = ((C1.X * C2.Z * C4.T) + (C2.X * C4.Z * C1.T) + (C4.X * C1.Z * C2.T) - (C1.T * C2.Z * C4.X) - (C2.T * C4.Z * C1.X) - (C4.T * C1.Z * C2.X));
-            C3_Y = -((C1.X * C2.Z * C3.T) + (C2.X * C3.Z * C1.T) + (C3.X * C1.Z * C2.T) - (C1.T * C2.Z * C3.X) - (C2.T * C3.Z * C1.X) - (C3.T * C1.Z * C2.X));
-            C4_Y = ((C1.X * C3.Z * C4.T) + (C3.X * C4.Z * C1.T) + (C4.X * C1.Z * C3.T) - (C1.T * C3.Z * C4.X) - (C3.T * C4.Z * C1.X) - (C4.T * C1.Z * C3.X));
+            C2_Y = ((C1.X * C3.Z * C4.T) + (C3.X * C4.Z * C1.T) + (C4.X * C1.Z * C3.T) - (C1.T * C3.Z * C4.X) - (C3.T * C4.Z * C1.X) - (C4.T * C1.Z * C3.X));
+            C3_Y = -((C1.X * C2.Z * C4.T) + (C2.X * C4.Z * C1.T) + (C4.X * C1.Z * C2.T) - (C1.T * C2.Z * C4.X) - (C2.T * C4.Z * C1.X) - (C4.T * C1.Z * C2.X));
+            C4_Y = ((C1.X * C2.Z * C3.T) + (C2.X * C3.Z * C1.T) + (C3.X * C1.Z * C2.T) - (C1.T * C2.Z * C3.X) - (C2.T * C3.Z * C1.X) - (C3.T * C1.Z * C2.X));
 
             //3 éme ligne
             C1_Z = ((C2.X * C3.Y * C4.T) + (C3.X * C4.Y * C2.T) + (C4.X * C2.Y * C3.T) - (C2.T * C3.Y * C4.X) - (C3.T * C4.Y * C2.X) - (C4.T * C2.Y * C3.X));
-            C2_Z = -((C1.X * C2.Y * C4.T) + (C2.X * C4.Y * C1.T) + (C4.X * C1.Y * C2.T) - (C1.T * C2.Y * C4.X) - (C2.T * C4.Y * C1.X) - (C4.T * C1.Y * C2.X));
-            C3_Z = ((C1.X * C2.Y * C3.T) + (C2.X * C3.Y * C1.T) + (C3.X * C1.Y * C2.T) - (C1.T * C2.Y * C3.X) - (C2.T * C3.Y * C1.X) - (C3.T * C1.Y * C2.X));
-            C4_Z = -((C1.X * C3.Y * C4.T) + (C3.X * C4.Y * C1.T) + (C4.X * C1.Y * C3.T) - (C1.T * C3.Y * C4.X) - (C3.T * C4.Y * C1.X) - (C4.T * C1.Y * C3.X));
+            C2_Z = -((C1.X * C3.Y * C4.T) + (C3.X * C4.Y * C1.T) + (C4.X * C1.Y * C3.T) - (C1.T * C3.Y * C4.X) - (C3.T * C4.Y * C1.X) - (C4.T * C1.Y * C3.X));
+            C3_Z = ((C1.X * C2.Y * C4.T) + (C2.X * C4.Y * C1.T) + (C4.X * C1.Y * C2.T) - (C1.T * C2.Y * C4.X) - (C2.T * C4.Y * C1.X) - (C4.T * C1.Y * C2.X));
+
+            C4_Z = -((C1.X * C2.Y * C3.T) + (C2.X * C3.Y * C1.T) + (C3.X * C1.Y * C2.T) - (C1.T * C2.Y * C3.X) - (C2.T * C3.Y * C1.X) - (C3.T * C1.Y * C2.X));
+
 
             //4éme ligne
             C1_T = -((C2.X * C3.Y * C4.Z) + (C3.X * C4.Y * C2.Z) + (C4.X * C2.Y * C3.Z) - (C2.Z * C3.Y * C4.X) - (C3.Z * C4.Y * C2.X) - (C4.Z * C2.Y * C3.X));
-            C2_T = ((C1.X * C2.Y * C4.Z) + (C2.X * C4.Y * C1.Z) + (C4.X * C1.Y * C2.Z) - (C1.Z * C2.Y * C4.X) - (C2.Z * C4.Y * C1.X) - (C4.Z * C1.Y * C2.X));
-            C3_T = -((C1.X * C2.Y * C3.Z) + (C2.X * C3.Y * C1.Z) + (C3.X * C1.Y * C2.Z) - (C1.Z * C2.Y * C3.X) - (C2.Z * C3.Y * C1.X) - (C3.Z * C1.Y * C2.X));
-            C4_T = ((C1.X * C3.Y * C4.Z) + (C3.X * C4.Y * C1.Z) + (C4.X * C1.Y * C3.Z) - (C1.Z * C3.Y * C4.X) - (C3.Z * C4.Y * C1.X) - (C4.Z * C1.Y * C3.X));
+            C2_T = ((C1.X * C3.Y * C4.Z) + (C3.X * C4.Y * C1.Z) + (C4.X * C1.Y * C3.Z) - (C1.Z * C3.Y * C4.X) - (C3.Z * C4.Y * C1.X) - (C4.Z * C1.Y * C3.X));
+            C3_T = -((C1.X * C2.Y * C4.Z) + (C2.X * C4.Y * C1.Z) + (C4.X * C1.Y * C2.Z) - (C1.Z * C2.Y * C4.X) - (C2.Z * C4.Y * C1.X) - (C4.Z * C1.Y * C2.X));
+            C4_T = ((C1.X * C2.Y * C3.Z) + (C2.X * C3.Y * C1.Z) + (C3.X * C1.Y * C2.Z) - (C1.Z * C2.Y * C3.X) - (C2.Z * C3.Y * C1.X) - (C3.Z * C1.Y * C2.X));
 
-
-            co_fact = new Mat4( new Vec4(C1.X,C1.Y,C1.T,C1.T),
-                                new Vec4(C2.X, C2.Y, C2.T, C2.T),
-                                new Vec4(C3.X, C3.Y, C3.T, C3.T),
-                                new Vec4(C4.X, C4.Y, C4.T, C4.T)
+            co_fact = new Mat4( new Vec4(C1_X,C1_Y,C1_Z,C1_T),
+                                new Vec4(C2_X, C2_Y, C2_Z, C2_T),
+                                new Vec4(C3_X, C3_Y, C3_Z, C3_T),
+                                new Vec4(C4_X, C4_Y, C4_Z, C4_T)
                                 );
 
-            co_fact = co_fact.transpose();
 
-            return co_fact.Scalaire(1/det);
+            return co_fact;
+            //co_fact = co_fact.transpose();
+            
+         //  return co_fact.Scalaire(1/det);
 
         }
 
@@ -306,6 +309,25 @@ namespace LanceurRayon.Math
                             new Vec4(lambda * this.C2.X, lambda * this.C2.Y, lambda * this.C2.Z, lambda * this.C2.T),
                             new Vec4(lambda * this.C3.X, lambda * this.C3.Y, lambda * this.C3.Z, lambda * this.C3.T),
                             new Vec4(lambda * this.C4.X, lambda * this.C4.Y, lambda * this.C4.Z, lambda * this.C4.T));       
+        }
+
+        /// <summary>
+        /// Teste l'égalité de 2 matrices.
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns></returns>
+        public override bool Equals(object obj)
+        {
+            if (obj.GetType() != typeof(Mat4))
+                throw new InvalidCastException();
+
+            Mat4 m = (Mat4)obj;
+
+            return C1.X == m.C1.X && C1.Y == m.C1.Y && C1.Z == C1.Z && C1.T == C1.T &&
+                   C2.X == m.C2.X && C2.Y == m.C2.Y && C2.Z == C2.Z && C2.T == C2.T &&
+                   C3.X == m.C3.X && C3.Y == m.C3.Y && C3.Z == C3.Z && C3.T == C3.T &&
+                   C4.X == m.C4.X && C4.Y == m.C4.Y && C4.Z == C4.Z && C4.T == C4.T ;
+
         }
     }
 }

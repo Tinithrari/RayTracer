@@ -13,7 +13,7 @@ namespace LanceurRayon.Math
         /// <summary>
         ///Entier décrivant la distance de l'intersection au rayon, on peut en déduire le point en faisaint p=o+d*t 
         /// </summary>
-        public double T { get; private set; }
+        public double T { get;  set; }
         
         /// <summary>
         ///Entité géométrique concerné par l'intersection( triangle, sphère ,etc).

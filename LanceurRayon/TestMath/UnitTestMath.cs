@@ -14,7 +14,7 @@ namespace TestMath
             Vec3 v2 = new Vec3(1, 1, 1);
             Vec3 v3 = new Vec3(0.5, 0.5, 0.5);
             Vec3 v4 = new Vec3(2, 3, 4);
-
+            
             Vec3 res1;
             double res2;
 
@@ -139,5 +139,7 @@ namespace TestMath
             if (v_res.X != 1 && v_res.Y != 1 && v_res.Z != 1)
                 Assert.Fail();
         }
+       
+
     }
 }

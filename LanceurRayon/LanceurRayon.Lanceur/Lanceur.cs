@@ -81,6 +81,10 @@ namespace LanceurRayon.RayTracer
                 return new Color();
 
             n = intersect.Obj.getNormaleIntersection(p);
+            
+            if (Scene.Transformation.Count != 0)
+                n = Scene.Transformation[0].Inverse().transpose().productOneVector(n);
+            
             negD = new Vec3(-d.X, -d.Y, -d.Z);
 
             r = d.add( n.mul( 2 * n.dot(negD) ) );
@@ -114,7 +118,10 @@ namespace LanceurRayon.RayTracer
                     {
                         Color lightColor = l.Couleur;
                         Vec3 n = intersect.Obj.getNormaleIntersection(p), lightdir = l.getDirection(p);
-
+                        
+                        if (Scene.Transformation.Count != 0)
+                            n = Scene.Transformation[0].Inverse().transpose().productOneVector(n);
+                          
                         // Si les ombres sont activées
                         if (Scene.Shadow)
                         {
@@ -153,11 +160,37 @@ namespace LanceurRayon.RayTracer
         private Intersection getCloserIntersection(Point o, Vec3 d)
         {
             Intersection intersect = null;
+            Mat4 transformation, transformation_inverse;
+            Point p,p_transform;
+            
+
             // Détection de l'intersection la plus proche
             foreach (VisualEntity entity in this.Scene.Entite)
             {
                 Intersection tmp = entity.Collide(d, o);
+                
+                if (tmp != null &&  tmp.Obj.GetType() == typeof(Sphere) && Scene.Transformation.Count > 0)
+                {
 
+                    transformation = Scene.Transformation[0];
+                    transformation_inverse = transformation.Inverse();
+
+                     p = transformation_inverse.productOnePoint(o).add((transformation_inverse.Scalaire(tmp.T)).productOneVector(d));
+                  // p = transformation_inverse.productOnePoint(o).add(transformation_inverse.productOneVector(d.mul(tmp.T)))  ;
+                    p_transform = transformation.productOnePoint(p);
+
+                    if (d.X != 0)
+                        tmp.T = p_transform.sub(o).X / d.X;
+
+                    else if (d.Y != 0)
+                        tmp.T = p_transform.sub(o).Y / d.Y;
+
+                    else if (d.Z != 0)
+                        tmp.T = p_transform.sub(o).Z / d.Z;
+                    else
+                        tmp = null;
+                }
+                
 				if (tmp != null && tmp.T > 0.00001d && (intersect == null || tmp.T < intersect.T))
                     intersect = tmp;
             }
@@ -176,20 +209,16 @@ namespace LanceurRayon.RayTracer
                     Intersection intersect = null;
                     Color c = new Color();
                     Vec3 d = VecteurDirForPixel(i, j);
-					Point p;
+                    Point p;
+                    
 
 					intersect = getCloserIntersection(Scene.Camera.LookFrom, d);
 
 					if (intersect != null)
 					{
-                        p = Scene.Camera.LookFrom.add(d.mul(intersect.T));
-                        /*
-                        if (intersect.Obj.GetType() == typeof(Sphere)) {
-                           p = Scene.Transformation[0].productOnePoint(p);
-                        }*/
-                        
-						c = calculLumierePoint(Scene.Camera.LookFrom, intersect, d);
-                        c = c.add(intersect.Obj.Specular.times(calculLumiereReflechie(intersect, p, d, 1)));
+                            p = Scene.Camera.LookFrom.add(d.mul(intersect.T));
+                            c = calculLumierePoint(Scene.Camera.LookFrom, intersect, d);
+                            c = c.add(intersect.Obj.Specular.times(calculLumiereReflechie(intersect, p, d, 1)));
 					}
 					double newR, newG, newB;
 					newR = c.R > 1 ? 1 : c.R;
