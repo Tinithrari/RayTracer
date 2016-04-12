@@ -86,5 +86,10 @@ namespace LanceurRayon.Math
         {
             return p.sub(Centre).norm();
         }
+        
+        public override VisualEntity getTransform(Mat4 m)
+        {
+            return new Sphere(m.productOnePoint(Centre), Rayon, Specular, Ambient, Diffuse, Brillance);
+        }
     }
 }

@@ -80,6 +80,9 @@ namespace LanceurRayon.RayTracer
             if ( (intersect.Obj.Specular.R == 0 && intersect.Obj.Specular.G == 0 && intersect.Obj.Specular.B == 0) || maxDepth == Scene.maxdepth)
                 return new Color();
 
+            if (Scene.Transformation.Count > 0)
+                p = Scene.Transformation[0].Inverse().productOnePoint(p);
+
             n = intersect.Obj.getNormaleIntersection(p);
             
             if (Scene.Transformation.Count != 0)
@@ -117,11 +120,31 @@ namespace LanceurRayon.RayTracer
                     foreach (Lumiere l in Scene.Eclairage)
                     {
                         Color lightColor = l.Couleur;
+
+                        if (Scene.Transformation.Count > 0)
+                        {
+                            Mat4 transformation_inverse = Scene.Transformation[0].Inverse();
+                            p = transformation_inverse.productOnePoint(o).add((transformation_inverse.Scalaire(intersect.T)).productOneVector(d));
+                        }
+
                         Vec3 n = intersect.Obj.getNormaleIntersection(p), lightdir = l.getDirection(p);
-                        
+
                         if (Scene.Transformation.Count != 0)
+                        {
                             n = Scene.Transformation[0].Inverse().transpose().productOneVector(n);
-                          
+                            Point p_transform = Scene.Transformation[0].productOnePoint(p);
+                            if (d.X != 0)
+                                intersect.T = p_transform.sub(o).X / d.X;
+
+                            else if (d.Y != 0)
+                                intersect.T = p_transform.sub(o).Y / d.Y;
+
+                            else if (d.Z != 0)
+                                intersect.T = p_transform.sub(o).Z / d.Z;
+                            else
+                                intersect = null;
+                        }
+
                         // Si les ombres sont activées
                         if (Scene.Shadow)
                         {
@@ -168,7 +191,7 @@ namespace LanceurRayon.RayTracer
             foreach (VisualEntity entity in this.Scene.Entite)
             {
                 Intersection tmp = entity.Collide(d, o);
-                
+                /*
                 if (tmp != null &&  tmp.Obj.GetType() == typeof(Sphere) && Scene.Transformation.Count > 0)
                 {
 
@@ -189,7 +212,7 @@ namespace LanceurRayon.RayTracer
                         tmp.T = p_transform.sub(o).Z / d.Z;
                     else
                         tmp = null;
-                }
+                }*/
                 
 				if (tmp != null && tmp.T > 0.00001d && (intersect == null || tmp.T < intersect.T))
                     intersect = tmp;
