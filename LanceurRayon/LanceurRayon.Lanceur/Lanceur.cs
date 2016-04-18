@@ -9,6 +9,8 @@ namespace LanceurRayon.RayTracer
 {
     public class Lanceur
     {
+        private static Mutex m = new Mutex();
+
         private class WorkData
         {
             public int Offset { get; private set; }
@@ -72,9 +74,11 @@ namespace LanceurRayon.RayTracer
             double a, b;
             Vec3 d;
 
+            m.WaitOne();
             // On projete i et dans le repère de la scène
             a = (PixelWidth * (i - (Scene.Fenetre.Width / 2d) + 0.5)) / (Scene.Fenetre.Width / 2d);
             b = (PixelHeight * (j - (Scene.Fenetre.Height / 2d) + 0.5)) / (Scene.Fenetre.Height / 2d);
+            m.ReleaseMutex();
 
             // On crée le vecteur d
 			d = Repere.U.mul(a);
@@ -242,10 +246,15 @@ namespace LanceurRayon.RayTracer
         /// </summary>
         public void GenerateImage(Object threadData)
         {
+            int width, height;
             WorkData data = (WorkData)threadData;
-            for (int i = data.Offset; i < Scene.Fenetre.Width; i += data.Step)
+            m.WaitOne();
+            width = Scene.Fenetre.Width;
+            height = Scene.Fenetre.Height;
+            m.ReleaseMutex();
+            for (int i = data.Offset; i < width; i += data.Step)
             {
-                for (int j = 0; j < Scene.Fenetre.Height; j++)
+                for (int j = 0; j < height; j++)
                 {
                     Intersection intersect = null;
                     Color c = new Color();
@@ -268,7 +277,9 @@ namespace LanceurRayon.RayTracer
 
 					c = new Color (newR, newG, newB);
 
+                    m.WaitOne();
                     this.Scene.Fenetre.SetPixel(i, (Scene.Fenetre.Height - 1) - j, System.Drawing.Color.FromArgb((int)System.Math.Round(c.R * 255, MidpointRounding.AwayFromZero), (int)System.Math.Round(c.G * 255, MidpointRounding.AwayFromZero), (int)System.Math.Round(c.B * 255, MidpointRounding.AwayFromZero)));
+                    m.ReleaseMutex();
                 }
             }
             data.Evenement.Set();
