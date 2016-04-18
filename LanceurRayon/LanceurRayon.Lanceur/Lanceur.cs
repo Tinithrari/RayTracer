@@ -3,11 +3,26 @@ using LanceurRayon.Renderer;
 
 using System;
 using System.IO;
+using System.Threading;
 
 namespace LanceurRayon.RayTracer
 {
     public class Lanceur
     {
+        private class WorkData
+        {
+            public int Offset { get; private set; }
+            public int Step { get; private set; }
+            public ManualResetEvent Evenement { get; private set; }
+
+            public WorkData(int offset, int step, ManualResetEvent evenement)
+            {
+                Offset = offset;
+                Step = step;
+                Evenement = evenement;
+            }
+        }
+
         public Scene Scene { get; private set; }
         public Repere Repere { get; private set; }
         public double PixelWidth { get; private set; }
@@ -220,12 +235,15 @@ namespace LanceurRayon.RayTracer
 
             return intersect;
         }
+
+
         /// <summary>
         /// Génère l'image relative à la scène
         /// </summary>
-        public void GenerateImage()
+        public void GenerateImage(Object threadData)
         {
-            for (int i = 0; i < Scene.Fenetre.Width; i++)
+            WorkData data = (WorkData)threadData;
+            for (int i = data.Offset; i < Scene.Fenetre.Width; i += data.Step)
             {
                 for (int j = 0; j < Scene.Fenetre.Height; j++)
                 {
@@ -253,7 +271,7 @@ namespace LanceurRayon.RayTracer
                     this.Scene.Fenetre.SetPixel(i, (Scene.Fenetre.Height - 1) - j, System.Drawing.Color.FromArgb((int)System.Math.Round(c.R * 255, MidpointRounding.AwayFromZero), (int)System.Math.Round(c.G * 255, MidpointRounding.AwayFromZero), (int)System.Math.Round(c.B * 255, MidpointRounding.AwayFromZero)));
                 }
             }
-            this.Scene.Fenetre.Save(this.Scene.Output);
+            data.Evenement.Set();
         }
 
         public static void Main(string[] args)
@@ -269,19 +287,31 @@ namespace LanceurRayon.RayTracer
 
             try
             {
-              
+                int nbThread = Environment.ProcessorCount;
+                ManualResetEvent[] doneEvents = new ManualResetEvent[nbThread];
+
                 scene = reader.Analyze(args[0]);
-                
+                /*
                 ///Application des transformations aux triangles
                 if (scene.Transformation.Count > 0)
                 {
                     for (int i = 0; i < scene.Entite.Count; i++)
                         scene.Entite[i] = scene.Entite[i].getTransform(scene.Transformation[0]);
                 }
-
+                */
                 //Initialisation du lanceur et génération de l'image.
                 Lanceur lanceur = new Lanceur(scene);
-                lanceur.GenerateImage();
+
+                for (int i = 0; i < nbThread; i++)
+                {
+                    doneEvents[i] = new ManualResetEvent(false);
+                    WorkData data = new WorkData(i, nbThread, doneEvents[i]);
+                    ThreadPool.QueueUserWorkItem(lanceur.GenerateImage, data);
+                }
+
+                WaitHandle.WaitAll(doneEvents);
+
+                lanceur.Scene.Fenetre.Save(lanceur.Scene.Output);
             }
 
             catch (IOException e)
