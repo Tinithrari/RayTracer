@@ -22,6 +22,6 @@ mdtool build -p:LanceurRayon.Comparateur 2>&1 > /dev/null
 mdtool build -p:LanceurRayon.TestMath 2>&1 > /dev/null
 mdtool build -p:LanceurRayon.Renderer 2>&1 > /dev/null
 mdtool build -p:LanceurRayon.Lanceur 2>&1 > /dev/null
-zip LanceurDeRayon.zip LanceurRayon.Lanceur/bin/x86/Release
+zip LanceurDeRayon.zip LanceurRayon.Lanceur/bin/x86/Release #zip le fichier
 mv LanceurDeRayon.zip "$MYPATH"/
 popd
