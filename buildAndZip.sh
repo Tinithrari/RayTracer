@@ -24,4 +24,3 @@ mdtool build -p:LanceurRayon.Renderer 2>&1 > /dev/null
 mdtool build -p:LanceurRayon.Lanceur 2>&1 > /dev/null
 zip -r LanceurDeRayon.zip LanceurRayon.Lanceur/bin #zip le fichier
 ls
-popd
