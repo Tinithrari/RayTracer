@@ -76,4 +76,4 @@ build_final:
   script: "sh buildAndZip.sh"
   artifacts:
     paths:
-      - LanceurDeRayon.zip
+      - LanceurRayon/LanceurDeRayon.zip
