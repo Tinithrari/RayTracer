@@ -73,7 +73,7 @@ auditcode:
      - shell
      
 build_final:
-  script: "./buildAndZip.sh"
+  script: "sh buildAndZip.sh"
   artifacts:
     paths:
       - LanceurDeRayon.zip
