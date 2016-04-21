@@ -9,6 +9,7 @@ namespace LanceurRayon.RayTracer
 {
     public class Lanceur
     {
+        private int pourcentage, difference;
         private static Mutex m = new Mutex();
 
         private class WorkData
@@ -61,6 +62,8 @@ namespace LanceurRayon.RayTracer
 
             PixelHeight = System.Math.Tan(fovRad / 2d); // Calcul de la hauteur d'un pixel (Voir trigonométrie)
             PixelWidth = PixelHeight * ((double)Scene.Fenetre.Width / (double)Scene.Fenetre.Height); // Calcul de la largeur en utilisant le ratio de l'image
+            pourcentage = 0;
+            difference = 0;
         }
 
         /// <summary>
@@ -281,6 +284,15 @@ namespace LanceurRayon.RayTracer
                     this.Scene.Fenetre.SetPixel(i, (Scene.Fenetre.Height - 1) - j, System.Drawing.Color.FromArgb((int)System.Math.Round(c.R * 255, MidpointRounding.AwayFromZero), (int)System.Math.Round(c.G * 255, MidpointRounding.AwayFromZero), (int)System.Math.Round(c.B * 255, MidpointRounding.AwayFromZero)));
                     m.ReleaseMutex();
                 }
+                m.WaitOne();
+                pourcentage += (1 / width) * 100;
+
+                if (pourcentage - difference >= 10)
+                {
+                    difference = pourcentage;
+                    Console.WriteLine(string.Format("Progression : {0}%", pourcentage));
+                }
+                m.ReleaseMutex();
             }
             data.Evenement.Set();
         }
