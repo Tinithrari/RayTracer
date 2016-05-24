@@ -1,0 +1,5 @@
+I:\Users\Drew\Source\Repos\lanceurrayons\LanceurRayon\LanceurRayon.Exceptions\bin\x64\Release\LanceurRayon.Exceptions.dll
+I:\Users\Drew\Source\Repos\lanceurrayons\LanceurRayon\LanceurRayon.Exceptions\bin\x64\Release\LanceurRayon.Exceptions.pdb
+I:\Users\Drew\Source\Repos\lanceurrayons\LanceurRayon\LanceurRayon.Exceptions\obj\x64\Release\LanceurRayon.Exceptions.csprojResolveAssemblyReference.cache
+I:\Users\Drew\Source\Repos\lanceurrayons\LanceurRayon\LanceurRayon.Exceptions\obj\x64\Release\LanceurRayon.Exceptions.dll
+I:\Users\Drew\Source\Repos\lanceurrayons\LanceurRayon\LanceurRayon.Exceptions\obj\x64\Release\LanceurRayon.Exceptions.pdb

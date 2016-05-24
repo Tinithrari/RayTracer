@@ -1,0 +1,815 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>LanceurRayon.Math</name>
+    </assembly>
+    <members>
+        <member name="T:LanceurRayon.Math.Camera">
+            <summary>
+            Classe représentant une caméra,décrit par là ou elle regarde ,la direction ,l'angle de vision et l'inclinaison.
+            </summary>
+        </member>
+        <member name="P:LanceurRayon.Math.Camera.LookAt">
+            <summary>
+            Direction où regarde la caméra.
+            </summary>
+        </member>
+        <member name="P:LanceurRayon.Math.Camera.LookFrom">
+            <summary>
+            Vecteur décrivant la position de la caméra.
+            </summary>
+        </member>
+        <member name="P:LanceurRayon.Math.Camera.Up">
+            <summary>
+            Inclinaison de la caméra.
+            </summary>
+        </member>
+        <member name="P:LanceurRayon.Math.Camera.Fov">
+            <summary>
+            Angle d'inclinaison.
+            </summary>
+        </member>
+        <member name="M:LanceurRayon.Math.Camera.#ctor(LanceurRayon.Math.Point,LanceurRayon.Math.Point,LanceurRayon.Math.Vec3,System.Double)">
+            <summary>
+            Constructeur de la classe.
+            </summary>
+            <param name="LookAt">Direction où regarde la caméra.</param>
+            <param name="LookFrom">Vecteur décrivant la positon de la caméra.</param>
+            <param name="Up">Inclinaison de la caméra.</param>
+            <param name="Fov">Angle d'inclinaison.</param>
+        </member>
+        <member name="T:LanceurRayon.Math.Damier">
+             <summary>
+            Damier posé sur le sol de la scène 
+             </summary>
+        </member>
+        <member name="P:LanceurRayon.Math.Damier.C1">
+            <summary>
+            1ère couleur des dalles
+            </summary>
+        </member>
+        <member name="P:LanceurRayon.Math.Damier.C2">
+            <summary>
+            2nd couleur des dalles
+            </summary>
+        </member>
+        <member name="P:LanceurRayon.Math.Damier.Taille">
+            <summary>
+            taille des dalles au sol.
+            </summary>
+        </member>
+        <member name="M:LanceurRayon.Math.Damier.#ctor(LanceurRayon.Math.Color,LanceurRayon.Math.Color,System.Double)">
+            <summary>
+            Constructeur de la classe
+            </summary>
+            <param name="C1"></param>
+            <param name="C2"></param>
+            <param name="Taille"></param>
+        </member>
+        <member name="T:LanceurRayon.Math.Quadruplet">
+            <summary>
+            Modélisation d'un vecteur en dimension quatre.
+            </summary>
+        </member>
+        <member name="P:LanceurRayon.Math.Quadruplet.T">
+            <summary>
+            Quatrième composante
+            </summary>
+        </member>
+        <member name="M:LanceurRayon.Math.Quadruplet.#ctor(System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+            Construit un vecteur à quatre coordonées
+            </summary>
+            <param name="x">Abscice</param>
+            <param name="y">Ordonnée</param>
+            <param name="z">Côte</param>
+            <param name="t">Quatrième coordonnée</param>
+        </member>
+        <member name="M:LanceurRayon.Math.Quadruplet.#ctor">
+            <summary>
+            Construit un vecteur nul à quatre variables.
+            </summary>
+        </member>
+        <member name="T:LanceurRayon.Math.Vec4">
+            <summary>
+            Vecteur de dimension quatre.
+            </summary>
+        </member>
+        <member name="M:LanceurRayon.Math.Vec4.#ctor">
+            <summary>
+            Permet de créer un vecteur nul
+            </summary>
+        </member>
+        <member name="M:LanceurRayon.Math.Vec4.#ctor(System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+            Constructeur de la classe.
+            </summary>
+            <param name="x">Abscice</param>
+            <param name="y">Ordonnée</param>
+            <param name="z">Côte</param>
+            <param name="T">4 ème coordonnée</param>
+        </member>
+        <member name="M:LanceurRayon.Math.Vec4.add(LanceurRayon.Math.Vec4)">
+            <summary>
+            Addition de deux vecteurs.
+            </summary>
+            <param name="v"></param>
+            <returns>Vec4 résultant de l'opération</returns>
+        </member>
+        <member name="M:LanceurRayon.Math.Vec4.sub(LanceurRayon.Math.Vec4)">
+            <summary>
+            Soustraction de 2 vecteurs
+            </summary>
+            <param name="v"></param>
+            <returns>Vec4 résultant de l'opération</returns>
+        </member>
+        <member name="M:LanceurRayon.Math.Vec4.dot(LanceurRayon.Math.Vec4)">
+            <summary>
+            Effectue le produit scalaire entre les 2 vecteurs.
+            </summary>
+            <param name="v"></param>
+            <returns>Résultat du produit scalaire des 2 vecteurs</returns>
+        </member>
+        <member name="T:LanceurRayon.Math.Mat4">
+             <summary>
+            Classe modélisant une matrice carrée 4*4. 
+             </summary>
+        </member>
+        <member name="P:LanceurRayon.Math.Mat4.C1">
+            <summary>
+            1ere colonne de la matrice.
+            </summary>
+        </member>
+        <member name="P:LanceurRayon.Math.Mat4.C2">
+            <summary>
+            2nd colonne de la matrice.
+            </summary>
+        </member>
+        <member name="P:LanceurRayon.Math.Mat4.C3">
+            <summary>
+            3eme colonne de la matrice.
+            </summary>
+        </member>
+        <member name="P:LanceurRayon.Math.Mat4.C4">
+            <summary>
+            4eme colonne de la matrice.
+            </summary>
+        </member>
+        <member name="M:LanceurRayon.Math.Mat4.#ctor(LanceurRayon.Math.Vec4,LanceurRayon.Math.Vec4,LanceurRayon.Math.Vec4,LanceurRayon.Math.Vec4)">
+            <summary>
+            Constructeur de la classe.
+            </summary>
+            <param name="C1">1ere colonne de la matrice.</param>
+            <param name="C2">2nd colonne de la matrice.</param>
+            <param name="C3">3eme colonne de la matrice.</param>
+            <param name="C4">4eme colonne de la matrice.</param>
+        </member>
+        <member name="M:LanceurRayon.Math.Mat4.#ctor">
+            <summary>
+            Créer une matrice 4*4 remplit de zéro
+            </summary>
+        </member>
+        <member name="M:LanceurRayon.Math.Mat4.add(LanceurRayon.Math.Mat4)">
+            <summary>
+            Addition de 2 matrices.
+            </summary>
+            <param name="m"></param>
+            <returns>Résultat de l'opération</returns>
+        </member>
+        <member name="M:LanceurRayon.Math.Mat4.sub(LanceurRayon.Math.Mat4)">
+            <summary>
+            Soustraction de 2 matrices.
+            </summary>
+            <param name="m"></param>
+            <returns>Résultat de l'opération</returns>
+        </member>
+        <member name="M:LanceurRayon.Math.Mat4.transpose">
+            <summary>
+            Transposition de la matrice.
+            </summary>
+            <returns>Résultat de l'opération</returns>
+        </member>
+        <member name="M:LanceurRayon.Math.Mat4.CreateRotationMatrix(LanceurRayon.Math.Vec3,System.Double)">
+            <summary>
+            Créer la matrice de rotation d'angle t et d'axe v.
+            </summary>
+            <param name="v"></param>
+            <param name="angle"></param>
+            <returns>Résultat de l'opération</returns>
+        </member>
+        <member name="M:LanceurRayon.Math.Mat4.CreateTranslationMatrix(LanceurRayon.Math.Vec3)">
+            <summary>
+            Créer la matrice de translation de vecteur V.
+            </summary>
+            <param name="v"></param>
+            <returns>Résultat de l'opération</returns>
+        </member>
+        <member name="M:LanceurRayon.Math.Mat4.CreateScalingMatrix(LanceurRayon.Math.Vec3)">
+            <summary>
+            Créer la matrice d'homotéthie selon le vecteur v.
+            </summary>
+            <param name="v"></param>
+            <returns>Résultat de l'opération</returns>
+        </member>
+        <member name="M:LanceurRayon.Math.Mat4.productOneVector(LanceurRayon.Math.Vec3)">
+            <summary>
+            Calcul le produit d'un vecteur par une matrice 4*4 
+            </summary>
+            <param name="v"></param>
+            <returns>le vecteur résultant de l'opération</returns>
+        </member>
+        <member name="M:LanceurRayon.Math.Mat4.productOnePoint(LanceurRayon.Math.Point)">
+            <summary>
+            Calcul le produit d'un point par une matrice 4*4 
+            </summary>
+            <param name="p"></param>
+            <returns>le vecteur résultant de l'opération</returns>
+        </member>
+        <member name="M:LanceurRayon.Math.Mat4.LeftMatrixProduct(LanceurRayon.Math.Mat4)">
+            <summary>
+            Produit matriciel droite
+            </summary>
+            <param name="m">Résultat de l'opération </param>
+            <returns></returns>
+        </member>
+        <member name="M:LanceurRayon.Math.Mat4.RightMatrixProduct(LanceurRayon.Math.Mat4)">
+            <summary>
+            Produit matriciel gauche.
+            </summary>
+            <param name="m">Résultat de l'opération </param>
+            <returns></returns>
+        </member>
+        <member name="M:LanceurRayon.Math.Mat4.ToString">
+            <summary>
+            Fournit une répresentation textuel d'une matrice
+            </summary>
+            <returns>Le texte décrivant la matrice.</returns>
+        </member>
+        <member name="M:LanceurRayon.Math.Mat4.Determinant">
+            <summary>
+            Calcul le détermiant d'une matrice 4*4
+            </summary>
+            <returns>determinant d'une matrice 4*4</returns>
+        </member>
+        <member name="M:LanceurRayon.Math.Mat4.Inverse">
+            <summary>
+            Calcul l'inverse d'une matrice quand c'est possible.
+            </summary>
+            <returns>L'inverse de la amtrice ou UninvertableMatrixException est lancé sinon</returns>
+        </member>
+        <member name="M:LanceurRayon.Math.Mat4.Scalaire(System.Double)">
+            <summary>
+            Multiplie la matrice par un scalaire
+            </summary>
+            <param name="lambda"></param>
+            <returns>La matrice résultante</returns>
+        </member>
+        <member name="M:LanceurRayon.Math.Mat4.Equals(System.Object)">
+            <summary>
+            Teste l'égalité de 2 matrices.
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="T:LanceurRayon.Math.Intersection">
+            <summary>
+            Objet décrivant l'intersection entre le rayon et l'entité touché.
+            </summary>
+        </member>
+        <member name="P:LanceurRayon.Math.Intersection.T">
+             <summary>
+            Entier décrivant la distance de l'intersection au rayon, on peut en déduire le point en faisaint p=o+d*t 
+             </summary>
+        </member>
+        <member name="P:LanceurRayon.Math.Intersection.Obj">
+             <summary>
+            Entité géométrique concerné par l'intersection( triangle, sphère ,etc).
+             </summary>
+        </member>
+        <member name="M:LanceurRayon.Math.Intersection.#ctor(System.Double,LanceurRayon.Math.VisualEntity)">
+            <summary>
+            Constructeur de la classe
+            </summary>
+            <param name="t">Distance d'intersection.</param>
+            <param name="obj">Nature de l'intersection.</param>
+        </member>
+        <member name="T:LanceurRayon.Math.LumierePonctuelle">
+            <summary>
+            Source de lumière ponctuelle.
+            </summary>
+        </member>
+        <member name="P:LanceurRayon.Math.LumierePonctuelle.Position">
+            <summary>
+            Position dans l'espace de la source de lumière ponctuelle.
+            </summary>
+        </member>
+        <member name="M:LanceurRayon.Math.LumierePonctuelle.#ctor(LanceurRayon.Math.Color,LanceurRayon.Math.Point)">
+            <summary>
+            Constructeur de la classe.
+            </summary>
+            <param name="Position">Vecteur désignant la direction.</param>
+            <param name="Couleur">Couleur de la lumière.</param>
+        </member>
+        <member name="M:LanceurRayon.Math.LumierePonctuelle.getDirection(LanceurRayon.Math.Point)">
+            <summary>
+            Calcule le vecteur direction de la lumière
+            </summary>
+            <param name="p">Le point pour lequel on calcule le vecteur direction</param>
+            <returns>Le vecteur direction correspondant à cette lumière</returns>
+        </member>
+        <member name="M:LanceurRayon.Math.LumierePonctuelle.getDistance(LanceurRayon.Math.Point)">
+            <summary>
+            Permet d'obtenir la distance au point d'intersection.
+            </summary>
+            <param name="p"></param>
+            <returns>La distance au point d'intersection.</returns>
+        </member>
+        <member name="T:LanceurRayon.Math.Lumiere">
+            <summary>
+            Classe/Interface permetant de représenter une lumière.
+            </summary>
+        </member>
+        <member name="P:LanceurRayon.Math.Lumiere.Couleur">
+            <summary>
+            Couleur de la source de lumière.
+            </summary>
+        </member>
+        <member name="M:LanceurRayon.Math.Lumiere.#ctor(LanceurRayon.Math.Color)">
+            <summary>
+            Constructeur de la classe.
+            </summary>
+        </member>
+        <member name="M:LanceurRayon.Math.Lumiere.getDirection(LanceurRayon.Math.Point)">
+            <summary>
+            Calcule le vecteur direction de la lumière
+            </summary>
+            <param name="p">Le point pour lequel on calcule le vecteur direction</param>
+            <returns>Le vecteur direction correspondant à cette lumière</returns>
+        </member>
+        <member name="M:LanceurRayon.Math.Lumiere.getDistance(LanceurRayon.Math.Point)">
+            <summary>
+            Calcule la distance entre la lumière et un point donné
+            </summary>
+            <param name="p">Le point dont on souhaite connaitre la distance par rapport à la lumière</param>
+            <returns>La distance entre un point et la lumière</returns>
+        </member>
+        <member name="T:LanceurRayon.Math.LumiereDirectionelle">
+            <summary>
+            Classe permetant de représenter une lumière directionelle.
+            </summary>
+        </member>
+        <member name="P:LanceurRayon.Math.LumiereDirectionelle.Direction">
+            <summary>
+            Vecteur décrivant la direction des rayons lumineux émanant de la source.
+            </summary>
+        </member>
+        <member name="M:LanceurRayon.Math.LumiereDirectionelle.#ctor(LanceurRayon.Math.Color,LanceurRayon.Math.Vec3)">
+            <summary>
+            Constructeur de la classe.
+            </summary>
+            <param name="Direction">Vecteur désignant la direction.</param>
+            <param name="Couleur">Couleur de la lumière.</param>
+        </member>
+        <member name="M:LanceurRayon.Math.LumiereDirectionelle.getDirection(LanceurRayon.Math.Point)">
+            <summary>
+            Calcule le vecteur direction de la lumière
+            </summary>
+            <param name="p">Le point pour lequel on calcule le vecteur direction</param>
+            <returns>Le vecteur direction correspondant à cette lumière</returns>
+        </member>
+        <member name="M:LanceurRayon.Math.LumiereDirectionelle.getDistance(LanceurRayon.Math.Point)">
+            <summary>
+            Permet d'obtenir la distance au point d'intersection
+            </summary>
+            <param name="p"></param>
+            <returns>La distance au point d'intersection</returns>
+        </member>
+        <member name="T:LanceurRayon.Math.Plan">
+            <summary>
+            Classe décrivant un plan .
+            </summary>
+        </member>
+        <member name="P:LanceurRayon.Math.Plan.Q">
+            <summary>
+            Point décrivant un plan.
+            </summary>
+        </member>
+        <member name="P:LanceurRayon.Math.Plan.N">
+            <summary>
+            Vecteur normal au plan.
+            </summary>
+        </member>
+        <member name="M:LanceurRayon.Math.Plan.#ctor(LanceurRayon.Math.Point,LanceurRayon.Math.Vec3,LanceurRayon.Math.Color,LanceurRayon.Math.Color,LanceurRayon.Math.Color,System.Double)">
+            <summary>
+            Constructeur de la classe.
+            </summary>
+            <param name="Q">Point décrivant un plan.</param>
+            <param name="N">Vecteur normal au plan.</param>
+            <param name="Specular">Reflêt</param>
+            <param name="Ambient">Lumière ambiante</param>
+            <param name="Diffuse">Lumière diffuse</param>
+            <param name="Brillance">Brillance de la scène.</param> 
+        </member>
+        <member name="M:LanceurRayon.Math.Plan.Collide(LanceurRayon.Math.Vec3,LanceurRayon.Math.Point)">
+            <summary>
+            Detecte si le rayon entre en collision avec l'objet
+            </summary>
+            <param name="d">Le rayon</param>
+            <param name="o">L'origine du rayon</param>
+            <returns>Le discriminant de l'intersection ou null si pas d'intersection</returns>
+        </member>
+        <member name="M:LanceurRayon.Math.Plan.getNormaleIntersection(LanceurRayon.Math.Point)">
+            <summary>
+            Calcul l'intersection entre le rayon et la normale au plan. 
+            </summary>
+            <param name="p">Le point décrivant le Pla</param>
+            <returns>Le vecteur normale à l'intersection</returns>
+        </member>
+        <member name="T:LanceurRayon.Math.Triangle">
+            <summary>
+            Classe permetant de représenter un triangle
+            </summary>
+        </member>
+        <member name="P:LanceurRayon.Math.Triangle.A">
+            <summary>
+            Coordonnées du point A
+            </summary>
+        </member>
+        <member name="P:LanceurRayon.Math.Triangle.B">
+            <summary>
+            Coordonnées du point B
+            </summary>
+        </member>
+        <member name="P:LanceurRayon.Math.Triangle.C">
+            <summary>
+            Coordonnées du point C
+            </summary>
+        </member>
+        <member name="M:LanceurRayon.Math.Triangle.#ctor(LanceurRayon.Math.Point,LanceurRayon.Math.Point,LanceurRayon.Math.Point,LanceurRayon.Math.Color,LanceurRayon.Math.Color,LanceurRayon.Math.Color,System.Double)">
+            <summary>
+            Constructeur de la classe.
+            </summary>
+            <param name="Specular">Reflêt</param>
+            <param name="Ambient">Lumière ambiante</param>
+            <param name="Diffuse">Lumière diffuse</param>
+            <param name="Brillance">Brillance de la scène.</param>
+            <param name="A">Coordonnées du point A</param>
+            <param name="B">Coordonnées du point B</param>
+            <param name="C">Coordonnées du point C</param>
+        </member>
+        <member name="M:LanceurRayon.Math.Triangle.Collide(LanceurRayon.Math.Vec3,LanceurRayon.Math.Point)">
+            <summary>
+            Detecte si le rayon entre en collision avec l'objet
+            </summary>
+            <param name="d">Le rayon</param>
+            <param name="o">L'origine du rayon</param>
+            <returns>Le discriminant de l'intersection ou null si pas d'intersection</returns>
+        </member>
+        <member name="M:LanceurRayon.Math.Triangle.getNormaleIntersection(LanceurRayon.Math.Point)">
+            <summary>
+            Calcul  de l'intersection entre le rayon et la normale au triangle. 
+            </summary>
+            <param name="p">Le point décrivant le Pla</param>
+            <returns>Le vecteur normale à l'intersection</returns>
+        </member>
+        <member name="M:LanceurRayon.Math.Triangle.getTransform(LanceurRayon.Math.Mat4)">
+            <summary>
+            Effectue la transformation du triangle par la matrice donnée en paramètre.
+            </summary>
+            <param name="m"></param>
+            <returns>Le triangle Transformé</returns>
+        </member>
+        <member name="T:LanceurRayon.Math.Sphere">
+            <summary>
+            Classe permetant de représenter une sphère.
+            </summary>
+        </member>
+        <member name="P:LanceurRayon.Math.Sphere.Centre">
+            <summary>
+            Centre de la sphère.
+            </summary>
+        </member>
+        <member name="P:LanceurRayon.Math.Sphere.Rayon">
+            <summary>
+            Rayon de la sphère.
+            </summary>
+        </member>
+        <member name="M:LanceurRayon.Math.Sphere.#ctor(LanceurRayon.Math.Point,System.Double,LanceurRayon.Math.Color,LanceurRayon.Math.Color,LanceurRayon.Math.Color,System.Double)">
+            <summary>
+            Constructeur de la classe.
+            </summary>
+            <param name="Centre">Centre de la sphère</param>
+            <param name="Rayon">Rayon de la sphère.</param>
+            <param name="Specular">Reflêt.</param>
+            <param name="Ambient">Lumière ambiante.</param>
+            <param name="Diffuse">Lumière diffuse.</param>
+            <param name="Brillance">Brillance de la scène.</param>
+        </member>
+        <member name="M:LanceurRayon.Math.Sphere.Collide(LanceurRayon.Math.Vec3,LanceurRayon.Math.Point)">
+            <summary>
+            Detecte si le rayon entre en collision avec l'objet
+            </summary>
+            <param name="ray">Le rayon</param>
+            <param name="eye">L'origine du rayon</param>
+            <returns>Le discriminant de l'intersection ou null si pas d'intersection</returns>
+        </member>
+        <member name="M:LanceurRayon.Math.Sphere.getNormaleIntersection(LanceurRayon.Math.Point)">
+            <summary>
+            Calcul l'intersection entre le rayon et la normale a la sphère. 
+            </summary>
+            <param name="p">Le point décrivant le Pla</param>
+            <returns>Le vecteur normale à l'intersection</returns>
+        </member>
+        <member name="T:LanceurRayon.Math.Color">
+            <summary>
+            Représente une couleur à partir de double, dont les valeurs varient dans l'intervalle [0, 1]
+            </summary>
+        </member>
+        <member name="P:LanceurRayon.Math.Color.R">
+            <summary>
+            Accesseur pour la variante rouge
+            </summary>
+        </member>
+        <member name="P:LanceurRayon.Math.Color.G">
+            <summary>
+            Accesseur pour la variante verte
+            </summary>
+        </member>
+        <member name="P:LanceurRayon.Math.Color.B">
+            <summary>
+            Accesseur pour la variante bleu
+            </summary>
+        </member>
+        <member name="M:LanceurRayon.Math.Color.#ctor">
+            <summary>
+            Permet de créer une couleur noire
+            </summary>
+        </member>
+        <member name="M:LanceurRayon.Math.Color.#ctor(System.Double,System.Double,System.Double)">
+            <summary>
+            Permet de créer une couleur à partir de ses valeurs r, g et b
+            </summary>
+            <param name="r">La valeur pour le rouge</param>
+            <param name="g">La valeur pour le vert</param>
+            <param name="b">La valeur pour le bleu</param>
+            <exception cref="T:System.ArgumentOutOfRangeException">Exception lancée si l'un des arguments est en dehors de l'intervalle [0, 1]</exception>
+        </member>
+        <member name="M:LanceurRayon.Math.Color.createColor(System.String,System.String,System.String)">
+            <summary>
+            Méthode fabrique construisant le point à partir de chaine de caractère
+            </summary>
+            <param name="r">La valeur de R</param>
+            <param name="g">La valeur de G</param>
+            <param name="b">La valeur de B</param>
+            <returns>La couleur correspondant à a description passé en paramètre</returns>
+        </member>
+        <member name="M:LanceurRayon.Math.Color.add(LanceurRayon.Math.Color)">
+            <summary>
+            Permet d'additioner deux couleurs
+            </summary>
+            <param name="c">La couleur à additionner à la couleur courante</param>
+            <returns>La couleur résultante de l'opération</returns>
+            <exception cref="T:System.ArgumentNullException">Exception lancée si l'argument est null</exception>
+            <remarks>Si l'une des valeurs dépasse 1, celle-ci sera remplacée par 1</remarks>
+        </member>
+        <member name="M:LanceurRayon.Math.Color.mul(System.Double)">
+            <summary>
+            Permet de multiplier une couleur par un scalaire
+            </summary>
+            <param name="scal">Le scalaire à utiliser pour la multiplcation</param>
+            <returns>Le résultat de la multiplication par le scalaire</returns>
+            <exception cref="T:System.ArgumentException">Exception levé si l'argument est négatif</exception>
+            <remarks>Si le résultat de la multiplication d'un champs est supérieur à 1, le résultat sera remplacé par 1</remarks>
+        </member>
+        <member name="M:LanceurRayon.Math.Color.times(LanceurRayon.Math.Color)">
+            <summary>
+            Permet d'effectuer un produit de Schur
+            </summary>
+            <param name="c">La couleur avec laquelle effectuée un produit de Schur</param>
+            <returns>Le résultat du produit de Schur</returns>
+            <exception cref="T:System.ArgumentNullException">Si l'argument est null, cette exception est levée</exception>
+            <remarks>Si le résultat de la multiplication d'un des champs est supérieur à 1, le résultat sera remplacé par 1</remarks>
+        </member>
+        <member name="M:LanceurRayon.Math.Color.ToString">
+            <summary>
+            Convertit une couleur en chaine de caractère
+            </summary>
+            <returns>Une chaine de la forme C R G B</returns>
+        </member>
+        <member name="T:LanceurRayon.Math.Point">
+            <summary>
+            Classe représentant un point par ses coordonnées dans l'espace
+            et permettant d'effectuer quelques calculs
+            </summary>
+        </member>
+        <member name="M:LanceurRayon.Math.Point.#ctor">
+            <summary>
+            Permet d'obtenir le point origine
+            </summary>
+        </member>
+        <member name="M:LanceurRayon.Math.Point.#ctor(System.Double,System.Double,System.Double)">
+            <summary>
+            Permet de construire un point à partir de coordonnées
+            </summary>
+            <param name="x">Position en X</param>
+            <param name="y">Position en Y</param>
+            <param name="z">Position en Z</param>
+        </member>
+        <member name="M:LanceurRayon.Math.Point.createPoint(System.String,System.String,System.String)">
+            <summary>
+            Permet de construire un point à partir de coordonnées passé en chaine de caractère
+            </summary>
+            <param name="x">Coordonnées en x</param>
+            <param name="y">Coordonnées en y</param>
+            <param name="z">Coordonnées en z</param>
+            <returns>Le point correspondant à la description passé en paramètre</returns>
+        </member>
+        <member name="M:LanceurRayon.Math.Point.add(LanceurRayon.Math.Vec3)">
+            <summary>
+            Permet de créer l'image de la translation d'un point par rapport à un vecteur
+            </summary>
+            <param name="v">Le vecteur à utiliser pour la translation</param>
+            <returns>Le point translaté</returns>
+        </member>
+        <member name="M:LanceurRayon.Math.Point.sub(LanceurRayon.Math.Point)">
+            <summary>
+            Permet de calculer la distance par rapport à un autre point
+            </summary>
+            <param name="p">Le point dont on souhaite connaitre la distance par rapport à l'objet courant</param>
+            <returns>La distance entre le point courant et celui passé en paramètre</returns>
+        </member>
+        <member name="M:LanceurRayon.Math.Point.mul(System.Double)">
+            <summary>
+            Permet de multiplier le point par un scalaire
+            </summary>
+            <param name="scal">Le scalaire</param>
+            <returns>Le point ayant subit la multiplication par le scalaire</returns>
+        </member>
+        <member name="M:LanceurRayon.Math.Point.ToString">
+            <summary>
+            Permet d'afficher de façon formater les coordonnées d'un point
+            </summary>
+            <returns>Une chaine formaté de la manière suivante : P x y z</returns>
+        </member>
+        <member name="T:LanceurRayon.Math.Triplet">
+            <summary>
+            Classe abstraites pour les éléments contenants un triplet de valeurs
+            </summary>
+        </member>
+        <member name="P:LanceurRayon.Math.Triplet.X">
+            <summary>
+            Accesseur pour la coordonnée X du triplet
+            </summary>
+        </member>
+        <member name="P:LanceurRayon.Math.Triplet.Y">
+            <summary>
+            Accesseur pour la coordonnée Y du triplet
+            </summary>
+        </member>
+        <member name="P:LanceurRayon.Math.Triplet.Z">
+            <summary>
+            Accesseur pour la coordonnée Z du triplet
+            </summary>
+        </member>
+        <member name="M:LanceurRayon.Math.Triplet.#ctor(System.Double,System.Double,System.Double)">
+            <summary>
+            Permet de construire un triplet à l'aide de trois valeurs
+            </summary>
+            <param name="x">Valeur x du triplet</param>
+            <param name="y">Valeur y du triplet</param>
+            <param name="z">Valeur z du triplet</param>
+        </member>
+        <member name="M:LanceurRayon.Math.Triplet.#ctor">
+            <summary>
+            Permet de construire un triplet ayant toute coordonnées à zéro
+            </summary>
+        </member>
+        <member name="T:LanceurRayon.Math.Vec3">
+            <summary>
+            Classe représentant un vecteur dans un repère tridimensionnel
+            </summary>
+        </member>
+        <member name="M:LanceurRayon.Math.Vec3.#ctor">
+            <summary>
+            Permet de créer un vecteur nul
+            </summary>
+        </member>
+        <member name="M:LanceurRayon.Math.Vec3.#ctor(System.Double,System.Double,System.Double)">
+            <summary>
+            Permet de créer un vecteur tridimensionnel à partir de ses coordonnées
+            </summary>
+            <param name="x">Sa position en X</param>
+            <param name="y">Sa position en Y</param>
+            <param name="z">Sa position en Z</param>
+        </member>
+        <member name="M:LanceurRayon.Math.Vec3.createVec3(System.String,System.String,System.String)">
+            <summary>
+            Permet de créer un Vec3 à partir de coordonnées
+            </summary>
+            <param name="x">Coordonnées en x</param>
+            <param name="y">Coordonnées en y</param>
+            <param name="z">Coordonnées en z</param>
+            <returns>Le Vec3 correspondant à la description données en paramètre</returns>
+        </member>
+        <member name="M:LanceurRayon.Math.Vec3.add(LanceurRayon.Math.Vec3)">
+            <summary>
+            Permet d'additioner deux vecteurs 
+            </summary>
+            <param name="v">Le vecteur à additioner aux vecteurs courants</param>
+            <returns>Le vecteur résultant de l'opération</returns>
+        </member>
+        <member name="M:LanceurRayon.Math.Vec3.sub(LanceurRayon.Math.Vec3)">
+            <summary>
+            Permet de soustraire deux vecteurs
+            </summary>
+            <param name="v">Le vecteur à soustraire aux vecteurs courant</param>
+            <returns>Le vecteur résultant de la soustraction</returns>
+        </member>
+        <member name="M:LanceurRayon.Math.Vec3.mul(System.Double)">
+            <summary>
+            Permet de faire la multiplication d'un vecteur avec un scalaire
+            </summary>
+            <param name="scal">Le scalaire pour la multiplication</param>
+            <returns>Le résultat du produit par le scalaire scal</returns>
+        </member>
+        <member name="M:LanceurRayon.Math.Vec3.dot(LanceurRayon.Math.Vec3)">
+            <summary>
+            Permet d'effectuer un produit scalaire
+            </summary>
+            <param name="v">Le vecteur à multiplier au vecteur courant</param>
+            <returns>Le résultat du produit scalaire</returns>
+        </member>
+        <member name="M:LanceurRayon.Math.Vec3.cross(LanceurRayon.Math.Vec3)">
+            <summary>
+            Permet d'effectuer un produit vectoriel
+            </summary>
+            <param name="v">Le vecteur à multiplier au vecteur courant</param>
+            <returns>Le résultat du produit vectoriel</returns>
+        </member>
+        <member name="M:LanceurRayon.Math.Vec3.length">
+            <summary>
+            Permet de calculer la norme du vecteur
+            </summary>
+            <returns>La norme du vecteur courant</returns>
+        </member>
+        <member name="M:LanceurRayon.Math.Vec3.norm">
+            <summary>
+            Permet de normaliser le vecteur courant
+            </summary>
+            <returns>Le vecteur normaliser</returns>
+        </member>
+        <member name="M:LanceurRayon.Math.Vec3.ToString">
+            <summary>
+            Permet de créer une chaine pour représenter le vecteur
+            </summary>
+            <returns>Une chaine formatée de la forme V x y z</returns>
+        </member>
+        <member name="T:LanceurRayon.Math.VisualEntity">
+            <summary>
+            Classe abstraite permetant de regroupés les entités géométriques tels que les triangles, les sphères ou les plans.
+            </summary>
+        </member>
+        <member name="P:LanceurRayon.Math.VisualEntity.Brillance">
+            <summary>
+            Coefficient de brillance de la scène.
+            </summary>
+        </member>
+        <member name="P:LanceurRayon.Math.VisualEntity.Specular">
+            <summary>
+            Reflêt.
+            </summary>
+        </member>
+        <member name="P:LanceurRayon.Math.VisualEntity.Ambient">
+            <summary>
+            Lumière ambiante.
+            </summary>
+        </member>
+        <member name="P:LanceurRayon.Math.VisualEntity.Diffuse">
+            <summary>
+            Lumière diffuse
+            </summary>
+        </member>
+        <member name="M:LanceurRayon.Math.VisualEntity.Collide(LanceurRayon.Math.Vec3,LanceurRayon.Math.Point)">
+            <summary>
+            Detecte si le rayon entre en collision avec l'objet
+            </summary>
+            <param name="d">Le rayon</param>
+            <param name="o">L'origine du rayon</param>
+            <returns>Le discriminant de l'intersection ou null si pas d'intersection</returns>
+        </member>
+        <member name="M:LanceurRayon.Math.VisualEntity.getNormaleIntersection(LanceurRayon.Math.Point)">
+            <summary>
+            Calcule la normale d'un point d'intersection
+            </summary>
+            <param name="p">Le point de collisition dont on souhaite connaitre la normale</param>
+            <returns>LA normal du point d'intersection</returns>
+        </member>
+        <member name="M:LanceurRayon.Math.VisualEntity.getTransform(LanceurRayon.Math.Mat4)">
+            <summary>
+            Méthode virtuelle permetant la transformée géométrique d'une entitée.
+            </summary>
+            <param name="m"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

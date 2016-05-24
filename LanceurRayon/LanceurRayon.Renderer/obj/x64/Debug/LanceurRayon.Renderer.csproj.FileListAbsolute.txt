@@ -1,0 +1,11 @@
+I:\Users\Drew\Source\Repos\lanceurrayons\LanceurRayon\LanceurRayon.Renderer\bin\x64\Debug\renderer.exe.config
+I:\Users\Drew\Source\Repos\lanceurrayons\LanceurRayon\LanceurRayon.Renderer\bin\x64\Debug\renderer.exe
+I:\Users\Drew\Source\Repos\lanceurrayons\LanceurRayon\LanceurRayon.Renderer\bin\x64\Debug\renderer.pdb
+I:\Users\Drew\Source\Repos\lanceurrayons\LanceurRayon\LanceurRayon.Renderer\bin\x64\Debug\LanceurRayon.Math.dll
+I:\Users\Drew\Source\Repos\lanceurrayons\LanceurRayon\LanceurRayon.Renderer\bin\x64\Debug\LanceurRayon.Exceptions.dll
+I:\Users\Drew\Source\Repos\lanceurrayons\LanceurRayon\LanceurRayon.Renderer\bin\x64\Debug\LanceurRayon.Math.pdb
+I:\Users\Drew\Source\Repos\lanceurrayons\LanceurRayon\LanceurRayon.Renderer\bin\x64\Debug\LanceurRayon.Math.xml
+I:\Users\Drew\Source\Repos\lanceurrayons\LanceurRayon\LanceurRayon.Renderer\bin\x64\Debug\LanceurRayon.Exceptions.pdb
+I:\Users\Drew\Source\Repos\lanceurrayons\LanceurRayon\LanceurRayon.Renderer\obj\x64\Debug\LanceurRayon.Renderer.csprojResolveAssemblyReference.cache
+I:\Users\Drew\Source\Repos\lanceurrayons\LanceurRayon\LanceurRayon.Renderer\obj\x64\Debug\renderer.exe
+I:\Users\Drew\Source\Repos\lanceurrayons\LanceurRayon\LanceurRayon.Renderer\obj\x64\Debug\renderer.pdb

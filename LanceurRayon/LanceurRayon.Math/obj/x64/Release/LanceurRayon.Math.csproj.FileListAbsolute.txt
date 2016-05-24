@@ -1,0 +1,8 @@
+I:\Users\Drew\Source\Repos\lanceurrayons\LanceurRayon\LanceurRayon.Math\bin\x64\Release\LanceurRayon.Math.dll.config
+I:\Users\Drew\Source\Repos\lanceurrayons\LanceurRayon\LanceurRayon.Math\bin\x64\Release\LanceurRayon.Math.dll
+I:\Users\Drew\Source\Repos\lanceurrayons\LanceurRayon\LanceurRayon.Math\bin\x64\Release\LanceurRayon.Math.pdb
+I:\Users\Drew\Source\Repos\lanceurrayons\LanceurRayon\LanceurRayon.Math\bin\x64\Release\LanceurRayon.Exceptions.dll
+I:\Users\Drew\Source\Repos\lanceurrayons\LanceurRayon\LanceurRayon.Math\bin\x64\Release\LanceurRayon.Exceptions.pdb
+I:\Users\Drew\Source\Repos\lanceurrayons\LanceurRayon\LanceurRayon.Math\obj\x64\Release\LanceurRayon.Math.csprojResolveAssemblyReference.cache
+I:\Users\Drew\Source\Repos\lanceurrayons\LanceurRayon\LanceurRayon.Math\obj\x64\Release\LanceurRayon.Math.dll
+I:\Users\Drew\Source\Repos\lanceurrayons\LanceurRayon\LanceurRayon.Math\obj\x64\Release\LanceurRayon.Math.pdb

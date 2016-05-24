@@ -1,0 +1,5 @@
+I:\Users\Drew\Source\Repos\lanceurrayons\LanceurRayon\LanceurRayon.Comparateur\bin\x64\Debug\comparateur.exe
+I:\Users\Drew\Source\Repos\lanceurrayons\LanceurRayon\LanceurRayon.Comparateur\bin\x64\Debug\comparateur.pdb
+I:\Users\Drew\Source\Repos\lanceurrayons\LanceurRayon\LanceurRayon.Comparateur\obj\x64\Debug\comparateur.exe
+I:\Users\Drew\Source\Repos\lanceurrayons\LanceurRayon\LanceurRayon.Comparateur\obj\x64\Debug\comparateur.pdb
+I:\Users\Drew\Source\Repos\lanceurrayons\LanceurRayon\LanceurRayon.Comparateur\obj\x64\Debug\LanceurRayon.Comparateur.csprojResolveAssemblyReference.cache

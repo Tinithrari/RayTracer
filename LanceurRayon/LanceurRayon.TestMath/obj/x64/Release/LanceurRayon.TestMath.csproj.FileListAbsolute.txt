@@ -1,0 +1,10 @@
+I:\Users\Drew\Source\Repos\lanceurrayons\LanceurRayon\LanceurRayon.TestMath\bin\x64\Release\triplet.exe.config
+I:\Users\Drew\Source\Repos\lanceurrayons\LanceurRayon\LanceurRayon.TestMath\bin\x64\Release\triplet.exe
+I:\Users\Drew\Source\Repos\lanceurrayons\LanceurRayon\LanceurRayon.TestMath\bin\x64\Release\triplet.pdb
+I:\Users\Drew\Source\Repos\lanceurrayons\LanceurRayon\LanceurRayon.TestMath\bin\x64\Release\LanceurRayon.Math.dll
+I:\Users\Drew\Source\Repos\lanceurrayons\LanceurRayon\LanceurRayon.TestMath\bin\x64\Release\LanceurRayon.Exceptions.dll
+I:\Users\Drew\Source\Repos\lanceurrayons\LanceurRayon\LanceurRayon.TestMath\bin\x64\Release\LanceurRayon.Math.pdb
+I:\Users\Drew\Source\Repos\lanceurrayons\LanceurRayon\LanceurRayon.TestMath\bin\x64\Release\LanceurRayon.Exceptions.pdb
+I:\Users\Drew\Source\Repos\lanceurrayons\LanceurRayon\LanceurRayon.TestMath\obj\x64\Release\LanceurRayon.TestMath.csprojResolveAssemblyReference.cache
+I:\Users\Drew\Source\Repos\lanceurrayons\LanceurRayon\LanceurRayon.TestMath\obj\x64\Release\triplet.exe
+I:\Users\Drew\Source\Repos\lanceurrayons\LanceurRayon\LanceurRayon.TestMath\obj\x64\Release\triplet.pdb

@@ -9,7 +9,7 @@ namespace LanceurRayon.RayTracer
 {
     public class Lanceur
     {
-        private int pourcentage, difference;
+        private double pourcentage, difference;
         private static Mutex m = new Mutex();
 
         private class WorkData
@@ -285,7 +285,7 @@ namespace LanceurRayon.RayTracer
                     m.ReleaseMutex();
                 }
                 m.WaitOne();
-                pourcentage += (1 / width) * 100;
+                pourcentage += (1f / width) * 100;
 
                 if (pourcentage - difference >= 10)
                 {
