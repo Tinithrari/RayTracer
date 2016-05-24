@@ -16,13 +16,11 @@ namespace LanceurRayon.RayTracer
         {
             public int Offset { get; private set; }
             public int Step { get; private set; }
-            public ManualResetEvent Evenement { get; private set; }
 
-            public WorkData(int offset, int step, ManualResetEvent evenement)
+            public WorkData(int offset, int step)
             {
                 Offset = offset;
                 Step = step;
-                Evenement = evenement;
             }
         }
 
@@ -294,7 +292,6 @@ namespace LanceurRayon.RayTracer
                 }
                 m.ReleaseMutex();
             }
-            data.Evenement.Set();
         }
 
         public static void Main(string[] args)
@@ -311,7 +308,8 @@ namespace LanceurRayon.RayTracer
             try
             {
                 int nbThread = Environment.ProcessorCount;
-                ManualResetEvent[] doneEvents = new ManualResetEvent[nbThread];
+                //ManualResetEvent[] doneEvents = new ManualResetEvent[nbThread];
+                Thread[] jobs = new Thread[nbThread];
 
                 scene = reader.Analyze(args[0]);
                 /*
@@ -327,14 +325,13 @@ namespace LanceurRayon.RayTracer
 
                 for (int i = 0; i < nbThread; i++)
                 {
-                    doneEvents[i] = new ManualResetEvent(false);
-                    WorkData data = new WorkData(i, nbThread, doneEvents[i]);
-                    ThreadPool.QueueUserWorkItem(lanceur.GenerateImage, data);
+                    WorkData data = new WorkData(i, nbThread);
+                    jobs[i] = new Thread(() => lanceur.GenerateImage(data));
+                    jobs[i].Start();
                 }
 
-                WaitHandle.WaitAll(doneEvents);
-
-                lanceur.Scene.Fenetre.Save(lanceur.Scene.Output);
+                for (int i = 0; i < nbThread; i++)
+                    jobs[i].Join();
             }
 
             catch (IOException e)
